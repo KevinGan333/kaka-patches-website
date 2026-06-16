@@ -1,0 +1,20 @@
+{
+  "type": "blog",
+  "title": "QA Test Blog Post",
+  "slug": "qa-test-blog-post",
+  "excerpt": "Testing the blog CRUD",
+  "status": "archived",
+  "category": "QA",
+  "tags": [
+    "test",
+    "qa"
+  ],
+  "seoTitle": "QA Test Blog | KaKa Patches",
+  "seoDescription": "QA test for blog CRUD",
+  "coverImage": "",
+  "content": "## Test Content\n\nThis is a QA test post.",
+  "createdAt": "2026-06-16T06:51:51.739Z",
+  "updatedAt": "2026-06-16T06:52:31.051Z",
+  "publishedAt": "2026-06-16T06:51:52.398Z",
+  "archivedAt": "2026-06-16T06:52:31.051Z"
+}

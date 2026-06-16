@@ -1,0 +1,30 @@
+import type { Metadata } from "next";
+import Link from "next/link";
+
+export const metadata: Metadata = {
+  title: "Custom Patch Process — From Artwork to Delivery | KaKa Patches",
+  description: "Learn how KaKa Patches manages custom patch orders from artwork upload and digital proof to sample approval, bulk production, quality inspection and delivery.",
+};
+
+const steps = [
+  { s: 1, t: "Submit Your Artwork", d: "Upload your logo, sketch or reference image. We accept PNG, JPG, PDF, AI, SVG and more. Our team reviews it for patch production suitability." },
+  { s: 2, t: "Choose Patch Type & Size", d: "Select embroidered, woven, PVC or chenille patches. Tell us your preferred size or we'll recommend based on your design and application." },
+  { s: 3, t: "Confirm Backing & Border", d: "Choose sew-on, iron-on, Velcro or adhesive backing. Select merrowed, heat-cut or laser-cut border to match your design and product." },
+  { s: 4, t: "Review Digital Proof", d: "Our team prepares a production-ready digital proof showing your patch with exact colors, dimensions and details. You review and confirm." },
+  { s: 5, t: "Sample Approval", d: "For larger orders, we recommend a pre-production sample. Check the physical patch before committing to full production." },
+  { s: 6, t: "Bulk Production & Delivery", d: "After approval, production begins. Every batch goes through quality inspection before packaging and shipping to your destination." },
+];
+
+export default function Page() {
+  return (
+    <main className="bg-white text-slate-900">
+      <section className="relative overflow-hidden bg-slate-950 text-white"><div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_50%_at_50%_-10%,rgba(37,99,235,0.25),transparent)]" /><div className="relative mx-auto max-w-7xl px-6 py-24 md:py-32"><p className="text-sm font-semibold uppercase tracking-[0.25em] text-blue-300">Custom Process</p><h1 className="mt-5 max-w-4xl text-4xl font-extrabold leading-tight tracking-tight md:text-6xl">Custom Patch Process <span className="text-blue-400">Made Simple</span></h1><p className="mt-6 max-w-3xl text-lg leading-8 text-slate-300">From artwork review to digital proof, sample confirmation, bulk production, quality inspection and delivery — KaKa Patches helps B2B buyers manage custom patch orders with a clear and reliable process.</p><div className="mt-10 flex flex-wrap gap-4"><Link href="/request-a-quote" className="inline-flex items-center gap-2 rounded-full bg-blue-600 px-7 py-3.5 text-sm font-semibold text-white shadow-lg transition hover:bg-blue-500">Start a Quote →</Link><Link href="/products" className="inline-flex items-center gap-2 rounded-full border border-white/25 px-7 py-3.5 text-sm font-semibold text-white transition hover:bg-white/10">View Products</Link></div><p className="mt-8 text-sm text-slate-400">Artwork support • Factory-direct production • Bulk order support</p></div></section>
+
+      <section className="py-24"><div className="mx-auto max-w-7xl px-6"><div className="mx-auto max-w-3xl text-center"><p className="text-sm font-semibold uppercase tracking-[0.2em] text-blue-600">How It Works</p><h2 className="mt-4 text-3xl font-bold md:text-4xl">6 Steps — From Artwork to Delivery</h2></div><div className="mt-14 grid gap-6 md:grid-cols-2 lg:grid-cols-3">{steps.map((s)=>(<div key={s.s} className="rounded-3xl border border-slate-200 bg-white p-7 shadow-sm"><div className="mb-5 flex h-11 w-11 items-center justify-center rounded-xl bg-blue-600 text-sm font-bold text-white">{s.s}</div><h3 className="text-lg font-bold">{s.t}</h3><p className="mt-3 text-sm leading-7 text-slate-600">{s.d}</p></div>))}</div></div></section>
+
+      <section className="bg-slate-50 py-24"><div className="mx-auto max-w-7xl px-6"><div className="mx-auto max-w-3xl text-center"><p className="text-sm font-semibold uppercase tracking-[0.2em] text-blue-600">What We Need</p><h2 className="mt-4 text-3xl font-bold md:text-4xl">What We Need from You</h2></div><div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">{[{t:"Artwork or Logo File",d:"Any format — PNG, JPG, PDF, AI, SVG."},{t:"Patch Size or Dimensions",d:"Estimated size. Not sure? We can recommend."},{t:"Patch Type Preference",d:"Embroidered, woven, PVC or chenille."},{t:"Backing Requirement",d:"Sew-on, iron-on, Velcro or adhesive."},{t:"Quantity",d:"Standard MOQ is 100 pieces."},{t:"Delivery Deadline",d:"Standard lead time is 2–3 weeks."},{t:"Packaging Requirements",d:"Individual, bulk, hang-tag or retail-ready."}].map((c)=>(<div key={c.t} className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm"><div className="mb-3 flex h-9 w-9 items-center justify-center rounded-lg bg-blue-100"><svg className="h-4 w-4 text-blue-600" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg></div><h3 className="text-base font-bold">{c.t}</h3><p className="mt-2 text-sm leading-6 text-slate-600">{c.d}</p></div>))}</div><div className="mt-10 text-center"><Link href="/request-a-quote" className="inline-flex items-center gap-2 rounded-full bg-blue-600 px-7 py-3.5 text-sm font-semibold text-white shadow-lg transition hover:bg-blue-500">Upload Artwork and Request a Quote →</Link></div></div></section>
+
+      <section className="bg-blue-600 py-20 text-white"><div className="mx-auto max-w-4xl px-6 text-center"><h2 className="text-3xl font-bold md:text-4xl">Ready to Start Your Custom Patch Order?</h2><p className="mx-auto mt-5 max-w-2xl text-lg leading-8 text-blue-50">Upload your artwork, choose your patch options, and tell us your quantity and delivery requirement. Our team will review your project and prepare a quote.</p><div className="mt-10"><Link href="/request-a-quote" className="inline-flex items-center gap-2 rounded-full bg-white px-8 py-3.5 text-sm font-semibold text-blue-700 shadow-lg transition hover:bg-blue-50">Request a Quote →</Link></div></div></section>
+    </main>
+  );
+}
