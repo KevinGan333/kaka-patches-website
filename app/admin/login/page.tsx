@@ -1,10 +1,8 @@
 "use client";
 
 import { useState, FormEvent } from "react";
-import { useRouter } from "next/navigation";
 
 export default function AdminLoginPage() {
-  const router = useRouter();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
@@ -21,17 +19,19 @@ export default function AdminLoginPage() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ username, password }),
       });
+
       const data = await res.json();
 
       if (data.success) {
-        router.push("/admin/quotes");
-        router.refresh();
+        // Use window.location for full page reload so the cookie is picked up
+        window.location.href = "/admin";
       } else {
-        setError(data.message || "Login failed.");
+        setError(data.error || data.message || "Login failed.");
       }
     } catch {
-      setError("Network error. Please try again.");
+      setError("Network error. Please check your connection and try again.");
     } finally {
+      if (!loading) return;
       setLoading(false);
     }
   }
@@ -48,16 +48,40 @@ export default function AdminLoginPage() {
         <form onSubmit={handleSubmit} className="space-y-4">
           <div>
             <label className="block text-sm font-semibold text-slate-700">Username</label>
-            <input type="text" value={username} onChange={e => setUsername(e.target.value)} required className="mt-1 w-full rounded-lg border border-slate-300 px-4 py-2.5 text-sm" placeholder="Enter username" />
+            <input
+              type="text"
+              value={username}
+              onChange={e => setUsername(e.target.value)}
+              required
+              className="mt-1 w-full rounded-lg border border-slate-300 px-4 py-2.5 text-sm"
+              placeholder="Enter username"
+              autoComplete="username"
+            />
           </div>
           <div>
             <label className="block text-sm font-semibold text-slate-700">Password</label>
-            <input type="password" value={password} onChange={e => setPassword(e.target.value)} required className="mt-1 w-full rounded-lg border border-slate-300 px-4 py-2.5 text-sm" placeholder="Enter password" />
+            <input
+              type="password"
+              value={password}
+              onChange={e => setPassword(e.target.value)}
+              required
+              className="mt-1 w-full rounded-lg border border-slate-300 px-4 py-2.5 text-sm"
+              placeholder="Enter password"
+              autoComplete="current-password"
+            />
           </div>
 
-          {error && <p className="rounded-lg bg-red-50 px-4 py-2.5 text-sm font-semibold text-red-600">{error}</p>}
+          {error && (
+            <div className="rounded-lg bg-red-50 border border-red-200 px-4 py-2.5 text-sm font-semibold text-red-600">
+              {error}
+            </div>
+          )}
 
-          <button type="submit" disabled={loading} className="w-full rounded-lg bg-blue-600 py-2.5 text-sm font-semibold text-white transition hover:bg-blue-700 disabled:opacity-50">
+          <button
+            type="submit"
+            disabled={loading}
+            className="w-full rounded-lg bg-blue-600 py-2.5 text-sm font-semibold text-white transition hover:bg-blue-700 disabled:cursor-not-allowed disabled:opacity-50"
+          >
             {loading ? "Signing in..." : "Sign In"}
           </button>
         </form>
