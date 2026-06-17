@@ -21,6 +21,9 @@ export const metadata: Metadata = {
     type: "website",
   },
   robots: { index: true, follow: true },
+  verification: {
+    google: "MwETn_-YyFwWTK3g_vXxwL-H5_lRctfBMPIGbqlHwso",
+  },
 };
 
 export default async function RootLayout({
