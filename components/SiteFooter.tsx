@@ -14,6 +14,9 @@ export default function SiteFooter() {
               Custom patch manufacturer for clothing brands, sports teams, uniform suppliers, events and promotional products. Factory-direct production with artwork support and flexible customization.
             </p>
             <p className="mt-4 text-xs font-medium uppercase tracking-[0.15em] text-slate-500">Factory-direct custom patch support for B2B buyers worldwide.</p>
+            <p className="mt-3 text-sm text-slate-400">
+              Email: <a href="mailto:sales@kakapatches.com" className="text-blue-400 hover:text-blue-300 transition">sales@kakapatches.com</a>
+            </p>
           </div>
 
           <div>
