@@ -113,9 +113,7 @@ export default function Home() {
               KaKa Patches manufactures embroidered, woven, PVC and chenille patches for apparel brands, sports teams, uniform suppliers, events and promotional buyers. Factory-direct with artwork support.
             </p>
             <div className="mt-8 flex flex-wrap gap-x-8 gap-y-2 text-sm text-slate-400">
-              <span className="flex items-center gap-2"><svg className="h-4 w-4 text-blue-400" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5"/></svg>Factory-direct production</span>
-              <span className="flex items-center gap-2"><svg className="h-4 w-4 text-blue-400" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5"/></svg>Free artwork review</span>
-              <span className="flex items-center gap-2"><svg className="h-4 w-4 text-blue-400" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5"/></svg>B2B bulk order support</span>
+              {["Factory-direct production","Free artwork review","Bulk order support","Fast sampling","Custom manufacturing"].map(l=>(<span key={l} className="flex items-center gap-2"><svg className="h-4 w-4 text-blue-400" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5"/></svg>{l}</span>))}
             </div>
             <div className="mt-10 flex flex-wrap gap-4">
               <Link href="/request-a-quote" className="inline-flex items-center gap-2.5 rounded-full bg-blue-600 px-9 py-4 text-[15px] font-bold text-white shadow-lg shadow-blue-600/20 transition hover:bg-blue-500">Request a Quote<svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg></Link>

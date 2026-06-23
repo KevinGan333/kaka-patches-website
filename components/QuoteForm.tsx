@@ -57,8 +57,21 @@ export default function QuoteForm() {
     } finally { setIsSubmitting(false); }
   }
 
+  const currentStep = optionsVisible ? (artwork ? 2 : 1) : 1;
+
   return (
     <form onSubmit={handleSubmit} className="grid gap-8">
+      {/* Step Progress */}
+      <div className="flex items-center justify-center gap-2 text-xs font-semibold">
+        {["Upload Artwork","Patch Options","Contact Info","Submit"].map((label, i) => (
+          <div key={label} className="flex items-center gap-2">
+            <span className={`flex h-7 w-7 items-center justify-center rounded-full text-[11px] font-bold ${currentStep > i ? "bg-blue-600 text-white" : currentStep === i+1 ? "bg-blue-100 text-blue-700 border-2 border-blue-600" : "bg-slate-100 text-slate-400"}`}>{currentStep > i ? "✓" : i+1}</span>
+            <span className={currentStep > i ? "text-blue-600 hidden sm:inline" : currentStep === i+1 ? "text-slate-800 hidden sm:inline" : "text-slate-400 hidden sm:inline"}>{label}</span>
+            {i < 3 && <span className="hidden sm:block h-0.5 w-6 bg-slate-200" />}
+          </div>
+        ))}
+      </div>
+
       <section className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm md:p-8">
         <div className="grid gap-8 md:grid-cols-2 md:items-center">
           <div>
