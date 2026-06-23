@@ -19,7 +19,8 @@ export default function QuoteForm() {
   const [border, setBorder] = useState("Merrowed Border");
   const [submitStatus, setSubmitStatus] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const optionsVisible = artwork && uploadProgress === 100;
+  const [showForm, setShowForm] = useState(false);
+  const optionsVisible = showForm || (artwork && uploadProgress === 100);
 
   function handleArtworkChange(event: React.ChangeEvent<HTMLInputElement>) {
     const file = event.target.files?.[0];
@@ -32,12 +33,11 @@ export default function QuoteForm() {
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    if (!artwork) { setSubmitStatus("Please upload your artwork first."); return; }
     setIsSubmitting(true); setSubmitStatus("Submitting your quote request...");
     const formData = new FormData(event.currentTarget);
     formData.set("patchSize", patchSize); formData.set("patchType", patchType);
     formData.set("backing", backing); formData.set("border", border);
-    formData.set("artwork", artwork);
+    if (artwork && artwork.size > 0) { formData.set("artwork", artwork); }
     try {
       const response = await fetch("/api/quote", { method: "POST", body: formData });
       const result = await response.json();
@@ -64,12 +64,24 @@ export default function QuoteForm() {
           <div>
             <p className="text-sm font-semibold uppercase tracking-[0.2em] text-blue-600">Step 1</p>
             <h2 className="mt-3 text-2xl font-bold text-slate-950">Upload Your Artwork</h2>
-            <p className="mt-3 text-sm leading-7 text-slate-600">Upload your logo, patch design, sketch or reference image. JPG, PNG, PDF and AI files are commonly used for custom patch projects.</p>
+            <p className="mt-3 text-sm leading-7 text-slate-600">Upload your logo, patch design, sketch or reference image — or continue without artwork to receive a quote first.</p>
             <label className="mt-6 flex cursor-pointer flex-col items-center justify-center rounded-2xl border-2 border-dashed border-slate-300 bg-slate-50 px-6 py-10 text-center hover:border-blue-500 hover:bg-blue-50">
               <span className="text-sm font-semibold text-slate-900">Click to upload artwork</span>
               <span className="mt-2 text-xs text-slate-500">PNG, JPG, PDF, AI or design reference file</span>
               <input type="file" name="artwork" className="hidden" accept=".png,.jpg,.jpeg,.pdf,.ai,.svg" onChange={handleArtworkChange} />
             </label>
+            {!showForm && (
+              <button
+                type="button"
+                onClick={() => { setShowForm(true); setUploadProgress(0); }}
+                className="mt-4 w-full rounded-xl border-2 border-blue-200 bg-blue-50 px-4 py-3 text-sm font-semibold text-blue-600 transition hover:bg-blue-100 hover:border-blue-300"
+              >
+                Continue without artwork →
+              </button>
+            )}
+            {!showForm && (
+              <p className="mt-2 text-xs text-slate-400 text-center">You can still request a quote now and send artwork later by email.</p>
+            )}
           </div>
           <div className="rounded-3xl bg-slate-100 p-5">
             {previewUrl ? (
