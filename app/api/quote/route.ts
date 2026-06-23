@@ -1,6 +1,5 @@
 import { Resend } from "resend";
-import { mkdir, writeFile } from "fs/promises";
-import path from "path";
+import { createQuoteRequest, updateQuoteEmailStatus } from "@/lib/admin/quote-db";
 
 export const runtime = "nodejs";
 
@@ -21,8 +20,8 @@ function buildEmailHtml(data: {
   name: string; email: string; company: string; quantity: string;
   delivery: string; patchType: string; patchSize: string;
   backing: string; border: string; message: string;
-  artworkFileName: string | null; artworkSavedPath: string | null;
-  submittedAt: string; storageMode: string;
+  artworkFileName: string | null; artworkUrl: string | null;
+  submittedAt: string; quoteNumber: string;
 }) {
   const row = (label: string, value: string) =>
     value ? `<tr><td style="padding:6px 12px 6px 0;font-weight:600;color:#1e293b;white-space:nowrap;vertical-align:top">${label}</td><td style="padding:6px 0;color:#334155">${value}</td></tr>` : "";
@@ -32,8 +31,8 @@ function buildEmailHtml(data: {
 <div style="max-width:600px;margin:0 auto;background:#fff;border-radius:16px;overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,0.06)">
 <div style="background:#0f172a;padding:28px 32px">
 <h1 style="margin:0;font-size:20px;color:#fff">KaKa Patches</h1>
-<p style="margin:6px 0 0;font-size:14px;color:#94a3b8">New Quote Request</p>
-<p style="margin:4px 0 0;font-size:11px;color:#64748b">Storage: ${data.storageMode}</p>
+<p style="margin:6px 0 0;font-size:14px;color:#94a3b8">New Quote Request — ${data.quoteNumber}</p>
+<p style="margin:4px 0 0;font-size:11px;color:#64748b">Storage: Neon Postgres + Vercel Blob</p>
 </div>
 <div style="padding:28px 32px">
 <table style="width:100%;border-collapse:collapse;font-size:14px">
@@ -43,16 +42,14 @@ ${row("Patch Type", data.patchType)}${row("Patch Size", data.patchSize)}
 ${row("Backing", data.backing)}${row("Border", data.border)}
 ${row("Message", data.message)}
 ${row("Artwork File", data.artworkFileName ?? "—")}
-${row("Saved Path", data.artworkSavedPath ?? "—")}
+${row("Artwork URL", data.artworkUrl ?? "—")}
 ${row("Submitted", data.submittedAt)}
 </table></div></div></body></html>`;
 }
 
 /* ── POST Handler ── */
 export async function POST(request: Request) {
-  const isVercel = process.env.VERCEL === "1";
-
-  console.log("[Quote API] Request received. Vercel:", isVercel);
+  console.log("[Quote API] Request received.");
 
   try {
     const formData = await request.formData();
@@ -69,61 +66,91 @@ export async function POST(request: Request) {
     const border = safeText(formData.get("border"));
     const message = safeText(formData.get("message"));
 
+    /* ── Validation ── */
     if (!name || !email || !quantity) {
-      return Response.json({ success: false, message: "Name, email and quantity are required." }, { status: 400 });
+      return Response.json(
+        { success: false, error: "Name, email and quantity are required." },
+        { status: 400 }
+      );
     }
 
     const submittedAt = new Date().toISOString();
-    const requestId = `quote-${Date.now()}`;
 
-    /* ── Best-effort local file persistence (development only) ── */
-    let saved = false;
-    let saveError: string | null = null;
-    let artworkInfo: any = null;
-    let artworkBuffer: Buffer | null = null;
-    let quoteFilePath: string | null = null;
+    /* ── Blob upload (best-effort) ── */
+    let artworkUrl: string | null = null;
+    let artworkInfo: {
+      originalFileName?: string;
+      fileType?: string;
+      fileSize?: number;
+    } = {};
 
-    if (!isVercel) {
+    const blobToken = process.env.BLOB_READ_WRITE_TOKEN;
+
+    if (artwork instanceof File && artwork.size > 0 && artwork.size <= 10 * 1024 * 1024 && blobToken) {
       try {
-        const dataDir = path.join(process.cwd(), "data");
-        const quoteDir = path.join(dataDir, "quote-requests");
-        const uploadDir = path.join(dataDir, "quote-uploads");
-        await mkdir(quoteDir, { recursive: true });
-        await mkdir(uploadDir, { recursive: true });
+        const { put } = await import("@vercel/blob");
+        const originalFileName = safeFileName(artwork.name || "artwork");
+        const now = new Date();
+        const year = now.getFullYear();
+        const month = String(now.getMonth() + 1).padStart(2, "0");
+        const blobPath = `quote-artwork/${year}/${month}/${originalFileName}`;
 
-        if (artwork instanceof File && artwork.size > 0 && artwork.size <= 10 * 1024 * 1024) {
-          const arrayBuffer = await artwork.arrayBuffer();
-          const buffer = Buffer.from(arrayBuffer);
-          artworkBuffer = buffer;
-          const originalFileName = safeFileName(artwork.name || "artwork");
-          const savedFileName = `${requestId}-${originalFileName}`;
-          const savedFilePath = path.join(uploadDir, savedFileName);
-          await writeFile(savedFilePath, buffer);
-          artworkInfo = { originalFileName, savedFileName, savedFilePath, fileType: artwork.type, fileSize: artwork.size };
-        }
+        const blob = await put(blobPath, artwork, {
+          access: "public",
+          token: blobToken,
+        });
 
-        quoteFilePath = path.join(quoteDir, `${requestId}.json`);
-        await writeFile(quoteFilePath, JSON.stringify({
-          id: requestId, submittedAt,
-          customer: { name, email, company },
-          requirements: { quantity, delivery, patchType, patchSize, backing, border, message },
-          artwork: artworkInfo,
-        }, null, 2), "utf-8");
-
-        saved = true;
-        console.log("[Quote API] Local save OK:", requestId);
+        artworkUrl = blob.url;
+        artworkInfo = {
+          originalFileName,
+          fileType: artwork.type,
+          fileSize: artwork.size,
+        };
+        console.log("Blob upload:", blobPath, "->", blob.url);
       } catch (e: any) {
-        saveError = e.message || "Local save failed";
-        console.warn("[Quote API] Local save failed (non-fatal):", saveError);
+        console.warn("Blob upload failed (non-fatal):", e.message);
       }
-    } else {
-      console.log("[Quote API] Vercel detected — skipping local file persistence.");
+    } else if (artwork instanceof File && artwork.size > 0 && !blobToken) {
+      console.log("Blob upload: BLOB_READ_WRITE_TOKEN not set, skipping artwork upload.");
+    }
+
+    /* ── Save to Postgres ── */
+    let quoteId: string;
+    let quoteNumber: string;
+
+    try {
+      const quote = await createQuoteRequest({
+        name,
+        email,
+        company: company || undefined,
+        quantity: quantity || undefined,
+        delivery: delivery || undefined,
+        patch_type: patchType || undefined,
+        patch_size: patchSize || undefined,
+        backing: backing || undefined,
+        border_option: border || undefined,
+        message: message || undefined,
+        artwork_filename: artworkInfo.originalFileName || undefined,
+        artwork_url: artworkUrl || undefined,
+        artwork_size: artworkInfo.fileSize || undefined,
+        artwork_type: artworkInfo.fileType || undefined,
+        status: "new",
+      });
+
+      quoteId = quote.id;
+      quoteNumber = quote.quote_number;
+      console.log("Quote saved to DB:", quoteNumber, "(id:", quoteId, ")");
+    } catch (e: any) {
+      console.error("Quote save to DB failed:", e.message);
+      return Response.json(
+        { success: false, error: "Failed to save quote request.", detail: e.message },
+        { status: 500 }
+      );
     }
 
     /* ── Send email via Resend ── */
     let emailSent = false;
     let emailError: string | null = null;
-    let emailId: string | null = null;
 
     const resendApiKey = process.env.RESEND_API_KEY;
     const quoteToEmail = process.env.QUOTE_TO_EMAIL;
@@ -137,19 +164,24 @@ export async function POST(request: Request) {
         const resend = new Resend(resendApiKey);
         const emailHtml = buildEmailHtml({
           name, email, company, quantity, delivery, patchType, patchSize, backing, border, message,
-          artworkFileName: artworkInfo?.originalFileName ?? null,
-          artworkSavedPath: artworkInfo?.savedFilePath ?? null,
-          submittedAt, storageMode: isVercel ? "email-only (Vercel)" : "local + email",
+          artworkFileName: artworkInfo.originalFileName ?? null,
+          artworkUrl,
+          submittedAt,
+          quoteNumber,
         });
 
-        const attachments = artworkBuffer
-          ? [{ filename: artworkInfo?.originalFileName || "artwork", content: artworkBuffer }]
-          : undefined;
+        let attachments: Array<{ filename: string; content: Buffer }> | undefined;
+
+        if (!artworkUrl && artwork instanceof File && artwork.size > 0 && artwork.size <= 10 * 1024 * 1024) {
+          const arrayBuffer = await artwork.arrayBuffer();
+          const buffer = Buffer.from(arrayBuffer);
+          attachments = [{ filename: artworkInfo.originalFileName || "artwork", content: buffer }];
+        }
 
         const { data, error } = await resend.emails.send({
           from: quoteFromEmail,
           to: [quoteToEmail],
-          subject: `New Quote Request from ${name} - KaKa Patches`,
+          subject: `New Quote Request from ${name} — KaKa Patches [${quoteNumber}]`,
           html: emailHtml,
           replyTo: email,
           attachments,
@@ -159,9 +191,8 @@ export async function POST(request: Request) {
           console.error("[Quote API] Resend error:", error);
           emailError = error.message;
         } else {
-          console.log("[Quote API] Email sent:", data?.id);
+          console.log("Email sent:", data?.id);
           emailSent = true;
-          emailId = data?.id ?? null;
         }
       } catch (e: any) {
         console.error("[Quote API] Resend exception:", e.message);
@@ -169,37 +200,29 @@ export async function POST(request: Request) {
       }
     }
 
-    /* ── Response ── */
-    if (emailSent) {
-      return Response.json({
-        success: true,
-        emailSent: true,
-        emailId,
-        saved,
-        saveError,
-        storageMode: isVercel ? "email_only_vercel" : "local_file",
-        message: saveError
-          ? `Quote email sent. Local save note: ${saveError}`
-          : "Quote submitted successfully.",
-        data: { id: requestId, quoteFilePath, artwork: artworkInfo },
-      });
+    /* ── Record email status ── */
+    if (emailSent || emailError) {
+      try {
+        await updateQuoteEmailStatus(quoteId, emailSent, emailError || undefined);
+        console.log("Email status recorded in DB for:", quoteNumber);
+      } catch (e: any) {
+        console.warn("Failed to record email status (non-fatal):", e.message);
+      }
     }
 
-    // Email failed — return error
+    /* ── Response ── */
     return Response.json({
-      success: false,
-      emailSent: false,
-      error: "Email sending failed.",
-      detail: emailError || "Unknown email error",
-      saved,
-      saveError,
-    }, { status: 500 });
+      success: true,
+      saved: true,
+      emailSent,
+      quoteNumber,
+      artworkUrl,
+    });
   } catch (error: any) {
     console.error("[Quote API] Fatal error:", error.message);
-    return Response.json({
-      success: false,
-      error: "Submission failed.",
-      detail: error.message || "Unknown error",
-    }, { status: 500 });
+    return Response.json(
+      { success: false, error: "Submission failed.", detail: error.message || "Unknown error" },
+      { status: 500 }
+    );
   }
 }

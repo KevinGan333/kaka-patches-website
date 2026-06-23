@@ -12,7 +12,7 @@ export default function AdminDashboard() {
   useEffect(() => {
     async function load() {
       try {
-        const res = await fetch("/api/admin/quotes");
+        const res = await fetch("/api/admin/quotes?limit=5");
         if (res.status === 401) { router.push("/admin/login"); return; }
         const data = await res.json();
         setQuotes(data.quotes || []);
@@ -25,19 +25,18 @@ export default function AdminDashboard() {
   const stats = useMemo(() => {
     const now = new Date();
     const weekAgo = new Date(now.getTime() - 7 * 24 * 60 * 60 * 1000);
-    const isNew = (q: any) => !q.status || q.status === "New";
-    const isWaiting = (q: any) => q.status === "Waiting for Customer";
+    const isNew = (q: any) => !q.status || q.status === "new";
+    const isWaiting = (q: any) => q.status === "waiting_for_customer";
     return {
       total: quotes.length,
       new_: quotes.filter(isNew).length,
-      reviewed: quotes.filter((q: any) => q.status === "Reviewed").length,
       needFollowUp: quotes.filter((q: any) => isNew(q) || isWaiting(q)).length,
-      quoted: quotes.filter((q: any) => q.status === "Quoted").length,
-      inProduction: quotes.filter((q: any) => q.status === "In Production").length,
-      emailSent: quotes.filter((q: any) => q.email?.sent === true).length,
-      emailFailed: quotes.filter((q: any) => q.email?.sent === false && q.email?.error).length,
-      artworkUploaded: quotes.filter((q: any) => q.artwork?.originalFileName).length,
-      thisWeek: quotes.filter((q: any) => new Date(q.submittedAt) >= weekAgo).length,
+      quoted: quotes.filter((q: any) => q.status === "quoted").length,
+      inProduction: quotes.filter((q: any) => q.status === "in_production").length,
+      emailSent: quotes.filter((q: any) => q.email_sent === true).length,
+      emailFailed: quotes.filter((q: any) => q.email_sent === false && q.email_error).length,
+      artworkUploaded: quotes.filter((q: any) => q.artwork_filename || q.artwork_url).length,
+      thisWeek: quotes.filter((q: any) => new Date(q.created_at) >= weekAgo).length,
       latest: quotes.slice(0, 5),
     };
   }, [quotes]);
@@ -79,10 +78,10 @@ export default function AdminDashboard() {
           <table className="w-full text-left text-xs">
             <thead><tr className="border-b border-slate-200 bg-slate-50">
               <th className="px-3 py-2.5 font-semibold text-slate-600">Date</th>
+              <th className="px-3 py-2.5 font-semibold text-slate-600">Quote #</th>
               <th className="px-3 py-2.5 font-semibold text-slate-600">Name</th>
               <th className="px-3 py-2.5 font-semibold text-slate-600 hidden md:table-cell">Patch Type</th>
               <th className="px-3 py-2.5 font-semibold text-slate-600">Qty</th>
-              <th className="px-3 py-2.5 font-semibold text-slate-600 hidden sm:table-cell">Art</th>
               <th className="px-3 py-2.5 font-semibold text-slate-600 hidden sm:table-cell">Email</th>
               <th className="px-3 py-2.5 font-semibold text-slate-600">Status</th>
               <th className="px-3 py-2.5"></th>
@@ -90,12 +89,12 @@ export default function AdminDashboard() {
             <tbody>
               {stats.latest.map((q: any) => (
                 <tr key={q.id} className="border-b border-slate-100 hover:bg-slate-50/50">
-                  <td className="px-3 py-2.5 text-slate-500 whitespace-nowrap">{new Date(q.submittedAt).toLocaleDateString()}</td>
-                  <td className="px-3 py-2.5 font-semibold text-slate-800">{q.customer?.name}</td>
-                  <td className="px-3 py-2.5 text-slate-600 hidden md:table-cell">{q.requirements?.patchType || "—"}</td>
-                  <td className="px-3 py-2.5 text-slate-700 font-medium">{q.requirements?.quantity}</td>
-                  <td className="px-3 py-2.5 hidden sm:table-cell">{q.artwork?.originalFileName ? <span className="inline-block rounded-full bg-emerald-50 px-2 py-0.5 text-[10px] font-bold text-emerald-700">Uploaded</span> : <span className="text-slate-300">—</span>}</td>
-                  <td className="px-3 py-2.5 hidden sm:table-cell">{q.email?.sent ? <span className="inline-block rounded-full bg-emerald-50 px-2 py-0.5 text-[10px] font-bold text-emerald-700">Sent</span> : q.email?.error ? <span className="inline-block rounded-full bg-red-50 px-2 py-0.5 text-[10px] font-bold text-red-600">Failed</span> : <span className="text-amber-500 text-[10px]">—</span>}</td>
+                  <td className="px-3 py-2.5 text-slate-500 whitespace-nowrap">{new Date(q.created_at).toLocaleDateString()}</td>
+                  <td className="px-3 py-2.5 font-mono text-[11px] text-slate-400">{q.quote_number}</td>
+                  <td className="px-3 py-2.5 font-semibold text-slate-800">{q.name}</td>
+                  <td className="px-3 py-2.5 text-slate-600 hidden md:table-cell">{q.patch_type || "—"}</td>
+                  <td className="px-3 py-2.5 text-slate-700 font-medium">{q.quantity}</td>
+                  <td className="px-3 py-2.5 hidden sm:table-cell">{q.email_sent ? <span className="inline-block rounded-full bg-emerald-50 px-2 py-0.5 text-[10px] font-bold text-emerald-700">Sent</span> : <span className="text-slate-300 text-[10px]">—</span>}</td>
                   <td className="px-3 py-2.5"><StatusBadge status={q.status} /></td>
                   <td className="px-3 py-2.5"><Link href={`/admin/quotes/${q.id}`} className="text-xs font-semibold text-blue-600 hover:text-blue-700">View →</Link></td>
                 </tr>
@@ -116,9 +115,13 @@ export default function AdminDashboard() {
 
 function StatusBadge({ status }: { status?: string }) {
   const colors: Record<string, string> = {
-    New: "bg-blue-50 text-blue-700", Reviewed: "bg-slate-100 text-slate-700", Quoted: "bg-emerald-50 text-emerald-700",
-    "Waiting for Customer": "bg-amber-50 text-amber-700", "In Production": "bg-violet-50 text-violet-700", Closed: "bg-gray-100 text-gray-500",
+    new: "bg-blue-50 text-blue-700",
+    reviewed: "bg-slate-100 text-slate-700",
+    quoted: "bg-emerald-50 text-emerald-700",
+    waiting_for_customer: "bg-amber-50 text-amber-700",
+    in_production: "bg-violet-50 text-violet-700",
+    closed: "bg-gray-100 text-gray-500",
   };
-  const s = status || "New";
-  return <span className={`inline-block rounded-full px-2.5 py-0.5 text-[11px] font-bold uppercase tracking-wider ${colors[s] || colors["New"]}`}>{s}</span>;
+  const s = status || "new";
+  return <span className={`inline-block rounded-full px-2.5 py-0.5 text-[11px] font-bold uppercase tracking-wider ${colors[s] || colors["new"]}`}>{s.replace(/_/g, " ")}</span>;
 }
