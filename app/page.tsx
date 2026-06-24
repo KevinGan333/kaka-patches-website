@@ -11,14 +11,14 @@ export const metadata: Metadata = {
 function CheckIcon() { return <svg className="h-5 w-5 shrink-0 text-blue-600" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5"/></svg>; }
 
 const patchTypes = [
-  { t:"Custom Embroidered Patches", d:"Classic stitched texture — uniforms, jackets, caps, clubs, brand merchandise.", h:"/products/custom-embroidered-patches", bg:"from-blue-800 to-blue-950" },
-  { t:"Custom Woven Patches", d:"Smooth flat finish — perfect for small text, fine logos, clothing labels and premium apparel.", h:"/products/custom-woven-patches", bg:"from-indigo-800 to-indigo-950" },
-  { t:"Custom PVC Patches", d:"Waterproof durable rubber — outdoor gear, tactical products, sportswear and bags.", h:"/products/custom-pvc-patches", bg:"from-cyan-700 to-cyan-900" },
-  { t:"Custom Chenille Patches", d:"Soft fuzzy varsity texture — letterman jackets, school apparel, fashion graphics.", h:"/products/custom-chenille-patches", bg:"from-violet-800 to-violet-950" },
-  { t:"Printed Patches", d:"Full-color printed designs for detailed artwork and photographic reproduction.", h:"/request-a-quote", bg:"from-rose-700 to-rose-900" },
-  { t:"Leather Patches", d:"Premium leather patches for hats, bags, jackets and high-end brand labels.", h:"/request-a-quote", bg:"from-amber-700 to-amber-900" },
-  { t:"Velcro Patches", d:"Hook-and-loop removable patches — tactical gear, uniforms and interchangeable badges.", h:"/request-a-quote", bg:"from-slate-700 to-slate-900" },
-  { t:"Patch Backing Options", d:"Sew-on, iron-on, Velcro, adhesive and magnetic — choose what fits your product.", h:"/request-a-quote", bg:"from-teal-700 to-teal-900" },
+  { t:"Custom Embroidered Patches", d:"Classic stitched texture — uniforms, jackets, caps, clubs, brand merchandise.", h:"/products/custom-embroidered-patches", img:"/images/products/custom-embroidered-patches.webp", alt:"Custom embroidered patches for uniforms, caps and apparel brands" },
+  { t:"Custom Woven Patches", d:"Smooth flat finish — perfect for small text, fine logos, clothing labels and premium apparel.", h:"/products/custom-woven-patches", img:"/images/products/custom-woven-patches.webp", alt:"Custom woven patches with fine detail for clothing labels and premium apparel" },
+  { t:"Custom PVC Patches", d:"Waterproof durable rubber — outdoor gear, tactical products, sportswear and bags.", h:"/products/custom-pvc-patches", img:"/images/products/custom-pvc-patches.webp", alt:"Custom PVC patches for outdoor gear, tactical products and bags" },
+  { t:"Custom Chenille Patches", d:"Soft fuzzy varsity texture — letterman jackets, school apparel, fashion graphics.", h:"/products/custom-chenille-patches", img:"/images/products/custom-chenille-patches.webp", alt:"Custom chenille patches for varsity jackets, school apparel and fashion graphics" },
+  { t:"Printed Patches", d:"Full-color printed designs for detailed artwork and photographic reproduction.", h:"/request-a-quote", img:"/images/products/printed-patches.webp", alt:"Printed custom patches for detailed logos, colorful graphics and promotional products" },
+  { t:"Leather Patches", d:"Premium leather patches for hats, bags, jackets and high-end brand labels.", h:"/request-a-quote", img:"/images/products/leather-patches.webp", alt:"Custom leather patches for hats, denim, bags and premium apparel branding" },
+  { t:"Velcro Patches", d:"Hook-and-loop removable patches — tactical gear, uniforms and interchangeable badges.", h:"/request-a-quote", img:"/images/products/velcro-patches.webp", alt:"Custom Velcro patches for uniforms, tactical gear and removable patch applications" },
+  { t:"Patch Backing Options", d:"Sew-on, iron-on, Velcro, adhesive and magnetic — choose what fits your product.", h:"/request-a-quote", img:"/images/products/patch-backing-options.webp", alt:"Patch backing options including sew-on, iron-on, adhesive and Velcro backing" },
 ];
 
 const capabilities = [
@@ -94,7 +94,7 @@ export default function Home() {
         <div className="mx-auto max-w-[1440px] px-8">
           <div className="text-center"><p className="text-sm font-bold uppercase tracking-[0.2em] text-blue-600">Product Categories</p><h2 className="mt-4 text-4xl font-extrabold tracking-tight md:text-5xl">Explore Custom Patch Types</h2></div>
           <div className="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {patchTypes.map(p=>(<Link key={p.t} href={p.h} className="group rounded-2xl border border-slate-200 bg-white overflow-hidden shadow-sm transition hover:-translate-y-1.5 hover:shadow-xl"><div className={`aspect-square bg-gradient-to-br ${p.bg} flex items-center justify-center`}><span className="text-xl font-black text-white drop-shadow-lg">{p.t.split(" ")[1]}</span></div><div className="p-6"><h3 className="font-bold">{p.t}</h3><p className="mt-2 text-sm leading-7 text-slate-500">{p.d}</p><span className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-blue-600 transition group-hover:gap-2">View Details<svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg></span></div></Link>))}
+            {patchTypes.map(p=>(<Link key={p.t} href={p.h} className="group rounded-2xl border border-slate-200 bg-white overflow-hidden shadow-sm transition hover:-translate-y-1.5 hover:shadow-xl"><div className="aspect-square bg-slate-50 overflow-hidden">{/* eslint-disable-next-line @next/next/no-img-element */}<img src={p.img} alt={p.alt} className="h-full w-full object-cover" loading="lazy" /></div><div className="p-6"><h3 className="font-bold">{p.t}</h3><p className="mt-2 text-sm leading-7 text-slate-500">{p.d}</p><span className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-blue-600 transition group-hover:gap-2">View Details<svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg></span></div></Link>))}
           </div>
         </div>
       </section>
