@@ -6,10 +6,8 @@ export default function SiteFooter() {
       <div className="mx-auto max-w-[1440px] px-8 py-16">
         <div className="grid gap-10 md:grid-cols-5">
           <div className="md:col-span-2">
-            <div className="flex items-center gap-2.5">
-              <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-blue-600 text-sm font-bold">KP</div>
-              <span className="text-xl font-bold">KaKa<span className="text-blue-400">Patches</span></span>
-            </div>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src="/images/brand/kaka-patches-logo.svg" alt="KaKa Patches logo" className="h-11 w-auto brightness-[10] invert" />
             <p className="mt-4 max-w-sm text-sm leading-7 text-slate-400">
               Custom patch manufacturer for clothing brands, sports teams, uniform suppliers, events and promotional products. Factory-direct production with artwork support and flexible customization.
             </p>

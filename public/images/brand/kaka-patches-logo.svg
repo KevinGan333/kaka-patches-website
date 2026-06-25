@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1000" viewBox="0 0 1600 1000" role="img" aria-label="KaKa Patches colorful embroidered patch logo">
+  <defs>
+    <filter id="softShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="14" stdDeviation="12" flood-color="#12305A" flood-opacity="0.18"/>
+    </filter>
+    <filter id="threadTexture" x="-5%" y="-5%" width="110%" height="110%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" seed="7" result="noise"/>
+      <feDisplacementMap in="SourceGraphic" in2="noise" scale="1.4" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+    <style>
+      .brand-font{font-family:'Arial Rounded MT Bold','Avenir Next','Montserrat','Arial Black',Arial,sans-serif;font-weight:900;letter-spacing:-10px;}
+      .label-font{font-family:'Montserrat','Avenir Next',Arial,sans-serif;font-weight:900;letter-spacing:26px;}
+      .tag-font{font-family:'Montserrat','Avenir Next',Arial,sans-serif;font-weight:800;letter-spacing:8px;}
+      .navy{stroke:#073B75;}
+      .stitch{fill:none;stroke:#FFFFFF;stroke-width:9;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:24 18;opacity:.95;}
+      .threadLine{stroke-width:2.5;opacity:.25;stroke-linecap:round;}
+    </style>
+  </defs>
+
+  <rect width="1600" height="1000" fill="#ffffff"/>
+
+  <!-- Main embroidered patch base -->
+  <g>
+    <path d="M180 365 C178 285 235 235 315 248 C358 176 455 172 505 239 C592 185 690 222 710 310 C760 296 807 312 835 349 C884 283 985 296 1021 372 C1078 342 1151 359 1187 417 C1284 405 1352 470 1335 563 C1388 602 1392 688 1328 730 C1329 814 1262 858 1182 839 C1126 904 1023 893 981 818 C908 864 814 844 779 767 C705 823 607 810 566 733 C497 777 400 751 381 671 C296 689 213 641 220 548 C170 510 152 435 180 365 Z" fill="#FFFDF7" stroke="#073B75" stroke-width="28" stroke-linejoin="round"/>
+    <path d="M222 384 C220 322 265 282 328 292 C367 231 441 230 480 287 C560 238 636 272 654 342 C706 327 754 350 777 392 C823 323 929 337 954 414 C1013 382 1082 404 1113 464 C1203 451 1261 506 1247 583 C1300 626 1289 693 1229 719 C1232 790 1164 810 1108 783 C1057 844 971 826 941 757 C862 818 775 780 754 710 C680 776 592 739 570 671 C493 724 413 681 407 607 C327 640 254 586 264 511 C219 478 202 427 222 384 Z" fill="none" stroke="#19C9D4" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="22 22" opacity=".95"/>
+  </g>
+
+  <!-- KaKa wordmark -->
+  <g>
+    <text x="210" y="530" class="brand-font" font-size="350" fill="#17C9D2" stroke="#073B75" stroke-width="13" paint-order="stroke fill">K</text>
+    <text x="470" y="530" class="brand-font" font-size="350" fill="#FFC326" stroke="#E59A00" stroke-width="10" paint-order="stroke fill">a</text>
+    <text x="700" y="530" class="brand-font" font-size="350" fill="#FF3E91" stroke="#C81563" stroke-width="11" paint-order="stroke fill">K</text>
+    <text x="980" y="530" class="brand-font" font-size="350" fill="#8BEA22" stroke="#4EAA10" stroke-width="10" paint-order="stroke fill">a</text>
+  </g>
+
+  <!-- White dashed stitch on letters -->
+  <g>
+    <text x="210" y="530" class="brand-font stitch" font-size="350">K</text>
+    <text x="470" y="530" class="brand-font stitch" font-size="350">a</text>
+    <text x="700" y="530" class="brand-font stitch" font-size="350">K</text>
+    <text x="980" y="530" class="brand-font stitch" font-size="350">a</text>
+  </g>
+
+  <!-- Banner -->
+  <g>
+    <path d="M270 612 C489 568 1034 568 1254 612 L1316 748 C1042 791 480 793 210 748 Z" fill="#FFFDF7" stroke="#073B75" stroke-width="19" stroke-linejoin="round"/>
+    <path d="M305 642 C522 607 1008 609 1218 642" fill="none" stroke="#19C9D4" stroke-width="6" stroke-linecap="round" stroke-dasharray="18 20"/>
+    <path d="M268 724 C515 758 1016 760 1259 724" fill="none" stroke="#19C9D4" stroke-width="6" stroke-linecap="round" stroke-dasharray="18 20"/>
+    <text x="800" y="730" text-anchor="middle" class="label-font" font-size="105" fill="#14A5CF" stroke="#073B75" stroke-width="2" paint-order="stroke fill">PATCHES</text>
+  </g>
+
+  <!-- Decorative thread bursts and heart -->
+  <g stroke-linecap="round" stroke-linejoin="round">
+    <path d="M1230 245 L1280 176" stroke="#19C9D4" stroke-width="34"/>
+    <path d="M1297 265 L1371 195" stroke="#FF3E91" stroke-width="34"/>
+    <path d="M1364 315 L1462 278" stroke="#FFC326" stroke-width="34"/>
+    <path d="M665 835 C623 790 535 829 582 898 C616 948 665 970 665 970 C665 970 714 948 748 898 C795 829 707 790 665 835 Z" fill="#19C9D4" stroke="#073B75" stroke-width="14"/>
+    <path d="M609 852 C634 828 665 858 665 858 C665 858 696 828 721 852" fill="none" stroke="#FFFFFF" stroke-width="8" stroke-linecap="round" stroke-dasharray="16 14"/>
+    <path d="M505 870 L445 852" stroke="#8BEA22" stroke-width="20"/>
+    <path d="M528 925 L465 962" stroke="#FF3E91" stroke-width="18"/>
+    <path d="M800 870 L860 852" stroke="#FFC326" stroke-width="20"/>
+    <path d="M778 925 L840 962" stroke="#17C9D2" stroke-width="18"/>
+  </g>
+
+  <!-- Subtle thread strokes inside filled letters for embroidery feel -->
+  <g opacity=".35">
+    <line x1="255" y1="315" x2="355" y2="500" class="threadLine" stroke="#FFFFFF"/>
+    <line x1="510" y1="350" x2="610" y2="520" class="threadLine" stroke="#FFFFFF"/>
+    <line x1="760" y1="315" x2="900" y2="510" class="threadLine" stroke="#FFFFFF"/>
+    <line x1="1028" y1="350" x2="1150" y2="520" class="threadLine" stroke="#FFFFFF"/>
+  </g>
+</svg>

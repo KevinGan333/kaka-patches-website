@@ -29,8 +29,8 @@ export default function AdminSidebar() {
       <aside className={`fixed left-0 top-0 z-40 flex h-full w-60 flex-col border-r border-slate-200 bg-white transition-transform ${mobileOpen ? "translate-x-0" : "-translate-x-full"} lg:translate-x-0`}>
         {/* Logo */}
         <div className="flex items-center gap-3 border-b border-slate-200 px-5 py-5 shrink-0">
-          <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-blue-600 text-xs font-bold text-white shadow-sm">KP</div>
-          <div><p className="text-sm font-bold leading-tight text-slate-900">KaKa Patches</p><p className="text-[10px] font-semibold uppercase tracking-[0.15em] text-slate-400">Admin</p></div>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src="/images/brand/kaka-patches-logo.svg" alt="KaKa Patches logo" className="h-8 w-auto" />
         </div>
 
         {/* Nav — scrollable */}

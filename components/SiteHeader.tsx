@@ -14,9 +14,9 @@ export default function SiteHeader() {
   return (
     <header className="sticky top-0 z-50 border-b border-slate-200/60 bg-white/95 backdrop-blur-md shadow-sm">
       <div className="mx-auto flex max-w-[1440px] items-center justify-between px-8 py-3.5">
-        <Link href="/" className="group flex shrink-0 items-center gap-2.5">
-          <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-blue-600 text-sm font-bold text-white shadow-sm">KP</div>
-          <span className="text-xl font-bold tracking-tight text-slate-900">KaKa<span className="text-blue-600">Patches</span></span>
+        <Link href="/" className="group flex shrink-0 items-center">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src="/images/brand/kaka-patches-logo.svg" alt="KaKa Patches logo" className="h-10 w-auto" />
         </Link>
 
         <nav className="flex items-center gap-1 text-sm font-medium text-slate-600">
