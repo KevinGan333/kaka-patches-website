@@ -16,7 +16,7 @@ export default function SiteHeader() {
       <div className="mx-auto flex max-w-[1440px] items-center justify-between px-8 py-3.5">
         <Link href="/" className="group flex shrink-0 items-center">
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/images/brand/kaka-patches-logo.svg" alt="KaKa Patches logo" className="h-14 w-auto" />
+          <img src="/images/brand/kaka-patches-logo.svg" alt="KaKa Patches logo" className="h-14 sm:h-[78px] w-auto" />
         </Link>
 
         <nav className="flex items-center gap-1 text-sm font-medium text-slate-600">
