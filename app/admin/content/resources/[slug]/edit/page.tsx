@@ -12,6 +12,7 @@ export default function AdminEditResourcePage() {
   const { slug } = useParams<{ slug: string }>();
 
   const [loading, setLoading] = useState(true);
+  const [loadError, setLoadError] = useState("");
   const [saving, setSaving] = useState(false);
   const [archiving, setArchiving] = useState(false);
   const [notFound, setNotFound] = useState(false);
@@ -43,7 +44,7 @@ export default function AdminEditResourcePage() {
         }
         if (!res.ok) throw new Error("Failed to load resource");
         const data = await res.json();
-        const resource = data.resource || data;
+        const resource = data.item || data.resource || data;
         setForm({
           title: resource.title || "",
           slug: resource.slug || "",
@@ -53,10 +54,10 @@ export default function AdminEditResourcePage() {
           tags: Array.isArray(resource.tags) ? resource.tags.join(", ") : resource.tags || "",
           seoTitle: resource.seoTitle || "",
           seoDescription: resource.seoDescription || "",
-          content: resource.content || "",
+          content: resource.contentMarkdown || resource.content || "",
         });
       } catch (err: any) {
-        setErrors({ _form: err.message || "An error occurred" });
+        setLoadError(err.message || "An error occurred while loading this resource");
       } finally {
         setLoading(false);
       }
@@ -167,7 +168,25 @@ export default function AdminEditResourcePage() {
   if (loading) {
     return (
       <div className="px-6 py-8">
-        <p className="text-sm text-slate-400">Loading...</p>
+        <div className="flex items-center gap-3">
+          <div className="h-5 w-5 animate-spin rounded-full border-2 border-blue-600 border-t-transparent" />
+          <p className="text-sm text-slate-500">Loading resource...</p>
+        </div>
+      </div>
+    );
+  }
+
+  if (loadError) {
+    return (
+      <div className="px-6 py-8">
+        <div className="rounded-lg border border-red-200 bg-red-50 p-8 text-center">
+          <h2 className="text-lg font-bold text-red-800">Failed to Load Resource</h2>
+          <p className="mt-2 text-sm text-red-600">{loadError}</p>
+          <div className="mt-4 flex justify-center gap-3">
+            <button onClick={() => { setLoadError(""); setLoading(true); window.location.reload(); }} className="rounded-lg bg-red-600 px-4 py-2 text-sm font-medium text-white transition hover:bg-red-700">Retry</button>
+            <Link href="/admin/content/resources" className="rounded-lg border border-slate-300 bg-white px-4 py-2 text-sm text-slate-600 transition hover:bg-slate-50">&larr; Back to Resources</Link>
+          </div>
+        </div>
       </div>
     );
   }
@@ -275,10 +294,10 @@ export default function AdminEditResourcePage() {
         <div className="flex items-center gap-4 pt-2">
           <button
             type="submit"
-            disabled={saving}
+            disabled={saving || loading}
             className="rounded-lg bg-blue-600 px-6 py-2 text-sm font-medium text-white transition hover:bg-blue-700 disabled:opacity-60"
           >
-            {saving ? "Saving..." : "Save Changes"}
+            {saving ? "Saving..." : loading ? "Loading..." : "Save Changes"}
           </button>
           <Link href="/admin/content/resources" className="text-sm text-slate-500 hover:text-slate-700">
             Cancel
