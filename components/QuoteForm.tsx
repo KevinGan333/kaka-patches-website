@@ -50,7 +50,7 @@ export default function QuoteForm() {
         return;
       }
       console.error("Submit failed:", JSON.stringify(result, null, 2));
-      setSubmitStatus(`Submit failed: ${result?.error?.message || result?.message || "Submit failed. Please try again."}`);
+      setSubmitStatus(`Submit failed: ${result?.error || result?.message || "Submit failed. Please try again."}`);
     } catch (error) {
       console.error("Submit error:", error);
       setSubmitStatus("Something went wrong. Please check your information and try again.");

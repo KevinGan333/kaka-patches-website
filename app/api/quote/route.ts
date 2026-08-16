@@ -76,42 +76,64 @@ export async function POST(request: Request) {
 
     const submittedAt = new Date().toISOString();
 
-    /* ── Blob upload (best-effort) ── */
+    /* ── Artwork upload (must succeed before the inquiry is saved) ── */
     let artworkUrl: string | null = null;
     let artworkInfo: {
       originalFileName?: string;
       fileType?: string;
       fileSize?: number;
     } = {};
+    let artworkUploadFailed = false;
 
-    const blobToken = process.env.BLOB_READ_WRITE_TOKEN;
+    if (artwork instanceof File && artwork.size > 0) {
+      if (artwork.size > 10 * 1024 * 1024) {
+        artworkUploadFailed = true;
+        console.warn("Artwork upload rejected: file exceeds the 10 MB limit.");
+      } else {
+        const blobToken = process.env.BLOB_READ_WRITE_TOKEN;
+        if (!blobToken) {
+          artworkUploadFailed = true;
+          console.warn("Artwork upload skipped: BLOB_READ_WRITE_TOKEN is not configured.");
+        } else {
+          try {
+            const { put } = await import("@vercel/blob");
+            const originalFileName = safeFileName(artwork.name || "artwork");
+            const now = new Date();
+            const year = now.getFullYear();
+            const month = String(now.getMonth() + 1).padStart(2, "0");
+            const blobPath = `quote-artwork/${year}/${month}/${originalFileName}`;
 
-    if (artwork instanceof File && artwork.size > 0 && artwork.size <= 10 * 1024 * 1024 && blobToken) {
-      try {
-        const { put } = await import("@vercel/blob");
-        const originalFileName = safeFileName(artwork.name || "artwork");
-        const now = new Date();
-        const year = now.getFullYear();
-        const month = String(now.getMonth() + 1).padStart(2, "0");
-        const blobPath = `quote-artwork/${year}/${month}/${originalFileName}`;
+            const blob = await put(blobPath, artwork, {
+              access: "public",
+              token: blobToken,
+            });
 
-        const blob = await put(blobPath, artwork, {
-          access: "public",
-          token: blobToken,
-        });
-
-        artworkUrl = blob.url;
-        artworkInfo = {
-          originalFileName,
-          fileType: artwork.type,
-          fileSize: artwork.size,
-        };
-        console.log("Blob upload:", blobPath, "->", blob.url);
-      } catch (e: any) {
-        console.warn("Blob upload failed (non-fatal):", e.message);
+            artworkUrl = blob.url;
+            artworkInfo = {
+              originalFileName,
+              fileType: artwork.type,
+              fileSize: artwork.size,
+            };
+            console.log("Blob upload:", blobPath, "->", blob.url);
+          } catch (e) {
+            artworkUploadFailed = true;
+            console.warn("Blob upload failed:", e instanceof Error ? e.message : String(e));
+          }
+        }
       }
-    } else if (artwork instanceof File && artwork.size > 0 && !blobToken) {
-      console.log("Blob upload: BLOB_READ_WRITE_TOKEN not set, skipping artwork upload.");
+    }
+
+    // If the buyer attached artwork but it didn't upload, fail loudly instead of
+    // silently saving the request as a no-artwork inquiry.
+    if (artworkUploadFailed) {
+      return Response.json(
+        {
+          success: false,
+          error: "Artwork upload failed. Please try again or contact us directly to submit your artwork.",
+          artworkUploadFailed: true,
+        },
+        { status: 500 }
+      );
     }
 
     /* ── Save to Postgres ── */
