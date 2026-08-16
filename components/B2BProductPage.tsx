@@ -42,7 +42,8 @@ const FACTORY_SLOTS = [
 ];
 
 const QUALITY_SLOTS = [
-  { title: "QC Inspection", path: "/images/quality/material-inspection.webp" },
+  { title: "Material Inspection", path: "/images/quality/material-inspection.webp" },
+  { title: "In-Process Inspection", path: "/images/quality/in-process-inspection.webp" },
   { title: "Final Quality Inspection", path: "/images/quality/final-qc.webp" },
   { title: "Sample Report Preview", path: "/images/quality/sample-report-preview.webp" },
   { title: "Packaging Inspection", path: "/images/quality/packing-inspection.webp" },

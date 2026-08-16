@@ -7,6 +7,8 @@ export interface ProductImageSlotProps {
   slotPath: string;
   /** Aspect ratio for the slot, e.g. "4:3", "1:1", "16:9", "3:4". Defaults to "4:3". */
   ratio?: string;
+  /** Recommended pixel dimensions (e.g. "1600 × 1200 px"), shown in the placeholder. */
+  recommendedSize?: string;
   /** Descriptive alt text for the real image once assigned. */
   alt?: string;
   /** Optional already-resolved image URL (e.g. from the CMS `images` array). */
@@ -22,6 +24,16 @@ const RATIO_CLASS: Record<string, string> = {
   "3:4": "aspect-[3/4]",
   "3:2": "aspect-[3/2]",
   "2:3": "aspect-[2/3]",
+};
+
+/** Default recommended pixel dimensions per ratio, used when the caller does not override. */
+const DEFAULT_RECOMMENDED_SIZE: Record<string, string> = {
+  "4:3": "1600 × 1200 px",
+  "1:1": "1200 × 1200 px",
+  "16:9": "1920 × 1080 px",
+  "3:4": "1200 × 1600 px",
+  "3:2": "1800 × 1200 px",
+  "2:3": "1200 × 1800 px",
 };
 
 function CameraIcon({ className = "h-7 w-7" }: { className?: string }) {
@@ -43,6 +55,7 @@ export default function ProductImageSlot({
   title = "Product Image",
   slotPath,
   ratio = "4:3",
+  recommendedSize,
   alt,
   explicitSrc,
   className = "",
@@ -50,6 +63,7 @@ export default function ProductImageSlot({
 }: ProductImageSlotProps) {
   const ratioClass = RATIO_CLASS[ratio] || RATIO_CLASS["4:3"];
   const src = resolveImageSrc(slotPath, explicitSrc);
+  const sizeLabel = recommendedSize || DEFAULT_RECOMMENDED_SIZE[ratio] || "";
 
   if (src) {
     return (
@@ -75,7 +89,9 @@ export default function ProductImageSlot({
         <CameraIcon className="h-5 w-5" />
       </span>
       <p className="text-sm font-semibold text-slate-700">{title}</p>
-      <p className="text-[11px] font-medium uppercase tracking-wide text-slate-400">Recommended: {ratio}</p>
+      <p className="text-[11px] font-medium uppercase tracking-wide text-slate-400">
+        {ratio}{sizeLabel ? ` — ${sizeLabel}` : ""}
+      </p>
       <p className="max-w-full break-all rounded bg-white/80 px-2 py-1 font-mono text-[10px] leading-4 text-slate-500">{slotPath}</p>
       <p className="text-[10px] text-slate-400">Replace with approved product or factory image</p>
     </div>
