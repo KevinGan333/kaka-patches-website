@@ -1,5 +1,13 @@
 import { resolveImageSrc } from "@/lib/image-slots";
 
+/**
+ * True only on the Vercel Production deployment. In development and Preview we
+ * keep the full placeholder guidance (file path + recommended dimensions) so the
+ * content team can drop assets into the documented slots; public Production
+ * visitors see a clean branded placeholder with no internal path information.
+ */
+const IS_PRODUCTION = process.env.VERCEL_ENV === "production";
+
 export interface ProductImageSlotProps {
   /** Human label for the slot, shown in the placeholder. */
   title?: string;
@@ -89,11 +97,17 @@ export default function ProductImageSlot({
         <CameraIcon className="h-5 w-5" />
       </span>
       <p className="text-sm font-semibold text-slate-700">{title}</p>
-      <p className="text-[11px] font-medium uppercase tracking-wide text-slate-400">
-        {ratio}{sizeLabel ? ` — ${sizeLabel}` : ""}
-      </p>
-      <p className="max-w-full break-all rounded bg-white/80 px-2 py-1 font-mono text-[10px] leading-4 text-slate-500">{slotPath}</p>
-      <p className="text-[10px] text-slate-400">Replace with approved product or factory image</p>
+      {IS_PRODUCTION ? (
+        <p className="text-[11px] font-medium uppercase tracking-wide text-slate-400">Product image</p>
+      ) : (
+        <>
+          <p className="text-[11px] font-medium uppercase tracking-wide text-slate-400">
+            {ratio}{sizeLabel ? ` — ${sizeLabel}` : ""}
+          </p>
+          <p className="max-w-full break-all rounded bg-white/80 px-2 py-1 font-mono text-[10px] leading-4 text-slate-500">{slotPath}</p>
+          <p className="text-[10px] text-slate-400">Replace with approved product or factory image</p>
+        </>
+      )}
     </div>
   );
 }

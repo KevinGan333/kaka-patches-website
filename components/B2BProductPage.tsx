@@ -14,10 +14,10 @@ const COMPLIANCE_TEXT =
   "Test reports and compliance documentation can be supported according to selected materials, product construction and destination-market requirements.";
 
 const TRUST_POINTS = [
-  { label: "MOQ: 200 pcs", icon: "cube" },
+  { label: "MOQ: 200 pcs per design", icon: "cube" },
   { label: "Sample development available", icon: "spark" },
-  { label: "Artwork review before production", icon: "check" },
-  { label: "Test documentation support available", icon: "doc" },
+  { label: "Artwork approval before production", icon: "check" },
+  { label: "In-process and final QC", icon: "doc" },
 ];
 
 const DEFAULT_CHIPS = ["Custom Size", "Custom Shape", "Material Options", "Packaging Options"];
@@ -107,7 +107,6 @@ export default async function B2BProductPage({ product }: { product: ProductPage
   const dg = product.decisionGuide || {};
   const bestFor = dg.bestFor?.length ? dg.bestFor : product.buyerTypes;
   const notIdealFor = dg.notIdealFor || [];
-  const recommendedApps = dg.recommendedApplications?.length ? dg.recommendedApplications : product.applications.slice(0, 6);
 
   // ── Detail gallery (Section D) ──
   const detailGallery = product.detailGallery?.length
@@ -298,14 +297,32 @@ export default async function B2BProductPage({ product }: { product: ProductPage
                   </ul>
                 </div>
               )}
-              {recommendedApps.length > 0 && (
-                <div className="rounded-3xl border border-slate-200 bg-slate-50 p-7">
-                  <h3 className="text-lg font-bold text-slate-900">Recommended applications</h3>
-                  <ul className="mt-4 space-y-2 text-sm text-slate-600">
-                    {recommendedApps.map((a) => <li key={a} className="flex gap-2"><span className="text-blue-600">•</span>{a}</li>)}
-                  </ul>
-                </div>
-              )}
+              <div className="rounded-3xl border border-slate-200 bg-slate-50 p-7">
+                <h3 className="flex items-center gap-2 text-lg font-bold text-slate-900">
+                  <svg className="h-5 w-5 text-blue-600" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M12 6v6l4 2m0 8a9 9 0 11-9-9 9 9 0 019 9z" /></svg>
+                  Consider Another Construction When
+                </h3>
+                <ul className="mt-4 space-y-3 text-sm text-slate-600">
+                  <li className="flex flex-col">
+                    Fine text or intricate lines
+                    <Link href="/products/custom-woven-patches" className="mt-0.5 font-semibold text-blue-600 hover:text-blue-700">Custom Woven Patches</Link>
+                  </li>
+                  <li className="flex flex-col">
+                    Photographic detail or gradients
+                    <span className="mt-0.5">
+                      <Link href="/products/custom-printed-patches" className="font-semibold text-blue-600 hover:text-blue-700">Printed</Link> or <Link href="/products/custom-heat-transfer-patches" className="font-semibold text-blue-600 hover:text-blue-700">Heat Transfer</Link>
+                    </span>
+                  </li>
+                  <li className="flex flex-col">
+                    Waterproof rubber-like finish
+                    <Link href="/products/custom-pvc-patches" className="mt-0.5 font-semibold text-blue-600 hover:text-blue-700">Custom PVC Patches</Link>
+                  </li>
+                  <li className="flex flex-col">
+                    Raised fuzzy varsity appearance
+                    <Link href="/products/custom-chenille-patches" className="mt-0.5 font-semibold text-blue-600 hover:text-blue-700">Custom Chenille Patches</Link>
+                  </li>
+                </ul>
+              </div>
             </div>
             {dg.alternativeText && (
               <div className="mt-6 rounded-2xl border border-blue-200 bg-blue-50 p-6">
@@ -325,7 +342,7 @@ export default async function B2BProductPage({ product }: { product: ProductPage
       {/* ── D. Product detail gallery ── */}
       <section className="bg-slate-50 py-16 md:py-20">
         <div className="mx-auto max-w-7xl px-6">
-          <SectionHeading eyebrow="Production Details" title="See the Production Details Before You Quote" />
+          <SectionHeading eyebrow="Production Details" title="Review Product Details Before Requesting a Quote" />
           <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {detailGallery.map((d) => (
               <figure key={d.title} className="overflow-hidden rounded-3xl border border-slate-200 bg-white p-3 shadow-sm">

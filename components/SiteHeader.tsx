@@ -32,10 +32,10 @@ export default function SiteHeader() {
 
   return (
     <header className="sticky top-0 z-50 border-b border-slate-200/60 bg-white/95 shadow-sm backdrop-blur-md">
-      <div className="mx-auto flex max-w-[1440px] items-center justify-between px-4 py-3.5 sm:px-8">
+      <div className="mx-auto flex max-w-[1440px] items-center justify-between px-4 py-3.5 sm:px-8 sm:py-3">
         <Link href="/" className="group flex shrink-0 items-center">
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/images/brand/kaka-patches-logo.svg" alt="KaKa Patches logo" className="h-14 w-auto sm:h-[78px]" />
+          <img src="/images/brand/kaka-patches-logo.svg" alt="KaKa Patches logo" className="h-14 w-auto sm:h-[68px]" />
         </Link>
 
         {/* Desktop navigation */}

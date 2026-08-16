@@ -134,10 +134,10 @@ export default async function ProductsPage() {
           <div>
             <p className="text-sm font-semibold uppercase tracking-[0.25em] text-amber-400">Products</p>
             <h1 className="mt-5 text-4xl font-extrabold leading-tight tracking-tight md:text-5xl md:leading-[1.1]">
-              Choose a Product Family, <span className="bg-gradient-to-r from-blue-400 to-cyan-300 bg-clip-text text-transparent">Compare & Request a Quote</span>
+              Custom Patches, Labels, <span className="bg-gradient-to-r from-blue-400 to-cyan-300 bg-clip-text text-transparent">Badges &amp; Textile Accessories</span>
             </h1>
             <p className="mt-6 max-w-xl text-lg leading-8 text-slate-300">
-              Factory-direct custom patches, labels, badges and textile accessories. Visually compare construction and detail capability, review applications, and get a factory-direct quote.
+              Choose a product family, compare construction and detail capability, review applications, and request a factory-direct quote.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <Link href="/request-a-quote" className="inline-flex items-center gap-2 rounded-full bg-blue-600 px-7 py-3.5 text-sm font-semibold text-white shadow-lg shadow-blue-600/25 transition hover:bg-blue-500">
@@ -174,7 +174,7 @@ export default async function ProductsPage() {
 
           <div className="mt-14 space-y-16">
             {families.map(({ family, products }) => (
-              <div key={family.slug} className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm md:p-8">
+              <div key={family.slug} id={family.slug} className="scroll-mt-28 rounded-3xl border border-slate-200 bg-white p-6 shadow-sm md:p-8">
                 <div className="grid gap-6 md:grid-cols-[1.1fr_1fr]">
                   <ProductImageSlot
                     title={family.name}
