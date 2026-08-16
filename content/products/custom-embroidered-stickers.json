@@ -1,0 +1,98 @@
+{
+  "type": "product",
+  "name": "Custom Embroidered Stickers",
+  "slug": "custom-embroidered-stickers",
+  "group": "accessories",
+  "urlPrefix": "/custom-accessories",
+  "status": "published",
+  "displayOrder": 21,
+  "availableForQuote": true,
+  "quoteFormKey": "Custom Embroidered Stickers",
+  "metaTitle": "Custom Embroidered Stickers Manufacturer | KaKa Patches",
+  "metaDescription": "3D embroidered fabric stickers with peel-and-stick or sew-on backing for brand giveaways and packaging decoration.",
+  "ogTitle": "",
+  "ogDescription": "",
+  "ogImage": "",
+  "heroBadge": "Embroidered Fabric Stickers",
+  "h1": "Custom Embroidered <span class=\"text-blue-400\">Stickers</span>",
+  "heroSubtitle": "3D embroidered fabric stickers with peel-and-stick or sew-on backing for brand giveaways and packaging decoration.",
+  "heroHighlights": [
+    {
+      "label": "Front",
+      "value": "3D embroidered thread on fabric"
+    },
+    {
+      "label": "Backing",
+      "value": "Peel-and-stick or sew-on"
+    },
+    {
+      "label": "Best For",
+      "value": "Branding & packaging"
+    },
+    {
+      "label": "MOQ",
+      "value": "200 pcs/design"
+    },
+    {
+      "label": "Lead Time",
+      "value": "2–3 weeks"
+    }
+  ],
+  "overviewParagraphs": [
+    "Custom embroidered stickers combine 3D embroidered fabric with adhesive or sew-on backing, creating a premium tactile sticker that stands apart from flat printed versions."
+  ],
+  "buyerTypes": [
+    "Brand & marketing agencies",
+    "Packaging designers",
+    "Event organizers",
+    "Retail brands"
+  ],
+  "applications": [
+    "Brand giveaways",
+    "Packaging decoration",
+    "Event merchandise",
+    "Product branding",
+    "Laptop & gear decoration"
+  ],
+  "features": [
+    {
+      "title": "3D Embroidered Texture",
+      "description": "Raised thread creates a premium, tactile finish that flat stickers can't match."
+    },
+    {
+      "title": "Peel-and-Stick Convenience",
+      "description": "Strong adhesive backing for easy application to any clean surface."
+    }
+  ],
+  "customOptionsTitle": "Customize Your Stickers",
+  "customOptions": [
+    "Custom shape die-cut",
+    "Full-color embroidery",
+    "Peel-and-stick or sew-on backing",
+    "Individual or bulk packaging"
+  ],
+  "typeOptionsTitle": "Backing Options",
+  "typeOptions": [
+    {
+      "title": "Adhesive",
+      "description": "Peel-and-stick — ready to apply to any clean, smooth surface."
+    },
+    {
+      "title": "Iron-on",
+      "description": "Heat-applied backing for permanent fabric attachment."
+    },
+    {
+      "title": "Sew-on",
+      "description": "Traditional sew-on for maximum durability on garments."
+    }
+  ],
+  "faqs": [],
+  "ctaHeading": "Need Custom Embroidered Stickers?",
+  "relatedProductSlugs": [],
+  "moqDisclaimer": "",
+  "packagingDelivery": "",
+  "images": [],
+  "createdAt": "2026-08-10T07:51:32.210Z",
+  "updatedAt": "2026-08-10T07:51:32.210Z",
+  "publishedAt": "2026-08-10T07:51:32.210Z"
+}

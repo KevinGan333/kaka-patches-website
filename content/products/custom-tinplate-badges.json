@@ -1,0 +1,111 @@
+{
+  "type": "product",
+  "name": "Custom Tinplate Badges",
+  "slug": "custom-tinplate-badges",
+  "group": "accessories",
+  "urlPrefix": "/custom-accessories",
+  "status": "published",
+  "displayOrder": 10,
+  "availableForQuote": true,
+  "quoteFormKey": "Custom Tinplate Badges",
+  "family": "Badges & Magnets",
+  "familySlug": "badges-magnets",
+  "metaTitle": "Custom Tinplate Badges Manufacturer | KaKa Patches",
+  "metaDescription": "B2B custom tinplate badges with full-color printed fronts and pin or magnet backing for brands, events, campaigns and promotional giveaways. Factory-direct production.",
+  "ogTitle": "",
+  "ogDescription": "",
+  "ogImage": "",
+  "heroBadge": "Badge Product",
+  "h1": "Custom Tinplate <span class=\"text-blue-400\">Badges</span>",
+  "heroSubtitle": "Classic metal tinplate badges with full-color printed fronts. Best for campaigns, events, fundraising, fan merchandise and promotional giveaways with pin or magnet attachment.",
+  "buyerSummary": "Lightweight metal tinplate badges with full-color printed fronts and pin or magnet backing — a cost-effective choice for campaigns, events and giveaways.",
+  "customizationChips": ["Custom Size", "Full-Color Print", "Pin or Magnet Back", "Bulk Packing"],
+  "heroHighlights": [
+    { "label": "Best For", "value": "Campaigns, events, merch" },
+    { "label": "Front", "value": "Full-color printed" },
+    { "label": "Backing", "value": "Pin or magnet" },
+    { "label": "Typical MOQ", "value": "200 pcs/design" }
+  ],
+  "overviewParagraphs": [
+    "Custom tinplate badges are lightweight metal badges with a printed full-color front and a pin or magnet attachment on the back. They are a cost-effective, durable format for brand logos, campaign messaging, event merchandise and promotional giveaways.",
+    "Tinplate badges print vibrant, detailed artwork at scale, making them ideal for large-quantity projects where consistent color and a low unit cost matter most."
+  ],
+  "buyerTypes": [
+    "Event & campaign organizers",
+    "Nonprofits & fundraising",
+    "Fan & sports merchandise",
+    "Tourism & souvenir shops",
+    "Corporate branding"
+  ],
+  "applications": [
+    "Campaign & cause badges",
+    "Event merchandise",
+    "Fan merchandise",
+    "Fundraising items",
+    "Promotional giveaways",
+    "Tourism souvenirs"
+  ],
+  "features": [
+    { "title": "Vibrant Full-Color Print", "description": "Detailed, colorful artwork reproduced crisply on the metal front." },
+    { "title": "Pin or Magnet Backing", "description": "Choose a standard pin back or a magnet back for easy attachment." },
+    { "title": "Cost-Effective at Scale", "description": "Efficient for large-quantity campaigns, events and giveaways." },
+    { "title": "Lightweight & Durable", "description": "Metal construction keeps badges lightweight while standing up to handling." }
+  ],
+  "customOptionsTitle": "Customize Every Detail",
+  "customOptions": [
+    "Custom size and shape",
+    "Full-color front print",
+    "Pin or magnet backing",
+    "Individual or bulk packing",
+    "Gloss or matte finish"
+  ],
+  "typeOptionsTitle": "Backing Options",
+  "typeOptions": [
+    { "title": "Pin Backing", "description": "Standard metal pin back for attachment to clothing, bags and lanyards." },
+    { "title": "Magnet Backing", "description": "Strong magnet back for fridges, whiteboards and lockers." },
+    { "title": "Safety Pin Backing", "description": "Alternative pin style for quick, secure attachment at events." }
+  ],
+  "decisionGuide": {
+    "bestFor": [
+      "Campaigns and cause awareness",
+      "Event and fan merchandise",
+      "Fundraising and giveaways",
+      "Large-quantity promotional projects"
+    ],
+    "notIdealFor": [
+      "Textured or embroidered finishes that require a fabric-based product"
+    ],
+    "recommendedApplications": [
+      "Campaign badges",
+      "Event merchandise",
+      "Fundraising items",
+      "Promotional giveaways"
+    ],
+    "alternativeText": "Need a soft, embroidered look for a fridge or souvenir product? Consider Custom Embroidered Fridge Magnets.",
+    "alternativeSlug": "custom-embroidered-fridge-magnets"
+  },
+  "specifications": [
+    { "label": "Construction", "value": "Metal tinplate badge with printed front" },
+    { "label": "Backing", "value": "Pin or magnet" },
+    { "label": "Finish", "value": "Gloss or matte" }
+  ],
+  "faqs": [
+    { "question": "What is the MOQ for tinplate badges?", "answer": "MOQ: 200 pcs per design and construction for bulk production." },
+    { "question": "Can I request a pre-production sample?", "answer": "Yes. Pre-production sample development is available for custom projects so you can verify print color and backing before bulk production." },
+    { "question": "Can I submit an inquiry without final artwork?", "answer": "Yes. You can submit your project now and send artwork later, or provide a reference image for our team to review." },
+    { "question": "What design files can I send?", "answer": "PNG, JPG, PDF, AI or SVG files work well. High-resolution files with clear color references help us reproduce your design accurately." },
+    { "question": "Can you help choose the right backing?", "answer": "Yes. Pin backing suits clothing and lanyards, while magnet backing suits fridges, whiteboards and lockers. Our team can advise." },
+    { "question": "Can you provide test reports?", "answer": "Test reports and compliance documentation can be supported according to selected materials, product construction and destination-market requirements." },
+    { "question": "How are badges packed and shipped?", "answer": "Individual or bulk packing is available, and shipment is arranged according to your confirmed order, destination and payment terms." }
+  ],
+  "ctaHeading": "Need Custom Tinplate Badges?",
+  "relatedProductSlugs": ["custom-embroidered-fridge-magnets", "custom-pin-back-buttons", "custom-keychains"],
+  "relatedApplications": ["Campaign merchandise", "Event giveaways", "Fundraising"],
+  "relatedBlogSlugs": ["custom-patches-bulk-order-made-easy", "how-to-prepare-artwork-for-custom-patches"],
+  "moqDisclaimer": "",
+  "packagingDelivery": "",
+  "images": [],
+  "createdAt": "2026-08-15T00:00:00.000Z",
+  "updatedAt": "2026-08-15T00:00:00.000Z",
+  "publishedAt": "2026-08-15T00:00:00.000Z"
+}

@@ -1,0 +1,94 @@
+{
+  "type": "product",
+  "name": "Custom Plush Charms",
+  "slug": "custom-plush-charms",
+  "group": "accessories",
+  "urlPrefix": "/custom-accessories",
+  "status": "published",
+  "displayOrder": 22,
+  "availableForQuote": true,
+  "quoteFormKey": "Custom Plush Charms",
+  "metaTitle": "Custom Plush Charms Manufacturer | KaKa Patches",
+  "metaDescription": "Soft plush fabric charms with full-color sublimation printing for bag accessories, keychain decorations and kawaii merchandise.",
+  "ogTitle": "",
+  "ogDescription": "",
+  "ogImage": "",
+  "heroBadge": "Soft Plush Fabric",
+  "h1": "Custom Plush <span class=\"text-blue-400\">Charms</span>",
+  "heroSubtitle": "Soft plush fabric charms with full-color sublimation printing for bag accessories, keychain decorations and kawaii merchandise.",
+  "heroHighlights": [
+    {
+      "label": "Material",
+      "value": "Soft plush fabric with filling"
+    },
+    {
+      "label": "Print",
+      "value": "Full-color sublimation"
+    },
+    {
+      "label": "Best For",
+      "value": "Character goods & bags"
+    },
+    {
+      "label": "MOQ",
+      "value": "200 pcs/design"
+    },
+    {
+      "label": "Lead Time",
+      "value": "2–3 weeks"
+    }
+  ],
+  "overviewParagraphs": [
+    "Custom plush charms are soft, stuffed fabric accessories with full-color printed designs. Popular as bag decorations, keychain attachments and kawaii-style character merchandise."
+  ],
+  "buyerTypes": [
+    "Character goods brands",
+    "Anime & pop culture retailers",
+    "Bag & accessory brands",
+    "Event merchandise buyers"
+  ],
+  "applications": [
+    "Bag accessories",
+    "Keychain charms",
+    "Character merchandise",
+    "Event giveaways",
+    "Kawaii goods"
+  ],
+  "features": [
+    {
+      "title": "Soft Plush Feel",
+      "description": "Stuffed fabric with a soft, squeezable texture — appealing and collectible."
+    },
+    {
+      "title": "Full-Color Print",
+      "description": "Sublimation printing captures detailed artwork, gradients and photographs."
+    }
+  ],
+  "customOptionsTitle": "Customize Your Plush Charms",
+  "customOptions": [
+    "Custom shape and size",
+    "Full-color sublimation print",
+    "Keyring or strap attachment",
+    "Individual or bulk packaging"
+  ],
+  "typeOptionsTitle": "Style Options",
+  "typeOptions": [
+    {
+      "title": "Single-Sided Print",
+      "description": "Print on one side with plain fabric back — most economical."
+    },
+    {
+      "title": "Double-Sided Print",
+      "description": "Print on both sides — visible from any angle."
+    }
+  ],
+  "faqs": [],
+  "ctaHeading": "Need Custom Plush Charms?",
+  "relatedProductSlugs": [],
+  "moqDisclaimer": "",
+  "packagingDelivery": "",
+  "images": [],
+  "createdAt": "2026-08-10T07:51:32.210Z",
+  "updatedAt": "2026-08-10T07:51:32.210Z",
+  "publishedAt": "2026-08-10T07:51:32.210Z"
+}

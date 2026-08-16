@@ -2,7 +2,7 @@
 
 import { useRouter } from "next/navigation";
 import Link from "next/link";
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect } from "react";
 
 interface Resource {
   _id: string;
@@ -35,32 +35,33 @@ export default function AdminResourcesListPage() {
   const [filterStatus, setFilterStatus] = useState("");
   const [search, setSearch] = useState("");
 
-  const fetchResources = useCallback(async () => {
-    setLoading(true);
-    setError("");
-    try {
-      const params = new URLSearchParams();
-      if (filterStatus) params.set("status", filterStatus);
-      if (search) params.set("search", search);
-
-      const res = await fetch(`/api/admin/content/resources?${params.toString()}`);
-      if (res.status === 401) {
-        router.push("/admin/login");
-        return;
-      }
-      if (!res.ok) throw new Error("Failed to fetch resources");
-      const data = await res.json();
-      setResources(data.resources || data);
-    } catch (err: any) {
-      setError(err.message || "An error occurred");
-    } finally {
-      setLoading(false);
-    }
-  }, [filterStatus, search, router]);
-
   useEffect(() => {
-    fetchResources();
-  }, [fetchResources]);
+    let cancelled = false;
+    async function load() {
+      setLoading(true);
+      setError("");
+      try {
+        const params = new URLSearchParams();
+        if (filterStatus) params.set("status", filterStatus);
+        if (search) params.set("search", search);
+
+        const res = await fetch(`/api/admin/content/resources?${params.toString()}`);
+        if (res.status === 401) {
+          router.push("/admin/login");
+          return;
+        }
+        if (!res.ok) throw new Error("Failed to fetch resources");
+        const data = await res.json();
+        if (!cancelled) setResources(data.resources || data);
+      } catch (err: unknown) {
+        if (!cancelled) setError(err instanceof Error ? err.message : "An error occurred");
+      } finally {
+        if (!cancelled) setLoading(false);
+      }
+    }
+    load();
+    return () => { cancelled = true; };
+  }, [filterStatus, search, router]);
 
   return (
     <div className="px-6 py-8">

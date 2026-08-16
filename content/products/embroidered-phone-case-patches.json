@@ -1,0 +1,110 @@
+{
+  "type": "product",
+  "name": "Embroidered Phone Case Patches",
+  "slug": "embroidered-phone-case-patches",
+  "group": "patches",
+  "urlPrefix": "/products",
+  "status": "published",
+  "displayOrder": 9,
+  "availableForQuote": true,
+  "quoteFormKey": "Embroidered Phone Case Patches",
+  "family": "Patches, Labels & Transfers",
+  "familySlug": "patches-labels-transfers",
+  "metaTitle": "Embroidered Phone Case Patches Manufacturer | KaKa Patches",
+  "metaDescription": "B2B embroidered phone case patches with adhesive or magnetic backing — custom fabric patches designed for phone cases, bags and tech accessories. Factory-direct production.",
+  "ogTitle": "",
+  "ogDescription": "",
+  "ogImage": "",
+  "heroBadge": "Application Product",
+  "h1": "Embroidered Phone Case <span class=\"text-blue-400\">Patches</span>",
+  "heroSubtitle": "Embroidered patches sized and backed for phone cases and tech accessories. Best for brands, creators and merchandise lines looking for a removable, collectible fabric accent.",
+  "buyerSummary": "Embroidered fabric patches designed for phone cases and tech accessories — removable, collectible and available with adhesive or magnetic backing.",
+  "customizationChips": ["Phone-Case Sized", "Adhesive / Magnet Back", "Removable", "Collectible"],
+  "heroHighlights": [
+    { "label": "Best For", "value": "Phone cases & tech" },
+    { "label": "Construction", "value": "Embroidered" },
+    { "label": "Backing", "value": "Adhesive / magnet" },
+    { "label": "Typical MOQ", "value": "200 pcs/design" }
+  ],
+  "overviewParagraphs": [
+    "Embroidered phone case patches are small fabric patches designed to attach to phone cases, tablet covers, bags and other tech accessories. They offer the classic raised embroidery texture in a compact, collectible format.",
+    "With adhesive or magnetic backing, they are removable and swappable, making them popular for brand merchandise, creator collaborations and collectible accessory lines."
+  ],
+  "buyerTypes": [
+    "Tech & accessory brands",
+    "Creators & merchandise lines",
+    "Brand merchandise buyers",
+    "Gift & collectible shops",
+    "Promotional product distributors"
+  ],
+  "applications": [
+    "Phone case decoration",
+    "Tablet & tech covers",
+    "Bags & accessories",
+    "Collectible merchandise",
+    "Brand giveaways"
+  ],
+  "features": [
+    { "title": "Phone-Case Sized", "description": "Compact dimensions designed to fit phone cases and tech accessories." },
+    { "title": "Removable Backing", "description": "Adhesive or magnetic backing for easy swapping and collectibility." },
+    { "title": "Classic Embroidery", "description": "Raised stitched texture with vibrant thread colors." },
+    { "title": "Bulk Order Optimized", "description": "Scalable production from 200 pieces per design." }
+  ],
+  "customOptionsTitle": "Customize Every Detail",
+  "customOptions": [
+    "Custom size and shape",
+    "Thread color matching (PMS)",
+    "Adhesive or magnetic backing",
+    "Merrowed or heat-cut border",
+    "Individual or bulk packing"
+  ],
+  "typeOptionsTitle": "Backing Options",
+  "typeOptions": [
+    { "title": "Adhesive Backing", "description": "Peel-and-stick backing for semi-permanent attachment to phone cases." },
+    { "title": "Magnetic Backing", "description": "Magnetic backing for removable, swappable phone case accents." },
+    { "title": "Sew-on Backing", "description": "Standard sew-on backing for fabric and textile applications." }
+  ],
+  "decisionGuide": {
+    "bestFor": [
+      "Phone cases and tech accessories",
+      "Collectible and swappable merchandise",
+      "Brand and creator collaborations",
+      "Compact embroidered accents"
+    ],
+    "notIdealFor": [
+      "Large uniforms or jacket patches that require a full-size construction"
+    ],
+    "recommendedApplications": [
+      "Phone case decoration",
+      "Tablet & tech covers",
+      "Bags & accessories",
+      "Collectible merchandise"
+    ],
+    "alternativeText": "Need full-size patches for uniforms, caps and jackets? Consider Custom Embroidered Patches.",
+    "alternativeSlug": "custom-embroidered-patches"
+  },
+  "specifications": [
+    { "label": "Construction", "value": "Embroidered fabric patch" },
+    { "label": "Backing", "value": "Adhesive, magnetic or sew-on" },
+    { "label": "Size range", "value": "Compact phone-case dimensions" }
+  ],
+  "faqs": [
+    { "question": "What is the MOQ for phone case patches?", "answer": "MOQ: 200 pcs per design and construction for bulk production." },
+    { "question": "Can I request a pre-production sample?", "answer": "Yes. Pre-production sample development is available for custom projects so you can verify size, backing and stitch quality before bulk production." },
+    { "question": "Can I submit an inquiry without final artwork?", "answer": "Yes. You can submit your project now and send artwork later, or provide a reference image for our team to review." },
+    { "question": "What design files can I send?", "answer": "PNG, JPG, PDF, AI or SVG files work well. Clear color references help us match your thread colors accurately." },
+    { "question": "Can you help choose the right backing?", "answer": "Yes. Adhesive and magnetic backings suit phone cases, while sew-on backing suits fabric and textile applications." },
+    { "question": "Can you provide test reports?", "answer": "Test reports and compliance documentation can be supported according to selected materials, product construction and destination-market requirements." },
+    { "question": "How are phone case patches packed and shipped?", "answer": "Individual or bulk packing is available, and shipment is arranged according to your confirmed order, destination and payment terms." }
+  ],
+  "ctaHeading": "Need Embroidered Phone Case Patches?",
+  "relatedProductSlugs": ["custom-embroidered-patches", "custom-velcro-patches", "custom-pvc-patches"],
+  "relatedApplications": ["Phone case decoration", "Tech accessories", "Collectible merchandise"],
+  "relatedBlogSlugs": ["embroidered-patches-iron-on", "how-to-prepare-artwork-for-custom-patches"],
+  "moqDisclaimer": "",
+  "packagingDelivery": "",
+  "images": [],
+  "createdAt": "2026-08-15T00:00:00.000Z",
+  "updatedAt": "2026-08-15T00:00:00.000Z",
+  "publishedAt": "2026-08-15T00:00:00.000Z"
+}

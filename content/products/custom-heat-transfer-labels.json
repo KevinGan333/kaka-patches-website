@@ -1,0 +1,90 @@
+{
+  "type": "product",
+  "name": "Custom Heat Transfer Labels",
+  "slug": "custom-heat-transfer-labels",
+  "group": "labels-transfers",
+  "urlPrefix": "/products",
+  "status": "published",
+  "displayOrder": 12,
+  "availableForQuote": true,
+  "quoteFormKey": "Custom Heat Transfer Labels",
+  "metaTitle": "Custom Heat Transfer Labels Manufacturer | KaKa Patches",
+  "metaDescription": "No-sew heat-applied custom labels with smooth skin-friendly finish for performance wear and seamless garments.",
+  "ogTitle": "",
+  "ogDescription": "",
+  "ogImage": "",
+  "heroBadge": "Labels & Transfers",
+  "h1": "Custom Heat Transfer <span class=\"text-blue-400\">Labels</span>",
+  "heroSubtitle": "No-sew heat-applied labels with smooth skin-friendly finish for performance wear and seamless garments.",
+  "heroHighlights": [
+    {
+      "label": "Application",
+      "value": "Heat-applied, no sewing"
+    },
+    {
+      "label": "Best For",
+      "value": "Activewear & sportswear"
+    },
+    {
+      "label": "MOQ",
+      "value": "200 pcs/design"
+    },
+    {
+      "label": "Lead Time",
+      "value": "2–3 weeks"
+    }
+  ],
+  "overviewParagraphs": [
+    "Custom heat transfer labels are applied using heat and pressure — no sewing required. The result is a smooth, skin-friendly label ideal for performance wear, sportswear and seamless garments where traditional sewn labels would be uncomfortable."
+  ],
+  "buyerTypes": [
+    "Activewear & sportswear brands",
+    "Performance apparel manufacturers",
+    "Undergarment brands",
+    "Uniform suppliers"
+  ],
+  "applications": [
+    "Performance wear",
+    "Sportswear",
+    "Seamless garments",
+    "Undergarments",
+    "Activewear branding"
+  ],
+  "features": [
+    {
+      "title": "No-Sew Application",
+      "description": "Heat-applied for a smooth, seamless finish — no irritating stitching against skin."
+    },
+    {
+      "title": "Stretch Compatible",
+      "description": "Flexible material moves with stretch fabrics without cracking or peeling."
+    }
+  ],
+  "customOptionsTitle": "Custom Options",
+  "customOptions": [
+    "Full-color print or single color",
+    "Custom size and shape",
+    "Stretch or non-stretch material",
+    "Individual or bulk packaging"
+  ],
+  "typeOptionsTitle": "Transfer Types",
+  "typeOptions": [
+    {
+      "title": "Standard Heat Transfer",
+      "description": "Durable, opaque transfer for cotton and cotton-blend garments."
+    },
+    {
+      "title": "Stretch Transfer",
+      "description": "Flexible, elastic material for performance and compression wear."
+    }
+  ],
+  "faqs": [],
+  "ctaHeading": "Need Custom Heat Transfer Labels?",
+  "relatedProductSlugs": [],
+  "moqDisclaimer": "",
+  "packagingDelivery": "",
+  "images": [],
+  "createdAt": "2026-08-10T07:51:32.210Z",
+  "updatedAt": "2026-08-10T07:51:32.210Z",
+  "publishedAt": "2026-08-10T07:51:32.210Z"
+}

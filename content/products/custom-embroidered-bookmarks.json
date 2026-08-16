@@ -1,0 +1,147 @@
+{
+  "type": "product",
+  "name": "Custom Embroidered Bookmarks",
+  "slug": "custom-embroidered-bookmarks",
+  "group": "accessories",
+  "urlPrefix": "/custom-accessories",
+  "status": "published",
+  "displayOrder": 24,
+  "availableForQuote": true,
+  "quoteFormKey": "Custom Embroidered Bookmarks",
+  "metaTitle": "Custom Embroidered Bookmarks Manufacturer — Fabric Bookmarks with Tassels | KaKa Patches",
+  "metaDescription": "B2B custom embroidered bookmarks with fine stitching detail, fabric body and tassel. Factory-direct production for bookstores, libraries, publishing houses and literary event merchandise.",
+  "ogTitle": "",
+  "ogDescription": "",
+  "ogImage": "",
+  "heroBadge": "Embroidered Fabric with Tassel",
+  "h1": "Custom <span class=\"text-blue-400\">Embroidered Bookmarks</span>",
+  "heroSubtitle": "Fine embroidered fabric bookmarks with tassels for bookstores, libraries, publishing houses and literary merchandise. Factory-direct production with custom shapes, thread colors and packaging options.",
+  "heroHighlights": [
+    {
+      "label": "Material",
+      "value": "Woven polyester/cotton fabric"
+    },
+    {
+      "label": "Finish",
+      "value": "Embroidery + tassel + charm"
+    },
+    {
+      "label": "Best For",
+      "value": "Bookstores & literary merchandise"
+    },
+    {
+      "label": "MOQ",
+      "value": "200 pcs/design"
+    },
+    {
+      "label": "Lead Time",
+      "value": "2–3 weeks"
+    }
+  ],
+  "overviewParagraphs": [
+    "Custom embroidered bookmarks are fabric bookmarks with stitched thread designs, typically finished with a tassel and optional metal charm. The embroidered surface creates a tactile, premium reading accessory that stands apart from mass-produced paper bookmarks.",
+    "They are popular merchandise for independent bookstores, library gift shops, author signings, literary festivals and publishing house promotional campaigns. The combination of fine embroidery detail, durable fabric construction and gift-ready presentation makes them a favorite among book lovers and collectors."
+  ],
+  "buyerTypes": [
+    "Independent bookstores",
+    "Library gift shops",
+    "Publishing houses",
+    "Author & literary event organizers",
+    "Book subscription box services",
+    "Literary festival vendors",
+    "Museum gift shops",
+    "Educational merchandise buyers"
+  ],
+  "applications": [
+    "Bookstore merchandise",
+    "Library reading programs",
+    "Author event giveaways",
+    "Literary festival swag",
+    "Book subscription boxes",
+    "Publishing promos",
+    "School reading rewards",
+    "Museum gift shops"
+  ],
+  "features": [
+    {
+      "title": "Fine Embroidery Detail",
+      "description": "Tight stitch density captures fine text, intricate illustrations and detailed logos — reproducing book titles, author names and literary artwork with clarity."
+    },
+    {
+      "title": "Durable Fabric Body",
+      "description": "Made from sturdy woven fabric that holds its shape through repeated use — won't crease, tear or fade like paper bookmarks after months of handling."
+    },
+    {
+      "title": "Tassel & Charm Options",
+      "description": "Each bookmark can include a coordinating tassel in your choice of color, plus optional metal charm attachments for a premium, gift-ready finish."
+    },
+    {
+      "title": "Custom Shape Die-Cut",
+      "description": "Bookmarks are die-cut to your exact shape — standard rectangular, rounded corners, pointed ends or fully custom contour shapes to match your design theme."
+    }
+  ],
+  "customOptionsTitle": "Customize Your Bookmarks",
+  "customOptions": [
+    "Custom bookmark shape and size",
+    "Full-color embroidery up to 12 colors",
+    "PMS thread color matching",
+    "Tassel in custom colors",
+    "Merrowed or laser-cut edge finish",
+    "Metal charm attachment option",
+    "Individual or gift-box packaging",
+    "Book title, logo or literary designs"
+  ],
+  "typeOptionsTitle": "Choose the Right Finish",
+  "typeOptions": [
+    {
+      "title": "Merrowed Edge",
+      "description": "Traditional stitched border that wraps the edge — creates a clean, finished look with a slight raised rim. Most common for embroidered patches and bookmarks."
+    },
+    {
+      "title": "Laser-Cut Edge",
+      "description": "Heat-sealed edge with no visible stitching — produces a smooth, modern finish. Particularly effective for bookmarks with intricate contour shapes."
+    },
+    {
+      "title": "Tassel Attachment",
+      "description": "Silky polyester tassel in your choice of color, attached through a reinforced hole at the top — adds movement and a classic bookmark feel."
+    },
+    {
+      "title": "Metal Charm",
+      "description": "Small metal charm (star, heart, feather, custom shape) attached alongside the tassel — adds weight at the top and a premium jewelry-like detail."
+    }
+  ],
+  "faqs": [
+    {
+      "question": "What material are embroidered bookmarks made from?",
+      "answer": "Our embroidered bookmarks use a sturdy woven polyester or cotton-blend fabric base with embroidered thread design. The fabric is stiff enough to hold its shape as a bookmark while remaining thin enough to sit flat between book pages."
+    },
+    {
+      "question": "What sizes are available for embroidered bookmarks?",
+      "answer": "Standard bookmarks are typically 2 x 6 inches or 2 x 7 inches. Custom sizes are available — we can produce bookmarks as narrow as 1.5 inches or as wide as 3 inches. Length can also be customized to your preference."
+    },
+    {
+      "question": "Can bookmarks include a tassel?",
+      "answer": "Yes — tassels are a popular addition. We offer tassels in a wide range of colors to complement your design. Tassels are attached through a punched hole or stitched loop at the top of the bookmark."
+    },
+    {
+      "question": "Are embroidered bookmarks suitable for retail packaging?",
+      "answer": "Yes — we can provide individual polybag packaging, backing cards with euro slot for pegboard display, or gift-box packaging for premium presentation. Let us know your retail channel and we will recommend the best packaging option."
+    },
+    {
+      "question": "Can bookmarks be embroidered on both sides?",
+      "answer": "Yes. Single-sided (embroidered front, plain back) is most common and cost-effective. Double-sided embroidery is available for designs that will be seen from both sides, though it adds to production cost."
+    },
+    {
+      "question": "How do I get a quote?",
+      "answer": "Upload your design through our Request a Quote page with your preferred size, tassel color, packaging and quantity. We respond with a detailed quote — typically within 1 business day."
+    }
+  ],
+  "ctaHeading": "Need Custom Embroidered Bookmarks?",
+  "relatedProductSlugs": [],
+  "moqDisclaimer": "",
+  "packagingDelivery": "",
+  "images": [],
+  "createdAt": "2026-08-10T07:51:32.210Z",
+  "updatedAt": "2026-08-10T07:51:32.210Z",
+  "publishedAt": "2026-08-10T07:51:32.210Z"
+}

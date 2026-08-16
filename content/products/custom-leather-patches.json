@@ -1,0 +1,101 @@
+{
+  "type": "product",
+  "name": "Custom Leather Patches",
+  "slug": "custom-leather-patches",
+  "group": "patches",
+  "urlPrefix": "/products",
+  "status": "published",
+  "displayOrder": 5,
+  "availableForQuote": true,
+  "quoteFormKey": "Custom Leather Patches",
+  "metaTitle": "Custom Leather Patches Manufacturer | KaKa Patches",
+  "metaDescription": "Premium leather patches for hats, bags, jackets and high-end brand labels with embossed or laser-engraved detail.",
+  "ogTitle": "",
+  "ogDescription": "",
+  "ogImage": "",
+  "heroBadge": "Custom Patch Product",
+  "h1": "Custom Leather <span class=\"text-blue-400\">Patches</span>",
+  "heroSubtitle": "Premium leather patches for hats, bags, jackets and high-end brand labels with embossed or laser-engraved detail.",
+  "heroHighlights": [
+    {
+      "label": "Material",
+      "value": "Genuine or PU leather"
+    },
+    {
+      "label": "Finish",
+      "value": "Embossed or laser-engraved"
+    },
+    {
+      "label": "Best For",
+      "value": "Premium apparel & accessories"
+    },
+    {
+      "label": "MOQ",
+      "value": "200 pcs/design"
+    },
+    {
+      "label": "Lead Time",
+      "value": "2–3 weeks"
+    }
+  ],
+  "overviewParagraphs": [
+    "Custom leather patches bring a premium, tactile brand experience to hats, denim, bags and high-end apparel. Choose from genuine leather or high-quality PU with embossed, debossed or laser-engraved branding."
+  ],
+  "buyerTypes": [
+    "Premium apparel brands",
+    "Hat & cap manufacturers",
+    "Denim brands",
+    "Bag & accessory companies",
+    "Corporate gift buyers"
+  ],
+  "applications": [
+    "Hats & caps",
+    "Denim & jeans",
+    "Bags & backpacks",
+    "Jackets & outerwear",
+    "Premium brand labels",
+    "Corporate gifts"
+  ],
+  "features": [
+    {
+      "title": "Premium Look",
+      "description": "Leather patches convey quality and craftsmanship — ideal for brands positioning at the high end of the market."
+    },
+    {
+      "title": "Embossing & Engraving",
+      "description": "Choose raised (embossed), recessed (debossed) or laser-engraved detailing for your brand mark."
+    },
+    {
+      "title": "Custom Shape & Size",
+      "description": "Die-cut to any shape — from simple rectangles to intricate brand silhouettes."
+    }
+  ],
+  "customOptionsTitle": "Custom Options",
+  "customOptions": [
+    "Genuine or PU leather",
+    "Embossed, debossed or laser-engraved",
+    "Custom shape die-cut",
+    "Sew-on or adhesive backing",
+    "Color matching available"
+  ],
+  "typeOptionsTitle": "Leather Types",
+  "typeOptions": [
+    {
+      "title": "Genuine Leather",
+      "description": "Real leather with natural grain and patina — develops character over time."
+    },
+    {
+      "title": "PU Leather",
+      "description": "Consistent appearance and color at a more accessible price point."
+    }
+  ],
+  "faqs": [],
+  "ctaHeading": "Need Premium Leather Patches?",
+  "relatedProductSlugs": [],
+  "moqDisclaimer": "",
+  "packagingDelivery": "",
+  "images": [],
+  "createdAt": "2026-08-10T07:51:32.210Z",
+  "updatedAt": "2026-08-10T07:51:32.210Z",
+  "publishedAt": "2026-08-10T08:30:00.000Z"
+}

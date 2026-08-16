@@ -1,0 +1,112 @@
+{
+  "type": "product",
+  "name": "Custom Heat Transfer Patches",
+  "slug": "custom-heat-transfer-patches",
+  "group": "patches",
+  "urlPrefix": "/products",
+  "status": "published",
+  "displayOrder": 8,
+  "availableForQuote": true,
+  "quoteFormKey": "Custom Heat Transfer Patches",
+  "family": "Patches, Labels & Transfers",
+  "familySlug": "patches-labels-transfers",
+  "metaTitle": "Custom Heat Transfer Patches Manufacturer | KaKa Patches",
+  "metaDescription": "B2B custom heat transfer patches with full-color, photo-quality reproduction for apparel, event merchandise and promotional products. Factory-direct production with artwork support.",
+  "ogTitle": "",
+  "ogDescription": "",
+  "ogImage": "",
+  "heroBadge": "Custom Patch Product",
+  "h1": "Custom Heat Transfer <span class=\"text-blue-400\">Patches</span>",
+  "heroSubtitle": "Full-color heat-transfer patches with smooth, low-profile finish. Best for detailed artwork, gradients and photo-realistic designs applied directly to fabric with a heat press.",
+  "buyerSummary": "Photo-quality heat-transfer patches for detailed, full-color artwork applied with a heat press — smooth finish, low profile and quick to produce.",
+  "customizationChips": ["Custom Size", "Custom Shape", "Full-Color Print", "Heat-Press Application"],
+  "heroHighlights": [
+    { "label": "Best For", "value": "Detailed & full-color art" },
+    { "label": "Finish", "value": "Smooth, low-profile" },
+    { "label": "Application", "value": "Heat-press applied" },
+    { "label": "Typical MOQ", "value": "200 pcs/design" }
+  ],
+  "overviewParagraphs": [
+    "Custom heat transfer patches are printed full-color and applied to fabric using a heat press, producing a smooth, flexible, low-profile finish. They are ideal for designs that need gradients, photographic detail or fine full-color graphics that are difficult to reproduce with thread.",
+    "Compared with embroidered patches, heat transfer patches are thinner and lighter, making them a good fit for lightweight apparel, event merchandise and promotional products where a flat, print-quality finish is preferred."
+  ],
+  "buyerTypes": [
+    "Apparel & fashion brands",
+    "Event & promotional buyers",
+    "Sports teams & fan merchandise",
+    "Merchandise distributors",
+    "Corporate branding"
+  ],
+  "applications": [
+    "T-shirts & apparel",
+    "Event merchandise",
+    "Sports fan merchandise",
+    "Bags & accessories",
+    "Promotional products",
+    "Lightweight garments"
+  ],
+  "features": [
+    { "title": "Full-Color Reproduction", "description": "Photo-quality print supports gradients, fine detail and complex artwork." },
+    { "title": "Smooth Low-Profile Finish", "description": "Thin and flexible — comfortable on lightweight garments and fitted apparel." },
+    { "title": "Heat-Press Application", "description": "Applied to fabric with a heat press for fast, clean production." },
+    { "title": "Bulk Order Optimized", "description": "Scalable production from 200 pieces per design with consistent color output." }
+  ],
+  "customOptionsTitle": "Customize Every Detail",
+  "customOptions": [
+    "Custom size and shape",
+    "Full-color or spot-color printing",
+    "Gloss or matte finish",
+    "Custom die-cut contour",
+    "Individual or bulk packaging"
+  ],
+  "typeOptionsTitle": "Finish Options",
+  "typeOptions": [
+    { "title": "Full-Color Print", "description": "Photo-quality reproduction for detailed, gradient and photographic artwork." },
+    { "title": "Matte Finish", "description": "Low-glare surface for a premium, understated look." },
+    { "title": "Gloss Finish", "description": "High-shine surface that makes colors pop on promotional products." }
+  ],
+  "decisionGuide": {
+    "bestFor": [
+      "Full-color and photo-realistic designs",
+      "Lightweight apparel and low-sew requirements",
+      "Event and promotional merchandise",
+      "Detailed artwork with gradients"
+    ],
+    "notIdealFor": [
+      "High-abrasion outdoor gear needing a thick raised patch",
+      "Uniforms requiring heavy wash durability over many years"
+    ],
+    "recommendedApplications": [
+      "T-shirts & apparel",
+      "Event merchandise",
+      "Sports fan merchandise",
+      "Bags & accessories"
+    ],
+    "alternativeText": "Need a thicker, more dimensional look with raised stitching? Consider Custom Embroidered Patches.",
+    "alternativeSlug": "custom-embroidered-patches"
+  },
+  "specifications": [
+    { "label": "Construction", "value": "Full-color heat-transfer printed patch" },
+    { "label": "Application", "value": "Heat-press applied to fabric" },
+    { "label": "Finish", "value": "Smooth, flexible, low-profile" }
+  ],
+  "faqs": [
+    { "question": "What is the MOQ for heat transfer patches?", "answer": "MOQ: 200 pcs per design and construction for bulk production." },
+    { "question": "Can I request a pre-production sample?", "answer": "Yes. Pre-production sample development is available for custom projects so you can verify color, finish and application before bulk production." },
+    { "question": "Can I submit an inquiry without final artwork?", "answer": "Yes. You can submit your project now and send artwork later, or provide a sketch or reference image for our team to review." },
+    { "question": "What design files can I send?", "answer": "PNG, JPG, PDF, AI or SVG files work well. Higher-resolution files with clear color references help us reproduce your design accurately." },
+    { "question": "Can you help choose the right patch construction?", "answer": "Yes. If you are unsure whether a heat transfer, embroidered or woven patch fits your design and application, our team can advise on the best option." },
+    { "question": "Can you provide test reports?", "answer": "Test reports and compliance documentation can be supported according to selected materials, product construction and destination-market requirements." },
+    { "question": "How are heat transfer patches packed and shipped?", "answer": "Individual or bulk packing is available, and shipment is arranged according to your confirmed order, destination and payment terms." }
+  ],
+  "ctaHeading": "Need Custom Heat Transfer Patches?",
+  "relatedProductSlugs": ["custom-embroidered-patches", "custom-woven-patches", "custom-printed-patches"],
+  "relatedApplications": ["Apparel branding", "Event merchandise", "Sports fan merchandise"],
+  "relatedBlogSlugs": ["how-to-choose-the-right-patch-type", "how-to-prepare-artwork-for-custom-patches"],
+  "moqDisclaimer": "",
+  "packagingDelivery": "",
+  "images": [],
+  "createdAt": "2026-08-15T00:00:00.000Z",
+  "updatedAt": "2026-08-15T00:00:00.000Z",
+  "publishedAt": "2026-08-15T00:00:00.000Z"
+}

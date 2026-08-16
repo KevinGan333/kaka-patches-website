@@ -1,0 +1,110 @@
+{
+  "type": "product",
+  "name": "Custom Printed Labels & Care Labels",
+  "slug": "custom-printed-labels-care-labels",
+  "group": "labels-transfers",
+  "urlPrefix": "/products",
+  "status": "published",
+  "displayOrder": 12,
+  "availableForQuote": true,
+  "quoteFormKey": "Custom Printed Labels & Care Labels",
+  "family": "Patches, Labels & Transfers",
+  "familySlug": "patches-labels-transfers",
+  "metaTitle": "Custom Printed Labels & Care Labels Manufacturer | KaKa Patches",
+  "metaDescription": "B2B custom printed labels and care labels for clothing brands — full-color brand tags, size labels and garment care content labels. Factory-direct production with artwork support.",
+  "ogTitle": "",
+  "ogDescription": "",
+  "ogImage": "",
+  "heroBadge": "Label Product",
+  "h1": "Custom Printed Labels & <span class=\"text-blue-400\">Care Labels</span>",
+  "heroSubtitle": "Full-color printed brand labels and garment care content labels for clothing brands and apparel manufacturers. Smooth, soft and wash-friendly finishes for every garment type.",
+  "buyerSummary": "Printed brand labels and care content labels for apparel — full-color brand tags, size labels and wash-care information with a soft, smooth finish.",
+  "customizationChips": ["Custom Size", "Full-Color Print", "Care Content", "Satin / Cotton / Tyvek"],
+  "heroHighlights": [
+    { "label": "Best For", "value": "Brand & care labels" },
+    { "label": "Finish", "value": "Smooth, soft-touch" },
+    { "label": "Materials", "value": "Satin, cotton, Tyvek" },
+    { "label": "Typical MOQ", "value": "200 pcs/design" }
+  ],
+  "overviewParagraphs": [
+    "Custom printed labels and care labels carry brand identification, size and garment care information directly on clothing and accessories. Printed labels support full-color logos, small text and variable content that woven labels cannot always reproduce economically.",
+    "Care labels communicate washing, drying and material instructions required by many destination markets. We print on satin, cotton, Tyvek or coated stock depending on the garment, feel and wash requirements of your project."
+  ],
+  "buyerTypes": [
+    "Clothing & fashion brands",
+    "Apparel manufacturers",
+    "Uniform suppliers",
+    "Accessory & bag brands",
+    "Private label businesses"
+  ],
+  "applications": [
+    "Brand neck labels",
+    "Size labels",
+    "Garment care labels",
+    "Content & origin labels",
+    "Accessory branding"
+  ],
+  "features": [
+    { "title": "Full-Color Brand Logos", "description": "Crisp full-color printing for brand tags and detailed logo reproduction." },
+    { "title": "Care & Content Information", "description": "Washing, drying and material content details printed clearly for destination-market compliance." },
+    { "title": "Soft-Touch Materials", "description": "Satin, cotton and Tyvek options for a comfortable feel against the skin." },
+    { "title": "Wash-Friendly Inks", "description": "Durable printing designed to survive repeated washing and normal garment care." }
+  ],
+  "customOptionsTitle": "Customize Every Detail",
+  "customOptions": [
+    "Custom size and fold",
+    "Full-color brand logo",
+    "Care instruction content",
+    "Satin, cotton or Tyvek material",
+    "Sew-in or adhesive application"
+  ],
+  "typeOptionsTitle": "Material Options",
+  "typeOptions": [
+    { "title": "Satin", "description": "Smooth, soft and premium — the standard for brand neck labels." },
+    { "title": "Cotton", "description": "Natural soft-touch material for a comfortable, understated finish." },
+    { "title": "Tyvek / Coated", "description": "Durable, wash-resistant material for care labels and tough applications." }
+  ],
+  "decisionGuide": {
+    "bestFor": [
+      "Full-color brand and size labels",
+      "Garment care and content information",
+      "Small text and detailed logos",
+      "Clothing, bags and accessories"
+    ],
+    "notIdealFor": [
+      "Very fine woven detail that benefits from a woven-label construction"
+    ],
+    "recommendedApplications": [
+      "Brand neck labels",
+      "Size labels",
+      "Garment care labels",
+      "Content & origin labels"
+    ],
+    "alternativeText": "Need fine woven detail and a premium woven texture? Consider Custom Woven Labels.",
+    "alternativeSlug": "custom-woven-labels"
+  },
+  "specifications": [
+    { "label": "Construction", "value": "Full-color printed label" },
+    { "label": "Materials", "value": "Satin, cotton, Tyvek or coated stock" },
+    { "label": "Application", "value": "Sew-in or adhesive" }
+  ],
+  "faqs": [
+    { "question": "What is the MOQ for printed and care labels?", "answer": "MOQ: 200 pcs per design and construction for bulk production." },
+    { "question": "Can I request a pre-production sample?", "answer": "Yes. Pre-production sample development is available for custom projects so you can verify material, print quality and fold before bulk production." },
+    { "question": "Can I submit an inquiry without final artwork?", "answer": "Yes. You can submit your project now and send artwork or care-label content later." },
+    { "question": "What design files can I send?", "answer": "PNG, JPG, PDF, AI or SVG files work well. For care labels, clear text content for washing, drying and material instructions is helpful." },
+    { "question": "Can you help choose the right label material?", "answer": "Yes. Our team can recommend satin, cotton or Tyvek based on the garment type, feel and wash requirements of your project." },
+    { "question": "Can you provide test reports?", "answer": "Test reports and compliance documentation can be supported according to selected materials, product construction and destination-market requirements." },
+    { "question": "How are labels packed and shipped?", "answer": "Rolls, bundles or individual packing are available, and shipment is arranged according to your confirmed order and destination." }
+  ],
+  "ctaHeading": "Need Custom Printed Labels or Care Labels?",
+  "relatedProductSlugs": ["custom-woven-labels", "custom-heat-transfer-labels", "custom-printed-patches"],
+  "relatedApplications": ["Clothing brand labels", "Garment care content", "Apparel manufacturing"],
+  "relatedBlogSlugs": ["how-to-choose-the-right-patch-type", "custom-patches-for-clothing-brands-buying-guide"],
+  "moqDisclaimer": "",
+  "packagingDelivery": "",
+  "images": [],
+  "createdAt": "2026-08-15T00:00:00.000Z",
+  "updatedAt": "2026-08-15T00:00:00.000Z",
+  "publishedAt": "2026-08-15T00:00:00.000Z"
+}

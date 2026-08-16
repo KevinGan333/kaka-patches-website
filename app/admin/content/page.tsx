@@ -4,12 +4,20 @@ import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 
+interface ContentItem {
+  _id?: string;
+  title: string;
+  slug: string;
+  status: string;
+  updatedAt?: string;
+}
+
 export default function AdminContentPage() {
   const router = useRouter();
   const [blogStats, setBlogStats] = useState({ total: 0, published: 0, draft: 0 });
   const [resStats, setResStats] = useState({ total: 0, published: 0, draft: 0 });
-  const [latestBlog, setLatestBlog] = useState<any[]>([]);
-  const [latestRes, setLatestRes] = useState<any[]>([]);
+  const [latestBlog, setLatestBlog] = useState<ContentItem[]>([]);
+  const [latestRes, setLatestRes] = useState<ContentItem[]>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -22,8 +30,8 @@ export default function AdminContentPage() {
         if (blogRes.status === 401 || resRes.status === 401) { router.push("/admin/login"); return; }
         const blogData = (await blogRes.json()).items || [];
         const resData = (await resRes.json()).items || [];
-        setBlogStats({ total: blogData.length, published: blogData.filter((b: any) => b.status === "published").length, draft: blogData.filter((b: any) => b.status === "draft").length });
-        setResStats({ total: resData.length, published: resData.filter((r: any) => r.status === "published").length, draft: resData.filter((r: any) => r.status === "draft").length });
+        setBlogStats({ total: blogData.length, published: blogData.filter((b: ContentItem) => b.status === "published").length, draft: blogData.filter((b: ContentItem) => b.status === "draft").length });
+        setResStats({ total: resData.length, published: resData.filter((r: ContentItem) => r.status === "published").length, draft: resData.filter((r: ContentItem) => r.status === "draft").length });
         setLatestBlog(blogData.slice(0, 5));
         setLatestRes(resData.slice(0, 5));
       } catch { console.error("Failed to load"); }
@@ -65,7 +73,7 @@ export default function AdminContentPage() {
           <div className="flex items-center justify-between mb-3"><h2 className="text-base font-bold text-slate-900">Latest Blog Posts</h2><Link href="/admin/content/blog" className="text-xs font-semibold text-blue-600">Manage →</Link></div>
           <div className="rounded-xl border border-slate-200 bg-white shadow-sm">
             {latestBlog.length === 0 ? <p className="p-6 text-sm text-slate-400 text-center">No blog posts yet.</p> :
-              <table className="w-full text-xs"><tbody>{latestBlog.map((p: any) => (
+              <table className="w-full text-xs"><tbody>{latestBlog.map((p) => (
                 <tr key={p.slug} className="border-b border-slate-100 last:border-0 hover:bg-slate-50">
                   <td className="px-4 py-2.5 font-semibold text-slate-800">{p.title}</td>
                   <td className="px-4 py-2.5"><span className={`rounded-full px-2 py-0.5 text-[10px] font-bold uppercase ${p.status === "published" ? "bg-emerald-50 text-emerald-700" : p.status === "draft" ? "bg-slate-100 text-slate-500" : "bg-red-50 text-red-600"}`}>{p.status}</span></td>
@@ -81,7 +89,7 @@ export default function AdminContentPage() {
           <div className="flex items-center justify-between mb-3"><h2 className="text-base font-bold text-slate-900">Latest Resources</h2><Link href="/admin/content/resources" className="text-xs font-semibold text-blue-600">Manage →</Link></div>
           <div className="rounded-xl border border-slate-200 bg-white shadow-sm">
             {latestRes.length === 0 ? <p className="p-6 text-sm text-slate-400 text-center">No resources yet.</p> :
-              <table className="w-full text-xs"><tbody>{latestRes.map((r: any) => (
+              <table className="w-full text-xs"><tbody>{latestRes.map((r) => (
                 <tr key={r.slug} className="border-b border-slate-100 last:border-0 hover:bg-slate-50">
                   <td className="px-4 py-2.5 font-semibold text-slate-800">{r.title}</td>
                   <td className="px-4 py-2.5"><span className={`rounded-full px-2 py-0.5 text-[10px] font-bold uppercase ${r.status === "published" ? "bg-emerald-50 text-emerald-700" : r.status === "draft" ? "bg-slate-100 text-slate-500" : "bg-red-50 text-red-600"}`}>{r.status}</span></td>

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Suspense } from "react";
 import QuoteForm from "@/components/QuoteForm";
 
 export const metadata: Metadata = {
@@ -12,7 +13,11 @@ export default function Page() {
       <section className="relative overflow-hidden bg-slate-950 text-white"><div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_50%_at_50%_-10%,rgba(37,99,235,0.25),transparent)]" /><div className="relative mx-auto max-w-7xl px-6 py-24 md:py-28"><p className="text-sm font-semibold uppercase tracking-[0.25em] text-blue-300">Get Started</p><h1 className="mt-5 max-w-4xl text-4xl font-extrabold leading-tight tracking-tight md:text-6xl">Request a <span className="text-blue-400">Quote</span></h1><p className="mt-6 max-w-3xl text-lg leading-8 text-slate-300">Upload your artwork and tell us your patch requirements. Our team will review your project and prepare a factory-direct quote — typically within 1 business day.</p><p className="mt-4 text-sm text-slate-400">You can submit your request now and send artwork later.</p></div></section>
       <section className="py-24">
         <div className="mx-auto grid max-w-5xl gap-12 px-6 lg:grid-cols-3">
-          <div className="lg:col-span-2"><QuoteForm /></div>
+          <div className="lg:col-span-2">
+            <Suspense fallback={<div className="rounded-3xl border border-slate-200 bg-white p-8 text-sm text-slate-500">Loading quote form…</div>}>
+              <QuoteForm />
+            </Suspense>
+          </div>
           <div className="hidden lg:block">
             <div className="sticky top-24 rounded-2xl border border-slate-200 bg-slate-50 p-7">
               <h3 className="text-lg font-bold text-slate-900">What happens next?</h3>

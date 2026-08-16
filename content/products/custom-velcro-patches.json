@@ -1,0 +1,100 @@
+{
+  "type": "product",
+  "name": "Custom Velcro Patches",
+  "slug": "custom-velcro-patches",
+  "group": "patches",
+  "urlPrefix": "/products",
+  "status": "published",
+  "displayOrder": 7,
+  "availableForQuote": true,
+  "quoteFormKey": "Custom Velcro Patches",
+  "metaTitle": "Custom Velcro Patches Manufacturer — Hook & Loop | KaKa Patches",
+  "metaDescription": "Hook-and-loop removable custom Velcro patches for tactical gear, uniforms and interchangeable badge systems. Factory-direct B2B production.",
+  "ogTitle": "",
+  "ogDescription": "",
+  "ogImage": "",
+  "heroBadge": "Custom Patch Product",
+  "h1": "Custom Velcro <span class=\"text-blue-400\">Patches</span>",
+  "heroSubtitle": "Hook-and-loop removable patches for tactical gear, uniforms and interchangeable badge systems.",
+  "heroHighlights": [
+    {
+      "label": "Attachment",
+      "value": "Hook-and-loop (Velcro)"
+    },
+    {
+      "label": "Best For",
+      "value": "Tactical, uniforms, badges"
+    },
+    {
+      "label": "Removable",
+      "value": "Yes — interchangeable"
+    },
+    {
+      "label": "MOQ",
+      "value": "200 pcs/design"
+    },
+    {
+      "label": "Lead Time",
+      "value": "2–3 weeks"
+    }
+  ],
+  "overviewParagraphs": [
+    "Custom Velcro patches feature hook-and-loop backing for easy attachment and removal. Popular for tactical gear, military uniforms, airsoft teams and any application requiring interchangeable badges or insignia."
+  ],
+  "buyerTypes": [
+    "Tactical & military suppliers",
+    "Uniform companies",
+    "Airsoft & paintball teams",
+    "Security firms",
+    "Sports teams"
+  ],
+  "applications": [
+    "Tactical gear",
+    "Military uniforms",
+    "Airsoft & paintball",
+    "Security uniforms",
+    "Interchangeable badges",
+    "Team morale patches"
+  ],
+  "features": [
+    {
+      "title": "Hook & Loop Backing",
+      "description": "Standard Velcro-compatible backing that attaches securely and removes cleanly."
+    },
+    {
+      "title": "Interchangeable Design",
+      "description": "Swap patches between gear — perfect for role-based or mission-specific insignia."
+    },
+    {
+      "title": "Durable Construction",
+      "description": "Available in embroidered, woven or PVC — combined with heavy-duty hook-and-loop backing."
+    }
+  ],
+  "customOptionsTitle": "Custom Options",
+  "customOptions": [
+    "Embroidered, woven or PVC patch face",
+    "Hook (rough) or loop (soft) backing",
+    "Custom size and shape",
+    "Individual or bulk packaging"
+  ],
+  "typeOptionsTitle": "Patch Types",
+  "typeOptions": [
+    {
+      "title": "Embroidered + Velcro",
+      "description": "Classic stitched look with removable hook-and-loop backing."
+    },
+    {
+      "title": "PVC + Velcro",
+      "description": "Durable rubber patch with Velcro — popular for tactical applications."
+    }
+  ],
+  "faqs": [],
+  "ctaHeading": "Need Custom Velcro Patches?",
+  "relatedProductSlugs": [],
+  "moqDisclaimer": "",
+  "packagingDelivery": "",
+  "images": [],
+  "createdAt": "2026-08-10T07:51:32.210Z",
+  "updatedAt": "2026-08-10T07:51:32.210Z",
+  "publishedAt": "2026-08-10T08:30:00.000Z"
+}

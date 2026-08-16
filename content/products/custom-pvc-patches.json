@@ -1,0 +1,136 @@
+{
+  "type": "product",
+  "name": "Custom PVC Patches",
+  "slug": "custom-pvc-patches",
+  "group": "patches",
+  "urlPrefix": "/products",
+  "status": "published",
+  "displayOrder": 3,
+  "availableForQuote": true,
+  "quoteFormKey": "Custom PVC Patches",
+  "metaTitle": "Custom PVC Patches Manufacturer — Durable Rubber Patches | KaKa Patches",
+  "metaDescription": "B2B custom PVC patches with durable rubber-like texture for outdoor gear, tactical products, sportswear and bags. Factory-direct production with 2D/3D options.",
+  "ogTitle": "",
+  "ogDescription": "",
+  "ogImage": "",
+  "heroBadge": "Custom Patch Product",
+  "h1": "Custom PVC <span class=\"text-blue-400\">Patches</span>",
+  "heroSubtitle": "Durable rubber-like patches with 2D and 3D options. Best for outdoor gear, tactical products, sportswear, bags, caps and high-use environments.",
+  "heroHighlights": [
+    {
+      "label": "Material",
+      "value": "Soft flexible PVC rubber"
+    },
+    {
+      "label": "Waterproof",
+      "value": "Yes — inherently waterproof"
+    },
+    {
+      "label": "Best For",
+      "value": "Outdoor, tactical & sports"
+    },
+    {
+      "label": "MOQ",
+      "value": "200 pcs/design"
+    },
+    {
+      "label": "Lead Time",
+      "value": "2–3 weeks"
+    }
+  ],
+  "overviewParagraphs": [
+    "Custom PVC patches are made from soft, flexible polyvinyl chloride — a rubber-like material injected into custom molds. The result is a durable, waterproof patch with a distinctive modern appearance. Good for flexible and weather-resistant branding."
+  ],
+  "buyerTypes": [
+    "Outdoor & tactical brands",
+    "Sports & athletic companies",
+    "Headwear & cap brands",
+    "Bag & accessory manufacturers",
+    "Promotional product distributors",
+    "Corporate branding buyers"
+  ],
+  "applications": [
+    "Outdoor gear",
+    "Tactical products",
+    "Sportswear",
+    "Bags & backpacks",
+    "Caps & headwear",
+    "Water bottles",
+    "Keychains",
+    "Product badges"
+  ],
+  "features": [
+    {
+      "title": "Extreme Durability",
+      "description": "PVC patches are made from soft, flexible rubber that withstands weather, abrasion, washing and heavy use."
+    },
+    {
+      "title": "Waterproof & Weatherproof",
+      "description": "Unlike fabric-based patches, PVC is inherently waterproof — perfect for outdoor gear and all-weather applications."
+    },
+    {
+      "title": "Bold 2D & 3D Relief",
+      "description": "PVC patches can be produced in 2D or 3D, creating a striking dimensional effect."
+    },
+    {
+      "title": "Modern Technical Look",
+      "description": "The clean, rubberized look appeals to tactical, outdoor, sports and streetwear brands."
+    }
+  ],
+  "customOptionsTitle": "Customize Your PVC Patches",
+  "customOptions": [
+    "2D or 3D PVC design",
+    "Custom shape die-cut",
+    "PMS color matching",
+    "Sew-on, Velcro or adhesive backing",
+    "Multi-color PVC layers",
+    "Individual or bulk packaging",
+    "Logo, badge, mascot or text designs",
+    "Sample and bulk production support"
+  ],
+  "typeOptionsTitle": "Backing Options",
+  "typeOptions": [
+    {
+      "title": "Velcro",
+      "description": "Most popular for PVC — easy attachment and removal on tactical gear and bags."
+    },
+    {
+      "title": "Sew-on",
+      "description": "Permanent attachment where the patch won't need to be removed."
+    },
+    {
+      "title": "Adhesive",
+      "description": "Peel-and-stick for promotional items and temporary applications."
+    }
+  ],
+  "faqs": [
+    {
+      "question": "What are PVC patches made of?",
+      "answer": "PVC patches are made from soft polyvinyl chloride — a flexible, rubber-like material injected into custom molds. The result is a durable, waterproof patch with a distinctive modern appearance."
+    },
+    {
+      "question": "2D vs 3D PVC?",
+      "answer": "2D PVC patches have a flat surface with recessed color areas. 3D PVC patches have raised elements at different heights, creating a sculptural effect."
+    },
+    {
+      "question": "Are PVC patches waterproof?",
+      "answer": "Yes. PVC is inherently waterproof and weatherproof, making these patches ideal for outdoor gear and products exposed to elements."
+    },
+    {
+      "question": "What backing works best?",
+      "answer": "Velcro backing is the most popular for PVC patches, especially for tactical and outdoor applications. Sew-on and adhesive are also available."
+    },
+    {
+      "question": "How do I get a quote?",
+      "answer": "Upload your artwork via our Request a Quote page. We respond with a detailed quote — typically within 1 business day."
+    }
+  ],
+  "ctaHeading": "Need Durable PVC Patches?",
+  "relatedProductSlugs": [],
+  "moqDisclaimer": "",
+  "packagingDelivery": "",
+  "images": [],
+  "createdAt": "2026-08-10T07:51:32.210Z",
+  "updatedAt": "2026-08-10T07:51:32.210Z",
+  "publishedAt": "2026-08-10T07:51:32.210Z"
+}

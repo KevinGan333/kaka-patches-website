@@ -1,0 +1,94 @@
+{
+  "type": "product",
+  "name": "Custom Printed Labels",
+  "slug": "custom-printed-labels",
+  "group": "labels-transfers",
+  "urlPrefix": "/products",
+  "status": "published",
+  "displayOrder": 11,
+  "availableForQuote": true,
+  "quoteFormKey": "Custom Printed Labels",
+  "metaTitle": "Custom Printed Labels Manufacturer | KaKa Patches",
+  "metaDescription": "Full-color custom printed labels on satin, cotton, Tyvek or coated stock. Factory-direct B2B production.",
+  "ogTitle": "",
+  "ogDescription": "",
+  "ogImage": "",
+  "heroBadge": "Labels & Transfers",
+  "h1": "Custom Printed <span class=\"text-blue-400\">Labels</span>",
+  "heroSubtitle": "Full-color printed labels on satin, cotton, Tyvek or coated stock for vibrant brand identification.",
+  "heroHighlights": [
+    {
+      "label": "Print",
+      "value": "Full color on multiple materials"
+    },
+    {
+      "label": "Best For",
+      "value": "Fashion & accessories"
+    },
+    {
+      "label": "MOQ",
+      "value": "200 pcs/design"
+    },
+    {
+      "label": "Lead Time",
+      "value": "2–3 weeks"
+    }
+  ],
+  "overviewParagraphs": [
+    "Custom printed labels use high-quality printing onto satin, cotton, Tyvek or coated paper stock for vibrant, full-color brand identification. Ideal for hang tags, care labels and accessory branding."
+  ],
+  "buyerTypes": [
+    "Fashion & accessories brands",
+    "Apparel manufacturers",
+    "Promotional product companies",
+    "Retail private label"
+  ],
+  "applications": [
+    "Hang tags",
+    "Brand labels",
+    "Care labels",
+    "Accessory tags",
+    "Promotional labels"
+  ],
+  "features": [
+    {
+      "title": "Full-Color Printing",
+      "description": "Vibrant CMYK printing captures complex artwork and gradients."
+    },
+    {
+      "title": "Multiple Materials",
+      "description": "Satin, cotton, Tyvek and coated stock for different looks."
+    }
+  ],
+  "customOptionsTitle": "Custom Options",
+  "customOptions": [
+    "Satin, cotton or Tyvek material",
+    "Full-color print",
+    "Custom size and die-cut shape",
+    "Sew-on or adhesive application"
+  ],
+  "typeOptionsTitle": "Material Types",
+  "typeOptions": [
+    {
+      "title": "Satin",
+      "description": "Smooth, lustrous finish — ideal for fashion brand labels."
+    },
+    {
+      "title": "Cotton",
+      "description": "Natural, soft feel — popular for eco-conscious brands."
+    },
+    {
+      "title": "Tyvek",
+      "description": "Durable, tear-resistant synthetic — ideal for outdoor and heavy-use applications."
+    }
+  ],
+  "faqs": [],
+  "ctaHeading": "Need Custom Printed Labels?",
+  "relatedProductSlugs": [],
+  "moqDisclaimer": "",
+  "packagingDelivery": "",
+  "images": [],
+  "createdAt": "2026-08-10T07:51:32.210Z",
+  "updatedAt": "2026-08-10T07:51:32.210Z",
+  "publishedAt": "2026-08-10T07:51:32.210Z"
+}

@@ -28,5 +28,5 @@ export async function POST(request: Request) {
     };
     const created = await createContent("resources", item);
     return Response.json({ success: true, item: created });
-  } catch (e) { return Response.json({ error: "Failed to create resource." }, { status: 500 }); }
+  } catch { return Response.json({ error: "Failed to create resource." }, { status: 500 }); }
 }

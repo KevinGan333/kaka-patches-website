@@ -89,8 +89,9 @@ export default function AdminNewResourcePage() {
         return;
       }
       router.push("/admin/content/resources");
-    } catch (err: any) {
-      setErrors({ _form: err.message || "An error occurred" });
+    } catch (err: unknown) {
+      const message = err instanceof Error ? err.message : "An error occurred";
+      setErrors({ _form: message });
     } finally {
       setSaving(false);
     }

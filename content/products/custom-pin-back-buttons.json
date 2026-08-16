@@ -1,0 +1,98 @@
+{
+  "type": "product",
+  "name": "Custom Pin-Back Buttons",
+  "slug": "custom-pin-back-buttons",
+  "group": "accessories",
+  "urlPrefix": "/custom-accessories",
+  "status": "published",
+  "displayOrder": 23,
+  "availableForQuote": true,
+  "quoteFormKey": "Custom Pin-Back Buttons",
+  "metaTitle": "Custom Pin-Back Buttons Manufacturer | KaKa Patches",
+  "metaDescription": "Metal shell pin-back buttons with full-color printed inserts for campaign promotions, event merchandise and fundraising items.",
+  "ogTitle": "",
+  "ogDescription": "",
+  "ogImage": "",
+  "heroBadge": "Metal Shell + Printed Insert",
+  "h1": "Custom Pin-Back <span class=\"text-blue-400\">Buttons</span>",
+  "heroSubtitle": "Metal shell buttons with full-color printed inserts for campaigns, events and fundraising merchandise.",
+  "heroHighlights": [
+    {
+      "label": "Material",
+      "value": "Metal shell + Mylar cover"
+    },
+    {
+      "label": "Print",
+      "value": "Full-color insert"
+    },
+    {
+      "label": "Best For",
+      "value": "Campaigns & events"
+    },
+    {
+      "label": "MOQ",
+      "value": "200 pcs/design"
+    },
+    {
+      "label": "Lead Time",
+      "value": "2–3 weeks"
+    }
+  ],
+  "overviewParagraphs": [
+    "Custom pin-back buttons feature a metal shell with a printed insert protected by a clear Mylar cover. The classic pin-back design is instantly recognizable and popular for campaigns, events, fundraisers and promotional merchandise."
+  ],
+  "buyerTypes": [
+    "Campaign & advocacy groups",
+    "Event organizers",
+    "Fundraising organizations",
+    "Promotional product companies"
+  ],
+  "applications": [
+    "Campaign buttons",
+    "Event merchandise",
+    "Fundraising items",
+    "Band & music merch",
+    "Promotional giveaways"
+  ],
+  "features": [
+    {
+      "title": "Classic Design",
+      "description": "The traditional pin-back button format — instantly recognizable and collectible."
+    },
+    {
+      "title": "Full-Color Insert",
+      "description": "Vibrant printed insert under protective Mylar cover for lasting color."
+    }
+  ],
+  "customOptionsTitle": "Customize Your Buttons",
+  "customOptions": [
+    "Standard or custom sizes",
+    "Full-color printed insert",
+    "Metal shell finish options",
+    "Individual or bulk packaging"
+  ],
+  "typeOptionsTitle": "Size Options",
+  "typeOptions": [
+    {
+      "title": "1 inch (25mm)",
+      "description": "Standard small size — most popular for campaign and cause buttons."
+    },
+    {
+      "title": "1.5 inch (38mm)",
+      "description": "Medium size with more visible design area."
+    },
+    {
+      "title": "2.25 inch (58mm)",
+      "description": "Large format for maximum visual impact."
+    }
+  ],
+  "faqs": [],
+  "ctaHeading": "Need Custom Pin-Back Buttons?",
+  "relatedProductSlugs": [],
+  "moqDisclaimer": "",
+  "packagingDelivery": "",
+  "images": [],
+  "createdAt": "2026-08-10T07:51:32.210Z",
+  "updatedAt": "2026-08-10T07:51:32.210Z",
+  "publishedAt": "2026-08-10T07:51:32.210Z"
+}

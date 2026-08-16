@@ -70,7 +70,7 @@ All product pages include Request a Quote CTAs above the fold.
 Headline 1: **Custom {Patch Type} Manufacturer**
 Headline 2: **Factory-Direct Bulk Pricing**
 Headline 3: **Free Artwork Review — Quote Today**
-Description: Factory-direct custom patch production for B2B buyers. Bulk orders from 100 to 100,000+ pieces. Free artwork review and fast quote response.
+Description: Factory-direct custom patch production for B2B buyers. Bulk orders from 200 to 100,000+ pieces. Free artwork review and fast quote response.
 
 ## Extensions
 

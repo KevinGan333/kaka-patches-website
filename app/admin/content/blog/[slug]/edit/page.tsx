@@ -7,19 +7,6 @@ import { useState, useEffect } from "react";
 const fieldClass = "rounded-lg border border-slate-300 px-3 py-2 text-sm w-full";
 const labelClass = "block text-sm font-medium text-slate-700 mb-1";
 
-const statusBadge = (status: string) => {
-  const colors: Record<string, string> = {
-    draft: "bg-gray-100 text-gray-700",
-    published: "bg-green-100 text-green-700",
-    archived: "bg-red-100 text-red-700",
-  };
-  return (
-    <span className={`inline-block rounded-full px-2.5 py-0.5 text-xs font-medium ${colors[status] || "bg-gray-100 text-gray-700"}`}>
-      {status}
-    </span>
-  );
-};
-
 export default function AdminEditBlogPage() {
   const router = useRouter();
   const { slug } = useParams<{ slug: string }>();
@@ -69,8 +56,8 @@ export default function AdminEditBlogPage() {
           seoDescription: post.seoDescription || "",
           content: post.contentMarkdown || post.content || "",
         });
-      } catch (err: any) {
-        setLoadError(err.message || "An error occurred while loading this post");
+      } catch (err: unknown) {
+        setLoadError(err instanceof Error ? err.message : "An error occurred while loading this post");
       } finally {
         setLoading(false);
       }
@@ -135,8 +122,8 @@ export default function AdminEditBlogPage() {
         return;
       }
       router.push("/admin/content/blog");
-    } catch (err: any) {
-      setErrors({ _form: err.message || "An error occurred" });
+    } catch (err: unknown) {
+      setErrors({ _form: err instanceof Error ? err.message : "An error occurred" });
     } finally {
       setSaving(false);
     }
@@ -157,8 +144,8 @@ export default function AdminEditBlogPage() {
         return;
       }
       router.push("/admin/content/blog");
-    } catch (err: any) {
-      alert(err.message || "An error occurred");
+    } catch (err: unknown) {
+      alert(err instanceof Error ? err.message : "An error occurred");
     } finally {
       setArchiving(false);
     }
