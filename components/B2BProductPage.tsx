@@ -226,7 +226,7 @@ export default async function B2BProductPage({ product }: { product: ProductPage
       <section className="border-b border-slate-100 py-12 md:py-16">
         <div className="mx-auto grid max-w-7xl gap-10 px-6 lg:grid-cols-12 lg:items-start">
           {/* Left 55% — gallery */}
-          <div className="lg:col-span-7">
+          <div className="min-w-0 lg:col-span-7">
             <ProductHeroGallery images={galleryImages} />
           </div>
 
