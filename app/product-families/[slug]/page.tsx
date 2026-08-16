@@ -3,7 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import ProductImageSlot from "@/components/ProductImageSlot";
 import { BreadcrumbListSchema } from "@/components/JsonLd";
-import { getFamilyBySlug, getFamilyForProduct } from "@/lib/product-families";
+import { getFamilyBySlug, getFamilyForProduct, getProductGridClass } from "@/lib/product-families";
 import { getProductList } from "@/lib/admin/products";
 
 export async function generateMetadata({
@@ -64,7 +64,7 @@ export default async function ProductFamilyPage({
           </div>
 
           {products.length > 0 ? (
-            <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            <div className={`mt-12 grid gap-6 ${getProductGridClass(products.length)}`}>
               {products.map((product) => (
                 <Link
                   key={product.slug}

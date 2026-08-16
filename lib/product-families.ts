@@ -128,3 +128,17 @@ export function getFamilyForProduct(product: Pick<ProductPage, "familySlug" | "s
 export function getFamilySlugForProduct(product: Pick<ProductPage, "familySlug" | "slug">): string | null {
   return product.familySlug || SLUG_TO_FAMILY[product.slug] || null;
 }
+
+/**
+ * Responsive column layout for a family's product grid, chosen by how many
+ * published products it has, so no row is left with a dangling empty column.
+ *
+ * - 2 products → two equal, centered columns (compact max width)
+ * - 4 products → four columns on wide desktop, two on medium, one on mobile
+ * - 3 / larger → the balanced three-column layout (two on medium, one on mobile)
+ */
+export function getProductGridClass(count: number): string {
+  if (count === 2) return "mx-auto max-w-4xl sm:grid-cols-2";
+  if (count === 4) return "sm:grid-cols-2 xl:grid-cols-4";
+  return "sm:grid-cols-2 lg:grid-cols-3";
+}

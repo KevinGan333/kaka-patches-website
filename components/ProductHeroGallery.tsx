@@ -23,7 +23,7 @@ function GalleryIcon({ className = "h-6 w-6" }: { className?: string }) {
  * lightbox on click/tap. Every slot renders as a designed placeholder until a
  * real image is assigned at its canonical path.
  */
-export default function ProductHeroGallery({ images }: { images: HeroGalleryImage[] }) {
+export default function ProductHeroGallery({ images, isProduction = false }: { images: HeroGalleryImage[]; isProduction?: boolean }) {
   const [active, setActive] = useState(0);
   const [lightbox, setLightbox] = useState(false);
 
@@ -67,8 +67,14 @@ export default function ProductHeroGallery({ images }: { images: HeroGalleryImag
                 <GalleryIcon className="h-6 w-6" />
               </span>
               <p className="text-sm font-semibold text-slate-700">{current.title}</p>
-              <p className="text-[11px] font-medium uppercase tracking-wide text-slate-400">Recommended: 1600 × 1200 px, 4:3</p>
-              <p className="max-w-full break-all rounded bg-white/80 px-2 py-1 font-mono text-[10px] leading-4 text-slate-500">{current.slotPath}</p>
+              {isProduction ? (
+                <p className="text-[11px] font-medium uppercase tracking-wide text-slate-400">Product image</p>
+              ) : (
+                <>
+                  <p className="text-[11px] font-medium uppercase tracking-wide text-slate-400">Recommended: 1600 × 1200 px, 4:3</p>
+                  <p className="max-w-full break-all rounded bg-white/80 px-2 py-1 font-mono text-[10px] leading-4 text-slate-500">{current.slotPath}</p>
+                </>
+              )}
             </div>
           )}
         </div>

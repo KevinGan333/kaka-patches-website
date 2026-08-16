@@ -88,10 +88,11 @@ export default async function B2BProductPage({ product }: { product: ProductPage
   const chips = product.customizationChips?.length ? product.customizationChips : DEFAULT_CHIPS;
   const buyerSummary = product.buyerSummary || product.heroSubtitle;
   const displayName = product.displayName || product.name;
+  const isProduction = process.env.VERCEL_ENV === "production";
 
   // ── Hero gallery ──
   const assignedImages = (product.images || []).filter((i) => i.url);
-  const galleryImages: HeroGalleryImage[] =
+  let galleryImages: HeroGalleryImage[] =
     assignedImages.length > 0
       ? assignedImages.map((img) => ({ src: img.url, slotPath: img.url, title: img.alt || product.name, alt: img.alt }))
       : [
@@ -103,10 +104,23 @@ export default async function B2BProductPage({ product }: { product: ProductPage
           { slotPath: `${slotBase(product.slug)}/gallery-closeup.webp`, title: "Close-Up Texture" },
         ].map((s) => ({ ...s, src: resolveImageSrc(s.slotPath), alt: `${displayName} — ${s.title}` }));
 
+  // The client gallery serializes `slotPath` into the RSC payload; in Production
+  // swap the internal asset path for an opaque key so no path leaks into the DOM.
+  if (isProduction) {
+    galleryImages = galleryImages.map((img, i) => ({ ...img, slotPath: `slot-${i + 1}` }));
+  }
+
   // ── Decision guide (Section C) ──
   const dg = product.decisionGuide || {};
   const bestFor = dg.bestFor?.length ? dg.bestFor : product.buyerTypes;
   const notIdealFor = dg.notIdealFor || [];
+  const decisionCardCount = (bestFor.length > 0 ? 1 : 0) + (notIdealFor.length > 0 ? 1 : 0) + 1;
+  const decisionGridClass =
+    decisionCardCount === 1
+      ? "mx-auto max-w-xl"
+      : decisionCardCount === 2
+        ? "mx-auto max-w-6xl md:grid-cols-2"
+        : "md:grid-cols-3";
 
   // ── Detail gallery (Section D) ──
   const detailGallery = product.detailGallery?.length
@@ -226,7 +240,7 @@ export default async function B2BProductPage({ product }: { product: ProductPage
         <div className="mx-auto grid max-w-7xl gap-10 px-6 lg:grid-cols-12 lg:items-start">
           {/* Left 55% — gallery */}
           <div className="min-w-0 lg:col-span-7">
-            <ProductHeroGallery images={galleryImages} />
+            <ProductHeroGallery images={galleryImages} isProduction={isProduction} />
           </div>
 
           {/* Right 45% — info */}
@@ -274,7 +288,7 @@ export default async function B2BProductPage({ product }: { product: ProductPage
         <section className="py-16 md:py-20">
           <div className="mx-auto max-w-7xl px-6">
             <SectionHeading eyebrow="Buyer Decision Guide" title="Is This the Right Product for Your Project?" />
-            <div className="mt-12 grid gap-6 md:grid-cols-3">
+            <div className={`mt-12 grid gap-6 ${decisionGridClass}`}>
               {bestFor.length > 0 && (
                 <div className="rounded-3xl border border-slate-200 bg-white p-7">
                   <h3 className="flex items-center gap-2 text-lg font-bold text-slate-900">

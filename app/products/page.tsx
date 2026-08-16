@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import ProductImageSlot from "@/components/ProductImageSlot";
-import { PRODUCT_FAMILIES, getFamilySlugForProduct } from "@/lib/product-families";
+import { PRODUCT_FAMILIES, getFamilySlugForProduct, getProductGridClass } from "@/lib/product-families";
 import { getProductList, type ProductPage } from "@/lib/admin/products";
 
 export const metadata: Metadata = {
@@ -194,7 +194,7 @@ export default async function ProductsPage() {
                 </div>
 
                 {products.length > 0 && (
-                  <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+                  <div className={`mt-8 grid gap-5 ${getProductGridClass(products.length)}`}>
                     {products.map((p) => (
                       <Link
                         key={p.slug}
