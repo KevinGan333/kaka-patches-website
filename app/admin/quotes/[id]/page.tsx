@@ -5,69 +5,119 @@ import { useRouter, useParams } from "next/navigation";
 import Link from "next/link";
 import StatusBadge from "@/components/admin/StatusBadge";
 
+// ── Data model ────────────────────────────────────────────────────────────────
+// The detail API (`GET /api/admin/quotes/[id]`) returns the raw flat snake_case
+// Postgres row from `getQuoteRequestById()` (SELECT *). Every field below mirrors
+// that row. Optional fields that only exist on newer schemas (utm_*, product_category,
+// packaging_preference, etc.) are declared so the page stays forward-compatible and
+// simply renders "Not provided" when a column is absent on this database.
 interface QuoteNote {
   id: string;
   content: string;
   created_at?: string;
-  createdAt?: string;
 }
 
-// Matches flat structure from quote-db.ts
 interface Quote {
   id: string;
   quote_number: string;
   name: string;
   email: string;
-  company?: string;
-  quantity?: string;
-  quantity_per_design?: string;
-  number_of_designs?: string;
-  delivery?: string;
-  product_category?: string;
-  patch_type?: string;
-  patch_size?: string;
-  backing?: string;
-  border_option?: string;
-  design_notes?: string;
-  project_type?: string;
-  packaging_preference?: string;
-  message?: string;
-  artwork_filename?: string;
-  artwork_url?: string;
-  artwork_size?: number;
-  artwork_type?: string;
-  email_sent?: boolean;
-  email_error?: string;
+  company?: string | null;
+  quantity?: string | null;
+  quantity_per_design?: string | null;
+  number_of_designs?: string | null;
+  delivery?: string | null;
+  product_category?: string | null;
+  patch_type?: string | null;
+  patch_size?: string | null;
+  backing?: string | null;
+  border_option?: string | null;
+  design_notes?: string | null;
+  style_reference?: string | null;
+  project_type?: string | null;
+  packaging_preference?: string | null;
+  message?: string | null;
+  artwork_filename?: string | null;
+  artwork_url?: string | null;
+  artwork_size?: number | null;
+  artwork_type?: string | null;
+  email_sent?: boolean | null;
+  email_error?: string | null;
   status?: string;
   notes?: QuoteNote[];
-  source?: string;
-  utm_source?: string;
-  utm_medium?: string;
-  utm_campaign?: string;
+  source?: string | null;
+  utm_source?: string | null;
+  utm_medium?: string | null;
+  utm_campaign?: string | null;
+  utm_content?: string | null;
+  utm_term?: string | null;
+  first_landing_page?: string | null;
+  referrer?: string | null;
   created_at?: string;
   updated_at?: string;
 }
 
-function Row({ label, value }: { label: string; value?: string | null }) {
+// ── UI helpers ────────────────────────────────────────────────────────────────
+
+const EMPTY = "Not provided";
+
+function Row({ label, value }: { label: string; value?: string | number | null }) {
+  const has = value !== undefined && value !== null && String(value).trim() !== "";
   return (
-    <div className="flex justify-between border-b border-slate-100 py-2.5 text-sm">
-      <span className="font-semibold text-slate-500">{label}</span>
-      <span className="text-slate-800 text-right max-w-[55%]">{value || "—"}</span>
+    <div className="flex items-start justify-between gap-4 border-b border-slate-100 py-2.5 text-sm last:border-0">
+      <span className="shrink-0 font-semibold text-slate-500">{label}</span>
+      <span className={`break-words text-right ${has ? "text-slate-800" : "italic text-slate-400"}`}>
+        {has ? String(value) : EMPTY}
+      </span>
     </div>
   );
 }
 
-const statusOptions = ["New", "Reviewed", "Quoted", "Waiting for Customer", "In Production", "Closed"];
+function Section({ title, children }: { title: string; children: React.ReactNode }) {
+  return (
+    <div className="rounded-xl border border-slate-200 bg-white p-6">
+      <h3 className="mb-4 text-base font-bold text-slate-900">{title}</h3>
+      {children}
+    </div>
+  );
+}
 
-const statusMap: Record<string, string> = {
-  "New": "new", "Reviewed": "reviewed", "Quoted": "quoted",
-  "Waiting for Customer": "waiting_for_customer", "In Production": "in_production", "Closed": "closed",
-};
-const reverseStatusMap: Record<string, string> = {
-  "new": "New", "reviewed": "Reviewed", "quoted": "Quoted",
-  "waiting_for_customer": "Waiting for Customer", "in_production": "In Production", "closed": "Closed",
-};
+function formatBytes(size?: number | null): string | null {
+  if (size === undefined || size === null) return null;
+  if (size >= 1024 * 1024) return `${(size / (1024 * 1024)).toFixed(2)} MB`;
+  if (size >= 1024) return `${(size / 1024).toFixed(1)} KB`;
+  return `${size} B`;
+}
 
+const PREVIEWABLE_TYPES = ["png", "jpg", "jpeg", "gif", "webp", "svg"];
+
+function isPreviewableImage(artworkType?: string | null, filename?: string | null): boolean {
+  const mime = (artworkType || "").toLowerCase();
+  if (mime.startsWith("image/")) {
+    return true;
+  }
+  const ext = (filename || "").split(".").pop()?.toLowerCase() || "";
+  return PREVIEWABLE_TYPES.includes(ext);
+}
+
+function datetime(value?: string | null): string {
+  if (!value) return EMPTY;
+  const d = new Date(value);
+  if (Number.isNaN(d.getTime())) return value;
+  return d.toLocaleString();
+}
+
+// ── Status mapping (DB stores snake_case; API validates snake_case) ────────────
+const STATUS_OPTIONS: { label: string; value: string }[] = [
+  { label: "New", value: "new" },
+  { label: "Reviewed", value: "reviewed" },
+  { label: "Quoted", value: "quoted" },
+  { label: "Waiting for Customer", value: "waiting_for_customer" },
+  { label: "In Production", value: "in_production" },
+  { label: "Closed", value: "closed" },
+];
+
+// ── Page ──────────────────────────────────────────────────────────────────────
 export default function QuoteDetailPage() {
   const params = useParams();
   const id = params.id as string;
@@ -75,6 +125,7 @@ export default function QuoteDetailPage() {
 
   const [quote, setQuote] = useState<Quote | null>(null);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
   const [status, setStatus] = useState("");
   const [noteText, setNoteText] = useState("");
   const [saving, setSaving] = useState(false);
@@ -83,185 +134,311 @@ export default function QuoteDetailPage() {
   useEffect(() => {
     let cancelled = false;
     async function load() {
+      setLoading(true);
+      setError(null);
       try {
         const res = await fetch(`/api/admin/quotes/${id}`);
-        if (res.status === 401) { router.push("/admin/login"); return; }
-        const data = await res.json();
-        if (!cancelled && data.quote) {
-          setQuote(data.quote);
-          setStatus(reverseStatusMap[data.quote.status] || data.quote.status || "New");
+        if (res.status === 401 || res.status === 403) {
+          router.push("/admin/login");
+          return;
         }
-      } catch { if (!cancelled) console.error("Load failed"); }
-      finally { if (!cancelled) setLoading(false); }
+        if (res.status === 404) {
+          if (!cancelled) { setQuote(null); setError("not_found"); }
+          return;
+        }
+        if (!res.ok) {
+          if (!cancelled) setError("unable");
+          return;
+        }
+        const data = await res.json();
+        if (!cancelled) {
+          if (data.quote) {
+            setQuote(data.quote);
+            setStatus(data.quote.status || "new");
+          } else {
+            setError("not_found");
+          }
+        }
+      } catch {
+        if (!cancelled) setError("unable");
+      } finally {
+        if (!cancelled) setLoading(false);
+      }
     }
     load();
     return () => { cancelled = true; };
   }, [id, router]);
 
   async function saveStatus(newStatus: string) {
-    setSaving(true); setSaved(false);
-    await fetch(`/api/admin/quotes/${id}/status`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ status: statusMap[newStatus] || newStatus.toLowerCase() }),
-    });
-    setStatus(newStatus);
-    setQuote(prev => prev ? { ...prev, status: statusMap[newStatus] || newStatus.toLowerCase() } : prev);
-    setSaved(true); setTimeout(() => setSaved(false), 2000); setSaving(false);
+    setSaving(true);
+    setSaved(false);
+    try {
+      const res = await fetch(`/api/admin/quotes/${id}/status`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ status: newStatus }),
+      });
+      if (res.ok) {
+        setStatus(newStatus);
+        setQuote((prev) => (prev ? { ...prev, status: newStatus } : prev));
+        setSaved(true);
+        setTimeout(() => setSaved(false), 2000);
+      }
+    } catch {
+      /* status save is non-blocking */
+    } finally {
+      setSaving(false);
+    }
   }
 
   async function addNote() {
     if (!noteText.trim()) return;
     setSaving(true);
-    const res = await fetch(`/api/admin/quotes/${id}/notes`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ content: noteText.trim() }),
-    });
-    const data = await res.json();
-    if (data.quote) { setQuote(data.quote); setNoteText(""); setSaved(true); setTimeout(() => setSaved(false), 2000); }
-    setSaving(false);
+    try {
+      const res = await fetch(`/api/admin/quotes/${id}/notes`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ content: noteText.trim() }),
+      });
+      const data = await res.json();
+      if (data.quote) {
+        setQuote(data.quote);
+        setNoteText("");
+        setSaved(true);
+        setTimeout(() => setSaved(false), 2000);
+      }
+    } catch {
+      /* note save is non-blocking */
+    } finally {
+      setSaving(false);
+    }
   }
 
-  if (loading) return <div className="flex min-h-screen items-center justify-center"><p className="text-slate-400">Loading...</p></div>;
-  if (!quote) return <div className="flex min-h-screen items-center justify-center"><div className="text-center"><p className="text-lg font-bold">Quote Not Found</p><Link href="/admin/quotes" className="mt-2 inline-block text-sm text-blue-600">← Back</Link></div></div>;
+  // ── Explicit UI states ──────────────────────────────────────────────────────
+  if (loading) {
+    return (
+      <div className="flex min-h-screen items-center justify-center">
+        <p className="text-slate-400">Loading inquiry…</p>
+      </div>
+    );
+  }
 
-  const displayName = quote.name || "Unknown";
-  const displayEmail = quote.email || "";
-  const productCat = quote.product_category || quote.patch_type || "";
+  if (error === "not_found" || (!quote && !error)) {
+    return (
+      <div className="flex min-h-screen items-center justify-center">
+        <div className="text-center">
+          <p className="text-lg font-bold text-slate-800">Inquiry not found</p>
+          <p className="mt-1 text-sm text-slate-400">The inquiry may have been removed, or the link is invalid.</p>
+          <Link href="/admin/quotes" className="mt-4 inline-block rounded-lg bg-blue-600 px-4 py-2 text-sm font-semibold text-white hover:bg-blue-500">
+            ← Back to Quotes
+          </Link>
+        </div>
+      </div>
+    );
+  }
+
+  if (error === "unable") {
+    return (
+      <div className="flex min-h-screen items-center justify-center">
+        <div className="text-center">
+          <p className="text-lg font-bold text-slate-800">Unable to load inquiry details</p>
+          <p className="mt-1 text-sm text-slate-400">Something went wrong while fetching this inquiry.</p>
+          <Link href="/admin/quotes" className="mt-4 inline-block rounded-lg bg-blue-600 px-4 py-2 text-sm font-semibold text-white hover:bg-blue-500">
+            ← Back to Quotes
+          </Link>
+        </div>
+      </div>
+    );
+  }
+
+  // quote is guaranteed non-null here
+  const q = quote as Quote;
+  const product = q.product_category || q.patch_type || null;
+  const artworkPresent = Boolean(q.artwork_filename || q.artwork_url);
+  const previewable = isPreviewableImage(q.artwork_type, q.artwork_filename);
 
   return (
     <div className="px-6 py-8">
-      <div className="mb-6 flex items-center gap-3 text-sm">
+      <div className="mb-6 flex flex-wrap items-center gap-3 text-sm">
         <Link href="/admin/quotes" className="font-semibold text-blue-600 hover:text-blue-700">← Quotes</Link>
         <span className="text-slate-300">/</span>
-        <span className="font-bold text-slate-700">{displayName}</span>
-        <span className="text-xs text-slate-400 font-mono">{quote.quote_number}</span>
+        <span className="font-bold text-slate-700">{q.name || "Unknown"}</span>
+        <span className="text-xs font-mono text-slate-400">{q.quote_number}</span>
       </div>
 
       <div className="grid gap-6 lg:grid-cols-3">
-        {/* Main */}
-        <div className="lg:col-span-2 space-y-6">
-          {/* Summary */}
-          <div className="rounded-xl border border-slate-200 bg-white p-6">
-            <div className="flex items-center justify-between mb-4">
-              <h2 className="text-lg font-bold text-slate-900">Quote Summary</h2>
-              <StatusBadge status={status} />
+        {/* ── Main column ── */}
+        <div className="space-y-6 lg:col-span-2">
+          {/* A. Inquiry Identity */}
+          <Section title="Inquiry Identity">
+            <Row label="Inquiry number" value={q.quote_number} />
+            <Row label="Database ID" value={q.id} />
+            <div className="flex items-start justify-between gap-4 border-b border-slate-100 py-2.5 text-sm last:border-0">
+              <span className="shrink-0 font-semibold text-slate-500">Status</span>
+              <StatusBadge status={q.status} />
             </div>
-            <div className="grid gap-3 sm:grid-cols-2 text-xs">
-              <div><span className="text-slate-400">ID:</span> <span className="font-mono font-semibold">{quote.id}</span></div>
-              <div><span className="text-slate-400">Quote #:</span> <span className="font-mono font-semibold">{quote.quote_number}</span></div>
-              <div><span className="text-slate-400">Submitted:</span> <span className="font-semibold">{quote.created_at ? new Date(quote.created_at).toLocaleString() : "-"}</span></div>
-              <div><span className="text-slate-400">Email:</span> {quote.email_sent ? <span className="text-emerald-600 font-bold">Sent</span> : quote.email_error ? <span className="text-red-500 font-bold">Failed</span> : <span className="text-amber-500">—</span>}</div>
-              <div><span className="text-slate-400">Artwork:</span> {quote.artwork_filename ? <span className="text-emerald-600 font-bold">Uploaded</span> : <span className="text-slate-400">None</span>}</div>
-              <div><span className="text-slate-400">Source:</span> <span className="font-semibold">{quote.source || "website"}</span></div>
-            </div>
-          </div>
+            <Row label="Submission date" value={datetime(q.created_at)} />
+            <Row label="Source page" value={q.source} />
+            <Row label="Email delivery" value={q.email_sent ? "Sent" : q.email_error ? "Failed" : "Not sent"} />
+            {q.email_error && <Row label="Email error" value={q.email_error} />}
+          </Section>
 
-          {/* Customer */}
-          <div className="rounded-xl border border-slate-200 bg-white p-6">
-            <h3 className="text-base font-bold text-slate-900 mb-4">Customer</h3>
-            <Row label="Name" value={quote.name} />
-            <Row label="Email" value={quote.email} />
-            <Row label="Company" value={quote.company} />
+          {/* B. Contact Details */}
+          <Section title="Contact Details">
+            <Row label="Name" value={q.name} />
+            <Row label="Company" value={q.company} />
+            <Row label="Email" value={q.email} />
+            <Row label="Phone" value={null} />
+            <Row label="Country / region" value={null} />
             <div className="mt-4 flex gap-2">
-              <a href={`mailto:${displayEmail}`} className="rounded-lg border border-slate-300 px-3 py-1.5 text-xs font-semibold text-slate-600 hover:bg-slate-50">Send Email</a>
-              <button onClick={() => { navigator.clipboard.writeText(displayEmail); }} className="rounded-lg border border-slate-300 px-3 py-1.5 text-xs font-semibold text-slate-600 hover:bg-slate-50">Copy Email</button>
+              <a href={`mailto:${q.email}`} className="rounded-lg border border-slate-300 px-3 py-1.5 text-xs font-semibold text-slate-600 hover:bg-slate-50">Send Email</a>
+              <button onClick={() => { navigator.clipboard?.writeText(q.email); }} className="rounded-lg border border-slate-300 px-3 py-1.5 text-xs font-semibold text-slate-600 hover:bg-slate-50">Copy Email</button>
             </div>
-          </div>
+          </Section>
 
-          {/* Product Details */}
-          <div className="rounded-xl border border-slate-200 bg-white p-6">
-            <h3 className="text-base font-bold text-slate-900 mb-4">Product Details</h3>
-            <Row label="Product Category" value={productCat} />
-            <Row label="No. of Designs" value={quote.number_of_designs} />
-            <Row label="Qty Per Design" value={quote.quantity_per_design} />
-            <Row label="Total Qty" value={quote.quantity} />
-            <Row label="Patch / Product Size" value={quote.patch_size} />
-            <Row label="Backing" value={quote.backing} />
-            <Row label="Border" value={quote.border_option} />
-            <Row label="Design Notes" value={quote.design_notes} />
-          </div>
+          {/* C. Project Requirements */}
+          <Section title="Project Requirements">
+            <Row label="Product / category" value={product} />
+            <Row label="Quantity" value={q.quantity} />
+            <Row label="No. of designs" value={q.number_of_designs} />
+            <Row label="Qty per design" value={q.quantity_per_design} />
+            <Row label="Size" value={q.patch_size} />
+            <Row label="Backing / attachment" value={q.backing} />
+            <Row label="Border / edge finish" value={q.border_option} />
+            <Row label="Packaging" value={q.packaging_preference} />
+            <Row label="Design notes" value={q.design_notes} />
+            <Row label="Project type" value={q.project_type} />
+            <Row label="Required delivery date" value={q.delivery} />
+          </Section>
 
-          {/* Project Info */}
-          <div className="rounded-xl border border-slate-200 bg-white p-6">
-            <h3 className="text-base font-bold text-slate-900 mb-4">Project Info</h3>
-            <Row label="Project Type" value={quote.project_type} />
-            <Row label="Packaging" value={quote.packaging_preference} />
-            <Row label="Delivery" value={quote.delivery} />
-            {quote.message && <div className="mt-4 rounded-lg bg-slate-50 p-4 text-sm leading-7 text-slate-700">{quote.message}</div>}
-          </div>
+          {/* D. Customer Message */}
+          <Section title="Customer Message">
+            {q.message ? (
+              <p className="whitespace-pre-wrap text-sm leading-7 text-slate-700">{q.message}</p>
+            ) : (
+              <p className="text-sm italic text-slate-400">{EMPTY}</p>
+            )}
+          </Section>
 
-          {/* Artwork */}
-          <div className="rounded-xl border border-slate-200 bg-white p-6">
-            <h3 className="text-base font-bold text-slate-900 mb-4">Artwork</h3>
-            {quote.artwork_filename ? (
-              <div className="space-y-2 text-sm">
-                <Row label="Filename" value={quote.artwork_filename} />
-                <Row label="Type" value={quote.artwork_type} />
-                <Row label="Size" value={quote.artwork_size ? `${(quote.artwork_size / 1024).toFixed(1)} KB` : undefined} />
-                <Row label="Blob URL" value={quote.artwork_url} />
+          {/* E. Artwork */}
+          <Section title="Artwork">
+            {artworkPresent ? (
+              <div className="space-y-4">
+                <Row label="Filename" value={q.artwork_filename} />
+                <Row label="File type" value={q.artwork_type} />
+                <Row label="File size" value={formatBytes(q.artwork_size)} />
+                {q.artwork_url && (
+                  <div className="flex flex-wrap gap-2 pt-1">
+                    <a
+                      href={q.artwork_url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1.5 rounded-lg bg-blue-600 px-4 py-2 text-xs font-semibold text-white hover:bg-blue-500"
+                    >
+                      Open Artwork
+                      <svg className="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" /></svg>
+                    </a>
+                    <a
+                      href={q.artwork_url}
+                      download={q.artwork_filename || undefined}
+                      className="inline-flex items-center gap-1.5 rounded-lg border border-slate-300 px-4 py-2 text-xs font-semibold text-slate-600 hover:bg-slate-50"
+                    >
+                      Download
+                    </a>
+                  </div>
+                )}
+                {q.artwork_url && previewable ? (
+                  <div className="overflow-hidden rounded-lg border border-slate-200 bg-slate-50">
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img src={q.artwork_url} alt={q.artwork_filename || "Uploaded artwork"} className="max-h-96 w-full object-contain" />
+                  </div>
+                ) : (
+                  q.artwork_url && (
+                    <p className="rounded-lg bg-slate-50 p-4 text-sm text-slate-500">
+                      This file type cannot be previewed in the browser. Use{" "}
+                      <a href={q.artwork_url} target="_blank" rel="noopener noreferrer" className="font-semibold text-blue-600 hover:text-blue-700">
+                        Open Artwork
+                      </a>{" "}
+                      to view or download it.
+                    </p>
+                  )
+                )}
               </div>
-            ) : <p className="text-sm text-slate-400">No artwork uploaded.</p>}
-          </div>
+            ) : (
+              <p className="text-sm italic text-slate-400">No artwork provided</p>
+            )}
+          </Section>
 
-          {/* UTM */}
-          {(quote.utm_source || quote.utm_medium || quote.utm_campaign) && (
-            <div className="rounded-xl border border-slate-200 bg-white p-6">
-              <h3 className="text-base font-bold text-slate-900 mb-4">Marketing Attribution</h3>
-              <Row label="UTM Source" value={quote.utm_source} />
-              <Row label="UTM Medium" value={quote.utm_medium} />
-              <Row label="UTM Campaign" value={quote.utm_campaign} />
-            </div>
-          )}
-
-          {/* System Info */}
-          <div className="rounded-xl border border-slate-200 bg-white p-6">
-            <h3 className="text-base font-bold text-slate-900 mb-4">System Info</h3>
-            <Row label="Quote Number" value={quote.quote_number} />
-            <Row label="Created" value={quote.created_at ? new Date(quote.created_at).toLocaleString() : "-"} />
-            <Row label="Updated" value={quote.updated_at ? new Date(quote.updated_at).toLocaleString() : "-"} />
-            <Row label="Email Sent" value={quote.email_sent ? "Yes" : "No"} />
-            {quote.email_error && <Row label="Email Error" value={quote.email_error} />}
-          </div>
+          {/* F. Attribution */}
+          <Section title="Attribution">
+            <Row label="UTM source" value={q.utm_source} />
+            <Row label="UTM medium" value={q.utm_medium} />
+            <Row label="UTM campaign" value={q.utm_campaign} />
+            <Row label="UTM content" value={q.utm_content} />
+            <Row label="UTM term" value={q.utm_term} />
+            <Row label="Referrer" value={q.referrer} />
+            <Row label="Landing page" value={q.first_landing_page} />
+          </Section>
         </div>
 
-        {/* Sidebar */}
+        {/* ── Sidebar ── */}
         <div className="space-y-6">
           {/* Status */}
           <div className="rounded-xl border border-slate-200 bg-white p-6">
-            <h3 className="text-base font-bold text-slate-900 mb-4">Status</h3>
+            <h3 className="mb-4 text-base font-bold text-slate-900">Status</h3>
             <div className="space-y-2">
-              {statusOptions.map(s => (
-                <button key={s} onClick={() => saveStatus(s)} disabled={saving}
+              {STATUS_OPTIONS.map((s) => (
+                <button
+                  key={s.value}
+                  onClick={() => saveStatus(s.value)}
+                  disabled={saving}
                   className={`w-full rounded-lg border px-3 py-2 text-left text-sm font-semibold transition ${
-                    status === s ? "border-blue-300 bg-blue-50 text-blue-700" : "border-slate-200 text-slate-600 hover:bg-slate-50"
-                  }`}>{s}</button>
+                    status === s.value ? "border-blue-300 bg-blue-50 text-blue-700" : "border-slate-200 text-slate-600 hover:bg-slate-50"
+                  }`}
+                >
+                  {s.label}
+                </button>
               ))}
             </div>
-            {saved && <p className="mt-3 text-xs text-emerald-600 font-semibold">Status saved ✓</p>}
+            {saved && <p className="mt-3 text-xs font-semibold text-emerald-600">Status saved ✓</p>}
           </div>
 
           {/* Notes */}
           <div className="rounded-xl border border-slate-200 bg-white p-6">
-            <h3 className="text-base font-bold text-slate-900 mb-4">Internal Notes</h3>
-            {quote.notes && quote.notes.length > 0 && (
-              <div className="mb-4 space-y-3 max-h-60 overflow-y-auto">
-                {quote.notes.map((n) => (
+            <h3 className="mb-4 text-base font-bold text-slate-900">Internal Notes</h3>
+            {q.notes && q.notes.length > 0 && (
+              <div className="mb-4 max-h-60 space-y-3 overflow-y-auto">
+                {q.notes.map((n) => (
                   <div key={n.id} className="rounded-lg bg-slate-50 p-3 text-xs">
-                    <p className="text-slate-700">{n.content}</p>
-                    <p className="mt-1 text-slate-400">{new Date(n.created_at || n.createdAt || "").toLocaleString()}</p>
+                    <p className="whitespace-pre-wrap text-slate-700">{n.content}</p>
+                    <p className="mt-1 text-slate-400">{datetime(n.created_at)}</p>
                   </div>
                 ))}
               </div>
             )}
-            <textarea value={noteText} onChange={e => setNoteText(e.target.value)} rows={3}
-              className="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm" placeholder="Add a note..." />
-            <button onClick={addNote} disabled={saving || !noteText.trim()}
-              className="mt-2 w-full rounded-lg bg-slate-900 py-2 text-xs font-semibold text-white hover:bg-slate-800 disabled:opacity-40">
+            <textarea
+              value={noteText}
+              onChange={(e) => setNoteText(e.target.value)}
+              rows={3}
+              className="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm"
+              placeholder="Add a note..."
+            />
+            <button
+              onClick={addNote}
+              disabled={saving || !noteText.trim()}
+              className="mt-2 w-full rounded-lg bg-slate-900 py-2 text-xs font-semibold text-white hover:bg-slate-800 disabled:opacity-40"
+            >
               Add Note
             </button>
-            {saved && <p className="mt-2 text-xs text-emerald-600 font-semibold">Note saved ✓</p>}
+            {saved && <p className="mt-2 text-xs font-semibold text-emerald-600">Note saved ✓</p>}
+          </div>
+
+          {/* System */}
+          <div className="rounded-xl border border-slate-200 bg-white p-6">
+            <h3 className="mb-4 text-base font-bold text-slate-900">System Info</h3>
+            <Row label="Created" value={datetime(q.created_at)} />
+            <Row label="Updated" value={datetime(q.updated_at)} />
+            <Row label="Email sent" value={q.email_sent ? "Yes" : "No"} />
           </div>
         </div>
       </div>
