@@ -104,7 +104,7 @@ export async function POST(request: Request) {
             const blobPath = `quote-artwork/${year}/${month}/${originalFileName}`;
 
             const blob = await put(blobPath, artwork, {
-              access: "public",
+              access: "private",
               token: blobToken,
             });
 

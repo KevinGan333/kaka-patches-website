@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { useRouter, useParams } from "next/navigation";
 import Link from "next/link";
 import StatusBadge from "@/components/admin/StatusBadge";
+import { adminArtworkEndpoint, isPreviewableImage } from "@/lib/admin/artwork";
 
 // ── Data model ────────────────────────────────────────────────────────────────
 // The detail API (`GET /api/admin/quotes/[id]`) returns the raw flat snake_case
@@ -87,17 +88,6 @@ function formatBytes(size?: number | null): string | null {
   if (size >= 1024 * 1024) return `${(size / (1024 * 1024)).toFixed(2)} MB`;
   if (size >= 1024) return `${(size / 1024).toFixed(1)} KB`;
   return `${size} B`;
-}
-
-const PREVIEWABLE_TYPES = ["png", "jpg", "jpeg", "gif", "webp", "svg"];
-
-function isPreviewableImage(artworkType?: string | null, filename?: string | null): boolean {
-  const mime = (artworkType || "").toLowerCase();
-  if (mime.startsWith("image/")) {
-    return true;
-  }
-  const ext = (filename || "").split(".").pop()?.toLowerCase() || "";
-  return PREVIEWABLE_TYPES.includes(ext);
 }
 
 function datetime(value?: string | null): string {
@@ -256,6 +246,8 @@ export default function QuoteDetailPage() {
   const product = q.product_category || q.patch_type || null;
   const artworkPresent = Boolean(q.artwork_filename || q.artwork_url);
   const previewable = isPreviewableImage(q.artwork_type, q.artwork_filename);
+  const artworkEndpoint = adminArtworkEndpoint(id);
+  const artworkDownloadEndpoint = adminArtworkEndpoint(id, true);
 
   return (
     <div className="px-6 py-8">
@@ -330,7 +322,7 @@ export default function QuoteDetailPage() {
                 {q.artwork_url && (
                   <div className="flex flex-wrap gap-2 pt-1">
                     <a
-                      href={q.artwork_url}
+                      href={artworkEndpoint}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="inline-flex items-center gap-1.5 rounded-lg bg-blue-600 px-4 py-2 text-xs font-semibold text-white hover:bg-blue-500"
@@ -339,8 +331,7 @@ export default function QuoteDetailPage() {
                       <svg className="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" /></svg>
                     </a>
                     <a
-                      href={q.artwork_url}
-                      download={q.artwork_filename || undefined}
+                      href={artworkDownloadEndpoint}
                       className="inline-flex items-center gap-1.5 rounded-lg border border-slate-300 px-4 py-2 text-xs font-semibold text-slate-600 hover:bg-slate-50"
                     >
                       Download
@@ -350,13 +341,13 @@ export default function QuoteDetailPage() {
                 {q.artwork_url && previewable ? (
                   <div className="overflow-hidden rounded-lg border border-slate-200 bg-slate-50">
                     {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img src={q.artwork_url} alt={q.artwork_filename || "Uploaded artwork"} className="max-h-96 w-full object-contain" />
+                    <img src={artworkEndpoint} alt={q.artwork_filename || "Uploaded artwork"} className="max-h-96 w-full object-contain" />
                   </div>
                 ) : (
                   q.artwork_url && (
                     <p className="rounded-lg bg-slate-50 p-4 text-sm text-slate-500">
                       This file type cannot be previewed in the browser. Use{" "}
-                      <a href={q.artwork_url} target="_blank" rel="noopener noreferrer" className="font-semibold text-blue-600 hover:text-blue-700">
+                      <a href={artworkEndpoint} target="_blank" rel="noopener noreferrer" className="font-semibold text-blue-600 hover:text-blue-700">
                         Open Artwork
                       </a>{" "}
                       to view or download it.
