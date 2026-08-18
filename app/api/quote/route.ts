@@ -1,5 +1,6 @@
 import { Resend } from "resend";
 import { createQuoteRequest, updateQuoteEmailStatus } from "@/lib/admin/quote-db";
+import { getArtworkBlobStoreId } from "@/lib/admin/artwork-store";
 
 export const runtime = "nodejs";
 
@@ -90,35 +91,30 @@ export async function POST(request: Request) {
         artworkUploadFailed = true;
         console.warn("Artwork upload rejected: file exceeds the 10 MB limit.");
       } else {
-        const blobToken = process.env.BLOB_READ_WRITE_TOKEN;
-        if (!blobToken) {
+        try {
+          const storeId = getArtworkBlobStoreId();
+          const { put } = await import("@vercel/blob");
+          const originalFileName = safeFileName(artwork.name || "artwork");
+          const now = new Date();
+          const year = now.getFullYear();
+          const month = String(now.getMonth() + 1).padStart(2, "0");
+          const blobPath = `quote-artwork/${year}/${month}/${originalFileName}`;
+
+          const blob = await put(blobPath, artwork, {
+            access: "private",
+            storeId,
+          });
+
+          artworkUrl = blob.url;
+          artworkInfo = {
+            originalFileName,
+            fileType: artwork.type,
+            fileSize: artwork.size,
+          };
+          console.log("Blob upload:", blobPath);
+        } catch (e) {
           artworkUploadFailed = true;
-          console.warn("Artwork upload skipped: BLOB_READ_WRITE_TOKEN is not configured.");
-        } else {
-          try {
-            const { put } = await import("@vercel/blob");
-            const originalFileName = safeFileName(artwork.name || "artwork");
-            const now = new Date();
-            const year = now.getFullYear();
-            const month = String(now.getMonth() + 1).padStart(2, "0");
-            const blobPath = `quote-artwork/${year}/${month}/${originalFileName}`;
-
-            const blob = await put(blobPath, artwork, {
-              access: "public",
-              token: blobToken,
-            });
-
-            artworkUrl = blob.url;
-            artworkInfo = {
-              originalFileName,
-              fileType: artwork.type,
-              fileSize: artwork.size,
-            };
-            console.log("Blob upload:", blobPath, "->", blob.url);
-          } catch (e) {
-            artworkUploadFailed = true;
-            console.warn("Blob upload failed:", e instanceof Error ? e.message : String(e));
-          }
+          console.warn("Blob upload failed:", e instanceof Error ? e.message : String(e));
         }
       }
     }
