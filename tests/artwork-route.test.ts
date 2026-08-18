@@ -1,4 +1,4 @@
-import { describe, it, expect, vi, beforeEach } from "vitest";
+import { describe, it, expect, vi, beforeEach, afterEach } from "vitest";
 
 const mocks = vi.hoisted(() => ({
   verifyAdminSession: vi.fn(),
@@ -35,8 +35,21 @@ function callGet(url = "https://example.com/api/admin/quotes/quote-1/artwork") {
   return GET(new Request(url), { params: Promise.resolve({ id: "quote-1" }) });
 }
 
+function setPreviewStoreEnv() {
+  process.env.VERCEL_ENV = "preview";
+  process.env.KAKA_PREVIEW_BLOB_STORE_ID = "store_preview";
+  delete process.env.BLOB_STORE_ID;
+}
+
 beforeEach(() => {
   vi.resetAllMocks();
+  setPreviewStoreEnv();
+});
+
+afterEach(() => {
+  delete process.env.VERCEL_ENV;
+  delete process.env.BLOB_STORE_ID;
+  delete process.env.KAKA_PREVIEW_BLOB_STORE_ID;
 });
 
 describe("GET /api/admin/quotes/[id]/artwork", () => {
@@ -76,7 +89,7 @@ describe("GET /api/admin/quotes/[id]/artwork", () => {
     expect(mocks.blobGet).toHaveBeenCalledTimes(1);
     expect(mocks.blobGet).toHaveBeenCalledWith(
       ARTWORK_URL,
-      expect.objectContaining({ access: "private" })
+      expect.objectContaining({ access: "private", storeId: "store_preview" })
     );
   });
 
@@ -155,5 +168,16 @@ describe("GET /api/admin/quotes/[id]/artwork", () => {
 
     const res = await callGet();
     expect(res.status).toBe(404);
+  });
+
+  it("returns 502 when the artwork store ID is missing", async () => {
+    delete process.env.VERCEL_ENV;
+    delete process.env.KAKA_PREVIEW_BLOB_STORE_ID;
+    mocks.verifyAdminSession.mockResolvedValue(true);
+    mocks.getQuoteRequestById.mockResolvedValue(makeQuote());
+
+    const res = await callGet();
+    expect(res.status).toBe(502);
+    expect(mocks.blobGet).not.toHaveBeenCalled();
   });
 });

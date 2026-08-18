@@ -29,11 +29,14 @@ function buildFormData(withArtwork: boolean) {
 
 beforeEach(() => {
   vi.resetAllMocks();
-  process.env.BLOB_READ_WRITE_TOKEN = "test-token";
+  process.env.VERCEL_ENV = "preview";
+  process.env.KAKA_PREVIEW_BLOB_STORE_ID = "store_preview";
 });
 
 afterEach(() => {
-  delete process.env.BLOB_READ_WRITE_TOKEN;
+  delete process.env.VERCEL_ENV;
+  delete process.env.BLOB_STORE_ID;
+  delete process.env.KAKA_PREVIEW_BLOB_STORE_ID;
 });
 
 describe("POST /api/quote artwork upload", () => {
@@ -52,7 +55,7 @@ describe("POST /api/quote artwork upload", () => {
     expect(mocks.blobPut).toHaveBeenCalledWith(
       expect.any(String),
       expect.anything(),
-      expect.objectContaining({ access: "private" })
+      expect.objectContaining({ access: "private", storeId: "store_preview" })
     );
   });
 
@@ -67,6 +70,20 @@ describe("POST /api/quote artwork upload", () => {
     }));
 
     expect(res.status).toBe(500);
+    expect(mocks.createQuoteRequest).not.toHaveBeenCalled();
+  });
+
+  it("fails loudly and saves zero rows when the store ID is missing", async () => {
+    delete process.env.VERCEL_ENV;
+    delete process.env.KAKA_PREVIEW_BLOB_STORE_ID;
+
+    const res = await POST(new Request("https://example.com/api/quote", {
+      method: "POST",
+      body: buildFormData(true),
+    }));
+
+    expect(res.status).toBe(500);
+    expect(mocks.blobPut).not.toHaveBeenCalled();
     expect(mocks.createQuoteRequest).not.toHaveBeenCalled();
   });
 });

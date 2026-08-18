@@ -1,6 +1,7 @@
 import { get } from "@vercel/blob";
 import { verifyAdminSession } from "@/lib/admin/auth";
 import { getQuoteRequestById } from "@/lib/admin/quote-db";
+import { getArtworkBlobStoreId } from "@/lib/admin/artwork-store";
 import {
   buildContentDisposition,
   isInlineRenderableContentType,
@@ -44,7 +45,7 @@ export async function GET(
   try {
     result = await get(artworkUrl, {
       access: "private",
-      token: process.env.BLOB_READ_WRITE_TOKEN,
+      storeId: getArtworkBlobStoreId(),
     });
   } catch (error) {
     console.error(
