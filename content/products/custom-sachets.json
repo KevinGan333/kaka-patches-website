@@ -1,0 +1,147 @@
+{
+  "type": "product",
+  "name": "Custom Sachets",
+  "slug": "custom-sachets",
+  "group": "accessories",
+  "urlPrefix": "/custom-accessories",
+  "status": "published",
+  "displayOrder": 27,
+  "availableForQuote": true,
+  "quoteFormKey": "Custom Sachets",
+  "metaTitle": "Custom Sachets Manufacturer — Scented Fabric Sachets & Drawer Fresheners | KaKa Patches",
+  "metaDescription": "B2B custom sachets with scented filling and printed or embroidered fabric pouch. Factory-direct production for aromatherapy brands, home fragrance products, wedding favors and promotional gifts.",
+  "ogTitle": "",
+  "ogDescription": "",
+  "ogImage": "",
+  "heroBadge": "Scented Fabric Pouch Production",
+  "h1": "Custom <span class=\"text-blue-400\">Sachets</span>",
+  "heroSubtitle": "Custom scented sachets with printed or embroidered fabric pouches for aromatherapy, home fragrance, wedding favors and promotional gifts. Factory-direct production with custom fragrances and packaging.",
+  "heroHighlights": [
+    {
+      "label": "Pouch Material",
+      "value": "Cotton, linen, organza, polyester"
+    },
+    {
+      "label": "Filling",
+      "value": "Natural botanicals + fragrance oil"
+    },
+    {
+      "label": "Best For",
+      "value": "Aromatherapy & wedding favors"
+    },
+    {
+      "label": "MOQ",
+      "value": "200 pcs/design"
+    },
+    {
+      "label": "Lead Time",
+      "value": "2–3 weeks"
+    }
+  ],
+  "overviewParagraphs": [
+    "Custom sachets are small fabric pouches filled with scented material — typically dried botanicals or fiberfill infused with fragrance oil. The pouch is printed or embroidered with your brand design, and the scent is released gradually through the fabric over weeks or months.",
+    "Popular in aromatherapy, home fragrance, wedding favors and promotional gift markets, custom sachets offer a multi-sensory branding experience — combining visual design with fragrance. They are placed in drawers, closets, cars or luggage to provide a pleasant, lasting scent."
+  ],
+  "buyerTypes": [
+    "Aromatherapy & wellness brands",
+    "Home fragrance product companies",
+    "Wedding & event planners",
+    "Spa & hospitality businesses",
+    "Promotional gift distributors",
+    "Boutique retail stores",
+    "Subscription box companies",
+    "Eco-friendly product brands"
+  ],
+  "applications": [
+    "Drawer & closet fresheners",
+    "Wedding guest favors",
+    "Aromatherapy products",
+    "Spa retail merchandise",
+    "Brand promotional gifts",
+    "Hotel room amenities",
+    "Subscription box items",
+    "Luggage & travel fresheners"
+  ],
+  "features": [
+    {
+      "title": "Custom Fragrance Options",
+      "description": "Choose from a wide range of scents including lavender, rose, vanilla, cedarwood, eucalyptus, citrus and more — or provide your own custom fragrance specification."
+    },
+    {
+      "title": "Premium Fabric Pouch",
+      "description": "Sachet pouches are made from cotton, linen, organza or polyester fabric in your choice of color — with printed, embroidered or woven brand detailing."
+    },
+    {
+      "title": "Long-Lasting Scent Release",
+      "description": "Filling materials are designed for gradual, sustained fragrance release over weeks or months — not a single-use product that loses its scent in days."
+    },
+    {
+      "title": "Gift-Ready Packaging",
+      "description": "Available with individual polybag, organza overwrap, gift box or hang-tag presentation — ready for retail display, wedding favors or corporate gift distribution."
+    }
+  ],
+  "customOptionsTitle": "Customize Your Sachets",
+  "customOptions": [
+    "Custom fragrance selection",
+    "Cotton, linen or organza pouch",
+    "Full-color print or embroidery",
+    "Drawstring or heat-sealed closure",
+    "Custom pouch size and shape",
+    "Individual or gift-set packaging",
+    "Sample and bulk production support",
+    "Aromatherapy, wedding or brand designs"
+  ],
+  "typeOptionsTitle": "Choose the Right Finish",
+  "typeOptions": [
+    {
+      "title": "Drawstring Closure",
+      "description": "Fabric drawstring ribbon — allows the user to open and refresh the filling. Most popular for home fragrance and reusable sachet applications."
+    },
+    {
+      "title": "Heat-Sealed Closure",
+      "description": "Permanently sealed for single-use applications — no refilling. More economical and tamper-evident. Common for promotional giveaways."
+    },
+    {
+      "title": "Organza Overwrap",
+      "description": "Sheer organza pouch over a filled inner sachet — elegant layered look. The top choice for wedding favors and premium gift presentation."
+    },
+    {
+      "title": "Hang-Tag with Ribbon",
+      "description": "Branded card tag attached with ribbon — adds a retail-ready presentation and provides space for scent description, ingredients and branding."
+    }
+  ],
+  "faqs": [
+    {
+      "question": "What fragrances are available for custom sachets?",
+      "answer": "We offer a wide range of standard fragrances including lavender (most popular), rose, vanilla, cedarwood, sandalwood, eucalyptus, citrus, jasmine and chamomile. Custom fragrance blends can be developed for larger production runs — contact us with your specification."
+    },
+    {
+      "question": "How long does the scent last?",
+      "answer": "Our sachets are designed for gradual scent release over 4 to 12 weeks depending on the fragrance type, sachet size and environmental conditions. Sealed packaging preserves the scent until use. Some fragrances (woody, spicy) naturally last longer than others (citrus, floral)."
+    },
+    {
+      "question": "What materials are the sachet pouches made from?",
+      "answer": "We produce sachet pouches in cotton (natural, breathable — best for scent release), linen (textured, rustic look), organza (sheer, elegant — popular for weddings) and polyester (durable, vibrant print). The pouch material affects both appearance and scent diffusion rate."
+    },
+    {
+      "question": "Are sachets suitable for wedding favors?",
+      "answer": "Yes — scented sachets are a very popular wedding favor. They are practical, fragrant and easily personalized with the couple's names, wedding date and a custom scent. Organza pouches with ribbon and hang tags are the most popular wedding presentation."
+    },
+    {
+      "question": "What filling materials are used?",
+      "answer": "We use natural materials such as dried botanicals (lavender buds, rose petals), wood shavings, rice hulls or polyester fiberfill — each infused with fragrance oil. The filling material is chosen based on scent compatibility and desired sachet weight and feel."
+    },
+    {
+      "question": "How do I get a quote?",
+      "answer": "Tell us your preferred fragrance, pouch material, size, branding method and quantity through our Request a Quote page. We respond with a detailed quote — typically within 1 business day."
+    }
+  ],
+  "ctaHeading": "Need Custom Scented Sachets?",
+  "relatedProductSlugs": [],
+  "moqDisclaimer": "",
+  "packagingDelivery": "",
+  "images": [],
+  "createdAt": "2026-08-10T07:51:32.210Z",
+  "updatedAt": "2026-08-10T07:51:32.210Z",
+  "publishedAt": "2026-08-10T07:51:32.210Z"
+}

@@ -20,21 +20,34 @@ export default function SiteFooter() {
           </div>
 
           <div>
-            <h4 className="text-sm font-semibold uppercase tracking-[0.1em] text-slate-300">Products</h4>
+            <h4 className="text-sm font-semibold uppercase tracking-[0.1em] text-slate-300">Patch Products</h4>
             <ul className="mt-5 space-y-3 text-sm text-slate-400">
               <li><Link href="/products/custom-embroidered-patches" className="hover:text-white transition">Custom Embroidered Patches</Link></li>
               <li><Link href="/products/custom-woven-patches" className="hover:text-white transition">Custom Woven Patches</Link></li>
               <li><Link href="/products/custom-pvc-patches" className="hover:text-white transition">Custom PVC Patches</Link></li>
               <li><Link href="/products/custom-chenille-patches" className="hover:text-white transition">Custom Chenille Patches</Link></li>
             </ul>
+            <h4 className="mt-6 text-sm font-semibold uppercase tracking-[0.1em] text-slate-300">Labels & Transfers</h4>
+            <ul className="mt-3 space-y-2 text-sm text-slate-400">
+              <li><Link href="/products/custom-woven-labels" className="hover:text-white transition">Custom Woven Labels</Link></li>
+              <li><Link href="/products/custom-printed-labels" className="hover:text-white transition">Custom Printed Labels</Link></li>
+              <li><Link href="/products/custom-heat-transfer-labels" className="hover:text-white transition">Heat Transfer Labels</Link></li>
+            </ul>
           </div>
 
           <div>
-            <h4 className="text-sm font-semibold uppercase tracking-[0.1em] text-slate-300">Applications</h4>
-            <ul className="mt-5 space-y-3 text-sm text-slate-400">
-              <li><Link href="/applications/custom-patches-for-clothing-brands" className="hover:text-white transition">Clothing Brands</Link></li>
-              <li><Link href="/applications/custom-patches-for-sports-teams" className="hover:text-white transition">Sports Teams</Link></li>
-              <li><Link href="/applications/custom-patches-for-uniforms" className="hover:text-white transition">Uniform Suppliers</Link></li>
+            <h4 className="text-sm font-semibold uppercase tracking-[0.1em] text-slate-300">Custom Accessories</h4>
+            <ul className="mt-5 space-y-2 text-sm text-slate-400">
+              <li><Link href="/custom-accessories/custom-keychains" className="hover:text-white transition">Custom Embroidered Keychains</Link></li>
+              <li><Link href="/custom-accessories/custom-embroidered-stickers" className="hover:text-white transition">Custom Embroidered Stickers</Link></li>
+              <li><Link href="/custom-accessories/custom-plush-charms" className="hover:text-white transition">Custom Plush Charms</Link></li>
+              <li><Link href="/custom-accessories/custom-pin-back-buttons" className="hover:text-white transition">Custom Pin-Back Buttons</Link></li>
+              <li><Link href="/custom-accessories/custom-embroidered-bookmarks" className="hover:text-white transition">Custom Embroidered Bookmarks</Link></li>
+              <li><Link href="/custom-accessories/custom-embroidered-fridge-magnets" className="hover:text-white transition">Custom Embroidered Fridge Magnets</Link></li>
+              <li><Link href="/custom-accessories/custom-card-holders-wallets" className="hover:text-white transition">Custom Card Holders & Card Wallets</Link></li>
+              <li><Link href="/custom-accessories/custom-sachets" className="hover:text-white transition">Custom Sachets</Link></li>
+              <li><Link href="/custom-accessories/custom-omamori-bags" className="hover:text-white transition">Custom Omamori Pouches</Link></li>
+              <li className="mt-3"><Link href="/custom-accessories" className="text-blue-400 hover:text-blue-300 transition font-medium">View All Accessories →</Link></li>
             </ul>
           </div>
 
@@ -43,6 +56,9 @@ export default function SiteFooter() {
             <ul className="mt-5 space-y-3 text-sm text-slate-400">
               <li><Link href="/custom-process" className="hover:text-white transition">Custom Process</Link></li>
               <li><Link href="/about-us" className="hover:text-white transition">About Us</Link></li>
+              <li><Link href="/products" className="hover:text-white transition">All Products</Link></li>
+              <li><Link href="/product-families" className="hover:text-white transition">Product Families</Link></li>
+              <li><Link href="/applications" className="hover:text-white transition">Applications</Link></li>
               <li><Link href="/resources" className="hover:text-white transition">Resources</Link></li>
               <li><Link href="/blog" className="hover:text-white transition">Blog</Link></li>
               <li><Link href="/contact-us" className="hover:text-white transition">Contact Us</Link></li>

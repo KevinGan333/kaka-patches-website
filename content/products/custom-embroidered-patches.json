@@ -1,0 +1,141 @@
+{
+  "type": "product",
+  "name": "Custom Embroidered Patches",
+  "slug": "custom-embroidered-patches",
+  "group": "patches",
+  "urlPrefix": "/products",
+  "status": "published",
+  "displayOrder": 1,
+  "availableForQuote": true,
+  "quoteFormKey": "Custom Embroidered Patches",
+  "metaTitle": "Custom Embroidered Patches Manufacturer | KaKa Patches",
+  "metaDescription": "B2B custom embroidered patches with classic raised stitching for uniforms, apparel brands, sports teams and promotional products. Factory-direct production with artwork support.",
+  "ogTitle": "",
+  "ogDescription": "",
+  "ogImage": "",
+  "heroBadge": "Custom Patch Product",
+  "h1": "Custom Embroidered <span class=\"text-blue-400\">Patches</span>",
+  "heroSubtitle": "Classic stitched patches with raised embroidery texture. Best for uniforms, jackets, workwear, clubs, brand patches and promotional products. Factory-direct production with full customization support.",
+  "heroHighlights": [
+    {
+      "label": "Best For",
+      "value": "Uniforms, clubs & merchandise"
+    },
+    {
+      "label": "Texture",
+      "value": "Raised stitched thread"
+    },
+    {
+      "label": "Versatility",
+      "value": "Widest application range"
+    },
+    {
+      "label": "Typical MOQ",
+      "value": "200 pcs/design"
+    },
+    {
+      "label": "Lead Time",
+      "value": "2–3 weeks standard"
+    }
+  ],
+  "overviewParagraphs": [
+    "Custom embroidered patches are made by stitching thread onto a fabric base to create logos, badges, text and decorative designs. The raised thread texture creates a classic, premium look recognized across industries worldwide.",
+    "Compared with printed labels, embroidered patches offer proven durability, a traditional aesthetic and the widest range of applications — from corporate uniforms to sports merchandise to fashion branding. Good for medium-complexity logos and traditional patch designs."
+  ],
+  "buyerTypes": [
+    "Apparel & fashion brands",
+    "Uniform suppliers",
+    "Sports teams & clubs",
+    "Schools & universities",
+    "Promotional product distributors",
+    "Corporate branding & events"
+  ],
+  "applications": [
+    "Uniforms & workwear",
+    "Sports teams & clubs",
+    "Apparel & fashion brands",
+    "Schools & universities",
+    "Promotional products",
+    "Event merchandise",
+    "Caps, hats & bags",
+    "Brand merchandise"
+  ],
+  "features": [
+    {
+      "title": "Classic Stitched Texture",
+      "description": "Raised embroidery threads create a traditional, premium look recognized across industries worldwide."
+    },
+    {
+      "title": "Strong Durability",
+      "description": "Proven on uniforms, jackets, hats and bags — embroidered patches withstand repeated washing and heavy use."
+    },
+    {
+      "title": "Widest Application Range",
+      "description": "From corporate uniforms to sports merchandise to fashion collections — the most versatile patch type."
+    },
+    {
+      "title": "Bulk Order Optimized",
+      "description": "Scalable production from 200 to 100,000+ pieces per design with consistent thread quality and color accuracy."
+    }
+  ],
+  "customOptionsTitle": "Customize Every Detail",
+  "customOptions": [
+    "Custom patch size and shape",
+    "Thread color matching (PMS)",
+    "Merrowed or heat-cut border",
+    "Sew-on, iron-on, Velcro or adhesive backing",
+    "Individual or bulk packaging",
+    "Logo, badge, mascot, text or emblem designs",
+    "Sample and bulk production support",
+    "Multi-layer and 3D embroidery options"
+  ],
+  "typeOptionsTitle": "Backing Options",
+  "typeOptions": [
+    {
+      "title": "Sew-on Backing",
+      "description": "The standard for permanent attachment on uniforms and products needing maximum durability."
+    },
+    {
+      "title": "Iron-on Backing",
+      "description": "Heat-activated adhesive for fast application on fabric."
+    },
+    {
+      "title": "Velcro Backing",
+      "description": "Hook-and-loop for removable patches on bags and interchangeable badge systems."
+    },
+    {
+      "title": "Adhesive Backing",
+      "description": "Peel-and-stick for temporary use and event merchandise."
+    }
+  ],
+  "faqs": [
+    {
+      "question": "What are custom embroidered patches best for?",
+      "answer": "Embroidered patches are best for classic logo patches, uniforms, jackets, hats, clubs, teams, brand merchandise and promotional products where a raised stitched texture and traditional appearance are desired."
+    },
+    {
+      "question": "Can embroidered patches show very small text?",
+      "answer": "Embroidered patches can reproduce most logo details well, but very small text (under ~5mm) may not be as sharp as woven patches. Our team can advise on the best patch type for your design."
+    },
+    {
+      "question": "What backing options are available?",
+      "answer": "Sew-on, iron-on, Velcro and adhesive backing are all available. Sew-on is the most durable; iron-on is convenient for fabric production; Velcro is best for removable patches; adhesive works for temporary applications."
+    },
+    {
+      "question": "Can I order custom sizes and shapes?",
+      "answer": "Yes. We support fully custom sizes from 1″ to 15″+ and any shape — standard geometric, contour-cut or fully custom die-cut."
+    },
+    {
+      "question": "How do I get a quote?",
+      "answer": "Upload your artwork through our Request a Quote page and provide patch size, quantity, backing option and delivery requirements. We respond with a detailed quote — typically within 1 business day."
+    }
+  ],
+  "ctaHeading": "Need Custom Embroidered Patches?",
+  "relatedProductSlugs": [],
+  "moqDisclaimer": "",
+  "packagingDelivery": "",
+  "images": [],
+  "createdAt": "2026-08-10T07:51:32.210Z",
+  "updatedAt": "2026-08-10T07:51:32.210Z",
+  "publishedAt": "2026-08-10T07:51:32.210Z"
+}

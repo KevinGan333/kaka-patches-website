@@ -18,6 +18,18 @@ interface QuoteNote {
   created_at?: string;
 }
 
+// ── Data model ────────────────────────────────────────────────────────────────
+// The detail API (`GET /api/admin/quotes/[id]`) returns the raw flat snake_case
+// Postgres row from `getQuoteRequestById()` (SELECT *). Every field below mirrors
+// that row. Optional fields that only exist on newer schemas (utm_*, product_category,
+// packaging_preference, etc.) are declared so the page stays forward-compatible and
+// simply renders "Not provided" when a column is absent on this database.
+interface QuoteNote {
+  id: string;
+  content: string;
+  created_at?: string;
+}
+
 interface Quote {
   id: string;
   quote_number: string;
@@ -88,6 +100,17 @@ function formatBytes(size?: number | null): string | null {
   if (size >= 1024 * 1024) return `${(size / (1024 * 1024)).toFixed(2)} MB`;
   if (size >= 1024) return `${(size / 1024).toFixed(1)} KB`;
   return `${size} B`;
+}
+
+const PREVIEWABLE_TYPES = ["png", "jpg", "jpeg", "gif", "webp", "svg"];
+
+function isPreviewableImage(artworkType?: string | null, filename?: string | null): boolean {
+  const mime = (artworkType || "").toLowerCase();
+  if (mime.startsWith("image/")) {
+    return true;
+  }
+  const ext = (filename || "").split(".").pop()?.toLowerCase() || "";
+  return PREVIEWABLE_TYPES.includes(ext);
 }
 
 function datetime(value?: string | null): string {

@@ -1,0 +1,94 @@
+{
+  "type": "product",
+  "name": "Custom Woven Labels",
+  "slug": "custom-woven-labels",
+  "group": "labels-transfers",
+  "urlPrefix": "/products",
+  "status": "published",
+  "displayOrder": 10,
+  "availableForQuote": true,
+  "quoteFormKey": "Custom Woven Labels",
+  "metaTitle": "Custom Woven Labels Manufacturer | KaKa Patches",
+  "metaDescription": "B2B custom woven labels for clothing brands, care labels and brand tags. Factory-direct production.",
+  "ogTitle": "",
+  "ogDescription": "",
+  "ogImage": "",
+  "heroBadge": "Labels & Transfers",
+  "h1": "Custom Woven <span class=\"text-blue-400\">Labels</span>",
+  "heroSubtitle": "Fine-detail damask, satin and taffeta woven labels for clothing brands, care labels and brand tags.",
+  "heroHighlights": [
+    {
+      "label": "Type",
+      "value": "Damask, satin, taffeta"
+    },
+    {
+      "label": "Best For",
+      "value": "Clothing & brand labels"
+    },
+    {
+      "label": "MOQ",
+      "value": "200 pcs/design"
+    },
+    {
+      "label": "Lead Time",
+      "value": "2–3 weeks"
+    }
+  ],
+  "overviewParagraphs": [
+    "Custom woven labels are produced on specialized looms weaving fine polyester threads into detailed brand labels. Available in damask (soft, detailed), satin (lustrous) and taffeta (crisp, economical) weaves."
+  ],
+  "buyerTypes": [
+    "Clothing & fashion brands",
+    "Apparel manufacturers",
+    "Private label companies",
+    "Uniform suppliers"
+  ],
+  "applications": [
+    "Brand labels",
+    "Care labels",
+    "Size tags",
+    "Garment branding",
+    "Accessories labels"
+  ],
+  "features": [
+    {
+      "title": "Fine Detail",
+      "description": "Woven labels capture intricate brand logos and small text with clarity."
+    },
+    {
+      "title": "Multiple Weave Types",
+      "description": "Choose damask for softness, satin for sheen, or taffeta for value."
+    }
+  ],
+  "customOptionsTitle": "Custom Options",
+  "customOptions": [
+    "Damask, satin or taffeta weave",
+    "Custom size and fold style",
+    "PMS color matching",
+    "Sew-on or iron-on application"
+  ],
+  "typeOptionsTitle": "Weave Types",
+  "typeOptions": [
+    {
+      "title": "Damask",
+      "description": "Soft, detailed weave — the premium choice for fashion brand labels."
+    },
+    {
+      "title": "Satin",
+      "description": "Lustrous finish with a smooth, silky feel."
+    },
+    {
+      "title": "Taffeta",
+      "description": "Crisp, economical weave for care labels and size tags."
+    }
+  ],
+  "faqs": [],
+  "ctaHeading": "Need Custom Woven Labels?",
+  "relatedProductSlugs": [],
+  "moqDisclaimer": "",
+  "packagingDelivery": "",
+  "images": [],
+  "createdAt": "2026-08-10T07:51:32.210Z",
+  "updatedAt": "2026-08-10T07:51:32.210Z",
+  "publishedAt": "2026-08-10T07:51:32.210Z"
+}

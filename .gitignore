@@ -37,9 +37,16 @@ yarn-error.log*
 /data/quote-requests/
 /data/quote-uploads/
 
+# test artifacts (never commit)
+/test-upload.png
+/scripts/email-output/
+
 # vercel
 .vercel
 
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+.vercel
+.env*

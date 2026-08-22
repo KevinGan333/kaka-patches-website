@@ -7,18 +7,6 @@ import { useState } from "react";
 const fieldClass = "rounded-lg border border-slate-300 px-3 py-2 text-sm w-full";
 const labelClass = "block text-sm font-medium text-slate-700 mb-1";
 
-const statusBadge = (status: string) => {
-  const colors: Record<string, string> = {
-    draft: "bg-gray-100 text-gray-700",
-    published: "bg-green-100 text-green-700",
-  };
-  return (
-    <span className={`inline-block rounded-full px-2.5 py-0.5 text-xs font-medium ${colors[status] || ""}`}>
-      {status}
-    </span>
-  );
-};
-
 export default function AdminNewBlogPage() {
   const router = useRouter();
   const [saving, setSaving] = useState(false);
@@ -101,8 +89,8 @@ export default function AdminNewBlogPage() {
         return;
       }
       router.push("/admin/content/blog");
-    } catch (err: any) {
-      setErrors({ _form: err.message || "An error occurred" });
+    } catch (err: unknown) {
+      setErrors({ _form: err instanceof Error ? err.message : "An error occurred" });
     } finally {
       setSaving(false);
     }
@@ -195,7 +183,7 @@ export default function AdminNewBlogPage() {
             ].map(btn => (
               <button key={btn.label} type="button" onClick={() => {
                 const ta = document.getElementById("content") as HTMLTextAreaElement;
-                if (ta) { const s = ta.selectionStart; ta.value = ta.value.slice(0, s) + btn.md + ta.value.slice(ta.selectionEnd); ta.focus(); ta.selectionStart = ta.selectionEnd = s + btn.md.length; handleChange({ target: { name: "content", value: ta.value } } as any); }
+                if (ta) { const s = ta.selectionStart; ta.value = ta.value.slice(0, s) + btn.md + ta.value.slice(ta.selectionEnd); ta.focus(); ta.selectionStart = ta.selectionEnd = s + btn.md.length; handleChange({ target: { name: "content", value: ta.value } } as React.ChangeEvent<HTMLTextAreaElement>); }
               }} className="rounded border border-slate-300 px-2 py-1 text-[11px] font-semibold text-slate-600 hover:bg-slate-100 transition">{btn.label}</button>
             ))}
             <span className="text-[11px] text-slate-400 self-center ml-2">Char: {form.content.length}</span>
@@ -241,7 +229,7 @@ export default function AdminNewBlogPage() {
                   if (data.success) {
                     const md = `\n![${altText}](${data.url})\n`;
                     const ta = document.getElementById("content") as HTMLTextAreaElement;
-                    if (ta) { const start = ta.selectionStart; ta.value = ta.value.slice(0, start) + md + ta.value.slice(ta.selectionEnd); ta.focus(); handleChange({ target: { name: "content", value: ta.value } } as any); }
+                    if (ta) { const start = ta.selectionStart; ta.value = ta.value.slice(0, start) + md + ta.value.slice(ta.selectionEnd); ta.focus(); handleChange({ target: { name: "content", value: ta.value } } as React.ChangeEvent<HTMLTextAreaElement>); }
                     (document.getElementById("uploadStatus") as HTMLElement).innerHTML = '<span class="text-emerald-600 text-xs font-semibold">✓ Image inserted</span>';
                     setTimeout(() => { (document.getElementById("uploadStatus") as HTMLElement).innerHTML = ""; }, 3000);
                   } else { (document.getElementById("uploadStatus") as HTMLElement).innerHTML = `<span class="text-red-600 text-xs font-semibold">${data.error}</span>`; }

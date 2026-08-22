@@ -20,7 +20,7 @@ export function getDb() {
 }
 
 // For one-off queries
-export async function query<T = any>(queryString: string, params?: any[]): Promise<T[]> {
+export async function query<T = unknown>(queryString: string, params?: (string | number | boolean | null)[]): Promise<T[]> {
   const db = getDb();
   return db.unsafe(queryString, params) as Promise<T[]>;
 }

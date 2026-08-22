@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, FormEvent } from "react";
+import Link from "next/link";
 
 export default function AdminLoginPage() {
   const [username, setUsername] = useState("");
@@ -87,7 +88,7 @@ export default function AdminLoginPage() {
         </form>
 
         <p className="mt-6 text-center text-xs text-slate-400">
-          <a href="/" className="hover:text-blue-600">← Back to website</a>
+          <Link href="/" className="hover:text-blue-600">← Back to website</Link>
         </p>
       </div>
     </main>

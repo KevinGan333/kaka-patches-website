@@ -7,7 +7,7 @@ import Link from "next/link";
 interface Quote {
   id: string; quote_number: string; created_at: string; status?: string;
   name: string; email: string; company?: string;
-  quantity?: string; patch_type?: string; patch_size?: string; delivery?: string;
+  quantity?: string; product_category?: string; patch_type?: string; patch_size?: string; delivery?: string;
   artwork_filename?: string; artwork_url?: string;
   email_sent?: boolean; email_error?: string;
 }
@@ -22,8 +22,7 @@ export default function AdminQuotesPage() {
   const [emailFilter, setEmailFilter] = useState("all");
   const [artworkFilter, setArtworkFilter] = useState("all");
   const [sortBy, setSortBy] = useState("newest");
-  const [page, setPage] = useState(1);
-  const perPage = 20;
+  const [, setPage] = useState(1);
 
   useEffect(() => {
     async function load() {
@@ -101,7 +100,7 @@ export default function AdminQuotesPage() {
               <th className="px-3 py-2.5 font-semibold text-slate-600">Quote #</th>
               <th className="px-3 py-2.5 font-semibold text-slate-600">Name</th>
               <th className="px-3 py-2.5 font-semibold text-slate-600 hidden md:table-cell">Company</th>
-              <th className="px-3 py-2.5 font-semibold text-slate-600 hidden lg:table-cell">Patch Type</th>
+              <th className="px-3 py-2.5 font-semibold text-slate-600 hidden lg:table-cell">Product</th>
               <th className="px-3 py-2.5 font-semibold text-slate-600">Qty</th>
               <th className="px-3 py-2.5 font-semibold text-slate-600">Art</th>
               <th className="px-3 py-2.5 font-semibold text-slate-600">Email</th>
@@ -115,7 +114,7 @@ export default function AdminQuotesPage() {
                   <td className="px-3 py-2.5 font-mono text-[11px] text-slate-400">{q.quote_number}</td>
                   <td className="px-3 py-2.5 font-semibold text-slate-800">{q.name}</td>
                   <td className="px-3 py-2.5 text-slate-600 hidden md:table-cell">{q.company || "—"}</td>
-                  <td className="px-3 py-2.5 text-slate-600 hidden lg:table-cell">{q.patch_type || "—"}</td>
+                  <td className="px-3 py-2.5 text-slate-600 hidden lg:table-cell">{q.product_category || q.patch_type || "—"}</td>
                   <td className="px-3 py-2.5 text-slate-700 font-medium">{q.quantity}</td>
                   <td className="px-3 py-2.5">{q.artwork_filename ? <span className="inline-block rounded-full bg-emerald-50 px-2 py-0.5 text-[10px] font-bold text-emerald-700">Yes</span> : <span className="text-slate-300 text-[10px]">—</span>}</td>
                   <td className="px-3 py-2.5">{q.email_sent ? <span className="inline-block rounded-full bg-emerald-50 px-2 py-0.5 text-[10px] font-bold text-emerald-700">Sent</span> : q.email_error ? <span className="inline-block rounded-full bg-red-50 px-2 py-0.5 text-[10px] font-bold text-red-600">Failed</span> : <span className="text-amber-500 text-[10px]">—</span>}</td>

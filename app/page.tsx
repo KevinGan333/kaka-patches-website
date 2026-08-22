@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 
 export const metadata: Metadata = {
   title: "KaKa Patches | Custom Patch Manufacturer for B2B Buyers",
@@ -24,7 +25,7 @@ const patchTypes = [
 const capabilities = [
   { t:"Artwork Review", d:"Our team reviews your logo, sketch or design before production to ensure the best patch results for your project." },
   { t:"Multiple Materials & Backing", d:"Embroidered, woven, PVC, chenille, leather and printed patches with sew-on, iron-on, Velcro or adhesive backing." },
-  { t:"Bulk Order & Repeat Orders", d:"Scalable production from 100 to 100,000+ pieces with consistent quality, color matching and on-time delivery." },
+  { t:"Bulk Order & Repeat Orders", d:"Scalable production from 200 to 100,000+ pieces per design with consistent quality, color matching and on-time delivery." },
   { t:"Quality Inspection", d:"Every patch is inspected for stitching, color, backing and finishing before packaging and shipment to your destination." },
 ];
 
@@ -47,7 +48,7 @@ const faqs = [
   { q:"What patch types do you manufacture?", a:"We manufacture embroidered patches (classic stitched), woven patches (smooth fine-detail), PVC patches (durable waterproof), chenille patches (soft fuzzy varsity), printed patches, and leather patches. Each type suits different design and application needs." },
   { q:"Can I request a quote without artwork?", a:"Yes. You can submit your basic requirements now and send artwork later. Our team will still review your request and provide preliminary pricing and recommendations." },
   { q:"What backing options are available?", a:"Sew-on (permanent), iron-on (heat-seal), Velcro (removable), adhesive (temporary), and magnetic. We help you choose the right backing based on your product and how end users will apply the patch." },
-  { q:"Do you support bulk orders?", a:"Yes. We support B2B bulk orders from 100 to 100,000+ pieces. Scaled pricing applies to larger quantities. Repeat orders maintain the same quality and color consistency." },
+  { q:"Do you support bulk orders?", a:"Yes. We support B2B bulk orders from 200 to 100,000+ pieces per design. Scaled pricing applies to larger quantities. Repeat orders maintain the same quality and color consistency." },
   { q:"How do I choose between embroidered and woven patches?", a:"Embroidered patches have a raised textured look — best for classic logos, uniforms and jackets. Woven patches have a smooth flat surface — best for small text, fine details and clothing labels. Our team can recommend based on your design." },
   { q:"Can you help review my artwork?", a:"Yes. Our team provides free artwork review for B2B orders. We check your design for patch production suitability and suggest adjustments before production begins." },
 ];
@@ -83,7 +84,7 @@ export default function Home() {
             <div className="absolute right-10 bottom-8 w-36 rotate-[6deg]"><div className="aspect-square rounded-2xl bg-gradient-to-br from-violet-800 to-violet-950 border-4 border-violet-300/20 shadow-2xl flex items-center justify-center"><span className="text-6xl font-black text-white" style={{textShadow:"4px 4px 0 rgba(0,0,0,0.3)"}}>V</span></div></div>
             <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rounded-2xl border border-white/10 bg-slate-900/90 px-5 py-3 shadow-2xl backdrop-blur-xl">
               <p className="text-center text-[10px] font-bold uppercase tracking-[0.2em] text-amber-400">Factory Direct</p>
-              <div className="mt-2 grid grid-cols-2 gap-x-4 gap-y-1 text-[11px]"><span className="text-slate-400">Types</span><span className="text-right font-bold text-white">8</span><span className="text-slate-400">Backings</span><span className="text-right font-bold text-white">5+</span><span className="text-slate-400">MOQ</span><span className="text-right font-bold text-white">100</span><span className="text-slate-400">Lead</span><span className="text-right font-bold text-white">2-3wk</span></div>
+              <div className="mt-2 grid grid-cols-2 gap-x-4 gap-y-1 text-[11px]"><span className="text-slate-400">Types</span><span className="text-right font-bold text-white">8</span><span className="text-slate-400">Backings</span><span className="text-right font-bold text-white">5+</span><span className="text-slate-400">MOQ</span><span className="text-right font-bold text-white">200</span><span className="text-slate-400">Lead</span><span className="text-right font-bold text-white">2-3wk</span></div>
             </div>
           </div>
         </div>
@@ -94,7 +95,7 @@ export default function Home() {
         <div className="mx-auto max-w-[1440px] px-8">
           <div className="text-center"><p className="text-sm font-bold uppercase tracking-[0.2em] text-blue-600">Product Categories</p><h2 className="mt-4 text-4xl font-extrabold tracking-tight md:text-5xl">Explore Custom Patch Types</h2></div>
           <div className="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {patchTypes.map(p=>(<Link key={p.t} href={p.h} className="group rounded-2xl border border-slate-200 bg-white overflow-hidden shadow-sm transition hover:-translate-y-1.5 hover:shadow-xl"><div className="aspect-square bg-slate-50 overflow-hidden">{/* eslint-disable-next-line @next/next/no-img-element */}<img src={p.img} alt={p.alt} className="h-full w-full object-cover" loading="lazy" /></div><div className="p-6"><h3 className="font-bold">{p.t}</h3><p className="mt-2 text-sm leading-7 text-slate-500">{p.d}</p><span className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-blue-600 transition group-hover:gap-2">View Details<svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg></span></div></Link>))}
+            {patchTypes.map(p=>(<Link key={p.t} href={p.h} className="group rounded-2xl border border-slate-200 bg-white overflow-hidden shadow-sm transition hover:-translate-y-1.5 hover:shadow-xl"><div className="aspect-square bg-slate-50 overflow-hidden relative"><Image src={p.img} alt={p.alt} fill sizes="(max-width: 640px) 50vw, 25vw" className="object-cover" /></div><div className="p-6"><h3 className="font-bold">{p.t}</h3><p className="mt-2 text-sm leading-7 text-slate-500">{p.d}</p><span className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-blue-600 transition group-hover:gap-2">View Details<svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg></span></div></Link>))}
           </div>
         </div>
       </section>
@@ -146,7 +147,7 @@ export default function Home() {
         <div className="mx-auto max-w-[1440px] px-8">
           <div className="text-center"><p className="text-sm font-bold uppercase tracking-[0.2em] text-blue-400">Testimonials</p><h2 className="mt-4 text-4xl font-extrabold tracking-tight md:text-5xl">Trusted by Patch Buyers for Bulk Custom Orders</h2></div>
           <div className="mt-16 grid gap-8 md:grid-cols-3">
-            {reviews.map(r=>(<div key={r.author} className="rounded-2xl border border-white/[0.08] bg-white/[0.03] p-8 backdrop-blur-sm"><div className="flex gap-1 text-amber-400 mb-4">{"★★★★★"}</div><p className="text-sm leading-7 text-slate-300">"{r.text}"</p><p className="mt-5 text-sm font-bold text-slate-400">— {r.author}</p></div>))}
+            {reviews.map(r=>(<div key={r.author} className="rounded-2xl border border-white/[0.08] bg-white/[0.03] p-8 backdrop-blur-sm"><div className="flex gap-1 text-amber-400 mb-4">{"★★★★★"}</div><p className="text-sm leading-7 text-slate-300">&quot;{r.text}&quot;</p><p className="mt-5 text-sm font-bold text-slate-400">— {r.author}</p></div>))}
           </div>
         </div>
       </section>

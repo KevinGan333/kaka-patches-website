@@ -1,0 +1,110 @@
+{
+  "type": "product",
+  "name": "Custom Stuffed Hanging Ornaments",
+  "slug": "custom-stuffed-hanging-ornaments",
+  "group": "accessories",
+  "urlPrefix": "/custom-accessories",
+  "status": "published",
+  "displayOrder": 11,
+  "availableForQuote": true,
+  "quoteFormKey": "Custom Stuffed Hanging Ornaments",
+  "family": "Textile Accessories",
+  "familySlug": "textile-accessories",
+  "metaTitle": "Custom Stuffed Hanging Ornaments Manufacturer | KaKa Patches",
+  "metaDescription": "B2B custom stuffed hanging ornaments — soft plush textile ornaments for seasonal retail, character merchandise, holiday gifts and promotional giveaways. Factory-direct production.",
+  "ogTitle": "",
+  "ogDescription": "",
+  "ogImage": "",
+  "heroBadge": "Textile Accessory",
+  "h1": "Custom Stuffed Hanging <span class=\"text-blue-400\">Ornaments</span>",
+  "heroSubtitle": "Soft stuffed textile ornaments with a hanging loop. Best for seasonal retail, character merchandise, holiday gifts and promotional giveaways with full custom shape and print.",
+  "buyerSummary": "Soft stuffed hanging ornaments with a loop for display — a premium textile format for seasonal retail, character goods and holiday gifts.",
+  "customizationChips": ["Custom Shape", "Plush Fill", "Full-Color Print", "Hanging Loop"],
+  "heroHighlights": [
+    { "label": "Best For", "value": "Seasonal & character goods" },
+    { "label": "Construction", "value": "Stuffed textile" },
+    { "label": "Detail", "value": "Full-color print" },
+    { "label": "Typical MOQ", "value": "200 pcs/design" }
+  ],
+  "overviewParagraphs": [
+    "Custom stuffed hanging ornaments are soft, filled textile pieces with a hanging loop, produced in fully custom shapes. They combine plush structure with full-color printed or embroidered detailing for a tactile, premium finish.",
+    "They are used widely for seasonal retail, holiday collections, character merchandise and promotional gifts where a soft, three-dimensional product makes a stronger impression than a flat printed item."
+  ],
+  "buyerTypes": [
+    "Retail & gift brands",
+    "Seasonal & holiday buyers",
+    "Character & IP merchandise",
+    "Promotional product distributors",
+    "Bookstores & specialty shops"
+  ],
+  "applications": [
+    "Seasonal retail collections",
+    "Holiday gift merchandise",
+    "Character & IP merchandise",
+    "Promotional giveaways",
+    "Retail gift sets"
+  ],
+  "features": [
+    { "title": "Soft Plush Construction", "description": "Filled textile body with a tactile, premium feel." },
+    { "title": "Fully Custom Shapes", "description": "Produced to any custom contour to match your character or logo." },
+    { "title": "Full-Color Print or Embroidery", "description": "Choose printed or embroidered detailing for the face." },
+    { "title": "Hanging Loop Included", "description": "Ready to hang on displays, trees or retail fixtures." }
+  ],
+  "customOptionsTitle": "Customize Every Detail",
+  "customOptions": [
+    "Custom shape and size",
+    "Full-color print or embroidery",
+    "Plush fill density",
+    "Hanging loop or ribbon",
+    "Individual or bulk packing"
+  ],
+  "typeOptionsTitle": "Detailing Options",
+  "typeOptions": [
+    { "title": "Full-Color Print", "description": "Vibrant printed detailing for detailed artwork and characters." },
+    { "title": "Embroidered Detail", "description": "Raised stitched detail for a premium, tactile finish." },
+    { "title": "Mixed Print & Embroidery", "description": "Combines printed color with embroidered highlights." }
+  ],
+  "decisionGuide": {
+    "bestFor": [
+      "Seasonal and holiday collections",
+      "Character and IP merchandise",
+      "Retail gift sets",
+      "Premium promotional giveaways"
+    ],
+    "notIdealFor": [
+      "Flat products intended for high-speed print-only production"
+    ],
+    "recommendedApplications": [
+      "Seasonal retail collections",
+      "Holiday gift merchandise",
+      "Character merchandise",
+      "Promotional giveaways"
+    ],
+    "alternativeText": "Need a smaller, flatter soft-textile accent for bags and keys? Consider Custom Plush Charms.",
+    "alternativeSlug": "custom-plush-charms"
+  },
+  "specifications": [
+    { "label": "Construction", "value": "Stuffed textile with hanging loop" },
+    { "label": "Detailing", "value": "Full-color print, embroidery or mixed" },
+    { "label": "Fill", "value": "Soft plush fiberfill" }
+  ],
+  "faqs": [
+    { "question": "What is the MOQ for stuffed hanging ornaments?", "answer": "MOQ: 200 pcs per design and construction for bulk production." },
+    { "question": "Can I request a pre-production sample?", "answer": "Yes. Pre-production sample development is available for custom projects so you can verify shape, fill and detailing before bulk production." },
+    { "question": "Can I submit an inquiry without final artwork?", "answer": "Yes. You can submit your project now and send artwork later, or provide a sketch or reference image for our team to review." },
+    { "question": "What design files can I send?", "answer": "PNG, JPG, PDF, AI or SVG files work well. For custom shapes, a clear outline or reference of the desired contour is helpful." },
+    { "question": "Can you help choose the right detailing?", "answer": "Yes. Our team can recommend printed, embroidered or mixed detailing based on your artwork and desired finish." },
+    { "question": "Can you provide test reports?", "answer": "Test reports and compliance documentation can be supported according to selected materials, product construction and destination-market requirements." },
+    { "question": "How are ornaments packed and shipped?", "answer": "Individual or bulk packing is available, and shipment is arranged according to your confirmed order, destination and payment terms." }
+  ],
+  "ctaHeading": "Need Custom Stuffed Hanging Ornaments?",
+  "relatedProductSlugs": ["custom-plush-charms", "custom-keychains", "custom-sachets"],
+  "relatedApplications": ["Seasonal retail", "Holiday gifts", "Character merchandise"],
+  "relatedBlogSlugs": ["custom-patches-small-batch", "how-to-prepare-artwork-for-custom-patches"],
+  "moqDisclaimer": "",
+  "packagingDelivery": "",
+  "images": [],
+  "createdAt": "2026-08-15T00:00:00.000Z",
+  "updatedAt": "2026-08-15T00:00:00.000Z",
+  "publishedAt": "2026-08-15T00:00:00.000Z"
+}

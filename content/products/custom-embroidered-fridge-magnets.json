@@ -1,0 +1,147 @@
+{
+  "type": "product",
+  "name": "Custom Embroidered Fridge Magnets",
+  "slug": "custom-embroidered-fridge-magnets",
+  "group": "accessories",
+  "urlPrefix": "/custom-accessories",
+  "status": "published",
+  "displayOrder": 25,
+  "availableForQuote": true,
+  "quoteFormKey": "Custom Embroidered Fridge Magnets",
+  "metaTitle": "Custom Embroidered Fridge Magnets Manufacturer — Embroidered Magnets | KaKa Patches",
+  "metaDescription": "B2B custom embroidered fridge magnets with 3D stitched texture and strong magnetic backing. Factory-direct production for souvenir shops, tourist destinations and promotional gifts.",
+  "ogTitle": "",
+  "ogDescription": "",
+  "ogImage": "",
+  "heroBadge": "Embroidered Fabric + Magnetic Back",
+  "h1": "Custom <span class=\"text-blue-400\">Embroidered Fridge Magnets</span>",
+  "heroSubtitle": "3D embroidered fridge magnets with strong magnetic backing for souvenir shops, tourist destinations, promotional gifts and home decor. Factory-direct production with custom shapes and packaging.",
+  "heroHighlights": [
+    {
+      "label": "Front",
+      "value": "3D embroidered thread on fabric"
+    },
+    {
+      "label": "Back",
+      "value": "Full-coverage flexible magnet"
+    },
+    {
+      "label": "Best For",
+      "value": "Souvenirs & tourist merchandise"
+    },
+    {
+      "label": "MOQ",
+      "value": "200 pcs/design"
+    },
+    {
+      "label": "Lead Time",
+      "value": "2–3 weeks"
+    }
+  ],
+  "overviewParagraphs": [
+    "Custom embroidered fridge magnets combine a 3D embroidered fabric front with a full-coverage magnetic backing — creating a premium, tactile keepsake that standard printed magnets cannot match. Each magnet is die-cut to your exact artwork shape with vibrant thread colors and a finished edge.",
+    "They are particularly popular in the tourist and souvenir industry, where the embroidered texture adds perceived value and a handcrafted feel. They are also used for brand promotional gifts, home decor products, wedding favors and commemorative event merchandise."
+  ],
+  "buyerTypes": [
+    "Tourist destination gift shops",
+    "Souvenir & keepsake retailers",
+    "Museum & attraction shops",
+    "Hotel & resort gift shops",
+    "Promotional product distributors",
+    "Wedding & event planners",
+    "Home decor brands",
+    "Online marketplace sellers"
+  ],
+  "applications": [
+    "Tourist souvenirs",
+    "Destination keepsakes",
+    "Museum gift shops",
+    "Brand promotional items",
+    "Wedding guest favors",
+    "Home decor retail",
+    "Event memorabilia",
+    "Corporate gifts"
+  ],
+  "features": [
+    {
+      "title": "3D Embroidered Front",
+      "description": "The embroidered surface creates a raised, textured design with vibrant thread colors — far more distinctive and premium than flat printed magnets."
+    },
+    {
+      "title": "Strong Magnetic Hold",
+      "description": "Full-coverage magnetic backing provides reliable hold on fridges, filing cabinets, whiteboards and any ferrous metal surface — won't slide or fall."
+    },
+    {
+      "title": "Custom Die-Cut Shape",
+      "description": "Each magnet is cut to your exact design outline — not limited to standard shapes. Complex contours and lettering outlines are fully supported."
+    },
+    {
+      "title": "Lightweight & Mail-Friendly",
+      "description": "Embroidered magnets are thin and light — keeping shipping costs low for retail distribution, mail-order fulfillment and direct-to-consumer sales."
+    }
+  ],
+  "customOptionsTitle": "Customize Your Fridge Magnets",
+  "customOptions": [
+    "Custom magnet shape and size",
+    "Full-color embroidery up to 12 colors",
+    "PMS thread color matching",
+    "Merrowed or laser-cut edge finish",
+    "Full magnetic sheet or strip backing",
+    "Individual or display packaging",
+    "Sample and bulk production support",
+    "Tourist, souvenir or brand designs"
+  ],
+  "typeOptionsTitle": "Choose the Right Magnetic Backing",
+  "typeOptions": [
+    {
+      "title": "Full Magnetic Sheet",
+      "description": "Complete coverage flexible magnet across the entire back — strongest hold, most reliable. Recommended for all standard fridge magnet applications."
+    },
+    {
+      "title": "Magnetic Strip",
+      "description": "One or two strips of magnet material instead of full coverage — lighter and more economical for very large production runs where cost is the primary concern."
+    },
+    {
+      "title": "Neodymium Upgrade",
+      "description": "Small but extremely strong rare-earth magnets embedded in the backing — holds significantly more weight. Ideal for larger or heavier magnet designs."
+    },
+    {
+      "title": "Adhesive Magnet",
+      "description": "Peel-and-stick magnet sheet that the end user applies — popular for mail-order and subscription box products where flat shipping is a priority."
+    }
+  ],
+  "faqs": [
+    {
+      "question": "How do embroidered fridge magnets differ from regular printed magnets?",
+      "answer": "Embroidered fridge magnets use stitched thread on a fabric backing with a magnetic layer, giving them a raised 3D texture and premium tactile quality. Regular printed magnets are flat with a printed surface. Embroidered magnets feel more substantial and are perceived as higher-value keepsakes."
+    },
+    {
+      "question": "How strong is the magnetic backing?",
+      "answer": "We use a full-coverage flexible magnetic sheet that holds securely on any ferrous metal surface — fridges, filing cabinets, whiteboards, metal doors. The magnet is strong enough to hold a few sheets of paper in addition to the magnet itself. For heavier items, we can upgrade to a stronger magnet — please specify when requesting a quote."
+    },
+    {
+      "question": "What sizes are available for embroidered magnets?",
+      "answer": "Typical sizes range from 2 to 5 inches at the longest dimension. Smaller magnets (under 2 inches) may lose fine embroidery detail, while larger magnets (over 5 inches) increase material costs. Our design team advises on the optimal size for your artwork."
+    },
+    {
+      "question": "Are embroidered magnets suitable for tourist souvenir shops?",
+      "answer": "Yes — they are one of the most popular souvenir products. The embroidered texture gives them a handcrafted, artisanal feel that tourists value. We can design location-specific magnets with landmarks, city names and cultural motifs."
+    },
+    {
+      "question": "Can embroidered magnets be sold in retail packaging?",
+      "answer": "Yes. We offer individual polybag with backing card, blister card for pegboard display, and bulk packaging for tourist shops that display magnets on spinner racks. Let us know your retail environment and we will recommend the best packaging."
+    },
+    {
+      "question": "How do I get a quote?",
+      "answer": "Upload your design through our Request a Quote page with your preferred size, shape, quantity and packaging requirements. We respond with a detailed quote — typically within 1 business day."
+    }
+  ],
+  "ctaHeading": "Need Custom Embroidered Fridge Magnets?",
+  "relatedProductSlugs": [],
+  "moqDisclaimer": "",
+  "packagingDelivery": "",
+  "images": [],
+  "createdAt": "2026-08-10T07:51:32.210Z",
+  "updatedAt": "2026-08-10T07:51:32.210Z",
+  "publishedAt": "2026-08-10T07:51:32.210Z"
+}

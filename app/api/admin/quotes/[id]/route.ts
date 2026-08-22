@@ -1,5 +1,5 @@
 import { verifyAdminSession } from "@/lib/admin/auth";
-import { getQuoteRequestById } from "@/lib/admin/quote-db";
+import { getQuoteRequestById, type QuoteRequest } from "@/lib/admin/quote-db";
 import { getDb } from "@/lib/db";
 
 export const runtime = "nodejs";
@@ -42,17 +42,23 @@ export async function PUT(
       email: "email",
       company: "company",
       quantity: "quantity",
+      quantityPerDesign: "quantity_per_design",
+      numberOfDesigns: "number_of_designs",
       delivery: "delivery",
+      productCategory: "product_category",
       patchType: "patch_type",
       patchSize: "patch_size",
       backing: "backing",
       border: "border_option",
+      designNotes: "design_notes",
+      projectType: "project_type",
+      packaging: "packaging_preference",
       message: "message",
     };
 
     // Build dynamic query with parameterized values
     const setClauses: string[] = [];
-    const values: any[] = [];
+    const values: (string | number | boolean | null)[] = [];
     let paramIndex = 1;
 
     for (const [jsonKey, colName] of Object.entries(columnMap)) {
@@ -70,7 +76,7 @@ export async function PUT(
     values.push(id); // last param is the WHERE id
     const query = `UPDATE quote_requests SET ${setClauses.join(", ")}, updated_at = NOW() WHERE id = $${paramIndex} RETURNING *`;
 
-    const result = await db.unsafe(query, values) as any[];
+    const result = await db.unsafe(query, values) as QuoteRequest[];
     const quote = result[0] || null;
 
     if (!quote) {

@@ -1,0 +1,100 @@
+{
+  "type": "product",
+  "name": "Custom Printed Patches",
+  "slug": "custom-printed-patches",
+  "group": "patches",
+  "urlPrefix": "/products",
+  "status": "published",
+  "displayOrder": 6,
+  "availableForQuote": true,
+  "quoteFormKey": "Custom Printed Patches",
+  "metaTitle": "Custom Printed Patches Manufacturer — Full-Color | KaKa Patches",
+  "metaDescription": "Full-color custom printed patches for detailed artwork, photographic reproduction and vibrant promotional products. Factory-direct B2B production.",
+  "ogTitle": "",
+  "ogDescription": "",
+  "ogImage": "",
+  "heroBadge": "Custom Patch Product",
+  "h1": "Custom Printed <span class=\"text-blue-400\">Patches</span>",
+  "heroSubtitle": "Full-color printed designs for detailed artwork, photographic reproduction and vibrant promotional products.",
+  "heroHighlights": [
+    {
+      "label": "Color",
+      "value": "Full CMYK + white base"
+    },
+    {
+      "label": "Detail",
+      "value": "Photo-quality reproduction"
+    },
+    {
+      "label": "Best For",
+      "value": "Complex art & photos"
+    },
+    {
+      "label": "MOQ",
+      "value": "200 pcs/design"
+    },
+    {
+      "label": "Lead Time",
+      "value": "2–3 weeks"
+    }
+  ],
+  "overviewParagraphs": [
+    "Custom printed patches use dye-sublimation or screen printing onto fabric to achieve full-color, photo-quality results. Ideal for detailed artwork, gradients and photographic designs that can't be reproduced with embroidery or weaving."
+  ],
+  "buyerTypes": [
+    "Promotional product companies",
+    "Event merchandise buyers",
+    "Fashion brands",
+    "Tourism & souvenir shops",
+    "Fundraising organizations"
+  ],
+  "applications": [
+    "Promotional giveaways",
+    "Event merchandise",
+    "Tourist souvenirs",
+    "Fashion accessories",
+    "Full-color logos",
+    "Photo patches"
+  ],
+  "features": [
+    {
+      "title": "Full-Color Printing",
+      "description": "CMYK printing with white base layer captures photorealistic detail and smooth gradients."
+    },
+    {
+      "title": "Fast Production",
+      "description": "Printed patches have simpler production than embroidered — ideal for tight timelines."
+    },
+    {
+      "title": "Cost-Effective",
+      "description": "Lower cost per piece at volume compared to woven or embroidered patches."
+    }
+  ],
+  "customOptionsTitle": "Custom Options",
+  "customOptions": [
+    "Custom size and shape",
+    "Full-color print with white base",
+    "Sew-on, iron-on or adhesive backing",
+    "Merrowed or heat-cut border"
+  ],
+  "typeOptionsTitle": "Printing Methods",
+  "typeOptions": [
+    {
+      "title": "Dye Sublimation",
+      "description": "Vibrant, durable print that bonds with the fabric for long-lasting color."
+    },
+    {
+      "title": "Screen Printing",
+      "description": "Bold, opaque colors for simple designs and large quantities."
+    }
+  ],
+  "faqs": [],
+  "ctaHeading": "Need Full-Color Printed Patches?",
+  "relatedProductSlugs": [],
+  "moqDisclaimer": "",
+  "packagingDelivery": "",
+  "images": [],
+  "createdAt": "2026-08-10T07:51:32.210Z",
+  "updatedAt": "2026-08-10T07:51:32.210Z",
+  "publishedAt": "2026-08-10T08:30:00.000Z"
+}

@@ -28,5 +28,5 @@ export async function POST(request: Request) {
     };
     const created = await createContent("blog", item);
     return Response.json({ success: true, item: created });
-  } catch (e) { return Response.json({ error: "Failed to create blog post." }, { status: 500 }); }
+  } catch { return Response.json({ error: "Failed to create blog post." }, { status: 500 }); }
 }

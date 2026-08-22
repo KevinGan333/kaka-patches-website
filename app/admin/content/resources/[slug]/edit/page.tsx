@@ -56,8 +56,9 @@ export default function AdminEditResourcePage() {
           seoDescription: resource.seoDescription || "",
           content: resource.contentMarkdown || resource.content || "",
         });
-      } catch (err: any) {
-        setLoadError(err.message || "An error occurred while loading this resource");
+      } catch (err: unknown) {
+        const message = err instanceof Error ? err.message : "An error occurred while loading this resource";
+        setLoadError(message);
       } finally {
         setLoading(false);
       }
@@ -122,8 +123,9 @@ export default function AdminEditResourcePage() {
         return;
       }
       router.push("/admin/content/resources");
-    } catch (err: any) {
-      setErrors({ _form: err.message || "An error occurred" });
+    } catch (err: unknown) {
+      const message = err instanceof Error ? err.message : "An error occurred";
+      setErrors({ _form: message });
     } finally {
       setSaving(false);
     }
@@ -144,8 +146,9 @@ export default function AdminEditResourcePage() {
         return;
       }
       router.push("/admin/content/resources");
-    } catch (err: any) {
-      alert(err.message || "An error occurred");
+    } catch (err: unknown) {
+      const message = err instanceof Error ? err.message : "An error occurred";
+      alert(message);
     } finally {
       setArchiving(false);
     }

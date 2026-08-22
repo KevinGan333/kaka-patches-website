@@ -1,0 +1,140 @@
+{
+  "type": "product",
+  "name": "Custom Woven Patches",
+  "slug": "custom-woven-patches",
+  "group": "patches",
+  "urlPrefix": "/products",
+  "status": "published",
+  "displayOrder": 2,
+  "availableForQuote": true,
+  "quoteFormKey": "Custom Woven Patches",
+  "metaTitle": "Custom Woven Patches Manufacturer — Fine Detail Production | KaKa Patches",
+  "metaDescription": "B2B custom woven patches with smooth surface and fine detail for clothing labels, fashion brands and premium apparel. Factory-direct production with artwork support.",
+  "ogTitle": "",
+  "ogDescription": "",
+  "ogImage": "",
+  "heroBadge": "Custom Patch Product",
+  "h1": "Custom Woven <span class=\"text-blue-400\">Patches</span>",
+  "heroSubtitle": "Smooth woven surface with fine detail capability. Best for small text, clean logo lines, clothing labels, fashion brands and premium apparel.",
+  "heroHighlights": [
+    {
+      "label": "Texture",
+      "value": "Smooth flat finish"
+    },
+    {
+      "label": "Detail Level",
+      "value": "Excellent — best in class"
+    },
+    {
+      "label": "Best For",
+      "value": "Fine detail & small text"
+    },
+    {
+      "label": "MOQ",
+      "value": "200 pcs/design"
+    },
+    {
+      "label": "Lead Time",
+      "value": "2–3 weeks"
+    }
+  ],
+  "overviewParagraphs": [
+    "Custom woven patches are made by weaving thin polyester threads together on a fabric base. Unlike embroidered patches, woven patches produce a flat, smooth surface with much finer detail capability — making them the preferred choice for small text and intricate artwork. Good for detailed artwork that may not work well with embroidery."
+  ],
+  "buyerTypes": [
+    "Clothing & fashion brands",
+    "Premium apparel labels",
+    "Corporate merchandise buyers",
+    "Detailed logo projects",
+    "Promotional product companies",
+    "Uniform suppliers"
+  ],
+  "applications": [
+    "Clothing labels & brand tags",
+    "Fashion brands",
+    "Premium apparel",
+    "Detailed logo patches",
+    "Corporate merchandise",
+    "Promotional products",
+    "Accessory branding",
+    "Fine-text designs"
+  ],
+  "features": [
+    {
+      "title": "Fine Detail Reproduction",
+      "description": "Woven patches use thinner threads and a tighter weave, making them the best choice for small text, intricate logos and clean lines."
+    },
+    {
+      "title": "Smooth Flat Finish",
+      "description": "Unlike raised embroidery, woven patches have a flat surface ideal for clothing labels, premium brand tags and detailed badges."
+    },
+    {
+      "title": "Premium Appearance",
+      "description": "The clean, sharp finish is favored by fashion brands and apparel labels wanting a refined brand presentation."
+    },
+    {
+      "title": "Flexible Customization",
+      "description": "Custom size, shape, color matching, border style and backing options available for your B2B requirements."
+    }
+  ],
+  "customOptionsTitle": "Customize Every Detail",
+  "customOptions": [
+    "Custom patch size and shape",
+    "PMS color matching",
+    "Merrowed or heat-cut border",
+    "Sew-on, iron-on or adhesive backing",
+    "Individual or bulk packaging",
+    "Logo, badge, label or emblem designs",
+    "Sample and bulk production support",
+    "No minimum on detail complexity"
+  ],
+  "typeOptionsTitle": "Backing Options",
+  "typeOptions": [
+    {
+      "title": "Sew-on",
+      "description": "Permanent attachment for garments and products requiring maximum durability."
+    },
+    {
+      "title": "Iron-on",
+      "description": "Heat-applied for fast production on fabric items."
+    },
+    {
+      "title": "Velcro",
+      "description": "Removable attachment for interchangeable patches."
+    },
+    {
+      "title": "Adhesive",
+      "description": "Peel-and-stick for promotional and temporary applications."
+    }
+  ],
+  "faqs": [
+    {
+      "question": "What is the difference between woven and embroidered patches?",
+      "answer": "Woven patches use thinner threads in a tighter weave, creating a smooth flat surface ideal for fine details and small text. Embroidered patches use thicker threads creating a raised, textured surface."
+    },
+    {
+      "question": "Can woven patches show very small text?",
+      "answer": "Yes — this is the main advantage. Small text and intricate artwork that may not reproduce well in embroidery can be produced cleanly with woven patch production."
+    },
+    {
+      "question": "Are woven patches durable?",
+      "answer": "Yes. Woven patches are highly durable and maintain their appearance through washing and regular wear."
+    },
+    {
+      "question": "What backing options are available?",
+      "answer": "Sew-on, iron-on, Velcro and adhesive backing are all available for woven patches."
+    },
+    {
+      "question": "How do I get a quote?",
+      "answer": "Upload your artwork through our Request a Quote page and provide patch size, quantity, backing option and delivery requirements."
+    }
+  ],
+  "ctaHeading": "Need Fine-Detail Woven Patches?",
+  "relatedProductSlugs": [],
+  "moqDisclaimer": "",
+  "packagingDelivery": "",
+  "images": [],
+  "createdAt": "2026-08-10T07:51:32.210Z",
+  "updatedAt": "2026-08-10T07:51:32.210Z",
+  "publishedAt": "2026-08-10T07:51:32.210Z"
+}

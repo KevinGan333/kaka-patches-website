@@ -4,9 +4,23 @@ import { useEffect, useState, useMemo } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 
+interface DashboardQuote {
+  id: string;
+  quote_number: string;
+  name: string;
+  status?: string;
+  email_sent?: boolean;
+  email_error?: string;
+  patch_type?: string;
+  quantity?: string;
+  artwork_filename?: string;
+  artwork_url?: string;
+  created_at: string;
+}
+
 export default function AdminDashboard() {
   const router = useRouter();
-  const [quotes, setQuotes] = useState<any[]>([]);
+  const [quotes, setQuotes] = useState<DashboardQuote[]>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -25,18 +39,18 @@ export default function AdminDashboard() {
   const stats = useMemo(() => {
     const now = new Date();
     const weekAgo = new Date(now.getTime() - 7 * 24 * 60 * 60 * 1000);
-    const isNew = (q: any) => !q.status || q.status === "new";
-    const isWaiting = (q: any) => q.status === "waiting_for_customer";
+    const isNew = (q: DashboardQuote) => !q.status || q.status === "new";
+    const isWaiting = (q: DashboardQuote) => q.status === "waiting_for_customer";
     return {
       total: quotes.length,
       new_: quotes.filter(isNew).length,
-      needFollowUp: quotes.filter((q: any) => isNew(q) || isWaiting(q)).length,
-      quoted: quotes.filter((q: any) => q.status === "quoted").length,
-      inProduction: quotes.filter((q: any) => q.status === "in_production").length,
-      emailSent: quotes.filter((q: any) => q.email_sent === true).length,
-      emailFailed: quotes.filter((q: any) => q.email_sent === false && q.email_error).length,
-      artworkUploaded: quotes.filter((q: any) => q.artwork_filename || q.artwork_url).length,
-      thisWeek: quotes.filter((q: any) => new Date(q.created_at) >= weekAgo).length,
+      needFollowUp: quotes.filter((q) => isNew(q) || isWaiting(q)).length,
+      quoted: quotes.filter((q) => q.status === "quoted").length,
+      inProduction: quotes.filter((q) => q.status === "in_production").length,
+      emailSent: quotes.filter((q) => q.email_sent === true).length,
+      emailFailed: quotes.filter((q) => q.email_sent === false && q.email_error).length,
+      artworkUploaded: quotes.filter((q) => q.artwork_filename || q.artwork_url).length,
+      thisWeek: quotes.filter((q) => new Date(q.created_at) >= weekAgo).length,
       latest: quotes.slice(0, 5),
     };
   }, [quotes]);
@@ -87,7 +101,7 @@ export default function AdminDashboard() {
               <th className="px-3 py-2.5"></th>
             </tr></thead>
             <tbody>
-              {stats.latest.map((q: any) => (
+              {stats.latest.map((q) => (
                 <tr key={q.id} className="border-b border-slate-100 hover:bg-slate-50/50">
                   <td className="px-3 py-2.5 text-slate-500 whitespace-nowrap">{new Date(q.created_at).toLocaleDateString()}</td>
                   <td className="px-3 py-2.5 font-mono text-[11px] text-slate-400">{q.quote_number}</td>

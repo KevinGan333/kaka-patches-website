@@ -2,18 +2,44 @@ import { getDb } from "@/lib/db";
 
 export type QuoteStatus = "new" | "reviewed" | "quoted" | "waiting_for_customer" | "in_production" | "closed";
 
+export interface QuoteNote {
+  id: string;
+  content: string;
+  created_at: string;
+}
+
+interface QuoteStatsRow {
+  total: number;
+  new_: number;
+  reviewed: number;
+  quoted: number;
+  in_production: number;
+  closed: number;
+  email_sent: number;
+  email_failed: number;
+  artwork_uploaded: number;
+  this_week: number;
+}
+
 export interface QuoteRequest {
   id: string;
   quote_number: string;
   name: string;
   email: string;
   company?: string;
-  quantity?: string;
+  quantity?: string;              // kept for backward compat, total estimate
+  quantity_per_design?: string;   // pcs per single design
+  number_of_designs?: string;     // how many different designs
   delivery?: string;
-  patch_type?: string;
+  product_category?: string;      // replaces patch_type as primary product field
+  patch_type?: string;            // kept for backward compat
   patch_size?: string;
   backing?: string;
   border_option?: string;
+  design_notes?: string;
+  style_reference?: string;
+  project_type?: string;
+  packaging_preference?: string;
   message?: string;
   artwork_filename?: string;
   artwork_url?: string;
@@ -22,8 +48,15 @@ export interface QuoteRequest {
   email_sent: boolean;
   email_error?: string;
   status: QuoteStatus;
-  notes: any[];
+  notes: QuoteNote[];
   source: string;
+  utm_source?: string;
+  utm_medium?: string;
+  utm_campaign?: string;
+  utm_content?: string;
+  utm_term?: string;
+  first_landing_page?: string;
+  referrer?: string;
   created_at: string;
   updated_at: string;
 }
@@ -51,15 +84,27 @@ export async function createQuoteRequest(data: Partial<QuoteRequest>): Promise<Q
   const quoteNumber = generateQuoteNumber();
   const result = await db`
     INSERT INTO quote_requests (
-      quote_number, name, email, company, quantity, delivery,
-      patch_type, patch_size, backing, border_option, message,
-      artwork_filename, artwork_url, artwork_size, artwork_type, status
+      quote_number, name, email, company, quantity, quantity_per_design, number_of_designs, delivery,
+      product_category, patch_type, patch_size, backing, border_option, design_notes,
+      project_type, packaging_preference, message,
+      artwork_filename, artwork_url, artwork_size, artwork_type,
+      utm_source, utm_medium, utm_campaign, utm_content, utm_term,
+      first_landing_page, referrer,
+      style_reference, status
     ) VALUES (
       ${quoteNumber}, ${data.name || ""}, ${data.email || ""}, ${data.company || ""},
-      ${data.quantity || ""}, ${data.delivery || ""}, ${data.patch_type || ""},
-      ${data.patch_size || ""}, ${data.backing || ""}, ${data.border_option || ""},
-      ${data.message || ""}, ${data.artwork_filename || null}, ${data.artwork_url || null},
-      ${data.artwork_size || null}, ${data.artwork_type || null}, ${data.status || "new"}
+      ${data.quantity || ""}, ${data.quantity_per_design || ""}, ${data.number_of_designs || ""},
+      ${data.delivery || ""}, ${data.product_category || ""},
+      ${data.patch_type || ""}, ${data.patch_size || ""}, ${data.backing || ""},
+      ${data.border_option || ""}, ${data.design_notes || ""},
+      ${data.project_type || ""}, ${data.packaging_preference || ""}, ${data.message || ""},
+      ${data.artwork_filename || null}, ${data.artwork_url || null},
+      ${data.artwork_size || null}, ${data.artwork_type || null},
+      ${data.utm_source || null}, ${data.utm_medium || null}, ${data.utm_campaign || null},
+      ${data.utm_content || null}, ${data.utm_term || null},
+      ${data.first_landing_page || null}, ${data.referrer || null},
+      ${data.style_reference || null},
+      ${data.status || "new"}
     )
     RETURNING *
   `;
@@ -72,13 +117,13 @@ export async function getAllQuoteRequests(filters?: QuoteFilters): Promise<Quote
 
   if (filters?.search) {
     const s = `%${filters.search}%`;
-    query = db`${query} AND (quote_number ILIKE ${s} OR name ILIKE ${s} OR email ILIKE ${s} OR company ILIKE ${s} OR patch_type ILIKE ${s})`;
+    query = db`${query} AND (quote_number ILIKE ${s} OR name ILIKE ${s} OR email ILIKE ${s} OR company ILIKE ${s} OR product_category ILIKE ${s} OR patch_type ILIKE ${s})`;
   }
   if (filters?.status && filters.status !== "all") {
     query = db`${query} AND status = ${filters.status}`;
   }
   if (filters?.patchType && filters.patchType !== "all") {
-    query = db`${query} AND patch_type = ${filters.patchType}`;
+    query = db`${query} AND (product_category = ${filters.patchType} OR patch_type = ${filters.patchType})`;
   }
   if (filters?.emailSent === "sent") {
     query = db`${query} AND email_sent = true`;
@@ -164,7 +209,7 @@ export async function getQuoteStats(): Promise<{
       COUNT(*) FILTER (WHERE created_at >= NOW() - INTERVAL '7 days')::int as this_week
     FROM quote_requests
   `;
-  const r = result[0] as any;
+  const r = result[0] as QuoteStatsRow;
   return {
     total: r.total, new_: r.new_, reviewed: r.reviewed, quoted: r.quoted,
     waiting: r.in_production, inProduction: r.in_production, closed: r.closed,
@@ -176,13 +221,16 @@ export async function getQuoteStats(): Promise<{
 export async function exportQuoteRequestsCsv(): Promise<string> {
   const db = getDb();
   const rows = await db`SELECT * FROM quote_requests ORDER BY created_at DESC` as unknown as QuoteRequest[];
-  const header = "Quote Number,Date,Status,Name,Email,Company,Patch Type,Patch Size,Backing,Border,Qty,Delivery,Message,Artwork,Email Sent,Notes";
+  const header = "Quote Number,Date,Status,Name,Email,Company,Product Category,Patch Size,Backing,Border,Designs,Qty/Design,Total Qty,Delivery,Project Type,Packaging,Message,Artwork,Email Sent,UTM Source,UTM Medium,UTM Campaign,Notes";
   const csvRows = rows.map(r => [
     r.quote_number, r.created_at, r.status, r.name, r.email,
-    r.company, r.patch_type, r.patch_size, r.backing, r.border_option,
-    r.quantity, r.delivery, r.message, r.artwork_filename || "",
+    r.company, r.product_category || r.patch_type, r.patch_size, r.backing, r.border_option,
+    r.number_of_designs, r.quantity_per_design, r.quantity,
+    r.delivery, r.project_type, r.packaging_preference, r.message,
+    r.artwork_filename || "",
     r.email_sent ? "Yes" : "No",
-    (r.notes || []).map((n: any) => `[${n.created_at}] ${n.content}`).join(" | "),
+    r.utm_source || "", r.utm_medium || "", r.utm_campaign || "",
+    (r.notes || []).map((n) => `[${n.created_at}] ${n.content}`).join(" | "),
   ].map(v => `"${String(v || "").replace(/"/g, '""')}"`).join(","));
   return [header, ...csvRows].join("\n");
 }
