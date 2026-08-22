@@ -1,5 +1,6 @@
 import { Resend } from "resend";
 import { createQuoteRequest, updateQuoteEmailStatus } from "@/lib/admin/quote-db";
+import { getArtworkBlobStoreId } from "@/lib/admin/artwork-store";
 
 export const runtime = "nodejs";
 
@@ -236,53 +237,51 @@ export async function POST(request: Request) {
     const quantityPerDesign = validatedQtys.join(",");
     const designsCount = validatedQtys.length || 1;
 
-    /* ── Blob upload (best-effort with failure tracking) ── */
+    /* ── Artwork upload (must succeed before the inquiry is saved) ── */
     let artworkUrl: string | null = null;
     let artworkInfo: {
       originalFileName?: string;
       fileType?: string;
       fileSize?: number;
     } = {};
-    let artworkUploadAttempted = false;
     let artworkUploadFailed = false;
 
-    const blobToken = process.env.BLOB_READ_WRITE_TOKEN;
-
-    if (artwork instanceof File && artwork.size > 0 && artwork.size <= 10 * 1024 * 1024 && blobToken) {
-      artworkUploadAttempted = true;
-      try {
-        const { put } = await import("@vercel/blob");
-        const originalFileName = safeFileName(artwork.name || "artwork");
-        const now = new Date();
-        const year = now.getFullYear();
-        const month = String(now.getMonth() + 1).padStart(2, "0");
-        const blobPath = `quote-artwork/${year}/${month}/${originalFileName}`;
-
-        const blob = await put(blobPath, artwork, {
-          access: "public",
-          token: blobToken,
-        });
-
-        artworkUrl = blob.url;
-        artworkInfo = {
-          originalFileName,
-          fileType: artwork.type,
-          fileSize: artwork.size,
-        };
-        console.log("Blob upload:", blobPath, "->", blob.url);
-      } catch (e: unknown) {
+    if (artwork instanceof File && artwork.size > 0) {
+      if (artwork.size > 10 * 1024 * 1024) {
         artworkUploadFailed = true;
-        console.warn("Blob upload failed:", e instanceof Error ? e.message : String(e));
+        console.warn("Artwork upload rejected: file exceeds the 10 MB limit.");
+      } else {
+        try {
+          const storeId = getArtworkBlobStoreId();
+          const { put } = await import("@vercel/blob");
+          const originalFileName = safeFileName(artwork.name || "artwork");
+          const now = new Date();
+          const year = now.getFullYear();
+          const month = String(now.getMonth() + 1).padStart(2, "0");
+          const blobPath = `quote-artwork/${year}/${month}/${originalFileName}`;
+
+          const blob = await put(blobPath, artwork, {
+            access: "private",
+            storeId,
+          });
+
+          artworkUrl = blob.url;
+          artworkInfo = {
+            originalFileName,
+            fileType: artwork.type,
+            fileSize: artwork.size,
+          };
+          console.log("Blob upload:", blobPath);
+        } catch (e) {
+          artworkUploadFailed = true;
+          console.warn("Blob upload failed:", e instanceof Error ? e.message : String(e));
+        }
       }
-    } else if (artwork instanceof File && artwork.size > 0 && !blobToken) {
-      artworkUploadAttempted = true;
-      artworkUploadFailed = true;
-      console.log("Blob upload: BLOB_READ_WRITE_TOKEN not set, artwork upload skipped.");
     }
 
-    // If artwork was attempted but failed, return an explicit error so the buyer
-    // knows their upload didn't succeed and can retry or contact support.
-    if (artworkUploadAttempted && artworkUploadFailed) {
+    // If the buyer attached artwork but it didn't upload, fail loudly instead of
+    // silently saving the request as a no-artwork inquiry.
+    if (artworkUploadFailed) {
       return Response.json(
         {
           success: false,
