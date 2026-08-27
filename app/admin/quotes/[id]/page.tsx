@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { useRouter, useParams } from "next/navigation";
 import Link from "next/link";
 import StatusBadge from "@/components/admin/StatusBadge";
-import { adminArtworkEndpoint, isPreviewableImage } from "@/lib/admin/artwork";
+import { adminArtworkEndpoint } from "@/lib/admin/artwork";
 
 // ── Data model ────────────────────────────────────────────────────────────────
 // The detail API (`GET /api/admin/quotes/[id]`) returns the raw flat snake_case
