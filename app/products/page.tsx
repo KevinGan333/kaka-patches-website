@@ -173,6 +173,7 @@ export default async function ProductsPage() {
           </div>
 
           <div className="mt-14 space-y-16">
+            <Link href="/products/custom-patch-hats" className="block rounded-3xl border border-blue-200 bg-blue-50 p-6 text-lg font-bold text-blue-800">Custom Patch Hats — caps and patches made together →</Link>
             {families.map(({ family, products }) => (
               <div key={family.slug} id={family.slug} className="scroll-mt-28 rounded-3xl border border-slate-200 bg-white p-6 shadow-sm md:p-8">
                 <div className="grid gap-6 md:grid-cols-[1.1fr_1fr]">
