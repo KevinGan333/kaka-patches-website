@@ -83,6 +83,7 @@ function SectionHeading({ eyebrow, title }: { eyebrow: string; title: string }) 
 }
 
 export default async function B2BProductPage({ product }: { product: ProductPage }) {
+  const compact = product.layout === "compact";
   const family = getFamilyForProduct(product);
   const familySlug = family?.slug;
   const chips = product.customizationChips?.length ? product.customizationChips : DEFAULT_CHIPS;
@@ -143,6 +144,7 @@ export default async function B2BProductPage({ product }: { product: ProductPage
     product.customizationExplorer?.length
       ? product.customizationExplorer.map((o, i) => ({
           name: o.name,
+          href: o.href,
           description: o.description,
           bestFor: o.bestFor,
           slotPath: o.imageSlot || `${slotBase(product.slug)}/option-${String((i % 4) + 1).padStart(2, "0")}.webp`,
@@ -150,12 +152,14 @@ export default async function B2BProductPage({ product }: { product: ProductPage
       : [
           ...product.typeOptions.map((t, i) => ({
             name: t.title,
+            href: undefined as string | undefined,
             description: t.description,
             bestFor: undefined as string | undefined,
             slotPath: `${slotBase(product.slug)}/option-${String((i % 4) + 1).padStart(2, "0")}.webp`,
           })),
           ...product.customOptions.slice(0, 3).map((o, i) => ({
             name: o,
+            href: undefined as string | undefined,
             description: "",
             bestFor: undefined as string | undefined,
             slotPath: `${slotBase(product.slug)}/option-${String((i % 4) + 1).padStart(2, "0")}.webp`,
@@ -317,6 +321,12 @@ export default async function B2BProductPage({ product }: { product: ProductPage
                   Consider Another Construction When
                 </h3>
                 <ul className="mt-4 space-y-3 text-sm text-slate-600">
+                  {dg.alternatives?.length ? dg.alternatives.map((alternative) => (
+                    <li key={alternative.href} className="flex flex-col">
+                      {alternative.reason}
+                      <Link href={alternative.href} className="mt-0.5 font-semibold text-blue-600 hover:text-blue-700">{alternative.label}</Link>
+                    </li>
+                  )) : (<>
                   <li className="flex flex-col">
                     Fine text or intricate lines
                     <Link href="/products/custom-woven-patches" className="mt-0.5 font-semibold text-blue-600 hover:text-blue-700">Custom Woven Patches</Link>
@@ -335,6 +345,7 @@ export default async function B2BProductPage({ product }: { product: ProductPage
                     Raised fuzzy varsity appearance
                     <Link href="/products/custom-chenille-patches" className="mt-0.5 font-semibold text-blue-600 hover:text-blue-700">Custom Chenille Patches</Link>
                   </li>
+                  </>)}
                 </ul>
               </div>
             </div>
@@ -354,7 +365,7 @@ export default async function B2BProductPage({ product }: { product: ProductPage
       )}
 
       {/* ── D. Product detail gallery ── */}
-      <section className="bg-slate-50 py-16 md:py-20">
+      {!compact && <section className="bg-slate-50 py-16 md:py-20">
         <div className="mx-auto max-w-7xl px-6">
           <SectionHeading eyebrow="Production Details" title="Review Product Details Before Requesting a Quote" />
           <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
@@ -368,11 +379,11 @@ export default async function B2BProductPage({ product }: { product: ProductPage
             ))}
           </div>
         </div>
-      </section>
+      </section>}
 
       {/* ── E. Visual customization explorer ── */}
       {explorer.length > 0 && (
-        <section className="py-16 md:py-20">
+        <section id="customization" className="py-16 md:py-20">
           <div className="mx-auto max-w-7xl px-6">
             <SectionHeading eyebrow="Customization Explorer" title={product.customOptionsTitle || "Explore Your Customization Options"} />
             <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
@@ -382,6 +393,7 @@ export default async function B2BProductPage({ product }: { product: ProductPage
                   <div className="p-5">
                     <h3 className="text-base font-bold text-slate-900">{o.name}</h3>
                     {o.description && <p className="mt-2 text-sm leading-6 text-slate-600">{o.description}</p>}
+                    {o.href && <Link href={o.href} className="mt-3 inline-flex text-sm font-semibold text-blue-600 hover:underline">Explore {o.name} →</Link>}
                     {o.bestFor && <p className="mt-3 text-xs font-semibold uppercase tracking-wide text-blue-600">Best for: {o.bestFor}</p>}
                   </div>
                 </div>
@@ -490,7 +502,7 @@ export default async function B2BProductPage({ product }: { product: ProductPage
       </section>
 
       {/* ── J. Factory & workshop proof ── */}
-      <section className="bg-slate-50 py-16 md:py-20">
+      {!compact && <section className="bg-slate-50 py-16 md:py-20">
         <div className="mx-auto max-w-7xl px-6">
           <div className="mx-auto max-w-3xl text-center">
             <p className="text-sm font-semibold uppercase tracking-[0.2em] text-blue-600">Factory Proof</p>
@@ -503,7 +515,7 @@ export default async function B2BProductPage({ product }: { product: ProductPage
             ))}
           </div>
         </div>
-      </section>
+      </section>}
 
       {/* ── K. Shipping & payment workflow ── */}
       <section className="py-16 md:py-20">
@@ -589,7 +601,7 @@ export default async function B2BProductPage({ product }: { product: ProductPage
 
           {/* Final CTA */}
           <div className="mt-16 rounded-[2rem] bg-blue-600 px-6 py-14 text-center text-white">
-            <h2 className="text-3xl font-bold tracking-tight md:text-4xl">Need Help Choosing the Right Custom Product?</h2>
+            <h2 className="text-3xl font-bold tracking-tight md:text-4xl">{compact ? product.ctaHeading : "Need Help Choosing the Right Custom Product?"}</h2>
             <p className="mx-auto mt-4 max-w-2xl text-lg leading-8 text-blue-100">
               Upload your artwork now or send it later. Our team can review your requirements before production.
             </p>
