@@ -29,6 +29,7 @@ export interface ProductImage {
 
 export interface DecisionGuide {
   bestFor?: string[];
+  alternatives?: { reason: string; label: string; href: string }[];
   notIdealFor?: string[];
   recommendedApplications?: string[];
   alternativeText?: string;
@@ -42,6 +43,7 @@ export interface DetailGalleryItem {
 }
 
 export interface CustomizationOption {
+  href?: string;
   name: string;
   description: string;
   bestFor?: string;
@@ -67,6 +69,8 @@ export interface ShippingStep {
 
 export interface ProductPage {
   type: "product";
+  /** Compact product layout: the ten buying sections, without extra galleries. */
+  layout?: "compact";
   // Identity
   name: string;
   slug: string;
