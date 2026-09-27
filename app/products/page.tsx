@@ -128,27 +128,27 @@ export default async function ProductsPage() {
   return (
     <main className="bg-white text-slate-900">
       {/* 1. Hero */}
-      <section className="relative overflow-hidden bg-slate-950 text-white">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_50%_at_50%_-10%,rgba(37,99,235,0.25),transparent)]" />
-        <div className="relative mx-auto grid max-w-7xl gap-10 px-6 py-20 md:grid-cols-2 md:py-28">
+      <section className="relative overflow-hidden border-b border-cyan-100 bg-white text-slate-900">
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,rgba(6,182,212,0.12),transparent_55%),radial-gradient(ellipse_at_bottom_right,rgba(236,72,153,0.08),transparent_50%)]" />
+        <div className="relative mx-auto grid max-w-7xl items-center gap-10 px-6 py-14 md:grid-cols-2 md:py-20">
           <div>
-            <p className="text-sm font-semibold uppercase tracking-[0.25em] text-amber-400">Products</p>
+            <p className="text-sm font-semibold uppercase tracking-[0.25em] text-pink-700">Products</p>
             <h1 className="mt-5 text-4xl font-extrabold leading-tight tracking-tight md:text-5xl md:leading-[1.1]">
-              Custom Patches, Labels, <span className="bg-gradient-to-r from-blue-400 to-cyan-300 bg-clip-text text-transparent">Badges &amp; Textile Accessories</span>
+              Custom Patches, Labels, <span className="text-cyan-700">Badges &amp; Textile Accessories</span>
             </h1>
-            <p className="mt-6 max-w-xl text-lg leading-8 text-slate-300">
+            <p className="mt-6 max-w-xl text-lg leading-8 text-slate-600">
               Choose a product family, compare construction and detail capability, review applications, and request a factory-direct quote.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <Link href="/request-a-quote" className="inline-flex items-center gap-2 rounded-full bg-blue-600 px-7 py-3.5 text-sm font-semibold text-white shadow-lg shadow-blue-600/25 transition hover:bg-blue-500">
                 Request a Quote <ArrowIcon />
               </Link>
-              <Link href="/request-a-quote?tab=upload" className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/5 px-7 py-3.5 text-sm font-semibold text-white transition hover:bg-white/10">
+              <Link href="/request-a-quote?tab=upload" className="inline-flex items-center gap-2 rounded-full border border-cyan-700 bg-white px-7 py-3.5 text-sm font-semibold text-cyan-800 transition hover:bg-cyan-50">
                 Upload Artwork
               </Link>
             </div>
-            <p className="mt-6 text-sm font-medium text-slate-400">{MOQ_COPY}</p>
-            <p className="mt-1 text-sm text-slate-500">Sample support available on request before bulk production.</p>
+            <p className="mt-6 text-sm font-medium text-slate-600">{MOQ_COPY}</p>
+            <p className="mt-1 text-sm text-slate-600">Sample support available on request before bulk production.</p>
           </div>
           <div className="flex items-center">
             <ProductImageSlot
@@ -159,7 +159,7 @@ export default async function ProductsPage() {
               recommendedSize="1920 × 1080 px"
               alt="KaKa Patches custom embroidered cap with mountain artwork and a close-up of the embroidery detail"
               priority
-              className="w-full"
+              className="w-full rounded-2xl border border-white shadow-xl shadow-cyan-900/10"
             />
           </div>
         </div>
