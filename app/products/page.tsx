@@ -154,9 +154,11 @@ export default async function ProductsPage() {
             <ProductImageSlot
               title="Products Hero Banner"
               slotPath="/images/products/products-hero.webp"
+              explicitSrc="/images/products/products-hero.webp"
               ratio="16:9"
               recommendedSize="1920 × 1080 px"
-              alt="KaKa Patches product range"
+              alt="KaKa Patches custom embroidered cap with mountain artwork and a close-up of the embroidery detail"
+              priority
               className="w-full"
             />
           </div>
