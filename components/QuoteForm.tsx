@@ -221,6 +221,13 @@ export default function QuoteForm() {
       const response = await fetch("/api/quote", { method: "POST", body: formData });
       const result = await response.json();
       if (result.success) {
+        // Conversion hooks: configure Google Ads conversion ID/label in the site tag.
+        const gtag = (window as typeof window & { gtag?: (...args: unknown[]) => void }).gtag;
+        gtag?.("event", "generate_lead", { form_name: "quote_request", product_category: productCategory });
+        const googleAdsConversion = process.env.NEXT_PUBLIC_GOOGLE_ADS_LEAD_CONVERSION;
+        if (googleAdsConversion) {
+          gtag?.("event", "conversion", { send_to: googleAdsConversion });
+        }
         setSubmitStatus("Your quote request has been submitted successfully. Redirecting...");
         router.push("/thank-you");
         return;

@@ -10,6 +10,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const staticPages: MetadataRoute.Sitemap = [
     { url: baseUrl, lastModified: now, changeFrequency: "weekly", priority: 1.0 },
     { url: `${baseUrl}/products`, lastModified: now, changeFrequency: "weekly", priority: 0.9 },
+    { url: `${baseUrl}/products/custom-patch-hats`, lastModified: now, changeFrequency: "weekly", priority: 0.9 },
     { url: `${baseUrl}/product-families`, lastModified: now, changeFrequency: "weekly", priority: 0.8 },
     ...PRODUCT_FAMILIES.map((f) => ({
       url: `${baseUrl}/product-families/${f.slug}`,
@@ -42,7 +43,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   // Add published blog posts
   const blogPosts = await getContentList("blog");
-  const publishedBlog = blogPosts.filter(p => p.status === "published");
+  const publishedBlog = blogPosts.filter(p => p.status === "published" && p.slug !== "custom-patches-for-hats");
   const blogUrls: MetadataRoute.Sitemap = publishedBlog.map(p => ({
     url: `${baseUrl}/blog/${p.slug}`,
     lastModified: p.updatedAt ? new Date(p.updatedAt) : now,
