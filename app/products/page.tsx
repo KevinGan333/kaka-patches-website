@@ -206,9 +206,10 @@ export default async function ProductsPage() {
                         <ProductImageSlot
                           title={p.displayName || p.name}
                           slotPath={`/images/products/${p.slug}/hero-main.webp`}
+                          explicitSrc={p.slug === "custom-embroidered-patches" ? "/images/products/custom-embroidered-patch-work-uniform.webp" : undefined}
                           ratio="4:3"
                           recommendedSize="1200 × 900 px"
-                          alt={p.displayName || p.name}
+                          alt={p.slug === "custom-embroidered-patches" ? "Custom floral embroidered patches on a cream sweatshirt and canvas tote bag, with close-up stitching details" : p.displayName || p.name}
                         />
                         <div className="flex flex-1 flex-col p-4">
                           <h4 className="text-base font-bold text-slate-900">{p.displayName || p.name}</h4>
