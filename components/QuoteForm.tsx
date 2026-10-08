@@ -2,6 +2,7 @@
 
 import { FormEvent, useState, useRef } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
+import { recordVisit } from "@/lib/attribution-client";
 import { PRODUCT_GROUPS, resolveCategory } from "@/lib/product-catalog";
 
 const patchSizes = ['2"', '3"', '4"', '5"', "Custom Size"];
@@ -162,17 +163,7 @@ export default function QuoteForm() {
     setSubmitStatus("Submitting your quote request...");
 
     const formData = new FormData();
-    // UTM & attribution capture from URL params
-    const searchParams = typeof window !== "undefined" ? new URLSearchParams(window.location.search) : new URLSearchParams();
-    const utmSource = searchParams.get("utm_source") || "";
-    const utmMedium = searchParams.get("utm_medium") || "";
-    const utmCampaign = searchParams.get("utm_campaign") || "";
-    const utmContent = searchParams.get("utm_content") || "";
-    const utmTerm = searchParams.get("utm_term") || "";
-    // First landing page (current pathname)
-    const firstLandingPage = typeof window !== "undefined" ? window.location.pathname + window.location.search : "";
-    // External referrer
-    const referrer = typeof window !== "undefined" ? (document.referrer || "") : "";
+    const attribution = recordVisit();
 
     // Build quantity string: variable per-design or uniform
     const designsNum = parseInt(numberOfDesigns || "1") || 1;
@@ -207,14 +198,17 @@ export default function QuoteForm() {
     formData.set("delivery", delivery);
     formData.set("packaging", packaging);
     formData.set("message", message);
-    // UTM & attribution
-    if (utmSource) formData.set("utm_source", utmSource);
-    if (utmMedium) formData.set("utm_medium", utmMedium);
-    if (utmCampaign) formData.set("utm_campaign", utmCampaign);
-    if (utmContent) formData.set("utm_content", utmContent);
-    if (utmTerm) formData.set("utm_term", utmTerm);
-    if (firstLandingPage) formData.set("first_landing_page", firstLandingPage);
-    if (referrer) formData.set("referrer", referrer);
+    if (attribution) {
+      formData.set("attribution", JSON.stringify(attribution));
+      const first = attribution.first;
+      formData.set("utm_source", first.source);
+      formData.set("utm_medium", first.medium);
+      formData.set("utm_campaign", first.campaign);
+      formData.set("utm_content", first.content);
+      formData.set("utm_term", first.term);
+      formData.set("first_landing_page", first.landingPage);
+      formData.set("referrer", first.referrer);
+    }
     if (artwork && artwork.size > 0) formData.set("artwork", artwork);
 
     try {

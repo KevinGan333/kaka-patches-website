@@ -4,6 +4,7 @@ const mocks = vi.hoisted(() => ({
   createQuoteRequest: vi.fn(),
   updateQuoteEmailStatus: vi.fn(),
   blobPut: vi.fn(),
+  sendEmail: vi.fn(),
 }));
 
 vi.mock("@/lib/admin/quote-db", () => ({
@@ -14,6 +15,9 @@ vi.mock("@vercel/blob", () => ({
   put: mocks.blobPut,
 }));
 
+vi.mock("resend", () => ({ Resend: class { emails = { send: mocks.sendEmail }; } }));
+
+import { captureTouch } from "@/lib/attribution";
 import { POST } from "@/app/api/quote/route";
 
 function buildFormData(withArtwork: boolean) {
@@ -21,6 +25,7 @@ function buildFormData(withArtwork: boolean) {
   form.set("name", "Test Buyer");
   form.set("email", "buyer@example.com");
   form.set("quantity", "100");
+  form.set("productCategory", "Custom Embroidered Patches");
   if (withArtwork) {
     form.set("artwork", new File([new Uint8Array([1, 2, 3])], "设计稿.png", { type: "image/png" }));
   }
@@ -34,6 +39,9 @@ beforeEach(() => {
 });
 
 afterEach(() => {
+  delete process.env.RESEND_API_KEY;
+  delete process.env.QUOTE_TO_EMAIL;
+  delete process.env.QUOTE_FROM_EMAIL;
   delete process.env.VERCEL_ENV;
   delete process.env.BLOB_STORE_ID;
   delete process.env.KAKA_PREVIEW_BLOB_STORE_ID;
@@ -85,5 +93,34 @@ describe("POST /api/quote artwork upload", () => {
     expect(res.status).toBe(500);
     expect(mocks.blobPut).not.toHaveBeenCalled();
     expect(mocks.createQuoteRequest).not.toHaveBeenCalled();
+  });
+});
+
+
+describe("POST /api/quote attribution", () => {
+  it("stores sanitized first/session sources and includes them in notification HTML", async () => {
+    process.env.RESEND_API_KEY = "test-only";
+    process.env.QUOTE_TO_EMAIL = "owner@example.com";
+    process.env.QUOTE_FROM_EMAIL = "website@example.com";
+    mocks.createQuoteRequest.mockResolvedValue({ id: "q2", quote_number: "KPQ-2" });
+    mocks.sendEmail.mockResolvedValue({ data: { id: "email-2" } });
+    const form = buildFormData(false);
+    const first = captureTouch("https://www.kakapatches.com/products?utm_source=linkedin&utm_medium=social&utm_campaign=%3Cimg%3E", "", Date.now());
+    const session = captureTouch("https://www.kakapatches.com/", "https://www.google.com/", Date.now());
+    form.set("attribution", JSON.stringify({ version: 1, first, session, submissionPage: "/request-a-quote" }));
+    const res = await POST(new Request("https://www.kakapatches.com/api/quote", { method: "POST", body: form, headers: { "x-real-ip": "attribution-test" } }));
+    expect(res.status).toBe(200);
+    expect(mocks.createQuoteRequest).toHaveBeenCalledWith(expect.objectContaining({ attribution: expect.objectContaining({ first, session, submissionPage: "/request-a-quote" }) }));
+    const html = mocks.sendEmail.mock.calls[0][0].html;
+    expect(html).toContain("linkedin / Social media");
+    expect(html).toContain("google / Organic search");
+    expect(html).toContain("/request-a-quote");
+    expect(html).not.toContain("<img>");
+  });
+  it("accepts old forms without fabricating source data", async () => {
+    mocks.createQuoteRequest.mockResolvedValue({ id: "q3", quote_number: "KPQ-3" });
+    const res = await POST(new Request("https://www.kakapatches.com/api/quote", { method: "POST", body: buildFormData(false), headers: { "x-real-ip": "legacy-test" } }));
+    expect(res.status).toBe(200);
+    expect(mocks.createQuoteRequest).toHaveBeenCalledWith(expect.objectContaining({ attribution: null }));
   });
 });

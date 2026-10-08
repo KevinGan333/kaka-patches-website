@@ -2,6 +2,7 @@
 
 import { useEffect, useState, useMemo } from "react";
 import { useRouter } from "next/navigation";
+import { touchLabel, type QuoteAttribution } from "@/lib/attribution";
 import Link from "next/link";
 
 interface Quote {
@@ -9,6 +10,8 @@ interface Quote {
   name: string; email: string; company?: string;
   quantity?: string; product_category?: string; patch_type?: string; patch_size?: string; delivery?: string;
   artwork_filename?: string; artwork_url?: string;
+  attribution?: QuoteAttribution | null;
+  first_landing_page?: string;
   email_sent?: boolean; email_error?: string;
 }
 
@@ -21,6 +24,7 @@ export default function AdminQuotesPage() {
   const [typeFilter, setTypeFilter] = useState("all");
   const [emailFilter, setEmailFilter] = useState("all");
   const [artworkFilter, setArtworkFilter] = useState("all");
+  const [channelFilter, setChannelFilter] = useState("all");
   const [sortBy, setSortBy] = useState("newest");
   const [, setPage] = useState(1);
 
@@ -52,6 +56,9 @@ export default function AdminQuotesPage() {
 
   const patchTypes = useMemo(() => [...new Set(quotes.map(q => q.patch_type).filter(Boolean))] as string[], [quotes]);
 
+  const channels = [...new Set(quotes.map(q => q.attribution?.first.channel || "Unknown (not recorded)"))];
+  const visibleQuotes = quotes.filter(q => channelFilter === "all" || (q.attribution?.first.channel || "Unknown (not recorded)") === channelFilter);
+
   return (
     <div className="px-6 py-8">
       <div className="flex items-center justify-between mb-6">
@@ -80,6 +87,10 @@ export default function AdminQuotesPage() {
           <option value="uploaded">Uploaded</option>
           <option value="missing">Missing</option>
         </select>
+        <select aria-label="Filter first source channel" value={channelFilter} onChange={e => setChannelFilter(e.target.value)} className="rounded-lg border border-slate-300 px-3 py-2 text-sm">
+          <option value="all">All Source Channels</option>
+          {channels.map(c => <option key={c} value={c}>{c}</option>)}
+        </select>
         <select value={sortBy} onChange={e => setSortBy(e.target.value)} className="rounded-lg border border-slate-300 px-3 py-2 text-sm">
           <option value="newest">Newest First</option>
           <option value="oldest">Oldest First</option>
@@ -88,11 +99,11 @@ export default function AdminQuotesPage() {
 
       {loading && <p className="text-sm text-slate-400">Loading...</p>}
 
-      {!loading && quotes.length === 0 && (
+      {!loading && visibleQuotes.length === 0 && (
         <div className="rounded-xl border border-slate-200 bg-white py-16 text-center"><p className="text-slate-400">No quote requests yet.</p></div>
       )}
 
-      {!loading && quotes.length > 0 && (
+      {!loading && visibleQuotes.length > 0 && (
         <div className="overflow-x-auto rounded-xl border border-slate-200 bg-white shadow-sm">
           <table className="w-full text-left text-xs">
             <thead><tr className="border-b border-slate-200 bg-slate-50">
@@ -104,11 +115,14 @@ export default function AdminQuotesPage() {
               <th className="px-3 py-2.5 font-semibold text-slate-600">Qty</th>
               <th className="px-3 py-2.5 font-semibold text-slate-600">Art</th>
               <th className="px-3 py-2.5 font-semibold text-slate-600">Email</th>
+              <th className="px-3 py-2.5 font-semibold text-slate-600">First Source</th>
+              <th className="px-3 py-2.5 font-semibold text-slate-600">Session Source</th>
+              <th className="px-3 py-2.5 font-semibold text-slate-600">Landing Page</th>
               <th className="px-3 py-2.5 font-semibold text-slate-600">Status</th>
               <th className="px-3 py-2.5 font-semibold text-slate-600">Actions</th>
             </tr></thead>
             <tbody>
-              {quotes.map(q => (
+              {visibleQuotes.map(q => (
                 <tr key={q.id} className="border-b border-slate-100 hover:bg-slate-50/60">
                   <td className="px-3 py-2.5 text-slate-500 whitespace-nowrap">{new Date(q.created_at).toLocaleDateString()}</td>
                   <td className="px-3 py-2.5 font-mono text-[11px] text-slate-400">{q.quote_number}</td>
@@ -118,6 +132,9 @@ export default function AdminQuotesPage() {
                   <td className="px-3 py-2.5 text-slate-700 font-medium">{q.quantity}</td>
                   <td className="px-3 py-2.5">{q.artwork_filename ? <span className="inline-block rounded-full bg-emerald-50 px-2 py-0.5 text-[10px] font-bold text-emerald-700">Yes</span> : <span className="text-slate-300 text-[10px]">—</span>}</td>
                   <td className="px-3 py-2.5">{q.email_sent ? <span className="inline-block rounded-full bg-emerald-50 px-2 py-0.5 text-[10px] font-bold text-emerald-700">Sent</span> : q.email_error ? <span className="inline-block rounded-full bg-red-50 px-2 py-0.5 text-[10px] font-bold text-red-600">Failed</span> : <span className="text-amber-500 text-[10px]">—</span>}</td>
+                  <td className="px-3 py-2.5 text-slate-600 whitespace-nowrap">{touchLabel(q.attribution?.first)}</td>
+                  <td className="px-3 py-2.5 text-slate-600 whitespace-nowrap">{touchLabel(q.attribution?.session)}</td>
+                  <td className="px-3 py-2.5 text-slate-600 max-w-56 break-words">{q.attribution?.first.landingPage || q.first_landing_page || "—"}</td>
                   <td className="px-3 py-2.5"><StatusBadge status={q.status} /></td>
                   <td className="px-3 py-2.5">
                     <div className="flex items-center gap-1.5">

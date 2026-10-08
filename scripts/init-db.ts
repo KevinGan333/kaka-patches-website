@@ -96,6 +96,7 @@ async function main() {
     await ensureColumn(sql, "quote_requests", "utm_term", "TEXT");
     await ensureColumn(sql, "quote_requests", "first_landing_page", "TEXT");
     await ensureColumn(sql, "quote_requests", "referrer", "TEXT");
+    await ensureColumn(sql, "quote_requests", "attribution", "JSONB");
     await ensureColumn(sql, "quote_requests", "style_reference", "TEXT DEFAULT ''");
     console.log("✅ Migrations complete");
 
