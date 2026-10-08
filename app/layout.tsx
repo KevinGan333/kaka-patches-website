@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { headers } from "next/headers";
 import "./globals.css";
+import AttributionTracker from "@/components/AttributionTracker";
 import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
 import { OrganizationSchema, WebsiteSchema } from "@/components/JsonLd";
@@ -53,6 +54,7 @@ export default async function RootLayout({
         <meta name="google-site-verification" content="MwETn_-YyFwWTK3g_vXxwL-H5_lRctfBMPIGbqlHwso" />
       </head>
       <body>
+        <AttributionTracker />
         <OrganizationSchema />
         <WebsiteSchema />
         {!isAdmin && <SiteHeader />}

@@ -1,3 +1,4 @@
+import { touchLabel, type QuoteAttribution } from "@/lib/attribution";
 import { getDb } from "@/lib/db";
 
 export type QuoteStatus = "new" | "reviewed" | "quoted" | "waiting_for_customer" | "in_production" | "closed";
@@ -50,6 +51,7 @@ export interface QuoteRequest {
   status: QuoteStatus;
   notes: QuoteNote[];
   source: string;
+  attribution?: QuoteAttribution | null;
   utm_source?: string;
   utm_medium?: string;
   utm_campaign?: string;
@@ -89,7 +91,7 @@ export async function createQuoteRequest(data: Partial<QuoteRequest>): Promise<Q
       project_type, packaging_preference, message,
       artwork_filename, artwork_url, artwork_size, artwork_type,
       utm_source, utm_medium, utm_campaign, utm_content, utm_term,
-      first_landing_page, referrer,
+      first_landing_page, referrer, attribution,
       style_reference, status
     ) VALUES (
       ${quoteNumber}, ${data.name || ""}, ${data.email || ""}, ${data.company || ""},
@@ -102,7 +104,7 @@ export async function createQuoteRequest(data: Partial<QuoteRequest>): Promise<Q
       ${data.artwork_size || null}, ${data.artwork_type || null},
       ${data.utm_source || null}, ${data.utm_medium || null}, ${data.utm_campaign || null},
       ${data.utm_content || null}, ${data.utm_term || null},
-      ${data.first_landing_page || null}, ${data.referrer || null},
+      ${data.first_landing_page || null}, ${data.referrer || null}, ${data.attribution ? JSON.stringify(data.attribution) : null}::jsonb,
       ${data.style_reference || null},
       ${data.status || "new"}
     )
@@ -221,7 +223,7 @@ export async function getQuoteStats(): Promise<{
 export async function exportQuoteRequestsCsv(): Promise<string> {
   const db = getDb();
   const rows = await db`SELECT * FROM quote_requests ORDER BY created_at DESC` as unknown as QuoteRequest[];
-  const header = "Quote Number,Date,Status,Name,Email,Company,Product Category,Patch Size,Backing,Border,Designs,Qty/Design,Total Qty,Delivery,Project Type,Packaging,Message,Artwork,Email Sent,UTM Source,UTM Medium,UTM Campaign,Notes";
+  const header = "Quote Number,Date,Status,Name,Email,Company,Product Category,Patch Size,Backing,Border,Designs,Qty/Design,Total Qty,Delivery,Project Type,Packaging,Message,Artwork,Email Sent,UTM Source,UTM Medium,UTM Campaign,First Source,Session Source,First Landing Page,Session Landing Page,Submission Page,Referrer,Session Campaign,Session Content,Session Term,Notes";
   const csvRows = rows.map(r => [
     r.quote_number, r.created_at, r.status, r.name, r.email,
     r.company, r.product_category || r.patch_type, r.patch_size, r.backing, r.border_option,
@@ -230,6 +232,8 @@ export async function exportQuoteRequestsCsv(): Promise<string> {
     r.artwork_filename || "",
     r.email_sent ? "Yes" : "No",
     r.utm_source || "", r.utm_medium || "", r.utm_campaign || "",
+    touchLabel(r.attribution?.first), touchLabel(r.attribution?.session), r.attribution?.first.landingPage || r.first_landing_page || "", r.attribution?.session.landingPage || "", r.attribution?.submissionPage || "", r.attribution?.first.referrer || r.referrer || "",
+    r.attribution?.session.campaign || "", r.attribution?.session.content || "", r.attribution?.session.term || "",
     (r.notes || []).map((n) => `[${n.created_at}] ${n.content}`).join(" | "),
   ].map(v => `"${String(v || "").replace(/"/g, '""')}"`).join(","));
   return [header, ...csvRows].join("\n");

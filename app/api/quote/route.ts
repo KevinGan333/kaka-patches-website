@@ -1,3 +1,4 @@
+import { normalizeAttribution, touchLabel, type QuoteAttribution } from "@/lib/attribution";
 import { Resend } from "resend";
 import { createQuoteRequest, updateQuoteEmailStatus } from "@/lib/admin/quote-db";
 import { getArtworkBlobStoreId } from "@/lib/admin/artwork-store";
@@ -62,9 +63,11 @@ function buildEmailHtml(data: {
   utmSource: string; utmMedium: string; utmCampaign: string;
   utmContent: string; utmTerm: string;
   styleReference: string;
+  attribution: QuoteAttribution | null;
 }) {
+  const escapeHtml = (value: string) => value.replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]!));
   const row = (label: string, value: string) =>
-    value ? `<tr><td style="padding:6px 12px 6px 0;font-weight:600;color:#1e293b;white-space:nowrap;vertical-align:top">${label}</td><td style="padding:6px 0;color:#334155">${value}</td></tr>` : "";
+    value ? `<tr><td style="padding:6px 12px 6px 0;font-weight:600;color:#1e293b;white-space:nowrap;vertical-align:top">${label}</td><td style="padding:6px 0;color:#334155">${escapeHtml(value)}</td></tr>` : "";
 
   const section = (title: string, rows: string) =>
     rows ? `<div style="margin-bottom:20px"><h3 style="margin:0 0 8px;font-size:12px;font-weight:700;color:#64748b;text-transform:uppercase;letter-spacing:0.08em">${title}</h3><table style="width:100%;border-collapse:collapse;font-size:14px">${rows}</table></div>` : "";
@@ -118,13 +121,22 @@ function buildEmailHtml(data: {
     row("Artwork URL", data.artworkUrl ?? "—");
 
   const utmRows =
+    row("First source", touchLabel(data.attribution?.first)) +
+    row("Session source", touchLabel(data.attribution?.session)) +
+    row("First landing page", data.attribution?.first.landingPage || "") +
+    row("Session landing page", data.attribution?.session.landingPage || "") +
+    row("Submission page", data.attribution?.submissionPage || "") +
+    row("First referrer", data.attribution?.first.referrer || "") +
+    row("First campaign", data.attribution?.first.campaign || "") +
+    row("Session campaign", data.attribution?.session.campaign || "") +
+    row("Session referrer", data.attribution?.session.referrer || "") +
     row("UTM Source", data.utmSource) +
     row("UTM Medium", data.utmMedium) +
     row("UTM Campaign", data.utmCampaign) +
     row("UTM Content", data.utmContent) +
     row("UTM Term", data.utmTerm);
 
-  const hasUtm = data.utmSource || data.utmMedium || data.utmCampaign || data.utmContent || data.utmTerm;
+
 
   return `<!DOCTYPE html>
 <html><body style="font-family:system-ui,-apple-system,sans-serif;background:#f8fafc;margin:0;padding:24px">
@@ -138,7 +150,7 @@ ${section("Contact", contactRows)}
 ${section("Product Details", productRows)}
 ${section("Project Info", projectRows)}
 ${section("Artwork", assetRows)}
-${hasUtm ? section("Marketing Attribution", utmRows) : ""}
+${section("Marketing Attribution", utmRows)}
 ${row("Submitted", data.submittedAt)}
 </div>
 <div style="background:#f1f5f9;padding:16px 32px;border-top:1px solid #e2e8f0">
@@ -197,6 +209,7 @@ export async function POST(request: Request) {
     const utmTerm = safeText(formData.get("utm_term"));
     const firstLandingPage = safeText(formData.get("first_landing_page"));
     const referrer = safeText(formData.get("referrer"));
+    const attribution = normalizeAttribution(safeText(formData.get("attribution")));
 
     /* ── Server-side validation ── */
     const errors: string[] = [];
@@ -326,6 +339,7 @@ export async function POST(request: Request) {
         utm_term: utmTerm || undefined,
         first_landing_page: firstLandingPage || undefined,
         referrer: referrer || undefined,
+        attribution,
         status: "new",
       });
 
@@ -366,7 +380,7 @@ export async function POST(request: Request) {
           quoteNumber,
           utmSource, utmMedium, utmCampaign,
           utmContent, utmTerm,
-          styleReference,
+          styleReference, attribution,
         });
 
         let attachments: Array<{ filename: string; content: Buffer }> | undefined;
