@@ -129,8 +129,39 @@
   "relatedProductSlugs": [],
   "moqDisclaimer": "",
   "packagingDelivery": "",
-  "images": [],
+  "images": [
+    {
+      "url": "/images/products/custom-pvc-patches/hero/hero-main.webp",
+      "alt": "Custom 3D PVC patches in six colors displayed for outdoor apparel and backpack branding.",
+      "order": 1
+    },
+    {
+      "url": "/images/products/custom-pvc-patches/hero/hero-detail.webp",
+      "alt": "Close-up of a blue and white raised PVC logo patch for sportswear and bag branding.",
+      "order": 2
+    },
+    {
+      "url": "/images/products/custom-pvc-patches/hero/hero-application.webp",
+      "alt": "Green and black raised PVC logo patch attached to a gray baseball cap in an outdoor setting.",
+      "order": 3
+    },
+    {
+      "url": "/images/products/custom-pvc-patches/hero/gallery-front.webp",
+      "alt": "Front views of PVC logo patches in cream, brown, gray and black for clothing and accessories.",
+      "order": 4
+    },
+    {
+      "url": "/images/products/custom-pvc-patches/hero/gallery-back.webp",
+      "alt": "Round PVC patches with an illustrative hook-and-loop backing for bags and jackets.",
+      "order": 5
+    },
+    {
+      "url": "/images/products/custom-pvc-patches/hero/gallery-closeup.webp",
+      "alt": "Macro view of a cream PVC patch with raised black lettering and textured rubber for denim branding.",
+      "order": 6
+    }
+  ],
   "createdAt": "2026-08-10T07:51:32.210Z",
-  "updatedAt": "2026-08-10T07:51:32.210Z",
+  "updatedAt": "2026-10-11T14:51:49.930Z",
   "publishedAt": "2026-08-10T07:51:32.210Z"
 }
