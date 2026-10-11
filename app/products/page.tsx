@@ -181,9 +181,10 @@ export default async function ProductsPage() {
                   <ProductImageSlot
                     title={family.name}
                     slotPath={family.heroImageSlot}
+                    explicitSrc={family.slug === "patches-labels-transfers" ? "/images/products/custom-woven-patches/hero/gallery-back.webp" : undefined}
                     ratio="16:9"
                     recommendedSize="1920 × 1080 px"
-                    alt={family.name}
+                    alt={family.slug === "patches-labels-transfers" ? "White release liner peeled from a leather patch above blue denim fabric" : family.name}
                   />
                   <div>
                     <p className="text-xs font-semibold uppercase tracking-[0.2em] text-blue-600">{family.eyebrow}</p>
