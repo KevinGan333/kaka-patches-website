@@ -133,8 +133,39 @@
   "relatedProductSlugs": [],
   "moqDisclaimer": "",
   "packagingDelivery": "",
-  "images": [],
+  "images": [
+    {
+      "url": "/images/products/custom-woven-patches/hero/hero-main.webp",
+      "alt": "Custom leather patches displayed for clothing, hat and bag branding",
+      "order": 1
+    },
+    {
+      "url": "/images/products/custom-woven-patches/hero/hero-detail.webp",
+      "alt": "Leather label patches with detailed lettering for handmade clothing and accessories",
+      "order": 2
+    },
+    {
+      "url": "/images/products/custom-woven-patches/hero/hero-application.webp",
+      "alt": "Smiley face leather patch applied to a blue denim jeans pocket",
+      "order": 3
+    },
+    {
+      "url": "/images/products/custom-woven-patches/hero/gallery-front.webp",
+      "alt": "Custom leather patch shapes and designs for fashion apparel and bag branding",
+      "order": 4
+    },
+    {
+      "url": "/images/products/custom-woven-patches/hero/gallery-back.webp",
+      "alt": "White release liner peeled from a leather patch above blue denim fabric",
+      "order": 5
+    },
+    {
+      "url": "/images/products/custom-woven-patches/hero/gallery-closeup.webp",
+      "alt": "Close-up of a bear-shaped leather patch on cream fabric for children's apparel",
+      "order": 6
+    }
+  ],
   "createdAt": "2026-08-10T07:51:32.210Z",
-  "updatedAt": "2026-08-10T07:51:32.210Z",
+  "updatedAt": "2026-10-11T14:03:00.000Z",
   "publishedAt": "2026-08-10T07:51:32.210Z"
 }
