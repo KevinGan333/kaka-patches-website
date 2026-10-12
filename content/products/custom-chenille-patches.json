@@ -129,8 +129,39 @@
   "relatedProductSlugs": [],
   "moqDisclaimer": "",
   "packagingDelivery": "",
-  "images": [],
+  "images": [
+    {
+      "url": "/images/products/custom-chenille-patches/hero/hero-main.webp",
+      "alt": "Black chenille paw patch with silver glitter trim on a light blue hoodie, with a close-up of the yarn texture",
+      "order": 0
+    },
+    {
+      "url": "/images/products/custom-chenille-patches/hero/custom-designs.webp",
+      "alt": "Colorful slogan, heart and character chenille patches displayed on cream linen for fashion apparel customization",
+      "order": 1
+    },
+    {
+      "url": "/images/products/custom-chenille-patches/hero/color-options.webp",
+      "alt": "Colorful chenille paw patches with glitter borders arranged on ivory linen for apparel and accessory customization",
+      "order": 2
+    },
+    {
+      "url": "/images/products/custom-chenille-patches/hero/denim-jacket.webp",
+      "alt": "Lavender chenille paw patch with silver glitter trim on a light blue denim jacket",
+      "order": 3
+    },
+    {
+      "url": "/images/products/custom-chenille-patches/hero/canvas-tote.webp",
+      "alt": "Red mushroom chenille patch on an ivory canvas tote bag carried outdoors",
+      "order": 4
+    },
+    {
+      "url": "/images/products/custom-chenille-patches/hero/texture-closeup.webp",
+      "alt": "Close-up of red mushroom chenille patches showing raised yarn, embroidered white spots and black stitched borders",
+      "order": 5
+    }
+  ],
   "createdAt": "2026-08-10T07:51:32.210Z",
-  "updatedAt": "2026-08-10T07:51:32.210Z",
+  "updatedAt": "2026-10-12T14:46:32.000Z",
   "publishedAt": "2026-08-10T07:51:32.210Z"
 }
