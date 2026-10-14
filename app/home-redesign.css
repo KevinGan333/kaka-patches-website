@@ -465,3 +465,172 @@ body:has(.kh-home){padding-bottom:77px}
   .kh-mobile-menu nav .kh-button { color: var(--kaka-navy); }
 }
 .kh-hero-grid { position: relative; z-index: 1; }
+
+/* Readable body typography across desktop and mobile. */
+:root {
+  --kaka-body-size: 18px;
+  --kaka-card-body-size: 17px;
+  --kaka-ui-size: 16px;
+  --kaka-small-size: 14px;
+}
+.kh-home { font-size: var(--kaka-body-size); line-height: 1.75; }
+.kh-hero-description,
+.kh-section-head p:not(.kh-eyebrow),
+.kh-process-grid > div > p:not(.kh-eyebrow),
+.kh-backing-grid > div > p:not(.kh-eyebrow),
+.kh-faq-grid > div > p:not(.kh-eyebrow),
+.kh-craft-grid > div > p:not(.kh-eyebrow),
+.kh-faqs details p,
+.kh-quote-section p {
+  font-size: var(--kaka-body-size);
+  line-height: 1.75;
+}
+.kh-hero-description { max-width: 500px; }
+.kh-product-copy > span,
+.kh-finder-result p,
+.kh-process-list p,
+.kh-backing-panel p,
+.kh-application p,
+.kh-craft-checks {
+  font-size: var(--kaka-card-body-size);
+  line-height: 1.75;
+}
+.kh-product-copy > span { max-width: none; }
+.kh-finder-result { grid-template-columns: minmax(130px, 170px) minmax(0, 1fr); align-items: start; }
+.kh-finder-result img { width: 100%; height: auto; aspect-ratio: 1; }
+.kh-finder-result h3 { line-height: 1.25; }
+.kh-faqs summary { font-size: var(--kaka-body-size); line-height: 1.65; }
+.kh-product-copy h3 { font-size: 24px; line-height: 1.3; }
+.kh-process-list h3 { font-size: 22px; line-height: 1.35; }
+.kh-finder-inputs label,
+.kh-quote-starter label,
+.kh-search-dialog label {
+  font-size: var(--kaka-ui-size);
+  line-height: 1.5;
+}
+.kh-finder select,
+.kh-finder-inputs select,
+.kh-quote-starter select {
+  font-size: var(--kaka-ui-size);
+  line-height: 1.5;
+  min-height: 50px;
+  min-width: 0;
+}
+.kh-button,
+.kh-actions .kh-button,
+.kh-mobile-quote .kh-button {
+  font-size: var(--kaka-ui-size);
+  line-height: 1.4;
+  min-height: 48px;
+}
+.kh-nav-quote { font-size: 15px; }
+.kh-text-link,
+.kh-finder-inputs .kh-text-link,
+.kh-finder-result .kh-text-link,
+.kh-more-products,
+.kh-application-links,
+.kh-search-results b {
+  font-size: var(--kaka-ui-size);
+  line-height: 1.6;
+}
+.kh-hero-notes,
+.kh-benefits span,
+.kh-product-copy p,
+.kh-finder-result .kh-fine,
+.kh-quote-note,
+.kh-quote-starter p,
+.kh-custom-chips span,
+.kh-backing-tabs button,
+.kh-search-results span,
+.kh-search-count,
+.kh-mega-products a span,
+.kh-mega aside p {
+  font-size: var(--kaka-small-size);
+  line-height: 1.6;
+}
+.kh-quote-starter p { margin: 0; }
+.kh-finder-result .kh-fine { margin-top: 14px; }
+.kh-eyebrow,
+.kh-finder-result .kh-eyebrow { font-size: 13px !important; line-height: 1.6; letter-spacing: 1.5px; }
+.kh-pill { font-size: 13px; }
+.kh-application span { font-size: 13px; line-height: 1.5; letter-spacing: .6px; }
+.kh-topbar { font-size: 13px; line-height: 1.5; }
+.kh-desktop-nav { font-size: 15px; }
+.kh-mega-products a,
+.kh-mega aside,
+.kh-small-menu a,
+.kh-mobile-menu nav a { font-size: 16px; line-height: 1.5; }
+.kh-art-image > span { font-size: 11px; line-height: 1.25; height: 38px; padding: 7px 3px 0; letter-spacing: .3px; }
+.kh-art-image img { height: calc(100% - 38px); }
+.kh-art-title { font-size: 15px; }
+.kh-product-number { font-size: 12px; }
+.kh-craft-photo span { font-size: 13px; line-height: 1.5; }
+.kh-footer-brand p { font-size: 16px; line-height: 1.75; }
+.kh-footer h3 { font-size: 17px; line-height: 1.5; }
+.kh-footer li { font-size: 15px; line-height: 1.7; }
+.kh-footer-brand > a:last-child,
+.kh-footer-bottom { font-size: 14px; line-height: 1.6; }
+.kh-footer-grid { gap: 32px; }
+.kh-quote-starter > div,
+.kh-finder-result > div { min-width: 0; }
+@media(max-width:1100px) {
+  .kh-desktop-nav { display: none; }
+  .kh-mobile-menu { display: block; }
+  .kh-mobile-menu > summary { list-style: none; cursor: pointer; display: grid; place-items: center; border: 1px solid #dce4eb; width: 44px; height: 44px; border-radius: 5px; font-size: 22px; }
+  .kh-mobile-menu nav { position: absolute; top: 100%; left: 0; right: 0; padding: 22px; background: #fff; border: 1px solid #dce4eb; box-shadow: 0 15px 35px #073b7517; max-height: 70vh; overflow: auto; display: grid; grid-template-columns: 1fr 1fr; gap: 8px 20px; }
+  .kh-mobile-menu nav a { padding: 12px 0; }
+  .kh-mobile-menu nav a:first-child,
+  .kh-mobile-menu nav a:last-child { grid-column: 1 / -1; }
+  .kh-mobile-menu nav .kh-button { padding: 14px; color: var(--kaka-navy); margin-top: 10px; }
+  .kh-benefits .kh-container { grid-template-columns: 1fr 1fr; gap: 16px 20px; }
+  .kh-benefits span { justify-content: flex-start; }
+  .kh-footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
+}
+@media(max-width:900px) {
+  .kh-finder-result { grid-template-columns: 170px minmax(0, 1fr); }
+  .kh-quote-grid { gap: 30px; }
+}
+@media(max-width:640px) {
+  :root { --kaka-body-size: 16px; --kaka-card-body-size: 16px; --kaka-ui-size: 16px; --kaka-small-size: 14px; }
+  .kh-topbar { font-size: 12px; }
+  .kh-nav { gap: 8px; }
+  .kh-nav-actions { gap: 7px; }
+  .kh-nav-quote { font-size: 14px; padding: 11px 12px; }
+  .kh-actions { gap: 12px; }
+  .kh-actions .kh-button { gap: 14px; padding: 14px 16px; }
+  .kh-hero-notes { gap: 10px; }
+  .kh-product-grid { gap: 26px 14px; }
+  .kh-product-copy h3 { font-size: 21px; }
+  .kh-product-copy p { font-size: 14px; }
+  .kh-finder-result { grid-template-columns: 1fr; gap: 20px; }
+  .kh-finder-result img { width: 180px; max-width: 100%; height: auto; }
+  .kh-finder-result h3 { font-size: 25px; }
+  .kh-finder-inputs .kh-text-link { display: block; }
+  .kh-application-grid { grid-template-columns: 1fr; grid-template-rows: none; grid-auto-rows: 260px; }
+  .kh-application-large { grid-column: auto; }
+  .kh-application h3 { font-size: 26px; line-height: 1.25; }
+  .kh-application-large h3 { font-size: 28px; }
+  .kh-application p { max-width: none; padding-right: 24px; }
+  .kh-backing-tabs { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+  .kh-process-list h3 { font-size: 21px; }
+  .kh-quote-starter { grid-template-columns: 1fr; }
+  .kh-quote-starter .kh-button,
+  .kh-quote-starter p { grid-column: 1 / -1; }
+  .kh-art-image > span { font-size: 10px; }
+  .kh-art-title { font-size: 14px; }
+  .kh-footer-brand p { font-size: 16px; }
+  .kh-footer h3 { font-size: 16px; }
+  .kh-footer li { font-size: 15px; }
+  .kh-footer-bottom { font-size: 13px; }
+  .kh-mobile-quote > span { font-size: 14px; line-height: 1.5; }
+  .kh-mobile-quote small { font-size: 13px; line-height: 1.4; }
+  .kh-mobile-quote .kh-button { font-size: 16px; }
+}
+.kh-benefits b { flex-shrink: 0; }
+@media(max-width:640px) {
+  .kh-section, #start-quote { scroll-margin-top: 160px; }
+  body:has(.kh-home) { padding-bottom: calc(88px + env(safe-area-inset-bottom)); }
+}
+@media(max-width:380px) {
+  .kh-nav-quote { display: none; }
+}
