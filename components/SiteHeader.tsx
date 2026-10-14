@@ -1,90 +1,19 @@
 "use client";
-
-import { useState } from "react";
-import Link from "next/link";
-
-const navItems = [
-  { name: "Home", href: "/" },
-  { name: "Products", href: "/products" },
-  { name: "Families", href: "/product-families" },
-  { name: "Accessories", href: "/custom-accessories" },
-  { name: "Applications", href: "/applications" },
-  { name: "Custom Process", href: "/custom-process" },
-  { name: "About Us", href: "/about-us" },
-  { name: "Resources", href: "/resources" },
-  { name: "Blog", href: "/blog" },
+import { useState, useRef, useEffect } from 'react';
+import { homeProducts } from '@/lib/home-catalog';
+const searchItems = [
+  ...homeProducts.map(p=>({title:p.name+' patches',description:p.description,href:'/products/'+p.slug})),
+  {title:'Velcro patches',description:'Removable hook-and-loop patches',href:'/products/custom-velcro-patches'},
+  {title:'Custom patch hats',description:'Branded headwear and hat patches',href:'/products/custom-patch-hats'},
+  {title:'Backing guide',description:'Sew-on, iron-on, hook and loop, adhesive',href:'/resources/best-backing-for-custom-patches'},
+  {title:'Patch size guide',description:'Choose the right size for your design',href:'/resources/how-to-choose-patch-size'},
+  {title:'Embroidered vs. woven',description:'Compare texture and fine-detail options',href:'/resources/embroidered-vs-woven-patches'},
+  {title:'Custom accessories',description:'Keychains, labels, charms and more',href:'/custom-accessories'},
 ];
-
-function QuoteButton({ className = "" }: { className?: string }) {
-  return (
-    <Link
-      href="/request-a-quote"
-      className={`inline-flex shrink-0 items-center gap-1.5 rounded-full bg-blue-600 px-5 py-2.5 text-sm font-semibold text-white shadow-md shadow-blue-600/20 transition hover:bg-blue-700 hover:shadow-blue-600/30 ${className}`}
-    >
-      Request a Quote
-      <svg className="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" /></svg>
-    </Link>
-  );
-}
-
 export default function SiteHeader() {
-  const [open, setOpen] = useState(false);
-
-  return (
-    <header className="sticky top-0 z-50 border-b border-slate-200/60 bg-white/95 shadow-sm backdrop-blur-md">
-      <div className="mx-auto flex max-w-[1440px] items-center justify-between px-4 py-3.5 sm:px-8 sm:py-3">
-        <Link href="/" className="group flex shrink-0 items-center">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/images/brand/kaka-patches-logo.svg" alt="KaKa Patches logo" className="h-14 w-auto sm:h-[68px]" />
-        </Link>
-
-        {/* Desktop navigation */}
-        <nav className="hidden items-center gap-1 text-sm font-medium text-slate-600 xl:flex">
-          {navItems.map((item) => (
-            <Link key={item.href} href={item.href} className="rounded-lg px-3 py-2 transition hover:bg-slate-100 hover:text-blue-600">
-              {item.name}
-            </Link>
-          ))}
-        </nav>
-
-        <div className="flex shrink-0 items-center gap-2">
-          <QuoteButton className="hidden sm:inline-flex" />
-
-          {/* Mobile menu toggle */}
-          <button
-            type="button"
-            onClick={() => setOpen((v) => !v)}
-            aria-label={open ? "Close menu" : "Open menu"}
-            aria-expanded={open}
-            className="inline-flex h-10 w-10 items-center justify-center rounded-lg border border-slate-200 text-slate-600 transition hover:bg-slate-100 xl:hidden"
-          >
-            {open ? (
-              <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" /></svg>
-            ) : (
-              <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5M3.75 17.25h16.5" /></svg>
-            )}
-          </button>
-        </div>
-      </div>
-
-      {/* Mobile menu panel */}
-      {open && (
-        <div className="border-t border-slate-200 bg-white px-4 py-3 xl:hidden">
-          <nav className="flex flex-col">
-            {navItems.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                onClick={() => setOpen(false)}
-                className="rounded-lg px-3 py-2.5 text-sm font-medium text-slate-600 transition hover:bg-slate-100 hover:text-blue-600"
-              >
-                {item.name}
-              </Link>
-            ))}
-          </nav>
-          <QuoteButton className="mt-3 w-full justify-center sm:hidden" />
-        </div>
-      )}
-    </header>
-  );
+  const dialog=useRef<HTMLDialogElement>(null);
+  const [query,setQuery]=useState('');
+  const results=searchItems.filter(p=>(p.title+' '+p.description).toLowerCase().includes(query.toLowerCase().trim()));
+  useEffect(()=>{function closeMenus(e:KeyboardEvent){if(e.key==='Escape')document.querySelectorAll<HTMLDetailsElement>('.kh-header details[open]').forEach(d=>d.open=false);}document.addEventListener('keydown',closeMenus);return()=>document.removeEventListener('keydown',closeMenus);},[]);
+  return <><a className="kh-skip" href="#main-content">Skip to content</a><header className="kh-header" onClick={e=>{if((e.target as HTMLElement).closest('a')) e.currentTarget.querySelectorAll<HTMLDetailsElement>('details[open]').forEach(d=>d.open=false);}}><div className="kh-topbar"><div className="kh-container"><span>Custom-made for your brand. <b>From 200 pieces per design.</b></span><a href="mailto:sales@kakapatches.com">sales@kakapatches.com ↗</a></div></div><div className="kh-container kh-nav"><a href="/" className="kh-brand" aria-label="KaKa Patches home"><img src="/images/brand/kaka-patches-logo.svg" alt="KaKa Patches" width="128" height="80"/></a><nav className="kh-desktop-nav" aria-label="Main navigation"><details className="kh-menu"><summary>Patch types <span>⌄</span></summary><div className="kh-mega"><div><p className="kh-eyebrow">CHOOSE YOUR PATCH</p><div className="kh-mega-products">{homeProducts.map(p=><a href={'/products/'+p.slug} key={p.slug}><b>{p.name}</b><span>{p.label}</span></a>)}</div><a className="kh-text-link" href="/products">View all products ↗</a></div><aside><p>Need a different finish?</p><a href="/products/custom-velcro-patches">Velcro patches ↗</a><a href="/products/custom-patch-hats">Patch hats ↗</a><a href="/product-families">Product families ↗</a><a href="/custom-accessories">Custom accessories ↗</a><a href="/#patch-finder">Help me choose ↗</a></aside></div></details><a href="/#applications">By application</a><a href="/custom-process">How it works</a><details className="kh-menu kh-menu-small"><summary>Learn <span>⌄</span></summary><div className="kh-small-menu"><a href="/resources/embroidered-vs-woven-patches">Embroidered vs. woven</a><a href="/resources/best-backing-for-custom-patches">Backing guide</a><a href="/resources/how-to-choose-patch-size">Size guide</a><a href="/resources">All resources</a><a href="/blog">Blog</a></div></details><a href="/about-us">About us</a></nav><div className="kh-nav-actions"><button className="kh-search-button" type="button" aria-label="Search products and guides" onClick={()=>{setQuery('');dialog.current?.showModal();}}><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/></svg></button><a className="kh-button kh-nav-quote" href="/request-a-quote">Get a quote ↗</a><details className="kh-mobile-menu"><summary aria-label="Open navigation menu">☰</summary><nav aria-label="Mobile navigation"><a href="/products">All patch types ↗</a>{homeProducts.map(p=><a key={p.slug} href={'/products/'+p.slug}>{p.name} patches</a>)}<a href="/products/custom-velcro-patches">Velcro patches</a><a href="/products/custom-patch-hats">Patch hats</a><a href="/applications">Applications</a><a href="/custom-process">How it works</a><a href="/resources">Resources & guides</a><a href="/custom-accessories">Custom accessories</a><a href="/product-families">Product families</a><a href="/blog">Blog</a><a href="/about-us">About us</a><a href="/contact-us">Contact us</a><a className="kh-button" href="/request-a-quote">Get a quote ↗</a></nav></details></div></div></header><dialog ref={dialog} className="kh-search-dialog" aria-labelledby="search-title"><div className="kh-search-head"><h2 id="search-title">Find your next patch.</h2><button type="button" aria-label="Close search" onClick={()=>dialog.current?.close()}>×</button></div><label htmlFor="site-search">Search products and guides</label><input id="site-search" type="search" placeholder="Try woven, hats or backing…" value={query} onChange={e=>setQuery(e.target.value)} autoComplete="off"/><p className="kh-search-count" aria-live="polite">{results.length} {results.length===1?'result':'results'}</p><div className="kh-search-results">{results.map(p=><a href={p.href} key={p.href}><b>{p.title} ↗</b><span>{p.description}</span></a>)}{!results.length&&<p>No matches yet. Try a patch type or <a href="/request-a-quote">tell us about your project</a>.</p>}</div></dialog></>;
 }

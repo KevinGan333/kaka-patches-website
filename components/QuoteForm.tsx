@@ -92,7 +92,10 @@ export default function QuoteForm() {
     return p ? (resolveCategory(p) ?? "") : "";
   });
   const [numberOfDesigns, setNumberOfDesigns] = useState("1");
-  const [quantityPerDesign, setQuantityPerDesign] = useState("");
+  const [quantityPerDesign, setQuantityPerDesign] = useState(() => {
+    const quantity = searchParams.get("quantity") || "";
+    return /^\d+$/.test(quantity) && Number(quantity) >= 200 && Number(quantity) <= 1000000 ? quantity : "";
+  });
   // Per-design quantities for variable mode (indexed by design number)
   const [perDesignQtys, setPerDesignQtys] = useState<string[]>(["", "", ""]);
 

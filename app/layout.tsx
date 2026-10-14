@@ -58,7 +58,7 @@ export default async function RootLayout({
         <OrganizationSchema />
         <WebsiteSchema />
         {!isAdmin && <SiteHeader />}
-        {children}
+        <div id="main-content" tabIndex={-1}>{children}</div>
         {!isAdmin && <SiteFooter />}
       </body>
     </html>
