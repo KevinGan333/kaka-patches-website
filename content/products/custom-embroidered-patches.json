@@ -134,7 +134,38 @@
   "relatedProductSlugs": [],
   "moqDisclaimer": "",
   "packagingDelivery": "",
-  "images": [],
+  "images": [
+    {
+      "url": "/images/products/custom-embroidered-patches/hero/hero-main.webp",
+      "alt": "Custom deer and mountain embroidered patch displayed on sunlit stone against an alpine backdrop",
+      "order": 1
+    },
+    {
+      "url": "/images/products/custom-embroidered-patches/hero/artwork-to-embroidery.webp",
+      "alt": "Deer patch artwork beside the finished embroidered patch, showing the design-to-embroidery transformation",
+      "order": 2
+    },
+    {
+      "url": "/images/products/custom-embroidered-patches/hero/embroidery-details.webp",
+      "alt": "Close-up views of a deer embroidered patch showing fine stitching, colorful threads and a clean finished border",
+      "order": 3
+    },
+    {
+      "url": "/images/products/custom-embroidered-patches/hero/applications.webp",
+      "alt": "Custom deer embroidered patches applied to caps, tote bags, jackets, keychains, souvenirs and backpacks",
+      "order": 4
+    },
+    {
+      "url": "/images/products/custom-embroidered-patches/hero/production.webp",
+      "alt": "Illustration of multi-head embroidery production with thread selection, stitching, patch details and packing",
+      "order": 5
+    },
+    {
+      "url": "/images/products/custom-embroidered-patches/hero/custom-shape.webp",
+      "alt": "Custom contour-cut embroidered patch featuring a woman, magpies and golden clouds on sunlit stone",
+      "order": 6
+    }
+  ],
   "createdAt": "2026-08-10T07:51:32.210Z",
   "updatedAt": "2026-08-10T07:51:32.210Z",
   "publishedAt": "2026-08-10T07:51:32.210Z"
