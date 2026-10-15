@@ -1,3 +1,5 @@
+import { siteContact, socialLinks } from "@/lib/site-contact";
+
 export function OrganizationSchema() {
   return (
     <script
@@ -10,7 +12,15 @@ export function OrganizationSchema() {
           url: "https://www.kakapatches.com",
           description:
             "B2B custom patch manufacturer producing embroidered, woven, PVC and chenille patches for apparel brands, sports teams, uniforms and promotional buyers.",
-          sameAs: [],
+          email: siteContact.email,
+          telephone: siteContact.telephone,
+          foundingDate: "2019",
+          founder: [
+            { "@type": "Person", name: "Amy Lee" },
+            { "@type": "Person", name: "Kevin Gan", sameAs: socialLinks[2].href },
+          ],
+          contactPoint: { "@type": "ContactPoint", telephone: siteContact.telephone, email: siteContact.email, contactType: "sales", url: "https://www.kakapatches.com/contact-us" },
+          sameAs: socialLinks.slice(0, 2).map(link => link.href),
         }),
       }}
     />

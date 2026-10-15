@@ -1,23 +1,49 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 
+const description = "Meet Amy and Kevin, the founders of KaKa Patches. Discover how a daughter's drawings and a few handmade patches grew into a custom patch business founded in 2019.";
 export const metadata: Metadata = {
-  title: "About KaKa Patches | Custom Patch Manufacturer",
-  description: "KaKa Patches is a B2B custom patch manufacturer supporting embroidered, woven, PVC and chenille patches for apparel brands, sports teams, uniform suppliers and promotional companies.",
+  title: "Our Story | About KaKa Patches",
+  description,
+  alternates: { canonical: "https://www.kakapatches.com/about-us" },
+  openGraph: { title: "Our Story | About KaKa Patches", description, url: "https://www.kakapatches.com/about-us", type: "website" },
 };
 
 export default function Page() {
   return (
-    <main className="bg-white text-slate-900">
-      <section className="relative overflow-hidden bg-slate-950 text-white"><div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_50%_at_50%_-10%,rgba(37,99,235,0.25),transparent)]" /><div className="relative mx-auto max-w-7xl px-6 py-24 md:py-32"><p className="text-sm font-semibold uppercase tracking-[0.25em] text-blue-300">About Us</p><h1 className="mt-5 max-w-3xl text-4xl font-extrabold leading-tight tracking-tight md:text-6xl">About <span className="text-blue-400">KaKa Patches</span></h1><p className="mt-6 max-w-3xl text-lg leading-8 text-slate-300">KaKa Patches is a B2B custom patch manufacturer helping clothing brands, sports teams, uniform suppliers, clubs, events and promotional buyers create embroidered, woven, PVC and chenille patches. Factory-direct production with artwork support and flexible customization.</p><div className="mt-10 flex flex-wrap gap-4"><Link href="/request-a-quote" className="inline-flex items-center gap-2 rounded-full bg-blue-600 px-7 py-3.5 text-sm font-semibold text-white shadow-lg transition hover:bg-blue-500">Request a Quote →</Link><Link href="/products" className="inline-flex items-center gap-2 rounded-full border border-white/25 px-7 py-3.5 text-sm font-semibold text-white transition hover:bg-white/10">View Products</Link></div></div></section>
+    <main className="kk-editorial">
+      <section className="kk-page-hero"><div className="kh-container">
+        <p className="kk-eyebrow">About us / Our story</p>
+        <h1>Little Patches.<br /><span>Lasting Memories.</span></h1>
+        <p className="kk-hero-intro">A family story that began with a daughter’s drawings—and grew into KaKa Patches.</p>
+        <a className="kk-story-jump" href="#our-story">Meet Amy &amp; Kevin <span aria-hidden="true">↓</span></a>
+      </div></section>
 
-      <section className="py-24"><div className="mx-auto grid max-w-7xl gap-12 px-6 md:grid-cols-2"><div><p className="text-sm font-semibold uppercase tracking-[0.2em] text-blue-600">Who We Are</p><h2 className="mt-4 text-3xl font-bold md:text-4xl">Custom Patch Manufacturing for B2B Buyers</h2><p className="mt-5 text-lg leading-8 text-slate-600">KaKa Patches focuses on custom patch production for business buyers who need reliable communication, flexible customization and repeatable quality. We manufacture four core patch types — embroidered, woven, PVC and chenille — for apparel brands, sports teams, uniform suppliers, event organizers and promotional product companies.</p></div><div className="rounded-3xl bg-slate-100 p-8"><h3 className="text-xl font-bold">We Support</h3><div className="mt-6 grid gap-3">{["Apparel brands","Sports teams","Uniform suppliers","Event organizers","Promotional product companies","Clubs & organizations"].map((i)=>(<div key={i} className="rounded-2xl bg-white px-5 py-4 text-sm font-semibold text-slate-700">{i}</div>))}</div></div></div></section>
+      <article id="our-story" className="kk-story">
+        <p className="kk-story-lead">KaKa Patches was founded in 2019 by husband-and-wife team Amy Lee and Kevin. But our story began with something much more personal: a desire to hold on to the little moments of our daughter’s childhood.</p>
+        <p>Like many parents, we took countless photos as she grew—capturing everyday adventures, new discoveries, and moments we never wanted to forget. Over time, though, we noticed that photos alone couldn’t always help us place a memory. When outfits looked the same, it could be hard to tell when a picture had been taken.</p>
+        <p>Then our daughter started kindergarten, and we ran into another familiar parenting challenge. With matching uniforms, similar backpacks, and identical school supplies, belongings often ended up going home with the wrong child. Those same uniforms also made it harder to distinguish one school occasion from another in our photos.</p>
+        <h2>So we started making something just for her.</h2>
+        <p>We sketched little designs on paper, tried printing them on different materials, and experimented with ways to attach them to her clothes and backpack—from glue to stitching. Our first designs were simple, mostly cute little animals. To us, they were small handmade touches. To our daughter, they were something special.</p>
+        <p>As she grew, she began drawing, too. By the time she was four, she was coming up with ideas that surprised and delighted us. With her permission, we turned some of her drawings into embroidered patches.</p>
+        <p>She took them to school, and her classmates loved them.</p>
+        <h2>From her backpack to something bigger.</h2>
+        <p>That response encouraged us to share our patches on social media. We wondered whether something that brought our daughter so much joy might mean something to other people, too.</p>
+        <p>Little by little, orders began to come in.</p>
+        <p>Customers brought us their own ideas, and we helped turn them into custom designs and samples. As more people were happy with the finished patches, they came back with new projects. What began as a creative family activity gradually became a growing business.</p>
+        <p>At first, we worked on orders in the evenings and on weekends while keeping our regular jobs. Eventually, there were more customers and projects than our spare time could accommodate. We decided to give the business our full attention and created kakapatches.com to share our work with more people.</p>
+        <h2>The same personal care. A new story every time.</h2>
+        <p>Through it all, our purpose has stayed close to where we started: helping people turn something meaningful into something they can hold, wear, and carry with them.</p>
+        <p>For our family, it began with a daughter’s drawings and a few little patches on her backpack. Today, we bring that same personal care to the ideas our customers share with us.</p>
+        <p className="kk-story-closing">Every patch starts with a story. We’d love to help you bring yours to life.</p>
+        <div className="kk-founders"><p>Amy &amp; Kevin</p><span>Founders, KaKa Patches</span></div>
+      </article>
 
-      <section className="bg-slate-50 py-24"><div className="mx-auto max-w-7xl px-6"><div className="mx-auto max-w-3xl text-center"><p className="text-sm font-semibold uppercase tracking-[0.2em] text-blue-600">What We Do</p><h2 className="mt-4 text-3xl font-bold md:text-4xl">End-to-End Patch Production Support</h2></div><div className="mt-14 grid gap-6 md:grid-cols-2 lg:grid-cols-4">{[{t:"Artwork Review",d:"Upload logos, sketches or reference images. Our team reviews every file for patch suitability."},{t:"Patch Type Recommendation",d:"We help choose between embroidered, woven, PVC and chenille."},{t:"Custom Production",d:"Customize size, shape, colors, border, backing and packaging."},{t:"Bulk Order Support",d:"Samples, bulk orders, repeat orders and project-based purchasing."}].map((c)=>(<div key={c.t} className="rounded-3xl border border-slate-200 bg-white p-7 shadow-sm"><h3 className="text-lg font-bold">{c.t}</h3><p className="mt-3 text-sm leading-7 text-slate-600">{c.d}</p></div>))}</div></div></section>
-
-      <section className="py-24"><div className="mx-auto max-w-7xl px-6"><div className="mx-auto max-w-3xl text-center"><p className="text-sm font-semibold uppercase tracking-[0.2em] text-blue-600">By the Numbers</p><h2 className="mt-4 text-3xl font-bold md:text-4xl">Built for B2B Patch Production</h2></div><div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">{[{v:"4",l:"Patch types supported"},{v:"100+",l:"Pcs sample-friendly orders"},{v:"2–3",l:"Weeks typical bulk production"},{v:"Custom",l:"Size, shape, backing & border"}].map((m)=>(<div key={m.l} className="rounded-3xl border border-slate-200 bg-white p-7 text-center shadow-sm"><p className="text-4xl font-extrabold text-blue-600">{m.v}</p><p className="mt-3 text-sm font-medium text-slate-600">{m.l}</p></div>))}</div></div></section>
-
-      <section className="bg-blue-600 py-20 text-white"><div className="mx-auto max-w-4xl px-6 text-center"><h2 className="text-3xl font-bold md:text-4xl">Ready to Work with a Custom Patch Manufacturer?</h2><p className="mx-auto mt-5 max-w-2xl text-lg leading-8 text-blue-50">Upload your artwork and tell us your requirements. We&rsquo;ll prepare a factory-direct quote.</p><div className="mt-10"><Link href="/request-a-quote" className="inline-flex items-center gap-2 rounded-full bg-white px-8 py-3.5 text-sm font-semibold text-blue-700 shadow-lg transition hover:bg-blue-50">Request a Quote →</Link></div></div></section>
+      <section className="kk-story-cta"><div className="kh-container">
+        <p className="kk-eyebrow">Your idea. Our care.</p><h2>What’s your patch story?</h2>
+        <p>Share a drawing, a logo, or an idea. Let’s make something yours.</p>
+        <div className="kk-page-actions"><Link className="kh-button" href="/request-a-quote">Start your project ↗</Link><Link className="kh-button kh-button-outline" href="/contact-us">Get in touch ↗</Link></div>
+      </div></section>
     </main>
   );
 }

@@ -1,5 +1,6 @@
 @import "tailwindcss";
 @import "./home-redesign.css";
+@import "./story-contact.css";
 @plugin "@tailwindcss/typography";
 
 body {
