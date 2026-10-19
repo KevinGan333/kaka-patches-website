@@ -131,9 +131,40 @@
   ],
   "moqDisclaimer": "",
   "packagingDelivery": "",
-  "images": [],
+  "images": [
+    {
+      "url": "/images/products/custom-velcro-patches/hero/velcro-332.webp",
+      "alt": "Bear-head embroidered hook-and-loop patch displayed for outdoor backpacks and adventure gear.",
+      "order": 1
+    },
+    {
+      "url": "/images/products/custom-velcro-patches/hero/velcro-333.webp",
+      "alt": "Blue and white wing emblem patch displayed for removable jacket and backpack branding.",
+      "order": 2
+    },
+    {
+      "url": "/images/products/custom-velcro-patches/hero/velcro-334.webp",
+      "alt": "Red rose embroidered hook-and-loop patch displayed for jackets, bags and custom apparel.",
+      "order": 3
+    },
+    {
+      "url": "/images/products/custom-velcro-patches/hero/velcro-335.webp",
+      "alt": "Green unicorn embroidered hook-and-loop patch attached to an olive canvas backpack.",
+      "order": 4
+    },
+    {
+      "url": "/images/products/custom-velcro-patches/hero/velcro-336.webp",
+      "alt": "Crossed-sword embroidered hook-and-loop patch attached to an olive tactical backpack.",
+      "order": 5
+    },
+    {
+      "url": "/images/products/custom-velcro-patches/hero/velcro-337.webp",
+      "alt": "Muscular shark embroidered patch displayed for removable sports-bag and gym-backpack decoration.",
+      "order": 6
+    }
+  ],
   "createdAt": "2026-08-10T07:51:32.210Z",
-  "updatedAt": "2026-09-18T00:00:00.000Z",
+  "updatedAt": "2026-10-19T13:47:25.614Z",
   "publishedAt": "2026-08-10T08:30:00.000Z",
   "seoTitle": "Custom Velcro Patches Manufacturer | KaKa Patches",
   "displayName": "Custom Velcro Patches",
