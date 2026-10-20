@@ -56,8 +56,8 @@ export default function AdminQuotesPage() {
 
   const patchTypes = useMemo(() => [...new Set(quotes.map(q => q.patch_type).filter(Boolean))] as string[], [quotes]);
 
-  const channels = [...new Set(quotes.map(q => q.attribution?.first.channel || "Unknown (not recorded)"))];
-  const visibleQuotes = quotes.filter(q => channelFilter === "all" || (q.attribution?.first.channel || "Unknown (not recorded)") === channelFilter);
+  const channels = [...new Set(quotes.map(q => q.attribution?.first?.channel || "Unknown (not recorded)"))];
+  const visibleQuotes = quotes.filter(q => channelFilter === "all" || (q.attribution?.first?.channel || "Unknown (not recorded)") === channelFilter);
 
   return (
     <div className="px-6 py-8">
@@ -134,7 +134,7 @@ export default function AdminQuotesPage() {
                   <td className="px-3 py-2.5">{q.email_sent ? <span className="inline-block rounded-full bg-emerald-50 px-2 py-0.5 text-[10px] font-bold text-emerald-700">Sent</span> : q.email_error ? <span className="inline-block rounded-full bg-red-50 px-2 py-0.5 text-[10px] font-bold text-red-600">Failed</span> : <span className="text-amber-500 text-[10px]">—</span>}</td>
                   <td className="px-3 py-2.5 text-slate-600 whitespace-nowrap">{touchLabel(q.attribution?.first)}</td>
                   <td className="px-3 py-2.5 text-slate-600 whitespace-nowrap">{touchLabel(q.attribution?.session)}</td>
-                  <td className="px-3 py-2.5 text-slate-600 max-w-56 break-words">{q.attribution?.first.landingPage || q.first_landing_page || "—"}</td>
+                  <td className="px-3 py-2.5 text-slate-600 max-w-56 break-words">{q.attribution?.first?.landingPage || q.first_landing_page || "—"}</td>
                   <td className="px-3 py-2.5"><StatusBadge status={q.status} /></td>
                   <td className="px-3 py-2.5">
                     <div className="flex items-center gap-1.5">

@@ -1,4 +1,4 @@
-import { touchLabel, type QuoteAttribution } from "@/lib/attribution";
+import { normalizeAttribution, touchLabel, type QuoteAttribution } from "@/lib/attribution";
 import { getDb } from "@/lib/db";
 
 export type QuoteStatus = "new" | "reviewed" | "quoted" | "waiting_for_customer" | "in_production" | "closed";
@@ -113,6 +113,12 @@ export async function createQuoteRequest(data: Partial<QuoteRequest>): Promise<Q
   return result[0] as unknown as QuoteRequest;
 }
 
+// Database rows may contain legacy empty objects or serialized JSON.
+// Normalize on read without changing stored customer data.
+function normalizeQuoteAttribution(row: QuoteRequest): QuoteRequest {
+  return { ...row, attribution: normalizeAttribution(row.attribution) };
+}
+
 export async function getAllQuoteRequests(filters?: QuoteFilters): Promise<QuoteRequest[]> {
   const db = getDb();
   let query = db`SELECT * FROM quote_requests WHERE 1=1`;
@@ -149,13 +155,13 @@ export async function getAllQuoteRequests(filters?: QuoteFilters): Promise<Quote
     if (filters.offset) query = db`${query} OFFSET ${filters.offset}`;
   }
 
-  return (await query) as unknown as QuoteRequest[];
+  return ((await query) as unknown as QuoteRequest[]).map(normalizeQuoteAttribution);
 }
 
 export async function getQuoteRequestById(id: string): Promise<QuoteRequest | null> {
   const db = getDb();
   const result = await db`SELECT * FROM quote_requests WHERE id = ${id}`;
-  return (result[0] || null) as unknown as QuoteRequest | null;
+  return result[0] ? normalizeQuoteAttribution(result[0] as unknown as QuoteRequest) : null;
 }
 
 export async function updateQuoteStatus(id: string, status: QuoteStatus): Promise<QuoteRequest | null> {
@@ -165,7 +171,7 @@ export async function updateQuoteStatus(id: string, status: QuoteStatus): Promis
     WHERE id = ${id}
     RETURNING *
   `;
-  return (result[0] || null) as unknown as QuoteRequest | null;
+  return result[0] ? normalizeQuoteAttribution(result[0] as unknown as QuoteRequest) : null;
 }
 
 export async function addQuoteNote(id: string, content: string): Promise<QuoteRequest | null> {
@@ -178,7 +184,7 @@ export async function addQuoteNote(id: string, content: string): Promise<QuoteRe
     WHERE id = ${id}
     RETURNING *
   `;
-  return (result[0] || null) as unknown as QuoteRequest | null;
+  return result[0] ? normalizeQuoteAttribution(result[0] as unknown as QuoteRequest) : null;
 }
 
 export async function updateQuoteEmailStatus(id: string, emailSent: boolean, emailError?: string): Promise<void> {
@@ -222,7 +228,7 @@ export async function getQuoteStats(): Promise<{
 
 export async function exportQuoteRequestsCsv(): Promise<string> {
   const db = getDb();
-  const rows = await db`SELECT * FROM quote_requests ORDER BY created_at DESC` as unknown as QuoteRequest[];
+  const rows = (await db`SELECT * FROM quote_requests ORDER BY created_at DESC` as unknown as QuoteRequest[]).map(normalizeQuoteAttribution);
   const header = "Quote Number,Date,Status,Name,Email,Company,Product Category,Patch Size,Backing,Border,Designs,Qty/Design,Total Qty,Delivery,Project Type,Packaging,Message,Artwork,Email Sent,UTM Source,UTM Medium,UTM Campaign,First Source,Session Source,First Landing Page,Session Landing Page,Submission Page,Referrer,Session Campaign,Session Content,Session Term,Notes";
   const csvRows = rows.map(r => [
     r.quote_number, r.created_at, r.status, r.name, r.email,
@@ -232,8 +238,8 @@ export async function exportQuoteRequestsCsv(): Promise<string> {
     r.artwork_filename || "",
     r.email_sent ? "Yes" : "No",
     r.utm_source || "", r.utm_medium || "", r.utm_campaign || "",
-    touchLabel(r.attribution?.first), touchLabel(r.attribution?.session), r.attribution?.first.landingPage || r.first_landing_page || "", r.attribution?.session.landingPage || "", r.attribution?.submissionPage || "", r.attribution?.first.referrer || r.referrer || "",
-    r.attribution?.session.campaign || "", r.attribution?.session.content || "", r.attribution?.session.term || "",
+    touchLabel(r.attribution?.first), touchLabel(r.attribution?.session), r.attribution?.first?.landingPage || r.first_landing_page || "", r.attribution?.session?.landingPage || "", r.attribution?.submissionPage || "", r.attribution?.first?.referrer || r.referrer || "",
+    r.attribution?.session?.campaign || "", r.attribution?.session?.content || "", r.attribution?.session?.term || "",
     (r.notes || []).map((n) => `[${n.created_at}] ${n.content}`).join(" | "),
   ].map(v => `"${String(v || "").replace(/"/g, '""')}"`).join(","));
   return [header, ...csvRows].join("\n");
