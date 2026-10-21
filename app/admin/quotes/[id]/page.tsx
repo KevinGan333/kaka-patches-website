@@ -389,14 +389,14 @@ export default function QuoteDetailPage() {
           <Section title="Attribution">
             <Row label="First source" value={touchLabel(q.attribution?.first)} />
             <Row label="Session source" value={touchLabel(q.attribution?.session)} />
-            <Row label="First captured" value={q.attribution?.first.capturedAt} />
-            <Row label="Session captured" value={q.attribution?.session.capturedAt} />
-            <Row label="Session landing page" value={q.attribution?.session.landingPage} />
+            <Row label="First captured" value={q.attribution?.first?.capturedAt} />
+            <Row label="Session captured" value={q.attribution?.session?.capturedAt} />
+            <Row label="Session landing page" value={q.attribution?.session?.landingPage} />
             <Row label="Submission page" value={q.attribution?.submissionPage} />
-            <Row label="Session referrer" value={q.attribution?.session.referrer} />
-            <Row label="Session campaign" value={q.attribution?.session.campaign} />
-            <Row label="Session content" value={q.attribution?.session.content} />
-            <Row label="Session term" value={q.attribution?.session.term} />
+            <Row label="Session referrer" value={q.attribution?.session?.referrer} />
+            <Row label="Session campaign" value={q.attribution?.session?.campaign} />
+            <Row label="Session content" value={q.attribution?.session?.content} />
+            <Row label="Session term" value={q.attribution?.session?.term} />
             <Row label="UTM source" value={q.utm_source} />
             <Row label="UTM medium" value={q.utm_medium} />
             <Row label="UTM campaign" value={q.utm_campaign} />
