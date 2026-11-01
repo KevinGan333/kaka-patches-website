@@ -23,6 +23,7 @@ export interface ProductImageSlotProps {
   explicitSrc?: string;
   className?: string;
   priority?: boolean;
+  imageFit?: "cover" | "contain";
 }
 
 const RATIO_CLASS: Record<string, string> = {
@@ -68,6 +69,7 @@ export default function ProductImageSlot({
   explicitSrc,
   className = "",
   priority = false,
+  imageFit = "cover",
 }: ProductImageSlotProps) {
   const ratioClass = RATIO_CLASS[ratio] || RATIO_CLASS["4:3"];
   const src = resolveImageSrc(slotPath, explicitSrc);
@@ -81,7 +83,7 @@ export default function ProductImageSlot({
           src={src}
           alt={alt || title}
           loading={priority ? "eager" : "lazy"}
-          className="h-full w-full object-cover"
+          className={`h-full w-full ${imageFit === "contain" ? "bg-white object-contain" : "object-cover"}`}
         />
       </div>
     );

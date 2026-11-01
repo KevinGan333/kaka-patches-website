@@ -23,7 +23,7 @@ function GalleryIcon({ className = "h-6 w-6" }: { className?: string }) {
  * lightbox on click/tap. Every slot renders as a designed placeholder until a
  * real image is assigned at its canonical path.
  */
-export default function ProductHeroGallery({ images, isProduction = false }: { images: HeroGalleryImage[]; isProduction?: boolean }) {
+export default function ProductHeroGallery({ images, isProduction = false, imageFit = "cover" }: { images: HeroGalleryImage[]; isProduction?: boolean; imageFit?: "cover" | "contain" }) {
   const [active, setActive] = useState(0);
   const [lightbox, setLightbox] = useState(false);
 
@@ -60,7 +60,7 @@ export default function ProductHeroGallery({ images, isProduction = false }: { i
         <div className="aspect-[4/3] w-full">
           {current.src ? (
             // eslint-disable-next-line @next/next/no-img-element
-            <img src={current.src} alt={current.alt || current.title} className="h-full w-full object-cover" />
+            <img src={current.src} alt={current.alt || current.title} className={`h-full w-full ${imageFit === "contain" ? "bg-white object-contain" : "object-cover"}`} />
           ) : (
             <div className="flex h-full w-full flex-col items-center justify-center gap-2 px-6 text-center">
               <span className="flex h-12 w-12 items-center justify-center rounded-full bg-white text-slate-400 shadow-sm">
@@ -101,7 +101,7 @@ export default function ProductHeroGallery({ images, isProduction = false }: { i
           >
             {img.src ? (
               // eslint-disable-next-line @next/next/no-img-element
-              <img src={img.src} alt={img.alt || img.title} className="h-full w-full object-cover" />
+              <img src={img.src} alt={img.alt || img.title} className={`h-full w-full ${imageFit === "contain" ? "bg-white object-contain" : "object-cover"}`} />
             ) : (
               <span className="flex h-full w-full items-center justify-center bg-slate-100 text-slate-400">
                 <GalleryIcon className="h-5 w-5" />

@@ -167,6 +167,8 @@ export interface ProductPage {
 
   // Images
   images: ProductImage[];
+  /** Preserve complete product silhouettes for white-background catalog photos. */
+  imageFit?: "cover" | "contain";
 
   // Timestamps
   createdAt: string;

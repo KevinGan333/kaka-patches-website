@@ -15,7 +15,7 @@
   "metaDescription": "B2B custom keychains in soft PVC, zinc alloy metal and epoxy dome styles. Factory-direct production for brand merchandise, retail products and promotional giveaways.",
   "ogTitle": "",
   "ogDescription": "",
-  "ogImage": "",
+  "ogImage": "/images/products/custom-keychains/08-celebrity-cruises.webp",
   "heroBadge": "Soft PVC, Metal & 3D Molded",
   "h1": "Custom <span class=\"text-blue-400\">Embroidered Keychains</span>",
   "heroSubtitle": "Soft PVC, die-cast metal and epoxy dome keychains for brand merchandise, retail products, event giveaways and promotional campaigns. Factory-direct production with full customization.",
@@ -143,8 +143,180 @@
   "relatedProductSlugs": [],
   "moqDisclaimer": "",
   "packagingDelivery": "",
-  "images": [],
+  "images": [
+    {
+      "url": "/images/products/custom-keychains/08-celebrity-cruises.webp",
+      "alt": "Orange embroidered brand key tag with navy lettering and a silver split ring",
+      "order": 0
+    },
+    {
+      "url": "/images/products/custom-keychains/02a-fort-smith.webp",
+      "alt": "Blue souvenir keychain with embroidered bison, landscape emblem and silver key ring",
+      "order": 1
+    },
+    {
+      "url": "/images/products/custom-keychains/03a-cult.webp",
+      "alt": "Black embroidered logo key tag with red stitched border and silver split ring",
+      "order": 2
+    },
+    {
+      "url": "/images/products/custom-keychains/07-bear-burger.webp",
+      "alt": "Custom bear-shaped hamburger embroidered charm with colorful layered stitching",
+      "order": 3
+    },
+    {
+      "url": "/images/products/custom-keychains/04-pink-phone.webp",
+      "alt": "Pink flip-phone shaped embroidered charm with smiley face, rainbow and metal eyelet",
+      "order": 4
+    },
+    {
+      "url": "/images/products/custom-keychains/10b-red-panda.webp",
+      "alt": "Orange red panda chenille keychain with striped tail and black lobster clasp",
+      "order": 5
+    },
+    {
+      "url": "/images/products/custom-keychains/01-blue-logo.webp",
+      "alt": "Royal-blue fabric key tag with circular embroidered monogram and silver split ring",
+      "order": 6
+    },
+    {
+      "url": "/images/products/custom-keychains/02b-home-sweet-home.webp",
+      "alt": "Blue embroidered souvenir keychain with green pattern and Home Sweet Home lettering",
+      "order": 7
+    },
+    {
+      "url": "/images/products/custom-keychains/03b-tuning-story.webp",
+      "alt": "Black Tuning Story embroidered key tag with red edging and silver split ring",
+      "order": 8
+    },
+    {
+      "url": "/images/products/custom-keychains/05-remove-before-flight.webp",
+      "alt": "Red Remove Before Flight embroidered tag with white lettering and yellow stitch accents",
+      "order": 9
+    },
+    {
+      "url": "/images/products/custom-keychains/06a-ce25a-dashed.webp",
+      "alt": "Red CE-25A aircraft embroidered tag with yellow dashed borders and attachment hole",
+      "order": 10
+    },
+    {
+      "url": "/images/products/custom-keychains/06b-ce25a-plain.webp",
+      "alt": "Red CE-25A aircraft embroidered tag with plain burgundy edging and attachment hole",
+      "order": 11
+    },
+    {
+      "url": "/images/products/custom-keychains/09-kiku.webp",
+      "alt": "Colorful KIKU embroidered character keychain with orange motif and silver swivel lobster clasp",
+      "order": 12
+    },
+    {
+      "url": "/images/products/custom-keychains/10a-opossum.webp",
+      "alt": "Gray opossum embroidered keychain with textured loop stitching and black split ring",
+      "order": 13
+    }
+  ],
   "createdAt": "2026-08-10T07:51:32.210Z",
-  "updatedAt": "2026-08-10T07:51:32.210Z",
-  "publishedAt": "2026-08-10T07:51:32.210Z"
+  "updatedAt": "2026-11-01T13:30:00.000Z",
+  "publishedAt": "2026-08-10T07:51:32.210Z",
+  "imageFit": "contain",
+  "detailGallery": [
+    {
+      "title": "Embroidered Front Face",
+      "caption": "Aircraft artwork and lettering stitched onto a red fabric tag.",
+      "imageSlot": "/images/products/custom-keychains/06b-ce25a-plain.webp"
+    },
+    {
+      "title": "Split Ring Attachment",
+      "caption": "Silver split ring fitted through a reinforced metal eyelet.",
+      "imageSlot": "/images/products/custom-keychains/01-blue-logo.webp"
+    },
+    {
+      "title": "Swivel Lobster Clasp",
+      "caption": "Silver swivel clasp connected to a character-shaped embroidered charm.",
+      "imageSlot": "/images/products/custom-keychains/09-kiku.webp"
+    },
+    {
+      "title": "Stitched Edge Finishing",
+      "caption": "Red stitched edging frames the black twill and embroidered logo.",
+      "imageSlot": "/images/products/custom-keychains/03a-cult.webp"
+    },
+    {
+      "title": "Raised Chenille Texture",
+      "caption": "Orange looped stitching adds texture to the red panda motif.",
+      "imageSlot": "/images/products/custom-keychains/10b-red-panda.webp"
+    },
+    {
+      "title": "Embroidered Lettering",
+      "caption": "Contrasting white lettering and green decorative stitches on blue fabric.",
+      "imageSlot": "/images/products/custom-keychains/02b-home-sweet-home.webp"
+    }
+  ],
+  "customizationExplorer": [
+    {
+      "name": "Rectangular Embroidered Tags",
+      "description": "Long fabric tags with stitched brand lettering, finished edges and split ring attachments.",
+      "bestFor": "Brand merchandise",
+      "imageSlot": "/images/products/custom-keychains/08-celebrity-cruises.webp"
+    },
+    {
+      "name": "Custom-Shaped Embroidery",
+      "description": "Contour-shaped textile charms with colorful embroidered artwork and a dedicated attachment hole.",
+      "bestFor": "Character merchandise",
+      "imageSlot": "/images/products/custom-keychains/07-bear-burger.webp"
+    },
+    {
+      "name": "Aviation-Style Tags",
+      "description": "Embroidered flight-tag designs with contrasting lettering, edge stitching and attachment holes.",
+      "bestFor": "Aviation souvenirs",
+      "imageSlot": "/images/products/custom-keychains/05-remove-before-flight.webp"
+    },
+    {
+      "name": "Textured Character Keychains",
+      "description": "Character designs combining looped texture, flat embroidery and metal keychain hardware.",
+      "bestFor": "Retail accessories",
+      "imageSlot": "/images/products/custom-keychains/10a-opossum.webp"
+    }
+  ],
+  "applicationGallery": [
+    {
+      "title": "Brand merchandise",
+      "description": "Embroidered brand lettering on a fabric key tag for everyday carry.",
+      "imageSlot": "/images/products/custom-keychains/08-celebrity-cruises.webp"
+    },
+    {
+      "title": "Retail products",
+      "description": "Custom-shaped embroidered character charms for retail merchandise collections.",
+      "imageSlot": "/images/products/custom-keychains/04-pink-phone.webp"
+    },
+    {
+      "title": "Event giveaways",
+      "description": "Aviation-style embroidered tags as a design option for themed event merchandise.",
+      "imageSlot": "/images/products/custom-keychains/06a-ce25a-dashed.webp"
+    },
+    {
+      "title": "Corporate gifts",
+      "description": "Fabric key tags with embroidered branding for a compact corporate gift.",
+      "imageSlot": "/images/products/custom-keychains/01-blue-logo.webp"
+    },
+    {
+      "title": "Tourist souvenirs",
+      "description": "Destination-themed embroidery with landscape and wildlife artwork.",
+      "imageSlot": "/images/products/custom-keychains/02a-fort-smith.webp"
+    },
+    {
+      "title": "Sports team merch",
+      "description": "Custom stitched lettering and colors for team or club merchandise projects.",
+      "imageSlot": "/images/products/custom-keychains/02b-home-sweet-home.webp"
+    },
+    {
+      "title": "Fundraising items",
+      "description": "Colorful character charms as a design option for fundraising merchandise.",
+      "imageSlot": "/images/products/custom-keychains/07-bear-burger.webp"
+    },
+    {
+      "title": "Concert & festival swag",
+      "description": "Bold embroidered logos and lettering for music and event merchandise projects.",
+      "imageSlot": "/images/products/custom-keychains/03b-tuning-story.webp"
+    }
+  ]
 }
