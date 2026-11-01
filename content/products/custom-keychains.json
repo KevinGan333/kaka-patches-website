@@ -9,41 +9,36 @@
   "availableForQuote": true,
   "quoteFormKey": "Custom Keychains",
   "displayName": "Custom Embroidered Keychains",
-  "seoTitle": "Custom Embroidered Keychains Manufacturer — Soft PVC, Metal & Epoxy | KaKa Patches",
+  "seoTitle": "Custom Embroidered Keychains | Embroidered Keychain Maker",
   "quoteLabel": "Custom Keychains",
-  "metaTitle": "Custom Keychains Manufacturer — Soft PVC, Metal & Epoxy | KaKa Patches",
-  "metaDescription": "B2B custom keychains in soft PVC, zinc alloy metal and epoxy dome styles. Factory-direct production for brand merchandise, retail products and promotional giveaways.",
-  "ogTitle": "",
-  "ogDescription": "",
-  "ogImage": "/images/products/custom-keychains/08-celebrity-cruises.webp",
-  "heroBadge": "Soft PVC, Metal & 3D Molded",
-  "h1": "Custom <span class=\"text-blue-400\">Embroidered Keychains</span>",
-  "heroSubtitle": "Soft PVC, die-cast metal and epoxy dome keychains for brand merchandise, retail products, event giveaways and promotional campaigns. Factory-direct production with full customization.",
+  "metaTitle": "Custom Embroidered Keychains | Embroidered Keychain Maker",
+  "metaDescription": "Custom embroidered keychains with die-cut felt or twill, dense stitching and a metal split ring. MOQ 200 pcs, free artwork and sample review.",
+  "ogTitle": "Custom Embroidered Keychains | Embroidered Keychain Maker",
+  "ogDescription": "Custom embroidered keychains with die-cut felt or twill, dense stitching and a metal split ring. MOQ 200 pcs, free artwork and sample review.",
+  "ogImage": "https://www.kakapatches.com/images/products/custom-keychains/08-celebrity-cruises.webp",
+  "heroBadge": "Die-Cut Fabric & Embroidery",
+  "h1": "Custom Embroidered Keychains",
+  "heroSubtitle": "Custom embroidered keychains are stitched on die-cut felt or twill, finished with a split ring, and built for brand merch, events and retail shelves.",
   "heroHighlights": [
     {
-      "label": "Material",
-      "value": "PVC, zinc alloy, iron, brass"
+      "label": "Base",
+      "value": "Felt, twill or denim"
     },
     {
-      "label": "Finishes",
-      "value": "Plating, epoxy dome, LED"
+      "label": "Finish",
+      "value": "Embroidery & stitched edges"
     },
     {
-      "label": "Best For",
-      "value": "Brand merchandise & giveaways"
+      "label": "Hardware",
+      "value": "Split ring or swivel clasp"
     },
     {
       "label": "MOQ",
-      "value": "200 pcs/design"
-    },
-    {
-      "label": "Lead Time",
-      "value": "2–3 weeks"
+      "value": "200 pcs per design"
     }
   ],
   "overviewParagraphs": [
-    "Custom keychains are branded accessories manufactured in your choice of material — from soft flexible PVC with vibrant color to die-cast zinc alloy metal with premium plating. Each keychain is produced to your exact artwork, creating a functional product that keeps your brand visible every day.",
-    "We produce soft PVC keychains (2D and 3D molded), die-cast metal keychains (zinc alloy, iron, brass), epoxy dome keychains with printed inserts, and LED flashing keychains for promotional impact. Every design supports custom shape, color matching and your choice of attachment hardware."
+    "Custom embroidered keychains are stitched on die-cut felt or twill, finished with a split ring, and built for brand merch, events and retail shelves."
   ],
   "buyerTypes": [
     "Brand & marketing agencies",
@@ -67,79 +62,69 @@
   ],
   "features": [
     {
-      "title": "Full Color Options",
-      "description": "PVC keychains support vibrant full color, while metal keychains offer plating in gold, silver, nickel, copper and antique finishes."
+      "title": "Stitched artwork",
+      "description": "Thread colors and stitch direction adapted to your logo."
     },
     {
-      "title": "Custom Shape Die-Cut",
-      "description": "Every keychain is produced to your exact design — from simple shapes to intricate mascot and logo contours."
+      "title": "Custom fabric shapes",
+      "description": "Contour and attachment position reviewed with your artwork."
     },
     {
-      "title": "Durable Daily Use",
-      "description": "Built to withstand everyday carry — impact-resistant materials, scratch-resistant coatings and quality attachment hardware."
+      "title": "Finished edges",
+      "description": "Satin stitching or another suitable edge finish confirmed during sampling."
     },
     {
-      "title": "Multiple Attachment Types",
-      "description": "Choose split ring, lobster clasp, carabiner clip or standard keyring — each suited to different use cases and price points."
+      "title": "Metal hardware",
+      "description": "Split rings and swivel clasps selected for the intended use."
     }
   ],
   "customOptionsTitle": "Customize Your Keychains",
   "customOptions": [
-    "PVC, metal or epoxy material",
-    "Custom shape die-cut to artwork",
-    "PMS color or plating finish",
-    "Split ring, clasp or carabiner",
-    "2D or 3D molded PVC design",
-    "LED flashing module option",
-    "Individual or bulk packaging",
-    "Sample and production support"
+    "Felt, twill or denim base",
+    "Custom die-cut outline",
+    "Thread color matching",
+    "Split ring or swivel clasp",
+    "Front and reverse construction",
+    "Sample review before production"
   ],
   "typeOptionsTitle": "Keychain Type Options",
   "typeOptions": [
     {
-      "title": "Soft PVC Keychains",
-      "description": "Flexible rubber-like material with full-color 2D or 3D molded design — most popular for brand merchandise and promotional giveaways."
+      "title": "Felt Embroidered Keychains",
+      "description": "A soft non-woven base for tactile shapes and character artwork."
     },
     {
-      "title": "Metal Keychains",
-      "description": "Die-cast zinc alloy, iron or brass with premium plating in gold, silver, nickel, copper or antique finishes — ideal for premium corporate gifts."
+      "title": "Twill Embroidered Keychains",
+      "description": "A woven base with a visible diagonal texture for logos and lettering."
     },
     {
-      "title": "Epoxy Dome Keychains",
-      "description": "Clear resin dome over a printed insert creating a glossy, magnified finish — great for detailed artwork and photo-quality designs."
-    },
-    {
-      "title": "LED Keychains",
-      "description": "Flashing LED module built into a custom-shaped keychain — high-impact promotional item for events, concerts and brand activations."
+      "title": "Denim Embroidered Keychains",
+      "description": "A textured woven base for casual apparel and lifestyle merchandise."
     }
   ],
   "faqs": [
     {
-      "question": "What keychain materials are available?",
-      "answer": "We produce keychains in soft PVC (rubber-like, full-color), zinc alloy metal (die-cast with plating), iron, brass, epoxy dome (clear resin over printed insert), and LED flashing styles. Each material suits different applications and budgets."
+      "question": "What is the metal ring on a keychain called?",
+      "answer": "It is usually called a split ring. Its overlapping coils open slightly so a key can slide onto it. An embroidered keychain may connect through a reinforced eyelet or a smaller joining ring. Swivel hooks and lobster clasps provide removable attachment options."
     },
     {
-      "question": "What is the difference between 2D and 3D PVC keychains?",
-      "answer": "2D PVC keychains have a flat surface with recessed color areas. 3D PVC keychains have raised elements at varying heights, creating a sculptural, dimensional effect that feels more premium."
+      "question": "How much do custom embroidered keychains cost?",
+      "answer": "The quotation depends on size, stitch coverage, fabric, decoration on one or both sides, edge shape, hardware, packaging and quantity. Send your artwork and target quantity for a project quote. Artwork and sample review are free; physical samples and shipping are quoted separately."
     },
     {
-      "question": "Can I mix different keychain types in one order?",
-      "answer": "Yes. You can combine multiple designs and even mix material types. Each design counts toward its own MOQ of 200 pcs/design. Contact us for multi-design project planning."
+      "question": "Can the keychain be cut into any shape?",
+      "answer": "Many logo and character outlines can be produced. Very thin projections, tight corners or small details may need adjustment to support the fabric, border stitches and attachment. We review the cutting line and propose any changes for approval with your artwork."
     },
     {
-      "question": "What attachment hardware is available?",
-      "answer": "We offer split rings, lobster clasps, carabiner clips, standard keyrings, phone straps and badge clips. Hardware finish can be matched to the keychain body or specified separately."
+      "question": "What file format do you need for artwork?",
+      "answer": "Send AI, CDR or vector PDF artwork, preferably with fonts outlined. Include dimensions, colors, the cutting line and hardware position. A clear reference image can support an initial review, and we will explain any artwork preparation needed before sampling."
     },
     {
-      "question": "Are LED/flashing keychains available?",
-      "answer": "Yes. We produce LED keychains with push-button activation and replaceable batteries. These are popular for event merchandise, concert souvenirs and promotional giveaways."
-    },
-    {
-      "question": "How do I get a quote?",
-      "answer": "Upload your design via our Request a Quote page with your preferred material, size, quantity and attachment type. We respond with a detailed quote — typically within 1 business day."
+      "question": "Can I order fewer than 200 pieces?",
+      "answer": "The bulk MOQ is 200 pcs per design and construction. Physical sample development can be discussed before the bulk order and is quoted separately. If you need several designs, provide the quantity for each so we can review the full project."
     }
   ],
-  "ctaHeading": "Need Custom Branded Keychains?",
+  "ctaHeading": "Plan Your Custom Embroidered Keychains",
   "relatedProductSlugs": [],
   "moqDisclaimer": "",
   "packagingDelivery": "",
@@ -216,39 +201,33 @@
     }
   ],
   "createdAt": "2026-08-10T07:51:32.210Z",
-  "updatedAt": "2026-11-01T13:30:00.000Z",
+  "updatedAt": "2026-11-01T14:00:00.000Z",
   "publishedAt": "2026-08-10T07:51:32.210Z",
   "imageFit": "contain",
   "detailGallery": [
     {
-      "title": "Embroidered Front Face",
-      "caption": "Aircraft artwork and lettering stitched onto a red fabric tag.",
-      "imageSlot": "/images/products/custom-keychains/06b-ce25a-plain.webp"
+      "title": "Front View",
+      "caption": "A red-stitched border frames the embroidered logo on this black twill keychain.",
+      "imageSlot": "/images/products/custom-keychains/03a-cult.webp",
+      "alt": "Red-bordered embroidered keychain with stitched logo and metal split ring"
     },
     {
-      "title": "Split Ring Attachment",
-      "caption": "Silver split ring fitted through a reinforced metal eyelet.",
-      "imageSlot": "/images/products/custom-keychains/01-blue-logo.webp"
+      "title": "Hardware / Attachment",
+      "caption": "The existing front-view photograph shows a silver swivel clasp and fabric attachment tab.",
+      "imageSlot": "/images/products/custom-keychains/09-kiku.webp",
+      "alt": "Embroidered keychain showing its fabric attachment tab and metal swivel clasp"
     },
     {
-      "title": "Swivel Lobster Clasp",
-      "caption": "Silver swivel clasp connected to a character-shaped embroidered charm.",
-      "imageSlot": "/images/products/custom-keychains/09-kiku.webp"
+      "title": "Close-Up Texture",
+      "caption": "A crop of the blue sample shows dense white embroidery against the visible twill weave.",
+      "imageSlot": "/images/products/custom-keychains/embroidery-stitch-closeup.webp",
+      "alt": "Close-up of dense embroidery stitching on a twill keychain"
     },
     {
-      "title": "Stitched Edge Finishing",
-      "caption": "Red stitched edging frames the black twill and embroidered logo.",
-      "imageSlot": "/images/products/custom-keychains/03a-cult.webp"
-    },
-    {
-      "title": "Raised Chenille Texture",
-      "caption": "Orange looped stitching adds texture to the red panda motif.",
-      "imageSlot": "/images/products/custom-keychains/10b-red-panda.webp"
-    },
-    {
-      "title": "Embroidered Lettering",
-      "caption": "Contrasting white lettering and green decorative stitches on blue fabric.",
-      "imageSlot": "/images/products/custom-keychains/02b-home-sweet-home.webp"
+      "title": "Edge / Finishing",
+      "caption": "A crop of the red-bordered sample shows the satin stitch edge beside the black fabric.",
+      "imageSlot": "/images/products/custom-keychains/satin-border-closeup.webp",
+      "alt": "Die-cut fabric edge and red satin border on an embroidered keychain"
     }
   ],
   "customizationExplorer": [
@@ -317,6 +296,144 @@
       "title": "Concert & festival swag",
       "description": "Bold embroidered logos and lettering for music and event merchandise projects.",
       "imageSlot": "/images/products/custom-keychains/03b-tuning-story.webp"
+    }
+  ],
+  "buyerSummary": "Custom embroidered keychains are stitched on die-cut felt or twill, finished with a split ring, and built for brand merch, events and retail shelves.",
+  "customizationChips": [
+    "Custom die-cut shapes",
+    "Felt, twill or denim",
+    "Metal attachment options"
+  ],
+  "guideSections": [
+    {
+      "id": "construction",
+      "title": "What an embroidered keychain is made of",
+      "paragraphs": [
+        "An embroidered keychain combines a fabric body, stitched artwork, a finished outline and an attachment that connects it to keys or a bag. The base fabric supports the design and provides its background color. Felt gives a soft, non-woven surface; twill and denim contribute a visible woven texture. Embroidery thread forms the lettering, outlines and filled areas, with stitch direction helping separate neighboring shapes and make the logo readable.",
+        "Fill stitches cover selected areas of the artwork, while an internal backing or stabilizer supports the fabric during stitching. Optional padding is a separate construction choice and should be specified when you want a thicker, softer body. Edge finishing secures the outline: satin stitching can frame a shaped design, while other stitched borders suit simpler tag shapes. A metal split ring, eyelet, connector or clasp completes the attachment according to the approved design.",
+        "Decide how the reverse should look before requesting a quote. A single embroidered face, a covered reverse and two decorated faces involve different assembly choices. The sample review should check the appearance of both sides, edge consistency and the attachment area together. Share whether the item will be carried on keys, clipped to a backpack or sold on a retail card, so the proposed construction supports its everyday handling and the way your customer will display it."
+      ],
+      "imageIndexes": [
+        0
+      ]
+    },
+    {
+      "id": "fabric-base",
+      "title": "Felt, twill or denim: choosing the base",
+      "paragraphs": [
+        "The base changes the feel, appearance and finishing requirements of a custom fabric keychain. Start with the visual effect you want: a soft character charm, a clean branded tag or an accessory that complements denim apparel. Show us your preferred fabric color alongside the logo colors, because exposed background areas remain part of the finished artwork.",
+        "Use the comparison below to narrow the choice. Fabric thickness, construction and embroidery coverage are confirmed for your project. Review a sample when its feel or shade matters to your collection."
+      ],
+      "table": {
+        "caption": "Base fabrics for embroidered keychains",
+        "headers": [
+          "Base",
+          "Look and feel",
+          "Useful for",
+          "Review before approval"
+        ],
+        "rows": [
+          [
+            "Felt",
+            "Soft, non-woven surface with a tactile finish.",
+            "Character shapes, badges and souvenir charms.",
+            "Thickness, stiffness and edge appearance."
+          ],
+          [
+            "Twill",
+            "Woven fabric with a visible diagonal texture.",
+            "Brand logos, clear lettering and long key tags.",
+            "Background shade, stitch coverage and border contrast."
+          ],
+          [
+            "Denim",
+            "Textured woven surface with a casual appearance.",
+            "Apparel merchandise and lifestyle accessories.",
+            "Fabric shade, surface variation and the finished reverse."
+          ]
+        ]
+      },
+      "afterParagraphs": [
+        "Compare fabric and embroidery as one combination. A large thread-filled area can hide much of the base, while an open logo lets its texture show through. Dark lettering on a light base usually makes a different impression from a fully filled, high-contrast badge. If you already have a garment, label or bag that the keychain should match, include a clear reference image and identify which color or texture is most important to preserve."
+      ]
+    },
+    {
+      "id": "shape-and-stitches",
+      "title": "Die-cut shapes and stitch density",
+      "paragraphs": [
+        "A custom die cut keychain can follow a logo silhouette, rounded tag, mascot or geometric outline. Review the shape together with the embroidery and attachment position. Narrow projections, deep inward corners and tiny details need enough fabric around them to remain practical. We may suggest a wider connection, smoother curve or simplified feature for approval.",
+        "Stitch density describes how closely the stitches cover an area. Stitch count is the total number used across the design; it also depends on size, coverage and digitizing choices. Increasing either value does not automatically improve the result. Excessively crowded stitches can distort fabric, while insufficient coverage can leave unwanted gaps. Balanced underlay, thread choice, stitch direction and a suitable base help the design hold its shape.",
+        "Judge the logo at its finished size. Small text, narrow gaps and thin outlines may need adjustment even when a vector file looks sharp on screen. Identify the details that must remain recognizable. The proof establishes the outline and layout; a physical sample lets you inspect coverage, edge stitching and hardware clearance. The photographs below show stitch texture and border construction from existing samples."
+      ],
+      "imageIndexes": [
+        2,
+        3
+      ]
+    },
+    {
+      "id": "hardware",
+      "title": "Hardware: split rings, swivel hooks and key fobs",
+      "paragraphs": [
+        "A split ring is the familiar metal ring made from overlapping coils that open slightly to accept a key. It can pass through a reinforced eyelet or connect through a smaller joining ring. A swivel hook or lobster clasp makes a keychain easy to clip onto a bag loop, while its rotating connector allows movement between the textile body and the clasp. Specify the complete attachment assembly when comparing quotations.",
+        "For a fabric key fob, discuss the strap, loop or connector hardware linking the embroidered piece to the keys. Here, key fob describes the carry accessory and its fittings. Folded loops and flat tags can require different layouts, so send a reference for your preferred style. Identify the clipping point and whether quick removal matters.",
+        "Hardware affects the weight, overall length and feel of the finished product. Ask us to review ring diameter, connector clearance, clasp opening, metal finish and the strength of the fabric around the fixing point. Keep the hole away from important lettering and allow space for the ring to move. During sample approval, check that the attachment turns freely and that the embroidery remains visible when the item hangs. Confirm the selected hardware on the approved specification so repeat orders use the same assembly."
+      ],
+      "imageIndexes": [
+        1
+      ]
+    },
+    {
+      "id": "material-comparison",
+      "title": "Embroidered vs PVC and metal keychains",
+      "paragraphs": [
+        "Choose the construction around the feel, artwork and use of the accessory. Embroidered fabric offers a soft body and thread texture for apparel, bags and stitched merchandise. PVC provides a flexible molded surface; metal offers a heavier body and plated finish. Compare the same size, quantity and hardware when reviewing options."
+      ],
+      "table": {
+        "caption": "Choosing a keychain construction for your project",
+        "headers": [
+          "Construction",
+          "Surface and feel",
+          "Artwork approach",
+          "Points to consider"
+        ],
+        "rows": [
+          [
+            "Embroidered fabric",
+            "Soft textile body with visible stitched texture.",
+            "Thread-built lettering, outlines and filled shapes.",
+            "Small details depend on finished size; fabric and edges need review."
+          ],
+          [
+            "Soft PVC",
+            "Flexible rubber-like body with a molded surface.",
+            "Separated color areas with flat or raised design elements.",
+            "Tooling, relief depth and color separation affect the quotation."
+          ],
+          [
+            "Metal",
+            "Hard body with a more substantial feel.",
+            "Cast or stamped details, plating and optional color fills.",
+            "Weight, finish, tooling and contact with other objects need review."
+          ]
+        ]
+      },
+      "afterParagraphs": [
+        "PVC can suit projects requiring a washable rubber-like surface or dimensional molded details. Our PVC patches page explains the material; ask about adapting a design to a keychain with suitable hardware. Metal may suit premium gifts where weight and plating shape the intended experience.",
+        "Embroidered construction keeps textile character central for apparel branding and tactile souvenirs. For gradients or extremely fine illustrations, request an artwork review. Discuss how simplification, a larger outline or an alternative construction would affect readability, cost and the approved appearance."
+      ],
+      "link": {
+        "label": "Explore custom PVC patches and molded material options",
+        "href": "/products/custom-pvc-patches"
+      }
+    },
+    {
+      "id": "artwork-and-pricing",
+      "title": "Sizes, artwork specs and pricing logic",
+      "paragraphs": [
+        "Start with the finished body size and state whether measurements include the hardware. For early layouts, a rectangular tag around 25 × 100 mm or a shaped design around 40–60 mm across can provide a practical discussion point. These dimensions are starting references; the outline, lettering and attachment determine the size we recommend for your artwork. Mark any important text and send both front and reverse requirements.",
+        "Provide an AI, CDR or vector PDF file with fonts converted to outlines, plus a visual reference for the intended colors. Identify the cutting line, embroidery areas, fabric background and hardware position. A clear image can support the initial review when vector artwork is unavailable; we will explain what preparation is required. Artwork and sample review are free. Physical sample development, special tooling and sample shipping are quoted according to the project.",
+        "Bulk production starts at 200 pcs per design and construction. Pricing depends on finished size, stitch coverage and count, fabric, one-sided or two-sided decoration, edge complexity, hardware, packaging and quantity. Give each supplier the same specification for a useful comparison. Sample timing and production lead time are confirmed after artwork and construction review; the shipment date also depends on approval and delivery destination. Send your required arrival date early so the quote can account for sampling, revisions, bulk production and transport."
+      ]
     }
   ]
 }

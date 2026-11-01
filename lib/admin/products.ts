@@ -40,6 +40,17 @@ export interface DetailGalleryItem {
   title: string;
   caption: string;
   imageSlot?: string;
+  alt?: string;
+}
+
+export interface ProductGuideSection {
+  id: string;
+  title: string;
+  paragraphs: string[];
+  afterParagraphs?: string[];
+  table?: { caption: string; headers: string[]; rows: string[][] };
+  link?: { label: string; href: string };
+  imageIndexes?: number[];
 }
 
 export interface CustomizationOption {
@@ -114,6 +125,7 @@ export interface ProductPage {
 
   // Section D — production detail gallery
   detailGallery?: DetailGalleryItem[];
+  guideSections?: ProductGuideSection[];
 
   // Section E — visual customization explorer
   customizationExplorer?: CustomizationOption[];

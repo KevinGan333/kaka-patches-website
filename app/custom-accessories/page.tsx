@@ -8,7 +8,7 @@ export const metadata: Metadata = {
 };
 
 const products = [
-  { title: "Custom Embroidered Keychains", desc: "Soft PVC, metal, epoxy or 3D molded personalized keychains for brand giveaways, retail and event merchandise.", href: "/custom-accessories/custom-keychains", gradient: "from-rose-600 to-rose-700", badge: "Popular", bestFor: "Brand merchandise, events" },
+  { title: "Custom Embroidered Keychains", desc: "Die-cut felt or twill with dense embroidery and a metal split ring", href: "/custom-accessories/custom-keychains", gradient: "from-rose-600 to-rose-700", badge: "Popular", bestFor: "Brand merchandise, events" },
   { title: "Custom Embroidered Stickers", desc: "3D embroidered fabric stickers with peel-and-stick, iron-on or sew-on backing for brand giveaways and packaging decoration.", href: "/custom-accessories/custom-embroidered-stickers", gradient: "from-amber-600 to-amber-700", badge: "Premium", bestFor: "Branding, packaging" },
   { title: "Custom Plush Charms", desc: "Soft plush fabric charms with full-color sublimation printing for bag accessories, keychain decorations and kawaii merchandise.", href: "/custom-accessories/custom-plush-charms", gradient: "from-pink-600 to-pink-700", badge: "Kawaii", bestFor: "Character goods, bags" },
   { title: "Custom Pin-Back Buttons", desc: "Metal shell pin-back buttons with full-color printed inserts for campaign promotions, event merchandise and fundraising items.", href: "/custom-accessories/custom-pin-back-buttons", gradient: "from-yellow-600 to-yellow-700", badge: "Classic", bestFor: "Campaigns, events" },
@@ -20,7 +20,7 @@ const products = [
 ];
 
 const comparisonRows = [
-  { product: "Embroidered Keychains", material: "Soft PVC, Metal, Epoxy", durability: "High", detail: "Good", applications: "Brand merchandise, events", moq: "200 pcs/design" },
+  { product: "Embroidered Keychains", material: "Felt or Twill, Embroidery Thread, Metal Split Ring", durability: "High", detail: "Good", applications: "Brand merchandise, events", moq: "200 pcs/design" },
   { product: "Embroidered Stickers", material: "Polyester Thread, Fabric", durability: "High", detail: "Good", applications: "Branding, packaging", moq: "200 pcs/design" },
   { product: "Plush Charms", material: "Plush Fabric, Fiberfill", durability: "Moderate", detail: "Good", applications: "Character goods, bags", moq: "200 pcs/design" },
   { product: "Pin-Back Buttons", material: "Metal Shell, Mylar", durability: "Moderate", detail: "Good", applications: "Campaigns, events", moq: "200 pcs/design" },
