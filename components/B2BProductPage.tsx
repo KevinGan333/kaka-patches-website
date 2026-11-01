@@ -244,7 +244,7 @@ export default async function B2BProductPage({ product }: { product: ProductPage
         <div className="mx-auto grid max-w-7xl gap-10 px-6 lg:grid-cols-12 lg:items-start">
           {/* Left 55% — gallery */}
           <div className="min-w-0 lg:col-span-7">
-            <ProductHeroGallery images={galleryImages} isProduction={isProduction} />
+            <ProductHeroGallery images={galleryImages} isProduction={isProduction} imageFit={product.imageFit} />
           </div>
 
           {/* Right 45% — info */}
@@ -371,7 +371,7 @@ export default async function B2BProductPage({ product }: { product: ProductPage
           <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {detailGallery.map((d) => (
               <figure key={d.title} className="overflow-hidden rounded-3xl border border-slate-200 bg-white p-3 shadow-sm">
-                <ProductImageSlot title={d.title} slotPath={d.slotPath} ratio="4:3" alt={`${product.name} — ${d.title}`} />
+                <ProductImageSlot title={d.title} slotPath={d.slotPath} ratio="4:3" alt={`${product.name} — ${d.title}`} imageFit={product.imageFit} />
                 <figcaption className="px-2 pb-1 pt-3 text-sm text-slate-600">
                   <span className="font-semibold text-slate-900">{d.title}.</span> {d.caption}
                 </figcaption>
@@ -389,7 +389,7 @@ export default async function B2BProductPage({ product }: { product: ProductPage
             <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
               {explorer.map((o) => (
                 <div key={o.name} className="flex flex-col overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm transition hover:border-blue-200 hover:shadow-md">
-                  <ProductImageSlot title={o.name} slotPath={o.slotPath} ratio="1:1" alt={`${product.name} — ${o.name}`} />
+                  <ProductImageSlot title={o.name} slotPath={o.slotPath} ratio="1:1" alt={`${product.name} — ${o.name}`} imageFit={product.imageFit} />
                   <div className="p-5">
                     <h3 className="text-base font-bold text-slate-900">{o.name}</h3>
                     {o.description && <p className="mt-2 text-sm leading-6 text-slate-600">{o.description}</p>}
@@ -430,7 +430,7 @@ export default async function B2BProductPage({ product }: { product: ProductPage
             <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
               {applicationGallery.map((a) => (
                 <Link key={a.title} href={a.href} className="group overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm transition hover:-translate-y-1 hover:border-blue-200 hover:shadow-lg">
-                  <ProductImageSlot title={a.title} slotPath={a.slotPath} ratio="16:9" alt={`${product.name} — ${a.title}`} />
+                  <ProductImageSlot title={a.title} slotPath={a.slotPath} ratio="16:9" alt={`${product.name} — ${a.title}`} imageFit={product.imageFit} />
                   <div className="p-5">
                     <h3 className="text-base font-bold text-slate-900 group-hover:text-blue-700">{a.title}</h3>
                     <p className="mt-2 text-sm leading-6 text-slate-600">{a.description}</p>
