@@ -4,7 +4,7 @@ import Link from "next/link";
 import styles from "./uniforms.module.css";
 
 const pageUrl = "https://www.kakapatches.com/applications/custom-patches-for-uniforms";
-const description = "Custom patches for uniforms built for daily wear and industrial laundry — embroidered, woven and PVC badges for workwear, school, security and hospitality uniforms. MOQ 200 pcs per design, free artwork review.";
+const description = "Custom patches for uniforms built for daily wear and industrial laundry — embroidered, woven and PVC badges. MOQ 200 pcs, free artwork review.";
 
 export const metadata: Metadata = {
   title: "Custom Patches for Uniforms | Workwear & Staff Badges",
