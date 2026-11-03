@@ -53,6 +53,15 @@ export interface ProductGuideSection {
   imageIndexes?: number[];
 }
 
+export interface ProductSampleGallery {
+  id: string;
+  title: string;
+  description: string;
+  placement: "after-details" | "after-applications";
+  previewCount?: number;
+  images: { url: string; alt: string; title: string }[];
+}
+
 export interface CustomizationOption {
   href?: string;
   name: string;
@@ -126,6 +135,7 @@ export interface ProductPage {
   // Section D — production detail gallery
   detailGallery?: DetailGalleryItem[];
   guideSections?: ProductGuideSection[];
+  sampleGalleries?: ProductSampleGallery[];
 
   // Section E — visual customization explorer
   customizationExplorer?: CustomizationOption[];

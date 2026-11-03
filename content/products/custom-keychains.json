@@ -198,10 +198,20 @@
       "url": "/images/products/custom-keychains/10a-opossum.webp",
       "alt": "Gray opossum embroidered keychain with textured loop stitching and black split ring",
       "order": 13
+    },
+    {
+      "url": "/images/products/custom-keychains/samples/kaka-embroidery-01a-1001.webp",
+      "alt": "Black embroidered aviation keychain with blue-green Hypercoat logo and silver split ring.",
+      "order": 14
+    },
+    {
+      "url": "/images/products/custom-keychains/samples/kaka-embroidery-01b-1001.webp",
+      "alt": "Black aviation keychain with embroidered red heart, white airplane and silver split ring.",
+      "order": 15
     }
   ],
   "createdAt": "2026-08-10T07:51:32.210Z",
-  "updatedAt": "2026-11-01T14:00:00.000Z",
+  "updatedAt": "2026-11-03T01:00:00.000Z",
   "publishedAt": "2026-08-10T07:51:32.210Z",
   "imageFit": "contain",
   "detailGallery": [
@@ -228,6 +238,18 @@
       "caption": "A crop of the red-bordered sample shows the satin stitch edge beside the black fabric.",
       "imageSlot": "/images/products/custom-keychains/satin-border-closeup.webp",
       "alt": "Die-cut fabric edge and red satin border on an embroidered keychain"
+    },
+    {
+      "title": "Embroidered Brand Key Tag",
+      "caption": "Blue-green logo stitching stands out against the exposed black fabric; a metal eyelet connects the split ring.",
+      "imageSlot": "/images/products/custom-keychains/samples/kaka-embroidery-01a-1001.webp",
+      "alt": "Black embroidered aviation keychain with blue-green Hypercoat logo and silver split ring."
+    },
+    {
+      "title": "Aviation Souvenir Keychain",
+      "caption": "White lettering and an airplane motif are paired with a red stitched heart on the black fabric base.",
+      "imageSlot": "/images/products/custom-keychains/samples/kaka-embroidery-01b-1001.webp",
+      "alt": "Black aviation keychain with embroidered red heart, white airplane and silver split ring."
     }
   ],
   "customizationExplorer": [
@@ -355,6 +377,10 @@
       },
       "afterParagraphs": [
         "Compare fabric and embroidery as one combination. A large thread-filled area can hide much of the base, while an open logo lets its texture show through. Dark lettering on a light base usually makes a different impression from a fully filled, high-contrast badge. If you already have a garment, label or bag that the keychain should match, include a clear reference image and identify which color or texture is most important to preserve."
+      ],
+      "imageIndexes": [
+        4,
+        5
       ]
     },
     {
