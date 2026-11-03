@@ -7,7 +7,6 @@ import SiteFooter from "@/components/SiteFooter";
 import { OrganizationSchema, WebsiteSchema } from "@/components/JsonLd";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://www.kakapatches.com"),
   title: {
     default: "KaKa Patches | Custom Patch Manufacturer",
     template: "%s",
