@@ -150,8 +150,12 @@
 .kh-backing-panel p{font-size:13px;line-height:1.85;color:#52627b;margin:12px 0 20px;min-height:70px}
 .kh-craft-section{background:#fff8fb}
 .kh-craft-grid{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:center}
-.kh-craft-photo{position:relative;height:410px;border-radius:10px;overflow:hidden}
-.kh-craft-photo span{position:absolute;bottom:20px;left:20px;background:#fff;padding:12px;font-size:9px;letter-spacing:1px;border-radius:4px}
+.kh-craft-photo{width:100%;max-width:460px;margin:0 auto;background:#fff;border:1px solid var(--kh-line);border-radius:16px;overflow:hidden;box-shadow:0 16px 40px #073b7509}
+.kh-craft-photo>a{display:block;padding:12px 12px 0;color:var(--kh-ink)}
+.kh-home .kh-craft-photo img{width:100%;height:auto;object-fit:contain;border-radius:8px}
+.kh-craft-photo .kh-craft-view{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:16px 8px;font-size:15px;line-height:1.5;font-weight:700;color:var(--kh-blue)}
+.kh-craft-photo>a:hover{background:#f2fcfd}
+.kh-craft-photo>a:focus-visible{outline-offset:-5px}
 .kh-craft-grid>div>p:not(.kh-eyebrow){font-size:14px;line-height:1.8;color:#52627b;max-width:440px}
 .kh-craft-checks{list-style:none;padding:0;margin:22px 0;font-size:12px;line-height:1.8;color:#374e69}
 .kh-craft-checks li{margin:12px 0;padding-left:24px;position:relative}
@@ -249,7 +253,6 @@
 .kh-backing-tabs button{font-size:9px}
 .kh-quote-section h2{font-size:30px}
 .kh-quote-starter{padding:20px;gap:14px}
-.kh-craft-photo{height:355px}
 .kh-craft-grid{gap:25px}
 }
 
@@ -328,7 +331,6 @@
 .kh-backing-tabs button{font-size:10px;padding:13px 3px}
 .kh-backing-panel p{font-size:12px;min-height:0}
 .kh-custom-chips{max-width:none;margin-top:20px}
-.kh-craft-photo{height:270px}
 .kh-craft-grid>div>p:not(.kh-eyebrow){font-size:12px}
 .kh-craft-checks{font-size:11px;margin:18px 0}
 .kh-faq-grid{gap:24px}
@@ -564,7 +566,6 @@ body:has(.kh-home){padding-bottom:77px}
 .kh-art-image img { height: calc(100% - 38px); }
 .kh-art-title { font-size: 15px; }
 .kh-product-number { font-size: 12px; }
-.kh-craft-photo span { font-size: 13px; line-height: 1.5; }
 .kh-footer-brand p { font-size: 16px; line-height: 1.75; }
 .kh-footer h3 { font-size: 17px; line-height: 1.5; }
 .kh-footer li { font-size: 15px; line-height: 1.7; }
