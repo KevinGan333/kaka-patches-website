@@ -1,10 +1,11 @@
+import { withPageMetadata } from "@/lib/page-metadata";
 import type { Metadata } from "next";
 import Link from "next/link";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = withPageMetadata({
   title: "Embroidered vs Woven Patches — Comparison Guide | KaKa Patches",
   description: "Compare embroidered and woven custom patches. Learn about texture, detail level, durability and best applications for each patch type.",
-};
+}, "/resources/embroidered-vs-woven-patches", "/images/home/woven-detail.webp");
 
 export default function Page() {
   return (

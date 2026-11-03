@@ -1,10 +1,11 @@
+import { withPageMetadata } from "@/lib/page-metadata";
 import type { Metadata } from "next";
 import Link from "next/link";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = withPageMetadata({
   title: "Custom Patches for Clothing Brands — Apparel Solutions | KaKa Patches",
   description: "Custom patches for apparel brands, streetwear labels, fashion collections, jackets, hats, bags and brand merchandise. B2B factory-direct production.",
-};
+}, "/applications/custom-patches-for-clothing-brands", "/images/home/denim.webp");
 
 export default function Page() {
   return (

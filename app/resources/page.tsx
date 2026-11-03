@@ -1,10 +1,11 @@
+import { withPageMetadata } from "@/lib/page-metadata";
 import type { Metadata } from "next";
 import Link from "next/link";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = withPageMetadata({
   title: "Custom Patch Resources — Guides & Tips | KaKa Patches",
   description: "Custom patch resources, guides and tips for B2B buyers. Learn about embroidered vs woven patches, how to choose patch size, and best backing options.",
-};
+}, "/resources", "/images/home/pvc.webp");
 
 const guides = [
   { title: "Embroidered vs Woven Patches", desc: "Compare texture, detail level, use cases and buying recommendations for these two popular patch types.", href: "/resources/embroidered-vs-woven-patches" },

@@ -1,11 +1,12 @@
+import { withPageMetadata } from "@/lib/page-metadata";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { BreadcrumbListSchema } from "@/components/JsonLd";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = withPageMetadata({
   title: "Custom Accessories for B2B Buyers — Keychains, Charms, Stickers & More | KaKa Patches",
   description: "KaKa Patches manufactures custom keychains, embroidered stickers, plush charms, pin-back buttons, embroidered bookmarks, embroidered fridge magnets, card holders and wallets, sachets and omamori bags for brands, events and promotional buyers.",
-};
+}, "/custom-accessories", "/images/home/pvc.webp");
 
 const products = [
   { title: "Custom Embroidered Keychains", desc: "Die-cut felt or twill with dense embroidery and a metal split ring", href: "/custom-accessories/custom-keychains", gradient: "from-rose-600 to-rose-700", badge: "Popular", bestFor: "Brand merchandise, events" },

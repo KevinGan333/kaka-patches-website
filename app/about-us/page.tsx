@@ -1,13 +1,12 @@
+import { withPageMetadata } from "@/lib/page-metadata";
 import type { Metadata } from "next";
 import Link from "next/link";
 
 const description = "Meet Amy and Kevin, the founders of KaKa Patches. Discover how a daughter's drawings and a few handmade patches grew into a custom patch business founded in 2019.";
-export const metadata: Metadata = {
+export const metadata: Metadata = withPageMetadata({
   title: "Our Story | About KaKa Patches",
   description,
-  alternates: { canonical: "https://www.kakapatches.com/about-us" },
-  openGraph: { title: "Our Story | About KaKa Patches", description, url: "https://www.kakapatches.com/about-us", type: "website" },
-};
+}, "/about-us", "/images/home/pvc.webp");
 
 export default function Page() {
   return (

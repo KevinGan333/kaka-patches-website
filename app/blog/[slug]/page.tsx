@@ -1,3 +1,4 @@
+import { withPageMetadata } from "@/lib/page-metadata";
 import type { Metadata } from "next";
 import { getContentBySlug } from "@/lib/admin/content";
 import { notFound } from "next/navigation";
@@ -10,11 +11,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const post = await getContentBySlug("blog", slug);
   if (!post || post.status !== "published") return { title: "Blog | KaKa Patches" };
-  return {
+  return withPageMetadata({
     title: post.seoTitle || post.title,
     description: post.seoDescription || post.excerpt,
-    openGraph: { title: post.seoTitle || post.title, description: post.seoDescription || post.excerpt },
-  };
+  }, `/blog/${post.slug}`, post.coverImage || "/images/home/pvc.webp");
 }
 
 export default async function BlogDetailPage({ params }: Props) {

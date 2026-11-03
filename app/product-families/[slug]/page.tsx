@@ -1,3 +1,4 @@
+import { withPageMetadata } from "@/lib/page-metadata";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -14,11 +15,10 @@ export async function generateMetadata({
   const { slug } = await params;
   const family = getFamilyBySlug(slug);
   if (!family) return {};
-  return {
+  return withPageMetadata({
     title: family.metaTitle,
     description: family.metaDescription,
-    alternates: { canonical: `/product-families/${family.slug}` },
-  };
+  }, `/product-families/${family.slug}`, "/images/home/pvc.webp");
 }
 
 export default async function ProductFamilyPage({

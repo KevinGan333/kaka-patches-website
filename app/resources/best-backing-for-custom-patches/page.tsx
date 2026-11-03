@@ -1,10 +1,11 @@
+import { withPageMetadata } from "@/lib/page-metadata";
 import type { Metadata } from "next";
 import Link from "next/link";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = withPageMetadata({
   title: "Best Backing for Custom Patches — Attachment Guide | KaKa Patches",
   description: "Compare sew-on, iron-on, Velcro, adhesive and no backing for custom patches. Choose the right attachment method for your product and application.",
-};
+}, "/resources/best-backing-for-custom-patches", "/images/home/patch-backing-options.webp");
 
 export default function Page() {
   return (

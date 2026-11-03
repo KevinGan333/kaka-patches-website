@@ -1,3 +1,4 @@
+import { productShareImage, withPageMetadata } from "@/lib/page-metadata";
 import type { Metadata } from "next";
 import { notFound, permanentRedirect } from "next/navigation";
 import { getProductBySlug, getFallbackProduct } from "@/lib/admin/products";
@@ -12,16 +13,10 @@ export async function generateMetadata({
   let product = await getProductBySlug(slug);
   if (!product) product = await getFallbackProduct(slug);
   if (!product) return {};
-  return {
+  return withPageMetadata({
     title: product.seoTitle || product.metaTitle,
     description: product.metaDescription,
-    openGraph: {
-      title: product.ogTitle || product.seoTitle || product.metaTitle,
-      description: product.ogDescription || product.metaDescription,
-      ...(product.ogImage ? { images: [{ url: product.ogImage }] } : {}),
-    },
-    alternates: { canonical: `${product.urlPrefix}/${product.slug}` },
-  };
+  }, `${product.urlPrefix}/${product.slug}`, productShareImage(product));
 }
 
 export default async function AccessoryPage({

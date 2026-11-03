@@ -1,10 +1,11 @@
+import { withPageMetadata } from "@/lib/page-metadata";
 import type { Metadata } from "next";
 import Link from "next/link";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = withPageMetadata({
   title: "Custom Patches for Sports Teams — Team Badges & Logos | KaKa Patches",
   description: "Custom team patches, club badges, chenille patches and logos for sports teams, schools, events and fan merchandise. B2B bulk production.",
-};
+}, "/applications/custom-patches-for-sports-teams", "/images/home/embroidered.webp");
 
 export default function Page() {
   return (

@@ -1,14 +1,15 @@
+import { withPageMetadata } from "@/lib/page-metadata";
 import type { Metadata } from "next";
 import Link from "next/link";
 import ProductImageSlot from "@/components/ProductImageSlot";
 import { PRODUCT_FAMILIES, getFamilySlugForProduct, getProductGridClass } from "@/lib/product-families";
 import { getProductList, type ProductPage } from "@/lib/admin/products";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = withPageMetadata({
   title: "Custom Patch, Label & Accessory Products for B2B Buyers | KaKa Patches",
   description:
     "Factory-direct custom patches, labels, heat transfers, badges, textile accessories, sachets and cultural gifts. Visually choose a product family, compare construction, and request a quote.",
-};
+}, "/products", "/images/home/pvc.webp");
 
 const MOQ_COPY = "MOQ: 200 pcs per design and construction for bulk production.";
 
