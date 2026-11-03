@@ -12,7 +12,7 @@
   "metaDescription": "B2B custom embroidered patches with classic raised stitching for uniforms, apparel brands, sports teams and promotional products. Factory-direct production with artwork support.",
   "ogTitle": "",
   "ogDescription": "",
-  "ogImage": "",
+  "ogImage": "/images/products/custom-embroidered-patches/samples/kaka-embroidery-03-1001.webp",
   "heroBadge": "Custom Patch Product",
   "h1": "Custom Embroidered <span class=\"text-blue-400\">Patches</span>",
   "heroSubtitle": "Classic stitched patches with raised embroidery texture. Best for uniforms, jackets, workwear, clubs, brand patches and promotional products. Factory-direct production with full customization support.",
@@ -136,37 +136,248 @@
   "packagingDelivery": "",
   "images": [
     {
-      "url": "/images/products/custom-embroidered-patches/hero/hero-main.webp",
-      "alt": "Custom deer and mountain embroidered patch displayed on sunlit stone against an alpine backdrop",
+      "url": "/images/products/custom-embroidered-patches/samples/kaka-embroidery-03-1001.webp",
+      "alt": "Beige embroidered cow and mushroom patch with green border and Stingwater Jeans lettering.",
       "order": 1
     },
     {
-      "url": "/images/products/custom-embroidered-patches/hero/artwork-to-embroidery.webp",
-      "alt": "Deer patch artwork beside the finished embroidered patch, showing the design-to-embroidery transformation",
+      "url": "/images/products/custom-embroidered-patches/samples/kaka-embroidery-07-1001.webp",
+      "alt": "Beige rectangular Rhude patch with light blue embroidered lettering and rounded stitched border.",
       "order": 2
     },
     {
-      "url": "/images/products/custom-embroidered-patches/hero/embroidery-details.webp",
-      "alt": "Close-up views of a deer embroidered patch showing fine stitching, colorful threads and a clean finished border",
+      "url": "/images/products/custom-embroidered-patches/samples/kaka-embroidery-17-1001.webp",
+      "alt": "Black rounded rectangular brand patch with white and gold Heim embroidery and registered mark.",
       "order": 3
     },
     {
-      "url": "/images/products/custom-embroidered-patches/hero/applications.webp",
-      "alt": "Custom deer embroidered patches applied to caps, tote bags, jackets, keychains, souvenirs and backpacks",
+      "url": "/images/products/custom-embroidered-patches/samples/kaka-embroidery-24-1001.webp",
+      "alt": "Black rodeo patch with pale blue border, longhorn embroidery and feather details.",
       "order": 4
     },
     {
-      "url": "/images/products/custom-embroidered-patches/hero/production.webp",
-      "alt": "Illustration of multi-head embroidery production with thread selection, stitching, patch details and packing",
+      "url": "/images/products/custom-embroidered-patches/samples/kaka-embroidery-31-1001.webp",
+      "alt": "Black shield patch with yellow border and detailed embroidered bear head wearing a cap.",
       "order": 5
     },
     {
-      "url": "/images/products/custom-embroidered-patches/hero/custom-shape.webp",
-      "alt": "Custom contour-cut embroidered patch featuring a woman, magpies and golden clouds on sunlit stone",
+      "url": "/images/products/custom-embroidered-patches/samples/kaka-embroidery-35-1001.webp",
+      "alt": "Black rectangular mattress brand patch with gold Sleeping Elf script, fairy and Chinese lettering.",
       "order": 6
     }
   ],
   "createdAt": "2026-08-10T07:51:32.210Z",
-  "updatedAt": "2026-08-10T07:51:32.210Z",
-  "publishedAt": "2026-08-10T07:51:32.210Z"
+  "updatedAt": "2026-11-03T01:00:00.000Z",
+  "publishedAt": "2026-08-10T07:51:32.210Z",
+  "imageFit": "contain",
+  "detailGallery": [
+    {
+      "title": "Lettering & Exposed Twill",
+      "caption": "Raised light-blue stitching contrasts with the exposed beige fabric base.",
+      "imageSlot": "/images/products/custom-embroidered-patches/samples/kaka-embroidery-07-1001.webp",
+      "alt": "Beige rectangular Rhude patch with light blue embroidered lettering and rounded stitched border."
+    },
+    {
+      "title": "Intricate Stitching",
+      "caption": "A multicolor dragon design demonstrates dense motifs, stitch direction and outlined details.",
+      "imageSlot": "/images/products/custom-embroidered-patches/samples/kaka-embroidery-11-1001.webp",
+      "alt": "Blue decorative textile patch with intricate multicolor dragon embroidery and scalloped edges."
+    },
+    {
+      "title": "Multicolor Embroidery",
+      "caption": "Symmetrical ornamental stitching shows color separation against an exposed black fabric base.",
+      "imageSlot": "/images/products/custom-embroidered-patches/samples/kaka-embroidery-14-1001.webp",
+      "alt": "Black square patch with symmetrical multicolor ornamental embroidery and gray stitched border."
+    },
+    {
+      "title": "Border & Edge Finish",
+      "caption": "A contrasting yellow stitched border follows the shield silhouette around the bear design.",
+      "imageSlot": "/images/products/custom-embroidered-patches/samples/kaka-embroidery-31-1001.webp",
+      "alt": "Black shield patch with yellow border and detailed embroidered bear head wearing a cap."
+    }
+  ],
+  "sampleGalleries": [
+    {
+      "id": "partial-embroidery",
+      "title": "Partial Embroidery Patches",
+      "description": "Partial embroidery leaves selected areas of the fabric base visible around raised stitching. Compare exposed twill, lettering and logo details in these examples. The embroidery coverage, fabric color and final construction are confirmed from your artwork and sample; the examples do not imply one fixed coverage percentage.",
+      "placement": "after-details",
+      "images": [
+        {
+          "url": "/images/products/custom-embroidered-patches/samples/kaka-embroidery-03-1001.webp",
+          "alt": "Beige embroidered cow and mushroom patch with green border and Stingwater Jeans lettering.",
+          "title": "Cow & Mushroom Patch"
+        },
+        {
+          "url": "/images/products/custom-embroidered-patches/samples/kaka-embroidery-07-1001.webp",
+          "alt": "Beige rectangular Rhude patch with light blue embroidered lettering and rounded stitched border.",
+          "title": "Light Blue Lettering on Beige Twill"
+        },
+        {
+          "url": "/images/products/custom-embroidered-patches/samples/kaka-embroidery-17-1001.webp",
+          "alt": "Black rounded rectangular brand patch with white and gold Heim embroidery and registered mark.",
+          "title": "White & Gold Logo on Black Fabric"
+        },
+        {
+          "url": "/images/products/custom-embroidered-patches/samples/kaka-embroidery-35-1001.webp",
+          "alt": "Black rectangular mattress brand patch with gold Sleeping Elf script, fairy and Chinese lettering.",
+          "title": "Gold Script & Fairy on Black Fabric"
+        }
+      ]
+    },
+    {
+      "id": "embroidered-patch-examples",
+      "title": "Embroidered Patch Examples",
+      "description": "Explore more lettering, mascots, emblems and custom shapes to plan your own patch. These examples show a range of embroidery coverage and edge styles. Select an image to inspect the full-size design, then send your own artwork, dimensions and preferred backing for a quotation.",
+      "placement": "after-applications",
+      "previewCount": 8,
+      "images": [
+        {
+          "url": "/images/products/custom-embroidered-patches/samples/kaka-embroidery-02-1001.webp",
+          "alt": "Light blue mountaineering patch with three embroidered skulls and climbing tools.",
+          "title": "Mountaineering Skull Patch"
+        },
+        {
+          "url": "/images/products/custom-embroidered-patches/samples/kaka-embroidery-04a-1001.webp",
+          "alt": "Black rectangular sleeve patch with ACTS CREW embroidery and green leaf detail.",
+          "title": "Leaf Detail Sleeve Patch"
+        },
+        {
+          "url": "/images/products/custom-embroidered-patches/samples/kaka-embroidery-04b-1001.webp",
+          "alt": "Black rectangular sleeve patch with FIRE CARSEN lettering and orange flame embroidery.",
+          "title": "Flame Detail Sleeve Patch"
+        },
+        {
+          "url": "/images/products/custom-embroidered-patches/samples/kaka-embroidery-05-1001.webp",
+          "alt": "Red and white embroidered certification emblem with scalloped edge and raised thread details.",
+          "title": "Scalloped Round Emblem"
+        },
+        {
+          "url": "/images/products/custom-embroidered-patches/samples/kaka-embroidery-06-1001.webp",
+          "alt": "Round cream and blue astronaut mascot patch with AEGON THTF lettering.",
+          "title": "Astronaut Mascot Patch"
+        },
+        {
+          "url": "/images/products/custom-embroidered-patches/samples/kaka-embroidery-08-1001.webp",
+          "alt": "Blue rectangular textile patch with white bed symbol, ERE lettering and Chinese embroidery.",
+          "title": "Blue Textile Logo Patch"
+        },
+        {
+          "url": "/images/products/custom-embroidered-patches/samples/kaka-embroidery-09-1001.webp",
+          "alt": "Yellow embroidered character charm patch with crowned cartoon figure and red Chinese lettering.",
+          "title": "Character Embroidery Charm"
+        },
+        {
+          "url": "/images/products/custom-embroidered-patches/samples/kaka-embroidery-10-1001.webp",
+          "alt": "Black round embroidered studio patch with large white S, stars and circular lettering.",
+          "title": "Monochrome Studio Logo Patch"
+        },
+        {
+          "url": "/images/products/custom-embroidered-patches/samples/kaka-embroidery-11-1001.webp",
+          "alt": "Blue decorative textile patch with intricate multicolor dragon embroidery and scalloped edges.",
+          "title": "Multicolor Dragon Embroidery"
+        },
+        {
+          "url": "/images/products/custom-embroidered-patches/samples/kaka-embroidery-12-1001.webp",
+          "alt": "Pale yellow square textile patch with multicolor flowers, basket and decorative embroidery.",
+          "title": "Floral Embroidery on Yellow Fabric"
+        },
+        {
+          "url": "/images/products/custom-embroidered-patches/samples/kaka-embroidery-13-1001.webp",
+          "alt": "Purple and white Qualtrics Experience Community patch with large embroidered X.",
+          "title": "Purple Community Logo Patch"
+        },
+        {
+          "url": "/images/products/custom-embroidered-patches/samples/kaka-embroidery-14-1001.webp",
+          "alt": "Black square patch with symmetrical multicolor ornamental embroidery and gray stitched border.",
+          "title": "Symmetrical Ornamental Embroidery"
+        },
+        {
+          "url": "/images/products/custom-embroidered-patches/samples/kaka-embroidery-15-1001.webp",
+          "alt": "Blue and white Jacksonville Icemen Scout Night patch with mascot embroidery and hanging loop.",
+          "title": "Hockey Scout Night Emblem"
+        },
+        {
+          "url": "/images/products/custom-embroidered-patches/samples/kaka-embroidery-16-1001.webp",
+          "alt": "Round black and white anime patch with detailed embroidered character and Korean lettering.",
+          "title": "Monochrome Character Patch"
+        },
+        {
+          "url": "/images/products/custom-embroidered-patches/samples/kaka-embroidery-19-1001.webp",
+          "alt": "Black and yellow license-plate-style embroidered patch with California script and 2025 detail.",
+          "title": "License-Plate-Style Patch"
+        },
+        {
+          "url": "/images/products/custom-embroidered-patches/samples/kaka-embroidery-20-1001.webp",
+          "alt": "Royal blue shield-shaped monogram patch with light blue embroidery and layered border.",
+          "title": "Blue Monogram Shield"
+        },
+        {
+          "url": "/images/products/custom-embroidered-patches/samples/kaka-embroidery-21-1001.webp",
+          "alt": "Black oval mattress brand patch with white Bonas script, stars and embroidered lettering.",
+          "title": "Oval Script Logo Patch"
+        },
+        {
+          "url": "/images/products/custom-embroidered-patches/samples/kaka-embroidery-22-1001.webp",
+          "alt": "Navy shield patch with yellow border and embroidered NSU Public Safety lettering.",
+          "title": "Public Safety Shield"
+        },
+        {
+          "url": "/images/products/custom-embroidered-patches/samples/kaka-embroidery-23-1001.webp",
+          "alt": "Blue and yellow aeronautical police patch with embroidered wings and PAF emblem.",
+          "title": "Aeronautical Police Emblem"
+        },
+        {
+          "url": "/images/products/custom-embroidered-patches/samples/kaka-embroidery-25-1001.webp",
+          "alt": "Purple and white Angels Cheerleaders patch with embroidered wings and halo.",
+          "title": "Wing-Shaped Cheerleading Patch"
+        },
+        {
+          "url": "/images/products/custom-embroidered-patches/samples/kaka-embroidery-26-1001.webp",
+          "alt": "Navy and red Scout Night patch with white embroidered star and hanging loop.",
+          "title": "Star & Scout Night Patch"
+        },
+        {
+          "url": "/images/products/custom-embroidered-patches/samples/kaka-embroidery-27a-1001.webp",
+          "alt": "Round red and white working-dog patch with embroidered stop hand and do-not-pet message.",
+          "title": "Working-Dog Message Patch"
+        },
+        {
+          "url": "/images/products/custom-embroidered-patches/samples/kaka-embroidery-28-1001.webp",
+          "alt": "Black square heritage patch with gold embroidered crest and BERGVIKIN KARTANO lettering.",
+          "title": "Gold Peacock Logo Patch"
+        },
+        {
+          "url": "/images/products/custom-embroidered-patches/samples/kaka-embroidery-29-1001.webp",
+          "alt": "Royal blue square patch with white embroidered castle illustration and decorative script.",
+          "title": "Castle & Script Embroidery"
+        },
+        {
+          "url": "/images/products/custom-embroidered-patches/samples/kaka-embroidery-30a-1001.webp",
+          "alt": "Neon green and red die-cut music logo patch with intricate embroidered lettering.",
+          "title": "Green & Red Die-Cut Logo"
+        },
+        {
+          "url": "/images/products/custom-embroidered-patches/samples/kaka-embroidery-30b-1001.webp",
+          "alt": "Black and white die-cut music logo patch with intricate embroidered lettering.",
+          "title": "Black & White Die-Cut Logo"
+        },
+        {
+          "url": "/images/products/custom-embroidered-patches/samples/kaka-embroidery-32-1001.webp",
+          "alt": "Multicolor Bible Experience embroidered emblem with open book, purple banner and gold lettering.",
+          "title": "Book & Banner Emblem"
+        },
+        {
+          "url": "/images/products/custom-embroidered-patches/samples/kaka-embroidery-33-1001.webp",
+          "alt": "Round black and gold Certified Silly Goose patch with white embroidered goose and stars.",
+          "title": "Goose Character Emblem"
+        },
+        {
+          "url": "/images/products/custom-embroidered-patches/samples/kaka-embroidery-34-1001.webp",
+          "alt": "Black and red rider badge with detailed embroidered lettering and layered shield outline.",
+          "title": "Layered Rider Badge"
+        }
+      ]
+    }
+  ]
 }

@@ -2,6 +2,7 @@ import Link from "next/link";
 import { BreadcrumbListSchema, FAQSchema, ProductSchema } from "@/components/JsonLd";
 import ProductImageSlot from "@/components/ProductImageSlot";
 import ProductHeroGallery, { type HeroGalleryImage } from "@/components/ProductHeroGallery";
+import ProductSampleGallery from "@/components/ProductSampleGallery";
 import { resolveImageSrc } from "@/lib/image-slots";
 import { getFamilyForProduct } from "@/lib/product-families";
 import { getProductList, type ProductPage } from "@/lib/admin/products";
@@ -124,10 +125,11 @@ export default async function B2BProductPage({ product }: { product: ProductPage
         : "md:grid-cols-3";
 
   // ── Detail gallery (Section D) ──
-  const detailGallery = product.detailGallery?.length
+  const detailGallery: { title: string; caption: string; slotPath: string; alt?: string }[] = product.detailGallery?.length
     ? product.detailGallery.map((d) => ({
         title: d.title,
         caption: d.caption,
+        alt: d.alt,
         slotPath: d.imageSlot || `${slotBase(product.slug)}/gallery-closeup.webp`,
       }))
     : [
@@ -371,7 +373,7 @@ export default async function B2BProductPage({ product }: { product: ProductPage
           <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {detailGallery.map((d) => (
               <figure key={d.title} className="overflow-hidden rounded-3xl border border-slate-200 bg-white p-3 shadow-sm">
-                <ProductImageSlot title={d.title} slotPath={d.slotPath} ratio="4:3" alt={`${product.name} — ${d.title}`} imageFit={product.imageFit} />
+                <ProductImageSlot title={d.title} slotPath={d.slotPath} ratio="4:3" alt={d.alt || `${product.name} — ${d.title}`} imageFit={product.imageFit} />
                 <figcaption className="px-2 pb-1 pt-3 text-sm text-slate-600">
                   <span className="font-semibold text-slate-900">{d.title}.</span> {d.caption}
                 </figcaption>
@@ -380,6 +382,10 @@ export default async function B2BProductPage({ product }: { product: ProductPage
           </div>
         </div>
       </section>}
+
+      {product.sampleGalleries?.filter((gallery) => gallery.placement === "after-details").map((gallery) => (
+        <ProductSampleGallery key={gallery.id} gallery={gallery} />
+      ))}
 
       {/* ── E. Visual customization explorer ── */}
       {explorer.length > 0 && (
@@ -442,6 +448,10 @@ export default async function B2BProductPage({ product }: { product: ProductPage
           </div>
         </section>
       )}
+
+      {product.sampleGalleries?.filter((gallery) => gallery.placement === "after-applications").map((gallery) => (
+        <ProductSampleGallery key={gallery.id} gallery={gallery} />
+      ))}
 
       {/* ── H. Sample-to-shipment process ── */}
       <section className="bg-slate-950 py-16 text-white md:py-20">

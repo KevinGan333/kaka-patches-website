@@ -164,7 +164,7 @@
     }
   ],
   "createdAt": "2026-08-10T07:51:32.210Z",
-  "updatedAt": "2026-10-19T13:47:25.614Z",
+  "updatedAt": "2026-11-03T01:00:00.000Z",
   "publishedAt": "2026-08-10T08:30:00.000Z",
   "seoTitle": "Custom Velcro Patches Manufacturer | KaKa Patches",
   "displayName": "Custom Velcro Patches",
@@ -338,6 +338,27 @@
       "title": "Corporate Merchandise",
       "description": "Interchangeable logos for coordinated branded merchandise programs.",
       "href": "/request-a-quote?product=Custom%20Velcro%20Patches"
+    }
+  ],
+  "imageFit": "contain",
+  "sampleGalleries": [
+    {
+      "id": "embroidered-name-tape",
+      "title": "Embroidered Name Tape & Attachment Side",
+      "description": "Compare the yellow embroidered lettering on the front with the black attachment surface. For your order, confirm hook-only backing or a matching hook-and-loop pair, along with the finished dimensions and receiving panel.",
+      "placement": "after-details",
+      "images": [
+        {
+          "url": "/images/products/custom-velcro-patches/samples/kaka-embroidery-18a-1001.webp",
+          "title": "Embroidered Name Tape — Front",
+          "alt": "Black military name tape with yellow R.O.C.ARMY embroidery and stitched border."
+        },
+        {
+          "url": "/images/products/custom-velcro-patches/samples/kaka-embroidery-18b-1001.webp",
+          "title": "Black Hook-and-Loop Attachment Surface",
+          "alt": "Black rectangular hook-and-loop backing strip for an embroidered military name tape."
+        }
+      ]
     }
   ]
 }
