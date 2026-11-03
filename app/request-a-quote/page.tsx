@@ -1,11 +1,12 @@
+import { withPageMetadata } from "@/lib/page-metadata";
 import type { Metadata } from "next";
 import { Suspense } from "react";
 import QuoteForm from "@/components/QuoteForm";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = withPageMetadata({
   title: "Request a Quote — Custom Patch Inquiry | KaKa Patches",
   description: "Upload your artwork and request a factory-direct quote for custom embroidered, woven, PVC and chenille patches. B2B bulk order support.",
-};
+}, "/request-a-quote", "/images/home/pvc.webp");
 
 export default function Page() {
   return (

@@ -1,12 +1,12 @@
+import { withPageMetadata } from "@/lib/page-metadata";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { siteContact, socialLinks } from "@/lib/site-contact";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = withPageMetadata({
   title: "Contact KaKa Patches | Phone, WhatsApp & Email",
   description: "Contact KaKa Patches for custom patch designs, samples and bulk orders. Call or WhatsApp +1 646 739 1609, or email sales@kakapatches.com.",
-  alternates: { canonical: "https://www.kakapatches.com/contact-us" },
-};
+}, "/contact-us", "/images/home/pvc.webp");
 
 export default function Page() {
   return (

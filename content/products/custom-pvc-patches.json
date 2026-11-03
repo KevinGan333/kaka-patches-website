@@ -161,6 +161,44 @@
       "order": 6
     }
   ],
+  "detailGallery": [
+    {
+      "title": "Front View",
+      "caption": "Finished front face of the product.",
+      "imageSlot": "/images/products/custom-pvc-patches/hero/gallery-front.webp",
+      "alt": "Front views of raised PVC logo patches in cream, brown, gray and black for clothing and accessory branding."
+    },
+    {
+      "title": "Back / Attachment",
+      "caption": "Backing, adhesive or attachment method.",
+      "imageSlot": "/images/products/custom-pvc-patches/hero/gallery-back.webp",
+      "alt": "Round PVC logo patches and hook-and-loop backing shown for removable bag and jacket badges."
+    },
+    {
+      "title": "Close-Up Texture",
+      "caption": "Material, thread or surface detail.",
+      "imageSlot": "/images/products/custom-pvc-patches/hero/gallery-closeup.webp",
+      "alt": "Close-up of textured cream PVC and raised black lettering beside denim for apparel branding."
+    },
+    {
+      "title": "Edge / Finishing",
+      "caption": "Border, edge and finishing detail.",
+      "imageSlot": "/images/products/custom-pvc-patches/hero/hero-detail.webp",
+      "alt": "Angled blue and white PVC logo patch showing its molded rim and raised edge for sportswear branding."
+    },
+    {
+      "title": "Applied to End Use",
+      "caption": "Product applied to its intended use.",
+      "imageSlot": "/images/products/custom-pvc-patches/hero/hero-application.webp",
+      "alt": "Green and black PVC logo patch attached to a gray baseball cap for outdoor headwear branding."
+    },
+    {
+      "title": "Packaging / Bulk",
+      "caption": "Packaging and bulk production presentation.",
+      "imageSlot": "/images/products/custom-pvc-patches/gallery-packaging.webp",
+      "alt": "PVC patch bulk packaging for shipment to apparel and outdoor-gear buyers."
+    }
+  ],
   "createdAt": "2026-08-10T07:51:32.210Z",
   "updatedAt": "2026-10-11T14:51:49.930Z",
   "publishedAt": "2026-08-10T07:51:32.210Z"

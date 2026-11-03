@@ -1,11 +1,12 @@
+import { withPageMetadata } from "@/lib/page-metadata";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { getContentList } from "@/lib/admin/content";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = withPageMetadata({
   title: "Custom Patch Blog — Buying Tips & Product Insights | KaKa Patches",
   description: "Read KaKa Patches blog articles about custom embroidered patches, woven patches, PVC patches, chenille patches, patch sizing, backing options, artwork tips, and B2B patch buying guidance.",
-};
+}, "/blog", "/images/home/pvc.webp");
 
 export default async function BlogPage() {
   const posts = await getContentList("blog");

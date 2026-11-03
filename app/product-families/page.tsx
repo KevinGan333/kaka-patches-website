@@ -1,14 +1,15 @@
+import { withPageMetadata } from "@/lib/page-metadata";
 import type { Metadata } from "next";
 import Link from "next/link";
 import ProductImageSlot from "@/components/ProductImageSlot";
 import { PRODUCT_FAMILIES } from "@/lib/product-families";
 import { BreadcrumbListSchema } from "@/components/JsonLd";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = withPageMetadata({
   title: "Product Families — Custom Patches, Labels, Badges & Accessories | KaKa Patches",
   description:
     "Browse KaKa Patches product families: patches, labels and transfers, badges and magnets, textile accessories, and sachets and cultural gifts — all factory-direct for B2B buyers.",
-};
+}, "/product-families", "/images/home/pvc.webp");
 
 export default function ProductFamiliesPage() {
   return (

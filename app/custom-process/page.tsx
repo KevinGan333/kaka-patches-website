@@ -1,10 +1,11 @@
+import { withPageMetadata } from "@/lib/page-metadata";
 import type { Metadata } from "next";
 import Link from "next/link";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = withPageMetadata({
   title: "Custom Patch Process — From Artwork to Delivery | KaKa Patches",
   description: "Learn how KaKa Patches manages custom patch orders from artwork upload and digital proof to sample approval, bulk production, quality inspection and delivery.",
-};
+}, "/custom-process", "/images/home/craft.webp");
 
 const steps = [
   { s: 1, t: "Submit Your Artwork", d: "Upload your logo, sketch or reference image. We accept PNG, JPG, PDF, AI, SVG and more. Our team reviews it for patch production suitability." },

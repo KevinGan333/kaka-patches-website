@@ -1,10 +1,11 @@
+import { withPageMetadata } from "@/lib/page-metadata";
 import type { Metadata } from "next";
 import Link from "next/link";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = withPageMetadata({
   title: "How to Choose Patch Size — Sizing Guide | KaKa Patches",
   description: "Learn how to choose the right custom patch size for jackets, hats, uniforms, bags and more. Size recommendations for common B2B applications.",
-};
+}, "/resources/how-to-choose-patch-size", "/images/home/pvc.webp");
 
 export default function Page() {
   return (

@@ -1,3 +1,4 @@
+import { withPageMetadata } from "@/lib/page-metadata";
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
@@ -6,16 +7,10 @@ import styles from "./uniforms.module.css";
 const pageUrl = "https://www.kakapatches.com/applications/custom-patches-for-uniforms";
 const description = "Custom patches for uniforms built for daily wear and industrial laundry — embroidered, woven and PVC badges. MOQ 200 pcs, free artwork review.";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = withPageMetadata({
   title: "Custom Patches for Uniforms | Workwear & Staff Badges",
   description,
-  alternates: { canonical: pageUrl },
-  openGraph: {
-    title: "Custom Patches for Uniforms — Workwear & Staff Badges",
-    description, url: pageUrl, siteName: "KaKa Patches", type: "website",
-    images: [{ url: "https://www.kakapatches.com/images/home/uniform.webp", alt: "Embroidered logo patch attached to a work uniform" }],
-  },
-};
+}, "/applications/custom-patches-for-uniforms", "/images/home/uniform.webp");
 
 const patchTypes = [
   { name: "Embroidered patches", href: "/products/custom-embroidered-patches", detail: "Raised thread; bold logos and crests", wash: "Specify cycle target; test thread, edge and stitching", cost: "Low–medium; coverage affects price" },

@@ -1,3 +1,4 @@
+import { withPageMetadata } from "@/lib/page-metadata";
 import type { Metadata } from "next";
 import { getContentBySlug } from "@/lib/admin/content";
 import { notFound } from "next/navigation";
@@ -10,11 +11,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const guide = await getContentBySlug("resources", slug);
   if (!guide || guide.status !== "published") return { title: "Resources | KaKa Patches" };
-  return {
+  return withPageMetadata({
     title: guide.seoTitle || guide.title,
     description: guide.seoDescription || guide.excerpt,
-    openGraph: { title: guide.seoTitle || guide.title, description: guide.seoDescription || guide.excerpt },
-  };
+  }, `/resources/${guide.slug}`, guide.coverImage || "/images/home/pvc.webp");
 }
 
 export default async function ResourceDetailPage({ params }: Props) {
