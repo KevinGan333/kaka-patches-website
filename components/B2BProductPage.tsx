@@ -191,7 +191,7 @@ export default async function B2BProductPage({ product }: { product: ProductPage
       }))
     : product.applications.map((a, i) => ({
         title: a,
-        description: `Custom ${displayName.toLowerCase()} for ${a.toLowerCase()}.`,
+        description: `Custom ${displayName.replace(/^custom\s+/i, "").toLowerCase().replace(/\bpvc\b/g, "PVC")} for ${a.toLowerCase()}.`,
         href: quoteUrl(product),
         slotPath: `${slotBase(product.slug)}/application-${String((i % 3) + 1).padStart(2, "0")}.webp`,
       }));
